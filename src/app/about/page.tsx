@@ -78,7 +78,7 @@ const AboutPage: FC = () => {
       </section>
 
       {/* Team Section */}
-       <section>
+       {/* <section>
         <div className="text-center">
           <h2 className="text-base font-bold uppercase tracking-widest text-primary">{t('teamTitle')}</h2>
           <p className="mt-2 font-headline text-3xl font-bold text-foreground sm:text-4xl">{t('teamHeadline')}</p>
@@ -96,7 +96,7 @@ const AboutPage: FC = () => {
             </Card>
           ))}
         </div>
-      </section>
+      </section> */}
 
        {/* CTA Section */}
       <section className="text-center bg-primary/5 dark:bg-primary/10 rounded-lg p-10">
