@@ -51,6 +51,8 @@ export const manualContent: Category[] = [
           "manualSearchViewStep1",
           "manualSearchViewStep2",
           "manualSearchViewStep3",
+          "manualSearchViewStep4",
+          "manualSearchViewStep5",
         ],
         usageVideo: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Placeholder video
       },
