@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react"
 import * as THREE from "three"
 import * as OBC from "@thatopen/components"
-import { FolderOpen } from "lucide-react"
 
 export function IfcViewer() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -11,77 +10,65 @@ export function IfcViewer() {
   useEffect(() => {
     if (typeof window === "undefined" || !containerRef.current) return
 
+    const container = containerRef.current
+
     const components = new OBC.Components()
-    
+
     const worlds = components.get(OBC.Worlds)
     const world = worlds.create<
       OBC.SimpleScene,
       OBC.SimpleCamera,
       OBC.SimpleRenderer
     >()
+
     world.scene = new OBC.SimpleScene(components)
-    world.renderer = new OBC.SimpleRenderer(components, containerRef.current)
+    world.renderer = new OBC.SimpleRenderer(components, container)
     world.camera = new OBC.SimpleCamera(components)
-    
+
     components.init()
 
-    world.camera.controls.setLookAt(10, 10, 10, 0, 0, 0)
     world.scene.setup()
-
-    const grids = components.get(OBC.Grids)
-    grids.create(world)
+    world.scene.three.background = null
 
     const fragments = components.get(OBC.FragmentsManager)
-    const ifcLoader = components.get(OBC.IfcLoader)
     
-    async function loadSampleIfc() {
-      try {
-        const response = await fetch('/sample.ifc');
-        if (!response.ok) {
-          throw new Error('Failed to fetch sample IFC file.');
+    async function setupFragments() {
+        try {
+            const githubUrl = "https://thatopen.github.io/engine_fragment/resources/worker.mjs";
+            const fetchedUrl = await fetch(githubUrl);
+            const workerBlob = await fetchedUrl.blob();
+            const workerFile = new File([workerBlob], "worker.mjs", { type: "text/javascript" });
+            const workerUrl = URL.createObjectURL(workerFile);
+            fragments.init(workerUrl);
+
+            world.camera.controls.addEventListener("rest", () => fragments.core.update(true));
+
+            fragments.list.onItemSet.add(({ value: model }) => {
+                model.useCamera(world.camera.three);
+                world.scene.three.add(model.object);
+                fragments.core.update(true);
+            });
+
+            const fragPaths = ["https://thatopen.github.io/engine_components/resources/frags/school_arq.frag"];
+            await Promise.all(
+                fragPaths.map(async (path) => {
+                    const modelId = path.split("/").pop()?.split(".").shift();
+                    if (!modelId) return null;
+                    const file = await fetch(path);
+                    const buffer = await file.arrayBuffer();
+                    return fragments.core.load(buffer, { modelId });
+                }),
+            );
+
+            await world.camera.controls.setLookAt(68, 23, -8.5, 21.5, -5.5, 23);
+            await fragments.core.update(true);
+
+        } catch (error) {
+            console.error("Error setting up fragments:", error);
         }
-        const blob = await response.blob();
-        const file = new File([blob], 'sample.ifc');
-        const buffer = await file.arrayBuffer();
-        const model = await ifcLoader.load(new Uint8Array(buffer));
-        world.scene.three.add(model);
-      } catch (error) {
-        console.error("Could not load sample IFC:", error)
-      }
-    }
-
-    loadSampleIfc();
-
-    const mainToolbar = new OBC.Toolbar(components, {
-      name: "Main Toolbar",
-      position: "bottom",
-    })
-    components.ui.addToolbar(mainToolbar)
-    
-    const loadButton = new OBC.Button(components)
-    loadButton.materialIcon = "folder_open"
-    loadButton.tooltip = "Load IFC"
-    mainToolbar.addChild(loadButton)
-
-    const handleFileLoad = async (event: Event) => {
-      const input = event.target as HTMLInputElement
-      if (input.files && input.files[0]) {
-        const file = input.files[0]
-        const data = await file.arrayBuffer()
-        const buffer = new Uint8Array(data)
-        const model = await ifcLoader.load(buffer)
-        world.scene.three.add(model)
-      }
     }
     
-    const fileInput = document.createElement('input');
-    fileInput.type = 'file';
-    fileInput.accept = '.ifc';
-    fileInput.style.display = 'none';
-    fileInput.addEventListener('change', handleFileLoad);
-    
-    loadButton.onClick.add(() => fileInput.click())
-
+    setupFragments();
 
     return () => {
       components.dispose()
@@ -92,6 +79,7 @@ export function IfcViewer() {
     <div
       ref={containerRef}
       className="w-full h-full relative"
-    ></div>
+    >
+    </div>
   )
 }
