@@ -67,8 +67,8 @@ const BIMtoolsPage: FC = () => {
                         {t('downloadFree')}
                     </a>
                 </Button>
-                    <Button variant="outline" className="w-full">
-                    {t('viewManual')}
+                    <Button variant="outline" className="w-full" asChild>
+                      <Link href="/manual">{t('viewManual')}</Link>
                     </Button>
                 </CardFooter>
             </Card>
@@ -97,8 +97,8 @@ const BIMtoolsPage: FC = () => {
                     <Button size="lg" className="w-full" asChild>
                     <Link href="/#contact">{t('upgradeToPro')}</Link>
                     </Button>
-                    <Button variant="outline" className="w-full">
-                    {t('viewManual')}
+                    <Button variant="outline" className="w-full" asChild>
+                      <Link href="/manual">{t('viewManual')}</Link>
                     </Button>
                 </CardFooter>
             </Card>
