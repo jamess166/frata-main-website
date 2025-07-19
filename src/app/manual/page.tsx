@@ -18,6 +18,7 @@ import { manualContent, type Addin, type Category } from "@/lib/manual-content"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import { useLanguage } from "@/hooks/use-language"
+import { cn } from "@/lib/utils"
 
 function ManualContentDisplay({ addin, className }: { addin: Addin, className?: string }) {
   const { t } = useLanguage()
