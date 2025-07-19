@@ -92,31 +92,37 @@ const ServicesSection: FC = () => {
   const { t } = useLanguage();
   const services = [
     {
+      slug: 'global-remote-bim-teams',
       title: t('service1Title'),
       description: t('service1Desc'),
       icon: Globe,
     },
     {
+      slug: 'custom-bim-software-development',
       title: t('service2Title'),
       description: t('service2Desc'),
       icon: Code,
     },
     {
+      slug: 'on-site-bim-construction-support',
       title: t('service3Title'),
       description: t('service3Desc'),
       icon: Construction,
     },
     {
+      slug: 'bim-for-manufacturing',
       title: t('service4Title'),
       description: t('service4Desc'),
       icon: Factory,
     },
     {
+      slug: 'bim-training-and-implementation',
       title: t('service5Title'),
       description: t('service5Desc'),
       icon: School,
     },
     {
+      slug: '4d-and-5d-simulation',
       title: t('service6Title'),
       description: t('service6Desc'),
       icon: FileClock,
@@ -130,8 +136,8 @@ const ServicesSection: FC = () => {
         <p className="font-headline text-3xl font-bold text-foreground sm:text-4xl">{t('servicesTitle')}</p>
       </div>
       <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {services.map((service, index) => (
-          <Card key={index} className="bg-card/50 dark:bg-card/30 border-white/10 flex flex-col group hover:border-primary/50 transition-colors duration-300">
+        {services.map((service) => (
+          <Card key={service.slug} className="bg-card/50 dark:bg-card/30 border-white/10 flex flex-col group hover:border-primary/50 transition-colors duration-300">
             <CardHeader className="flex-row items-center gap-4">
                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
                   <service.icon className="h-6 w-6" aria-hidden="true" />
@@ -141,6 +147,13 @@ const ServicesSection: FC = () => {
             <CardContent className="flex-grow">
               <p className="text-muted-foreground">{service.description}</p>
             </CardContent>
+            <CardFooter>
+              <Button asChild variant="link" className="px-0">
+                <Link href={`/services/${service.slug}`}>
+                  {t('viewDetails')} <ArrowRight className="ml-2 h-4 w-4"/>
+                </Link>
+              </Button>
+            </CardFooter>
           </Card>
         ))}
       </div>
