@@ -1,4 +1,3 @@
-'use server';
 import type { Locale, translations } from "@/lib/locales"
 
 type TranslationKey = keyof typeof translations.en;
