@@ -73,60 +73,56 @@ const HeroSection: FC = () => {
   );
 };
 
-const BlueprintCube: FC = () => {
-  const cubeRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const cube = cubeRef.current;
-    if (!cube) return;
-
-    const handleMouseMove = (e: MouseEvent) => {
-      const { clientX, clientY, currentTarget } = e;
-      const { clientWidth, clientHeight } = currentTarget as HTMLElement;
-      
-      const xRotation = 20 * ((clientY - clientHeight / 2) / clientHeight);
-      const yRotation = -20 * ((clientX - clientWidth / 2) / clientWidth);
-      
-      cube.style.transform = `rotateX(${xRotation}deg) rotateY(${yRotation}deg)`;
-    };
-    
-    const container = cube.parentElement;
-    container?.addEventListener('mousemove', handleMouseMove as EventListener);
-    
-    return () => {
-      container?.removeEventListener('mousemove', handleMouseMove as EventListener);
-    };
-  }, []);
-
+const BuildingStructure: FC = () => {
   return (
-    <div className="perspective-800 w-full h-full flex items-center justify-center">
-      <div ref={cubeRef} className="transform-style-3d w-64 h-64 relative transition-transform duration-200 ease-out" style={{ transform: 'rotateX(0deg) rotateY(0deg)'}}>
-         <style jsx>{`
-          .cube-face {
-            position: absolute;
-            width: 16rem; /* 256px */
-            height: 16rem; /* 256px */
-            border: 1px solid hsl(var(--primary) / 0.5);
-            background-color: hsl(var(--background) / 0.8);
-            backdrop-filter: blur(5px);
-            --blueprint-color: hsl(var(--primary));
-            background-image:
-              linear-gradient(var(--blueprint-color) 1px, transparent 1px),
-              linear-gradient(to right, var(--blueprint-color) 1px, transparent 1px);
-            background-size: 2rem 2rem;
-            opacity: 0.3;
-          }
-        `}</style>
-        <div className="cube-face" style={{ transform: 'rotateY(0deg) translateZ(8rem)' }}></div>
-        <div className="cube-face" style={{ transform: 'rotateY(180deg) translateZ(8rem)' }}></div>
-        <div className="cube-face" style={{ transform: 'rotateY(90deg) translateZ(8rem)' }}></div>
-        <div className="cube-face" style={{ transform: 'rotateY(-90deg) translateZ(8rem)' }}></div>
-        <div className="cube-face" style={{ transform: 'rotateX(90deg) translateZ(8rem)' }}></div>
-        <div className="cube-face" style={{ transform: 'rotateX(-90deg) translateZ(8rem)' }}></div>
+    <div className="w-full h-full flex items-center justify-center p-8">
+       <style jsx>{`
+        .structure-line {
+          position: absolute;
+          background-color: hsl(var(--primary));
+          animation: draw-line 2s ease-out forwards;
+          transform-origin: left;
+        }
+        .horizontal { height: 2px; }
+        .vertical { width: 2px; }
+        @keyframes draw-line {
+          from { transform: scaleX(0); }
+          to { transform: scaleX(1); }
+        }
+        .structure-element {
+          animation: fade-in 0.5s ease-out forwards;
+          opacity: 0;
+        }
+        @keyframes fade-in {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+      `}</style>
+      <div className="relative w-full max-w-sm aspect-[3/4]">
+        {/* Main Vertical Beams */}
+        <div className="structure-element vertical absolute top-0 bottom-0 left-0 bg-primary/30" style={{ animationDelay: '0s' }}></div>
+        <div className="structure-element vertical absolute top-0 bottom-0 right-0 bg-primary/30" style={{ animationDelay: '0s' }}></div>
+        <div className="structure-element vertical absolute top-0 bottom-0 left-1/3 bg-primary/30" style={{ animationDelay: '0.1s' }}></div>
+        <div className="structure-element vertical absolute top-0 bottom-0 right-1/3 bg-primary/30" style={{ animationDelay: '0.1s' }}></div>
+
+        {/* Floor Plates */}
+        <div className="structure-element horizontal absolute left-0 right-0 bottom-0 h-1 bg-primary/50" style={{ animationDelay: '0.2s' }}></div>
+        <div className="structure-element horizontal absolute left-0 right-0 top-3/4 h-0.5 bg-primary/50" style={{ animationDelay: '0.4s' }}></div>
+        <div className="structure-element horizontal absolute left-0 right-0 top-1/2 h-0.5 bg-primary/50" style={{ animationDelay: '0.6s' }}></div>
+        <div className="structure-element horizontal absolute left-0 right-0 top-1/4 h-0.5 bg-primary/50" style={{ animationDelay: '0.8s' }}></div>
+        <div className="structure-element horizontal absolute left-0 right-0 top-0 h-0.5 bg-primary/50" style={{ animationDelay: '1s' }}></div>
+
+         {/* Cross Bracing */}
+        <div className="absolute top-1/2 left-0 w-1/3 h-1/4 overflow-hidden">
+            <div className="structure-line absolute w-[141.42%] h-0.5 bg-primary/70 top-0 left-0 transform rotate-45" style={{ animationDelay: '1.2s' }}></div>
+        </div>
+         <div className="absolute top-1/4 left-1/3 w-1/3 h-1/4 overflow-hidden">
+            <div className="structure-line absolute w-[141.42%] h-0.5 bg-primary/70 bottom-0 right-0 transform -rotate-45" style={{ transformOrigin: 'right', animationDelay: '1.4s' }}></div>
+        </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 
 const AboutUsSection: FC = () => {
@@ -163,7 +159,7 @@ const AboutUsSection: FC = () => {
         </Animated>
         <Animated delay={200}>
           <div className="relative h-96 lg:h-full min-h-[24rem]">
-             <BlueprintCube />
+             <BuildingStructure />
           </div>
         </Animated>
       </div>
@@ -336,14 +332,6 @@ const ContactSection: FC = () => {
 export default function Home() {
   return (
     <>
-      <style jsx global>{`
-        .perspective-800 {
-          perspective: 800px;
-        }
-        .transform-style-3d {
-          transform-style: preserve-3d;
-        }
-      `}</style>
       <HeroSection />
       <AboutUsSection />
       <ServicesSection />
