@@ -115,13 +115,13 @@ export default function ManualPage() {
           <SidebarFooter/>
         </Sidebar>
 
-        <SidebarInset>
-          <header className="sticky top-0 z-10 flex items-center justify-between border-b bg-background/80 px-4 py-2 backdrop-blur-sm sm:px-6 lg:px-8">
+        <SidebarInset className="justify-center">
+          <header className="absolute top-0 z-10 flex w-full items-center justify-between border-b bg-background/80 px-4 py-2 backdrop-blur-sm sm:px-6 lg:px-8">
             <SidebarTrigger className="md:hidden" />
             <h1 className="text-xl font-bold md:hidden">{selectedAddin ? t(selectedAddin.titleKey) : ""}</h1>
             <div></div>
           </header>
-          <main className="flex flex-1 p-4 sm:p-6 lg:p-8">
+          <div className="p-4 sm:p-6 lg:p-8">
             {selectedAddin ? (
               <ManualContentDisplay addin={selectedAddin} className="mx-auto" />
             ) : (
@@ -129,7 +129,7 @@ export default function ManualPage() {
                 <p className="text-muted-foreground">{t('manualSelect')}</p>
               </div>
             )}
-          </main>
+          </div>
         </SidebarInset>
       </div>
     </SidebarProvider>
