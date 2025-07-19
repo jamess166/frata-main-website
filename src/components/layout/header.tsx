@@ -12,7 +12,7 @@ import { useLanguage } from "@/hooks/use-language"
 export function Header() {
   const { t } = useLanguage()
   const navItems = [
-    { href: "/#about", label: t('about') },
+    { href: "/about", label: t('about') },
     { href: "/#services", label: t('services') },
     { href: "/#portfolio", label: t('portfolio') },
     { href: "/bimtools", label: t('bimTools') },

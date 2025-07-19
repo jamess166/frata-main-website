@@ -77,7 +77,7 @@ const AboutUsSection: FC = () => {
             ))}
           </div>
            <Button asChild size="lg" variant="link" className="px-0">
-              <Link href="#contact">{t('learnMore')} <ArrowRight className="ml-2 h-4 w-4"/></Link>
+              <Link href="/about">{t('learnMore')} <ArrowRight className="ml-2 h-4 w-4"/></Link>
           </Button>
         </div>
         <div className="relative h-96 lg:h-full min-h-[24rem]">
