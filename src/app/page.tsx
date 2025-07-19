@@ -267,6 +267,10 @@ const SubmitButton: FC = () => {
   );
 };
 
+const initialState: ContactFormState = {
+  message: "",
+};
+
 const ContactSection: FC = () => {
   const { t } = useLanguage();
   const { toast } = useToast();
