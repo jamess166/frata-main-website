@@ -22,10 +22,10 @@ const initialState: ContactFormState = {
 const HeroSection: FC = () => {
   const { t } = useLanguage();
   return (
-    <section className="relative py-20 sm:py-32 lg:py-40 bg-gradient-to-br from-background to-secondary">
-      <div className="absolute inset-0 bg-grid-slate-900/[0.04] bg-[bottom_1px_center] dark:bg-grid-slate-400/[0.05] dark:bg-bottom_1px_center"></div>
+    <section className="relative py-20 sm:py-32 lg:py-40 bg-background">
+       <div className="absolute inset-0 bg-grid-slate-900/[0.04] bg-[bottom_1px_center] dark:bg-grid-slate-400/[0.05] dark:bg-bottom_1px_center mask-image-gradient"></div>
       <div className="container mx-auto px-4 text-center relative">
-        <h1 className="font-headline text-4xl font-bold tracking-tight text-primary sm:text-5xl lg:text-6xl dark:text-primary">
+        <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
           {t('heroHeadline')}
         </h1>
         <p className="mt-6 text-lg max-w-3xl mx-auto leading-8 text-muted-foreground">
@@ -35,8 +35,17 @@ const HeroSection: FC = () => {
           <Button asChild size="lg">
             <Link href="#contact">{t('heroCTA')}</Link>
           </Button>
+           <Button asChild size="lg" variant="outline">
+            <Link href="#services">{t('services')}</Link>
+          </Button>
         </div>
       </div>
+      <style jsx>{`
+        .mask-image-gradient {
+          mask-image: linear-gradient(to bottom, white, transparent);
+          -webkit-mask-image: linear-gradient(to bottom, white, transparent);
+        }
+      `}</style>
     </section>
   );
 };
@@ -50,16 +59,17 @@ const ServicesSection: FC = () => {
     { icon: ClipboardCheck, title: t('service4Title'), description: t('service4Desc') },
   ];
   return (
-    <section id="services" className="py-24 sm:py-32 bg-background">
+    <section id="services" className="py-24 sm:py-32 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="text-center">
-          <h2 className="font-headline text-3xl font-bold text-foreground sm:text-4xl">{t('servicesTitle')}</h2>
+           <h2 className="text-sm font-bold uppercase tracking-widest text-primary">{t('services')}</h2>
+          <p className="mt-2 font-headline text-3xl font-bold text-foreground sm:text-4xl">{t('servicesTitle')}</p>
         </div>
         <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           {services.map((service, index) => (
-            <Card key={index} className="text-center shadow-sm hover:shadow-lg transition-shadow duration-300">
+            <Card key={index} className="text-center bg-card/50 dark:bg-card/30 border-transparent dark:border-white/10 shadow-sm hover:shadow-lg hover:bg-card transition-all duration-300 transform hover:-translate-y-2">
               <CardHeader>
-                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
                   <service.icon className="h-6 w-6" aria-hidden="true" />
                 </div>
                 <CardTitle className="mt-4 font-headline">{service.title}</CardTitle>
@@ -83,26 +93,26 @@ const PortfolioSection: FC = () => {
     { title: t('project3Title'), description: t('project3Desc'), image: 'https://placehold.co/600x400.png', dataAiHint: 'industrial plant' },
   ];
   return (
-    <section id="portfolio" className="py-24 sm:py-32 bg-secondary">
+    <section id="portfolio" className="py-24 sm:py-32 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center">
-          <h2 className="font-headline text-3xl font-bold text-foreground sm:text-4xl">{t('portfolioTitle')}</h2>
+          <h2 className="text-sm font-bold uppercase tracking-widest text-primary">{t('portfolio')}</h2>
+          <p className="mt-2 font-headline text-3xl font-bold text-foreground sm:text-4xl">{t('portfolioTitle')}</p>
         </div>
         <div className="mt-16 grid grid-cols-1 gap-y-10 gap-x-8 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project) => (
-            <Card key={project.title} className="overflow-hidden group relative shadow-sm hover:shadow-xl transition-shadow duration-300">
-              <CardHeader className="p-0">
+            <Card key={project.title} className="overflow-hidden group relative shadow-sm hover:shadow-xl transition-shadow duration-300 border-white/10">
+              <CardHeader className="p-0 relative">
+                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300 z-10"></div>
                 <Image src={project.image} data-ai-hint={project.dataAiHint} alt={project.title} width={600} height={400} className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105" />
               </CardHeader>
-              <CardContent className="p-6">
-                <CardTitle className="font-headline text-xl">{project.title}</CardTitle>
-                <CardDescription className="mt-2 text-muted-foreground">{project.description}</CardDescription>
-              </CardContent>
-              <CardFooter>
-                 <Button variant="link" className="px-0">
+              <CardContent className="p-6 absolute bottom-0 z-20 text-white">
+                 <CardTitle className="font-headline text-xl text-white dark:text-white">{project.title}</CardTitle>
+                <CardDescription className="mt-2 text-white/80 dark:text-white/80">{project.description}</CardDescription>
+                  <Button variant="link" className="px-0 text-white dark:text-white mt-4">
                     View Project <ArrowRight className="ml-2 h-4 w-4"/>
                  </Button>
-              </CardFooter>
+              </CardContent>
             </Card>
           ))}
         </div>
@@ -146,13 +156,14 @@ const ContactSection: FC = () => {
   }, [state, toast, t]);
 
   return (
-    <section id="contact" className="py-24 sm:py-32 bg-background">
+    <section id="contact" className="py-24 sm:py-32 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">{t('contactTitle')}</h2>
-          <p className="mt-2 text-lg leading-8 text-muted-foreground">{t('contactDesc')}</p>
+          <h2 className="text-sm font-bold uppercase tracking-widest text-primary">{t('contact')}</h2>
+          <p className="mt-2 font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">{t('contactTitle')}</p>
+          <p className="mt-4 text-lg leading-8 text-muted-foreground">{t('contactDesc')}</p>
         </div>
-        <Card className="max-w-xl mx-auto mt-16 shadow-lg">
+        <Card className="max-w-xl mx-auto mt-16 shadow-lg bg-card/50 dark:bg-card/30 border-white/10">
           <CardContent className="p-6 sm:p-8">
             <form ref={formRef} action={formAction} className="space-y-6">
               <div>
