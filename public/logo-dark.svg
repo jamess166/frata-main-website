@@ -1,0 +1,13 @@
+<svg width="150" height="40" viewBox="0 0 150 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+    .text { font: bold 24px 'Space Grotesk', sans-serif; }
+    .bim-text { fill: #333; }
+    .frata-text { fill: #007BFF; }
+    @media (prefers-color-scheme: dark) {
+        .bim-text { fill: #E5E7EB; }
+        .frata-text { fill: #33CCCC; }
+    }
+</style>
+<text x="5" y="28" class="text frata-text">Frata</text>
+<text x="75" y="28" class="text bim-text">BIM</text>
+</svg>

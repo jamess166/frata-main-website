@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
@@ -23,7 +24,8 @@ export function Header() {
       <div className="container flex h-16 items-center">
         <div className="mr-4 hidden md:flex">
           <Link href="/" className="mr-6 flex items-center space-x-2">
-            <span className="font-bold font-headline text-lg text-primary dark:text-primary">Frata BIM</span>
+            <Image src="/logo-dark.svg" alt="Frata BIM Logo" width={120} height={40} className="dark:hidden" />
+            <Image src="/logo-light.svg" alt="Frata BIM Logo" width={120} height={40} className="hidden dark:block" />
           </Link>
           <nav className="flex items-center space-x-6 text-sm font-medium">
             {navItems.map(item => (
@@ -48,7 +50,8 @@ export function Header() {
               </SheetTrigger>
               <SheetContent side="left">
                 <Link href="/" className="flex items-center">
-                  <span className="font-bold font-headline text-lg">Frata BIM</span>
+                   <Image src="/logo-dark.svg" alt="Frata BIM Logo" width={120} height={40} className="dark:hidden" />
+                   <Image src="/logo-light.svg" alt="Frata BIM Logo" width={120} height={40} className="hidden dark:block" />
                 </Link>
                 <div className="grid gap-4 py-6">
                   {navItems.map(item => (
@@ -65,7 +68,8 @@ export function Header() {
             </Sheet>
           </div>
           <Link href="/" className="flex items-center space-x-2 md:hidden">
-             <span className="font-bold font-headline text-lg text-primary dark:text-primary">Frata BIM</span>
+            <Image src="/logo-dark.svg" alt="Frata BIM Logo" width={120} height={40} className="dark:hidden" />
+            <Image src="/logo-light.svg" alt="Frata BIM Logo" width={120} height={40} className="hidden dark:block" />
           </Link>
           <div className="flex items-center">
             <LanguageSwitcher />
