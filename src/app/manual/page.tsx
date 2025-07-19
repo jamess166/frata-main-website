@@ -23,7 +23,7 @@ function ManualContentDisplay({ addin, className }: { addin: Addin, className?: 
   const { t } = useLanguage()
 
   return (
-    <article className={cn("prose prose-lg dark:prose-invert max-w-4xl py-8 lg:py-12 mx-auto", className)}>
+    <article className={cn("prose prose-lg dark:prose-invert max-w-4xl py-8 lg:py-12", className)}>
       <h1>{t(addin.titleKey)}</h1>
       <p className="lead">{t(addin.descriptionKey)}</p>
 
@@ -122,9 +122,9 @@ export default function ManualPage() {
             <div></div>
           </header>
           
-          <div className="w-full flex-1 p-4 sm:p-6 lg:p-8">
+          <div className="w-full p-4 sm:p-6 lg:p-8">
             {selectedAddin ? (
-              <ManualContentDisplay addin={selectedAddin} />
+              <ManualContentDisplay addin={selectedAddin} className="mx-auto" />
             ) : (
               <div className="flex flex-1 h-full items-center justify-center">
                 <p className="text-muted-foreground">{t('manualSelect')}</p>
