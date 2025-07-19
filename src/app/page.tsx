@@ -10,7 +10,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { Check, ArrowRight, Globe, Code, Construction, Factory, School, FileClock } from 'lucide-react';
+import { Check, ArrowRight, Globe, Code, Construction, Factory, School, FileClock, Building, Target, Users } from 'lucide-react';
 import { useLanguage } from '@/hooks/use-language';
 import { useToast } from '@/hooks/use-toast';
 import { submitContactForm, ContactFormState } from './actions';
@@ -49,6 +49,46 @@ const HeroSection: FC = () => {
     </section>
   );
 };
+
+const AboutUsSection: FC = () => {
+  const { t } = useLanguage();
+  const values = [
+    { text: t('aboutValue1'), icon: Target },
+    { text: t('aboutValue2'), icon: Building },
+    { text: t('aboutValue3'), icon: Users },
+  ];
+  return (
+    <section id="about" className="py-24 sm:py-32 bg-background">
+      <div className="container mx-auto px-4">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-6">
+            <h2 className="text-base font-bold uppercase tracking-widest text-primary">{t('aboutTitle')}</h2>
+            <p className="font-headline text-3xl font-bold text-foreground sm:text-4xl">{t('aboutHeadline')}</p>
+            <p className="text-lg text-muted-foreground">
+              {t('aboutDesc')}
+            </p>
+            <div className="space-y-4">
+              {values.map((value, index) => (
+                <div key={index} className="flex items-center gap-4">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary">
+                    <value.icon className="h-5 w-5" />
+                  </div>
+                  <span className="font-medium text-foreground">{value.text}</span>
+                </div>
+              ))}
+            </div>
+             <Button asChild size="lg" variant="link" className="px-0">
+                <Link href="#contact">{t('learnMore')} <ArrowRight className="ml-2 h-4 w-4"/></Link>
+            </Button>
+          </div>
+          <div className="relative h-96 lg:h-full min-h-[24rem]">
+             <Image src="https://placehold.co/600x800.png" data-ai-hint="engineering team collaboration" alt="Frata Ingenieros Team" layout="fill" objectFit="cover" className="rounded-lg shadow-xl" />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 const ServicesSection: FC = () => {
   const { t } = useLanguage();
@@ -90,7 +130,7 @@ const ServicesSection: FC = () => {
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-base font-bold uppercase tracking-widest text-primary">{t('services')}</h2>
-          <p className="mt-2 font-headline text-3xl font-bold text-foreground sm:text-4xl">{t('servicesTitle')}</p>
+          <p className="font-headline text-3xl font-bold text-foreground sm:text-4xl">{t('servicesTitle')}</p>
         </div>
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
@@ -104,11 +144,6 @@ const ServicesSection: FC = () => {
               <CardContent className="flex-grow">
                 <p className="text-muted-foreground">{service.description}</p>
               </CardContent>
-               <CardFooter>
-                 <Button variant="link" className="px-0 text-primary">
-                    Learn More <ArrowRight className="ml-2 h-4 w-4"/>
-                 </Button>
-              </CardFooter>
             </Card>
           ))}
         </div>
@@ -228,6 +263,7 @@ export default function Home() {
   return (
     <>
       <HeroSection />
+      <AboutUsSection />
       <ServicesSection />
       <PortfolioSection />
       <ContactSection />

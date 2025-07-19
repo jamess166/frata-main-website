@@ -4,14 +4,23 @@ export type Locale = typeof locales[number];
 export const translations = {
   en: {
     // Header
+    about: 'About Us',
     services: 'Services',
     portfolio: 'Portfolio',
     bimTools: 'BIMtools',
     contact: 'Contact',
+    learnMore: 'Learn More',
     // Hero
     heroHeadline: 'Advanced BIM Solutions for Engineering',
     heroSubhead: 'We transform complex projects into digital realities with precision and efficiency. Discover the future of construction with Frata Ingenieros.',
     heroCTA: 'Get in Touch',
+    // About Us
+    aboutTitle: 'About Us',
+    aboutHeadline: 'Driving the Digital Transformation of Construction',
+    aboutDesc: 'Founded in Peru, Frata Ingenieros is a leading engineering consultancy dedicated to providing high-tech solutions. We are passionate about promoting the digitalization of construction, turning challenges into opportunities for innovation and efficiency.',
+    aboutValue1: 'Mission: To innovate engineering with cutting-edge technology.',
+    aboutValue2: 'Vision: To lead the digital transformation in the construction sector.',
+    aboutValue3: 'Values: Commitment, Excellence, and Collaboration.',
     // Services
     servicesTitle: 'Our Services',
     service1Title: 'Global Remote BIM Teams',
@@ -20,7 +29,7 @@ export const translations = {
     service2Desc: 'We create tailored software solutions and add-ins to automate your processes, enhance your BIM workflows, and boost productivity.',
     service3Title: 'On-Site BIM Construction Support',
     service3Desc: 'Our experts provide hands-on BIM support directly on your construction site, ensuring perfect implementation and immediate problem-solving.',
-    service4Title: 'BIM for Manufacturing',
+    service4Title: 'BIM for Manufacturing (Rebar Detailing)',
     service4Desc: 'We specialize in creating detailed fabrication models, including precise rebar detailing, to streamline manufacturing and assembly.',
     service5Title: 'BIM Training & Implementation',
     service5Desc: 'We offer comprehensive training programs and strategic implementation support to empower your team with the latest BIM skills and technologies.',
@@ -60,14 +69,23 @@ export const translations = {
   },
   es: {
     // Header
+    about: 'Quiénes Somos',
     services: 'Servicios',
     portfolio: 'Portafolio',
     bimTools: 'BIMtools',
     contact: 'Contacto',
+    learnMore: 'Conoce Más',
     // Hero
     heroHeadline: 'Soluciones BIM Avanzadas para Ingeniería',
     heroSubhead: 'Transformamos proyectos complejos en realidades digitales con precisión y eficiencia. Descubra el futuro de la construcción con Frata Ingenieros.',
     heroCTA: 'Contáctanos',
+    // About Us
+    aboutTitle: 'Quiénes Somos',
+    aboutHeadline: 'Impulsando la Transformación Digital de la Construcción',
+    aboutDesc: 'Fundada en Perú, Frata Ingenieros es una consultora de ingeniería líder dedicada a ofrecer soluciones de alta tecnología. Nos apasiona fomentar la digitalización de la construcción, convirtiendo desafíos en oportunidades de innovación y eficiencia.',
+    aboutValue1: 'Misión: Innovar en la ingeniería con tecnología de vanguardia.',
+    aboutValue2: 'Visión: Liderar la transformación digital en el sector de la construcción.',
+    aboutValue3: 'Valores: Compromiso, Excelencia y Colaboración.',
     // Services
     servicesTitle: 'Nuestros Servicios',
     service1Title: 'Equipos BIM Remotos Globales',
@@ -76,7 +94,7 @@ export const translations = {
     service2Desc: 'Creamos soluciones de software y add-ins personalizados para automatizar sus procesos, mejorar sus flujos de trabajo BIM e impulsar la productividad.',
     service3Title: 'Acompañamiento BIM en Obra',
     service3Desc: 'Nuestros expertos brindan soporte BIM práctico directamente en su obra, asegurando una implementación perfecta y resolución inmediata de problemas.',
-    service4Title: 'BIM para Fabricación',
+    service4Title: 'BIM para Fabricación (Detallado de Acero)',
     service4Desc: 'Nos especializamos en la creación de modelos de fabricación detallados, incluyendo el detallado de acero de refuerzo (rebar), para optimizar la manufactura.',
     service5Title: 'Capacitación e Implementación BIM',
     service5Desc: 'Ofrecemos programas de capacitación integrales y soporte estratégico para capacitar a su equipo con las últimas tecnologías y habilidades BIM.',
