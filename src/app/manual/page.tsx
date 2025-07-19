@@ -116,19 +116,21 @@ export default function ManualPage() {
           <SidebarFooter/>
         </Sidebar>
 
-        <SidebarInset className="items-center p-4 sm:p-6 lg:p-8">
+        <SidebarInset>
           <header className="absolute top-0 z-10 flex w-full items-center justify-between border-b bg-background/80 px-4 py-2 backdrop-blur-sm sm:px-6 lg:px-8">
             <SidebarTrigger className="md:hidden" />
             <h1 className="text-xl font-bold md:hidden">{selectedAddin ? t(selectedAddin.titleKey) : ""}</h1>
             <div></div>
           </header>
-          {selectedAddin ? (
-            <ManualContentDisplay addin={selectedAddin} className="mx-auto" />
-          ) : (
-            <div className="flex h-full items-center justify-center">
-              <p className="text-muted-foreground">{t('manualSelect')}</p>
-            </div>
-          )}
+          <div className="flex flex-1 justify-center p-4 sm:p-6 lg:p-8">
+            {selectedAddin ? (
+              <ManualContentDisplay addin={selectedAddin} className="mx-auto" />
+            ) : (
+              <div className="flex h-full items-center justify-center">
+                <p className="text-muted-foreground">{t('manualSelect')}</p>
+              </div>
+            )}
+          </div>
         </SidebarInset>
       </div>
     </SidebarProvider>
