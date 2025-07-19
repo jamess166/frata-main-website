@@ -10,7 +10,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { Check, ArrowRight, Globe, Code, Construction, Factory, School, FileClock, Building, Target, Users } from 'lucide-react';
+import { Check, ArrowRight, Globe, Code, Construction, Factory, School, Shapes, Building, Target, Users } from 'lucide-react';
 import { useLanguage } from '@/hooks/use-language';
 import { useToast } from '@/hooks/use-toast';
 import { submitContactForm, ContactFormState } from './actions';
@@ -122,10 +122,10 @@ const ServicesSection: FC = () => {
       icon: School,
     },
     {
-      slug: '4d-and-5d-simulation',
+      slug: 'comprehensive-bim-modeling',
       title: t('service6Title'),
       description: t('service6Desc'),
-      icon: FileClock,
+      icon: Shapes,
     },
   ];
 

@@ -9,7 +9,7 @@ export type ServiceSlug =
   | 'on-site-bim-construction-support'
   | 'bim-for-manufacturing'
   | 'bim-training-and-implementation'
-  | '4d-and-5d-simulation';
+  | 'comprehensive-bim-modeling';
 
 // Define a type for the translation keys related to services
 type ServiceTitleKey = `service${1|2|3|4|5|6}Title`;
@@ -22,7 +22,7 @@ export const serviceMap: Record<ServiceSlug, { titleKey: ServiceTitleKey, detail
   'on-site-bim-construction-support': { titleKey: 'service3Title', detailKey: 'service3Detail', dataAiHint: 'construction site meeting' },
   'bim-for-manufacturing': { titleKey: 'service4Title', detailKey: 'service4Detail', dataAiHint: 'robotic arm factory' },
   'bim-training-and-implementation': { titleKey: 'service5Title', detailKey: 'service5Detail', dataAiHint: 'business training session' },
-  '4d-and-5d-simulation': { titleKey: 'service6Title', detailKey: 'service6Detail', dataAiHint: 'futuristic data visualization' },
+  'comprehensive-bim-modeling': { titleKey: 'service6Title', detailKey: 'service6Detail', dataAiHint: 'architectural blueprint design' },
 };
 
 interface ServicePageProps {
