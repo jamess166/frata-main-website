@@ -29,7 +29,7 @@ export const ServiceDetailClient: FC<ServiceDetailClientProps> = ({ serviceInfo 
   const detail = t(serviceInfo.detailKey)
 
   return (
-    <div className="py-16 sm:py-24 space-y-16">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 space-y-16">
       <div className="relative">
         <Button asChild variant="ghost">
           <Link href="/#services">

@@ -25,7 +25,7 @@ const AboutPage: FC = () => {
 
 
   return (
-    <div className="py-16 sm:py-24 space-y-24">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 space-y-24">
       {/* Hero Section */}
       <section className="text-center">
         <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
@@ -51,8 +51,8 @@ const AboutPage: FC = () => {
       </section>
 
       {/* Mission, Vision, Values Section */}
-      <section className="py-24 sm:py-32 bg-secondary -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-8 text-center">
+      <section className="py-24 sm:py-32 bg-secondary -mx-24">
+         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl grid md:grid-cols-3 gap-8 text-center">
           <div className="space-y-4">
              <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
                 <Target className="h-6 w-6"/>
