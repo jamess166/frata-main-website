@@ -9,9 +9,9 @@ export function Footer() {
 
   return (
     <footer className="bg-secondary">
-      <div className="container mx-auto px-4 py-8 md:pb-24">
-        <div className="flex flex-col md:flex-row md:items-center">
-          <div className="flex space-x-4">
+      <div className="container mx-auto px-4 py-8">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+          <div className="flex space-x-4 justify-center md:justify-start">
             <Link href="#" className="text-muted-foreground hover:text-foreground">
               <Twitter className="h-5 w-5" />
             </Link>
@@ -22,7 +22,7 @@ export function Footer() {
               <Linkedin className="h-5 w-5" />
             </Link>
           </div>
-          <p className="mt-4 md:mt-0 md:mx-auto text-sm text-muted-foreground">
+          <p className="mt-4 md:mt-0 text-center text-sm text-muted-foreground">
             {t('footerText')}
           </p>
         </div>
