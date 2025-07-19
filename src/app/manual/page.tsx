@@ -23,7 +23,7 @@ function ManualContentDisplay({ addin }: { addin: Addin }) {
   const { t } = useLanguage()
 
   return (
-    <article className="prose prose-lg dark:prose-invert max-w-none mx-auto py-8 lg:py-12">
+    <article className="prose prose-lg dark:prose-invert max-w-4xl mx-auto py-8 lg:py-12">
       <h1>{t(addin.titleKey)}</h1>
       <p className="lead">{t(addin.descriptionKey)}</p>
 
