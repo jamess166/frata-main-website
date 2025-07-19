@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useState, type ReactNode } from "react"
@@ -23,49 +22,51 @@ function ManualContentDisplay({ addin, className }: { addin: Addin, className?: 
   const { t } = useLanguage()
 
   return (
-    <article className={cn("prose prose-lg dark:prose-invert max-w-4xl py-8 lg:py-12", className)}>
-      <h1>{t(addin.titleKey)}</h1>
-      <p className="lead">{t(addin.descriptionKey)}</p>
+    <article className={cn("prose prose-lg dark:prose-invert max-w-none w-full py-8 lg:py-12 text-center", className)}>
+      <div className="max-w-4xl mx-auto text-left">
+        <h1 className="text-center">{t(addin.titleKey)}</h1>
+        <p className="lead text-center">{t(addin.descriptionKey)}</p>
 
-      {addin.image && (
-        <div className="my-8 rounded-lg border overflow-hidden shadow-lg">
-          <Image
-            src={addin.image.src}
-            alt={addin.image.alt}
-            width={1200}
-            height={700}
-            className="w-full object-cover"
-            data-ai-hint={addin.image.dataAiHint}
-          />
-        </div>
-      )}
-
-      {addin.steps.length > 0 && (
-        <>
-          <h2>{t('manualStepsTitle')}</h2>
-          <ol>
-            {addin.steps.map((step, index) => (
-              <li key={index}>{t(step)}</li>
-            ))}
-          </ol>
-        </>
-      )}
-
-      {addin.usageVideo && (
-        <div className="my-10">
-          <h2>{t('manualVideoTitle')}</h2>
-          <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden border">
-            <iframe
-              src={addin.usageVideo}
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="w-full h-full"
-            ></iframe>
+        {addin.image && (
+          <div className="my-8 rounded-lg border overflow-hidden shadow-lg">
+            <Image
+              src={addin.image.src}
+              alt={addin.image.alt}
+              width={1200}
+              height={700}
+              className="w-full object-cover"
+              data-ai-hint={addin.image.dataAiHint}
+            />
           </div>
-        </div>
-      )}
+        )}
+
+        {addin.steps.length > 0 && (
+          <>
+            <h2 className="text-center">{t('manualStepsTitle')}</h2>
+            <ol className="text-left max-w-2xl mx-auto">
+              {addin.steps.map((step, index) => (
+                <li key={index}>{t(step)}</li>
+              ))}
+            </ol>
+          </>
+        )}
+
+        {addin.usageVideo && (
+          <div className="my-10">
+            <h2 className="text-center">{t('manualVideoTitle')}</h2>
+            <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden border max-w-4xl mx-auto">
+              <iframe
+                src={addin.usageVideo}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+              ></iframe>
+            </div>
+          </div>
+        )}
+      </div>
     </article>
   )
 }
@@ -115,16 +116,18 @@ export default function ManualPage() {
           <SidebarFooter/>
         </Sidebar>
 
-        <SidebarInset>
+        <SidebarInset className="flex-1">
           <header className="sticky top-0 z-10 flex w-full items-center justify-between border-b bg-background/80 px-4 py-2 backdrop-blur-sm sm:px-6 lg:px-8">
             <SidebarTrigger className="md:hidden" />
             <h1 className="text-xl font-bold md:hidden">{selectedAddin ? t(selectedAddin.titleKey) : ""}</h1>
             <div></div>
           </header>
           
-          <div className="w-full p-4 sm:p-6 lg:p-8">
+          <div className="w-full h-full flex-1 px-4 sm:px-6 lg:px-8">
             {selectedAddin ? (
-              <ManualContentDisplay addin={selectedAddin} className="mx-auto" />
+              <div className="w-full h-full flex items-start justify-center">
+                <ManualContentDisplay addin={selectedAddin} className="w-full" />
+              </div>
             ) : (
               <div className="flex flex-1 h-full items-center justify-center">
                 <p className="text-muted-foreground">{t('manualSelect')}</p>

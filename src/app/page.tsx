@@ -1,7 +1,7 @@
 "use client"
 
 import type { FC } from 'react';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useFormState, useFormStatus } from "react-dom";
 import Link from 'next/link';
 import Image from 'next/image';
@@ -14,23 +14,51 @@ import { Check, ArrowRight, Globe, Code, Construction, Factory, School, Shapes, 
 import { useLanguage } from '@/hooks/use-language';
 import { useToast } from '@/hooks/use-toast';
 import { submitContactForm, ContactFormState } from './actions';
+import { PlexusBackground } from '@/components/plexus-background';
+import { useIntersectionObserver } from '@/hooks/use-intersection-observer';
+import { cn } from '@/lib/utils';
 
-const initialState: ContactFormState = {
-  message: "",
+
+const Animated = ({ children, className, delay = 0 }: { children: React.ReactNode, className?: string, delay?: number }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const entry = useIntersectionObserver(ref, { threshold: 0.1, freezeOnceVisible: true });
+  const isVisible = !!entry?.isIntersecting;
+
+  return (
+    <div
+      ref={ref}
+      className={cn(
+        "transition-all duration-700 ease-out",
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10",
+        className
+      )}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      {children}
+    </div>
+  );
 };
+
 
 const HeroSection: FC = () => {
   const { t } = useLanguage();
   return (
-    <section className="relative py-20 sm:py-32 lg:py-40">
-       <div className="absolute inset-0 bg-grid-slate-900/[0.04] bg-[bottom_1px_center] dark:bg-grid-slate-400/[0.05] dark:bg-bottom_1px_center mask-image-gradient"></div>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-        <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-          {t('heroHeadline')}
-        </h1>
+    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden py-20 sm:py-32 lg:py-40">
+      <div className="absolute inset-0 z-0">
+         <PlexusBackground />
+      </div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <Animated>
+          <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+            {t('heroHeadline')}
+          </h1>
+        </Animated>
+        <Animated delay={150}>
         <p className="mt-6 text-lg max-w-3xl mx-auto leading-8 text-muted-foreground">
           {t('heroSubhead')}
         </p>
+        </Animated>
+        <Animated delay={300}>
         <div className="mt-10 flex items-center justify-center gap-x-6">
           <Button asChild size="lg">
             <Link href="#contact">{t('heroCTA')}</Link>
@@ -39,16 +67,67 @@ const HeroSection: FC = () => {
             <Link href="#services">{t('services')}</Link>
           </Button>
         </div>
+        </Animated>
       </div>
-      <style jsx>{`
-        .mask-image-gradient {
-          mask-image: linear-gradient(to bottom, white, transparent);
-          -webkit-mask-image: linear-gradient(to bottom, white, transparent);
-        }
-      `}</style>
     </section>
   );
 };
+
+const BlueprintCube: FC = () => {
+  const cubeRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const cube = cubeRef.current;
+    if (!cube) return;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const { clientX, clientY, currentTarget } = e;
+      const { clientWidth, clientHeight } = currentTarget as HTMLElement;
+      
+      const xRotation = 20 * ((clientY - clientHeight / 2) / clientHeight);
+      const yRotation = -20 * ((clientX - clientWidth / 2) / clientWidth);
+      
+      cube.style.transform = `rotateX(${xRotation}deg) rotateY(${yRotation}deg)`;
+    };
+    
+    const container = cube.parentElement;
+    container?.addEventListener('mousemove', handleMouseMove as EventListener);
+    
+    return () => {
+      container?.removeEventListener('mousemove', handleMouseMove as EventListener);
+    };
+  }, []);
+
+  return (
+    <div className="perspective-800 w-full h-full flex items-center justify-center">
+      <div ref={cubeRef} className="transform-style-3d w-64 h-64 relative transition-transform duration-200 ease-out" style={{ transform: 'rotateX(0deg) rotateY(0deg)'}}>
+         <style jsx>{`
+          .cube-face {
+            position: absolute;
+            width: 16rem; /* 256px */
+            height: 16rem; /* 256px */
+            border: 1px solid hsl(var(--primary) / 0.5);
+            background-color: hsl(var(--background) / 0.8);
+            backdrop-filter: blur(5px);
+            --blueprint-color: hsl(var(--primary));
+            background-image:
+              linear-gradient(var(--blueprint-color) 1px, transparent 1px),
+              linear-gradient(to right, var(--blueprint-color) 1px, transparent 1px);
+            background-size: 2rem 2rem;
+            opacity: 0.3;
+          }
+        `}</style>
+        <div className="cube-face" style={{ transform: 'rotateY(0deg) translateZ(8rem)' }}></div>
+        <div className="cube-face" style={{ transform: 'rotateY(180deg) translateZ(8rem)' }}></div>
+        <div className="cube-face" style={{ transform: 'rotateY(90deg) translateZ(8rem)' }}></div>
+        <div className="cube-face" style={{ transform: 'rotateY(-90deg) translateZ(8rem)' }}></div>
+        <div className="cube-face" style={{ transform: 'rotateX(90deg) translateZ(8rem)' }}></div>
+        <div className="cube-face" style={{ transform: 'rotateX(-90deg) translateZ(8rem)' }}></div>
+      </div>
+    </div>
+  );
+};
+
 
 const AboutUsSection: FC = () => {
   const { t } = useLanguage();
@@ -59,30 +138,34 @@ const AboutUsSection: FC = () => {
   ];
   return (
     <section id="about" className="py-24 sm:py-32">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
-        <div className="space-y-6">
-          <h2 className="text-base font-bold uppercase tracking-widest text-primary">{t('aboutTitle')}</h2>
-          <p className="font-headline text-3xl font-bold text-foreground sm:text-4xl">{t('aboutHeadline')}</p>
-          <p className="text-lg text-muted-foreground">
-            {t('aboutDesc')}
-          </p>
-          <div className="space-y-4">
-            {values.map((value, index) => (
-              <div key={index} className="flex items-center gap-4">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary">
-                  <value.icon className="h-5 w-5" />
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-16 items-center">
+        <Animated>
+          <div className="space-y-6">
+            <h2 className="text-base font-bold uppercase tracking-widest text-primary">{t('aboutTitle')}</h2>
+            <p className="font-headline text-3xl font-bold text-foreground sm:text-4xl">{t('aboutHeadline')}</p>
+            <p className="text-lg text-muted-foreground">
+              {t('aboutDesc')}
+            </p>
+            <div className="space-y-4 pt-4">
+              {values.map((value, index) => (
+                <div key={index} className="flex items-center gap-4">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary">
+                    <value.icon className="h-5 w-5" />
+                  </div>
+                  <span className="font-medium text-foreground">{value.text}</span>
                 </div>
-                <span className="font-medium text-foreground">{value.text}</span>
-              </div>
-            ))}
+              ))}
+            </div>
+            <Button asChild size="lg" variant="link" className="px-0 pt-4">
+                <Link href="/about">{t('learnMore')} <ArrowRight className="ml-2 h-4 w-4"/></Link>
+            </Button>
           </div>
-           <Button asChild size="lg" variant="link" className="px-0">
-              <Link href="/about">{t('learnMore')} <ArrowRight className="ml-2 h-4 w-4"/></Link>
-          </Button>
-        </div>
-        <div className="relative h-96 lg:h-full min-h-[24rem]">
-           <Image src="https://placehold.co/600x800.png" data-ai-hint="engineering team collaboration" alt="Frata Ingenieros Team" layout="fill" objectFit="cover" className="rounded-lg shadow-xl" />
-        </div>
+        </Animated>
+        <Animated delay={200}>
+          <div className="relative h-96 lg:h-full min-h-[24rem]">
+             <BlueprintCube />
+          </div>
+        </Animated>
       </div>
     </section>
   );
@@ -91,71 +174,43 @@ const AboutUsSection: FC = () => {
 const ServicesSection: FC = () => {
   const { t } = useLanguage();
   const services = [
-    {
-      slug: 'global-remote-bim-teams',
-      title: t('service1Title'),
-      description: t('service1Desc'),
-      icon: Globe,
-    },
-    {
-      slug: 'custom-bim-software-development',
-      title: t('service2Title'),
-      description: t('service2Desc'),
-      icon: Code,
-    },
-    {
-      slug: 'on-site-bim-construction-support',
-      title: t('service3Title'),
-      description: t('service3Desc'),
-      icon: Construction,
-    },
-    {
-      slug: 'bim-for-manufacturing',
-      title: t('service4Title'),
-      description: t('service4Desc'),
-      icon: Factory,
-    },
-    {
-      slug: 'bim-training-and-implementation',
-      title: t('service5Title'),
-      description: t('service5Desc'),
-      icon: School,
-    },
-    {
-      slug: 'comprehensive-bim-modeling',
-      title: t('service6Title'),
-      description: t('service6Desc'),
-      icon: Shapes,
-    },
+    { slug: 'global-remote-bim-teams', title: t('service1Title'), description: t('service1Desc'), icon: Globe },
+    { slug: 'custom-bim-software-development', title: t('service2Title'), description: t('service2Desc'), icon: Code },
+    { slug: 'on-site-bim-construction-support', title: t('service3Title'), description: t('service3Desc'), icon: Construction },
+    { slug: 'bim-for-manufacturing', title: t('service4Title'), description: t('service4Desc'), icon: Factory },
+    { slug: 'bim-training-and-implementation', title: t('service5Title'), description: t('service5Desc'), icon: School },
+    { slug: 'comprehensive-bim-modeling', title: t('service6Title'), description: t('service6Desc'), icon: Shapes },
   ];
 
   return (
     <section id="services" className="py-24 sm:py-32 bg-secondary">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto">
+        <Animated className="text-center max-w-3xl mx-auto">
           <h2 className="text-base font-bold uppercase tracking-widest text-primary">{t('services')}</h2>
           <p className="font-headline text-3xl font-bold text-foreground sm:text-4xl">{t('servicesTitle')}</p>
-        </div>
+        </Animated>
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service) => (
-            <Card key={service.slug} className="bg-card/50 dark:bg-card/30 border-white/10 flex flex-col group hover:border-primary/50 transition-colors duration-300">
-              <CardHeader className="flex-row items-center gap-4">
-                 <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
-                    <service.icon className="h-6 w-6" aria-hidden="true" />
-                 </div>
-                 <CardTitle className="font-headline text-xl text-foreground">{service.title}</CardTitle>
-              </CardHeader>
-              <CardContent className="flex-grow">
-                <p className="text-muted-foreground">{service.description}</p>
-              </CardContent>
-              <CardFooter>
-                <Button asChild variant="link" className="px-0">
-                  <Link href={`/services/${service.slug}`}>
-                    {t('viewDetails')} <ArrowRight className="ml-2 h-4 w-4"/>
-                  </Link>
-                </Button>
-              </CardFooter>
-            </Card>
+          {services.map((service, index) => (
+             <Animated key={service.slug} delay={100 * (index + 1)}>
+                <Card className="bg-card/50 dark:bg-card/30 border-white/10 flex flex-col group hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-2 h-full">
+                  <CardHeader className="flex-row items-center gap-4">
+                     <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+                        <service.icon className="h-6 w-6" aria-hidden="true" />
+                     </div>
+                     <CardTitle className="font-headline text-xl text-foreground">{service.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="flex-grow">
+                    <p className="text-muted-foreground">{service.description}</p>
+                  </CardContent>
+                  <CardFooter>
+                    <Button asChild variant="link" className="px-0">
+                      <Link href={`/services/${service.slug}`}>
+                        {t('viewDetails')} <ArrowRight className="ml-2 h-4 w-4"/>
+                      </Link>
+                    </Button>
+                  </CardFooter>
+                </Card>
+            </Animated>
           ))}
         </div>
       </div>
@@ -174,25 +229,27 @@ const PortfolioSection: FC = () => {
   return (
     <section id="portfolio" className="py-24 sm:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
+        <Animated className="text-center">
           <h2 className="text-sm font-bold uppercase tracking-widest text-primary">{t('portfolio')}</h2>
           <p className="mt-2 font-headline text-3xl font-bold text-foreground sm:text-4xl">{t('portfolioTitle')}</p>
-        </div>
+        </Animated>
         <div className="mt-16 grid grid-cols-1 gap-y-10 gap-x-8 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project) => (
-            <Card key={project.title} className="overflow-hidden group relative shadow-sm hover:shadow-xl transition-shadow duration-300 border-white/10">
-              <CardHeader className="p-0 relative">
-                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300 z-10"></div>
-                <Image src={project.image} data-ai-hint={project.dataAiHint} alt={project.title} width={600} height={400} className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105" />
-              </CardHeader>
-              <CardContent className="p-6 absolute bottom-0 z-20 text-white">
-                 <CardTitle className="font-headline text-xl text-white dark:text-white">{project.title}</CardTitle>
-                <CardDescription className="mt-2 text-white/80 dark:text-white/80">{project.description}</CardDescription>
-                  <Button variant="link" className="px-0 text-white dark:text-white mt-4">
-                    View Project <ArrowRight className="ml-2 h-4 w-4"/>
-                 </Button>
-              </CardContent>
-            </Card>
+          {projects.map((project, index) => (
+            <Animated key={project.title} delay={100 * (index + 1)}>
+              <Card className="overflow-hidden group relative shadow-sm hover:shadow-xl transition-all duration-300 border-white/10 hover:-translate-y-2">
+                <CardHeader className="p-0 relative">
+                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300 z-10"></div>
+                  <Image src={project.image} data-ai-hint={project.dataAiHint} alt={project.title} width={600} height={400} className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105" />
+                </CardHeader>
+                <CardContent className="p-6 absolute bottom-0 z-20 text-white">
+                   <CardTitle className="font-headline text-xl text-white dark:text-white">{project.title}</CardTitle>
+                  <CardDescription className="mt-2 text-white/80 dark:text-white/80">{project.description}</CardDescription>
+                    <Button variant="link" className="px-0 text-white dark:text-white mt-4">
+                      View Project <ArrowRight className="ml-2 h-4 w-4"/>
+                   </Button>
+                </CardContent>
+              </Card>
+            </Animated>
           ))}
         </div>
       </div>
@@ -237,33 +294,35 @@ const ContactSection: FC = () => {
   return (
     <section id="contact" className="py-24 sm:py-32 bg-secondary">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
+        <Animated className="mx-auto max-w-2xl text-center">
           <h2 className="text-sm font-bold uppercase tracking-widest text-primary">{t('contact')}</h2>
           <p className="mt-2 font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">{t('contactTitle')}</p>
           <p className="mt-4 text-lg leading-8 text-muted-foreground">{t('contactDesc')}</p>
-        </div>
-        <Card className="max-w-xl mx-auto mt-16 shadow-lg bg-card/50 dark:bg-card/30 border-white/10">
-          <CardContent className="p-6 sm:p-8">
-            <form ref={formRef} action={formAction} className="space-y-6">
-              <div>
-                <Label htmlFor="name">{t('formName')}</Label>
-                <Input id="name" name="name" type="text" autoComplete="name" required />
-                {state.errors?.name && <p className="text-sm font-medium text-destructive mt-1">{state.errors.name[0]}</p>}
-              </div>
-              <div>
-                <Label htmlFor="email">{t('formEmail')}</Label>
-                <Input id="email" name="email" type="email" autoComplete="email" required />
-                {state.errors?.email && <p className="text-sm font-medium text-destructive mt-1">{state.errors.email[0]}</p>}
-              </div>
-              <div>
-                <Label htmlFor="message">{t('formMessage')}</Label>
-                <Textarea id="message" name="message" rows={4} required />
-                {state.errors?.message && <p className="text-sm font-medium text-destructive mt-1">{state.errors.message[0]}</p>}
-              </div>
-              <SubmitButton />
-            </form>
-          </CardContent>
-        </Card>
+        </Animated>
+        <Animated delay={200}>
+          <Card className="max-w-xl mx-auto mt-16 shadow-lg bg-card/50 dark:bg-card/30 border-white/10">
+            <CardContent className="p-6 sm:p-8">
+              <form ref={formRef} action={formAction} className="space-y-6">
+                <div>
+                  <Label htmlFor="name">{t('formName')}</Label>
+                  <Input id="name" name="name" type="text" autoComplete="name" required />
+                  {state.errors?.name && <p className="text-sm font-medium text-destructive mt-1">{state.errors.name[0]}</p>}
+                </div>
+                <div>
+                  <Label htmlFor="email">{t('formEmail')}</Label>
+                  <Input id="email" name="email" type="email" autoComplete="email" required />
+                  {state.errors?.email && <p className="text-sm font-medium text-destructive mt-1">{state.errors.email[0]}</p>}
+                </div>
+                <div>
+                  <Label htmlFor="message">{t('formMessage')}</Label>
+                  <Textarea id="message" name="message" rows={4} required />
+                  {state.errors?.message && <p className="text-sm font-medium text-destructive mt-1">{state.errors.message[0]}</p>}
+                </div>
+                <SubmitButton />
+              </form>
+            </CardContent>
+          </Card>
+        </Animated>
       </div>
     </section>
   );
@@ -273,6 +332,14 @@ const ContactSection: FC = () => {
 export default function Home() {
   return (
     <>
+      <style jsx global>{`
+        .perspective-800 {
+          perspective: 800px;
+        }
+        .transform-style-3d {
+          transform-style: preserve-3d;
+        }
+      `}</style>
       <HeroSection />
       <AboutUsSection />
       <ServicesSection />
