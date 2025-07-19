@@ -95,7 +95,7 @@ export default function ManualPage() {
                   <h3 className="px-4 py-2 text-sm font-semibold text-muted-foreground tracking-wider uppercase">
                     {t(category.titleKey)}
                   </h3>
-                  <ul className="space-y-1">
+                  <ul className="space-y-1 pl-4">
                     {category.addins.map((addin: Addin) => (
                       <SidebarMenuItem key={addin.id}>
                         <SidebarMenuButton
