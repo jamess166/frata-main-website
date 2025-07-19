@@ -25,8 +25,8 @@ const BIMtoolsPage: FC = () => {
   ]
 
   return (
-    <div className="bg-background min-h-screen">
-      <main className="container mx-auto px-4 py-16 sm:py-24 lg:px-8">
+    <div className="bg-background min-h-screen -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
+      <main className="py-16 sm:py-24">
         <div className="text-center mb-12">
           <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
             {t('bimToolsTitle')}
