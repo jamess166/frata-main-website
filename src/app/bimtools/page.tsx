@@ -21,7 +21,6 @@ const BIMtoolsPage: FC = () => {
   ]
 
   const proFeatures = [
-    ...freeFeatures,
     t('featureChangeParameter'),
     t('featureUngroupRebar'),
     t('featureHostSync'),
@@ -62,10 +61,12 @@ const BIMtoolsPage: FC = () => {
                 </ul>
                 </CardContent>
                 <CardFooter className="flex-col gap-4 p-6">
-                <Button size="lg" className="w-full">
-                    <Download className="mr-2 h-4 w-4" />
-                    {t('downloadFree')}
-                    </Button>
+                <Button size="lg" className="w-full" asChild>
+                    <a href="https://drive.google.com/file/d/1051hVc9SBB7m9oClDOF7Yqi2ewQkEdpb/view" target="_blank" rel="noopener noreferrer">
+                        <Download className="mr-2 h-4 w-4" />
+                        {t('downloadFree')}
+                    </a>
+                </Button>
                     <Button variant="outline" className="w-full">
                     {t('viewManual')}
                     </Button>
@@ -82,7 +83,7 @@ const BIMtoolsPage: FC = () => {
                 <CardDescription>{t('bimToolsProDesc')}</CardDescription>
                 </CardHeader>
                 <CardContent className="flex-grow space-y-4">
-                <h4 className="font-semibold text-center">{t('includedFeatures')}</h4>
+                <h4 className="font-semibold text-center">{t('proFeatures')}</h4>
                 <ul className="space-y-2">
                     {proFeatures.map((feature, index) => (
                     <li key={index} className="flex items-center gap-3">
