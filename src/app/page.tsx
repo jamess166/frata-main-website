@@ -17,6 +17,7 @@ import { submitContactForm, ContactFormState } from './actions';
 import { PlexusBackground } from '@/components/plexus-background';
 import { useIntersectionObserver } from '@/hooks/use-intersection-observer';
 import { cn } from '@/lib/utils';
+import { IfcViewer } from '@/components/ifc-viewer';
 
 
 const Animated = ({ children, className, delay = 0 }: { children: React.ReactNode, className?: string, delay?: number }) => {
@@ -73,58 +74,6 @@ const HeroSection: FC = () => {
   );
 };
 
-const BuildingStructure: FC = () => {
-  return (
-    <div className="w-full h-full flex items-center justify-center p-8">
-       <style jsx>{`
-        .structure-line {
-          position: absolute;
-          background-color: hsl(var(--primary));
-          animation: draw-line 2s ease-out forwards;
-          transform-origin: left;
-        }
-        .horizontal { height: 2px; }
-        .vertical { width: 2px; }
-        @keyframes draw-line {
-          from { transform: scaleX(0); }
-          to { transform: scaleX(1); }
-        }
-        .structure-element {
-          animation: fade-in 0.5s ease-out forwards;
-          opacity: 0;
-        }
-        @keyframes fade-in {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-      `}</style>
-      <div className="relative w-full max-w-sm aspect-[3/4]">
-        {/* Main Vertical Beams */}
-        <div className="structure-element vertical absolute top-0 bottom-0 left-0 bg-primary/30" style={{ animationDelay: '0s' }}></div>
-        <div className="structure-element vertical absolute top-0 bottom-0 right-0 bg-primary/30" style={{ animationDelay: '0s' }}></div>
-        <div className="structure-element vertical absolute top-0 bottom-0 left-1/3 bg-primary/30" style={{ animationDelay: '0.1s' }}></div>
-        <div className="structure-element vertical absolute top-0 bottom-0 right-1/3 bg-primary/30" style={{ animationDelay: '0.1s' }}></div>
-
-        {/* Floor Plates */}
-        <div className="structure-element horizontal absolute left-0 right-0 bottom-0 h-1 bg-primary/50" style={{ animationDelay: '0.2s' }}></div>
-        <div className="structure-element horizontal absolute left-0 right-0 top-3/4 h-0.5 bg-primary/50" style={{ animationDelay: '0.4s' }}></div>
-        <div className="structure-element horizontal absolute left-0 right-0 top-1/2 h-0.5 bg-primary/50" style={{ animationDelay: '0.6s' }}></div>
-        <div className="structure-element horizontal absolute left-0 right-0 top-1/4 h-0.5 bg-primary/50" style={{ animationDelay: '0.8s' }}></div>
-        <div className="structure-element horizontal absolute left-0 right-0 top-0 h-0.5 bg-primary/50" style={{ animationDelay: '1s' }}></div>
-
-         {/* Cross Bracing */}
-        <div className="absolute top-1/2 left-0 w-1/3 h-1/4 overflow-hidden">
-            <div className="structure-line absolute w-[141.42%] h-0.5 bg-primary/70 top-0 left-0 transform rotate-45" style={{ animationDelay: '1.2s' }}></div>
-        </div>
-         <div className="absolute top-1/4 left-1/3 w-1/3 h-1/4 overflow-hidden">
-            <div className="structure-line absolute w-[141.42%] h-0.5 bg-primary/70 bottom-0 right-0 transform -rotate-45" style={{ transformOrigin: 'right', animationDelay: '1.4s' }}></div>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-
 const AboutUsSection: FC = () => {
   const { t } = useLanguage();
   const values = [
@@ -158,8 +107,8 @@ const AboutUsSection: FC = () => {
           </div>
         </Animated>
         <Animated delay={200}>
-          <div className="relative h-96 lg:h-full min-h-[24rem]">
-             <BuildingStructure />
+          <div className="relative h-[500px] w-full rounded-lg overflow-hidden border shadow-lg">
+             <IfcViewer />
           </div>
         </Animated>
       </div>

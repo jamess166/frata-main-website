@@ -1,0 +1,26 @@
+diff --git a/node_modules/web-ifc/web-ifc-api.js b/node_modules/web-ifc/web-ifc-api.js
+index a157697..5c00b55 100644
+--- a/node_modules/web-ifc/web-ifc-api.js
++++ b/node_modules/web-ifc/web-ifc-api.js
+@@ -2,7 +2,7 @@
+ 
+ var Module = (function () {
+ 	var _scriptDir = typeof document !== 'undefined' && document.currentScript ? document.currentScript.src : undefined;
+-	if (typeof __filename !== 'undefined') _scriptDir = _scriptDir || __filename;
++	// if (typeof __filename !== 'undefined') _scriptDir = _scriptdir || __filename;
+ 	return (
+ 		function (Module) {
+ 			Module = Module || {};
+diff --git a/node_modules/web-ifc/web-ifc.js b/node_modules/web-ifc/web-ifc.js
+index 7357422..8e39269 100644
+--- a/node_modules/web-ifc/web-ifc.js
++++ b/node_modules/web-ifc/web-ifc.js
+@@ -2,7 +2,7 @@
+ 
+ var Module = (function () {
+ 	var _scriptDir = typeof document !== 'undefined' && document.currentScript ? document.currentScript.src : undefined;
+-	if (typeof __filename !== 'undefined') _scriptDir = _scriptDir || __filename;
++	// if (typeof __filename !== 'undefined') _scriptDir = _scriptdir || __filename;
+ 	return (
+ 		function (Module) {
+ 			Module = Module || {};
