@@ -10,7 +10,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { Building, CheckCircle, Waypoints, ClipboardCheck, ArrowRight } from 'lucide-react';
+import { Check, ArrowRight, Globe, Code, Construction, Factory, School, FileClock } from 'lucide-react';
 import { useLanguage } from '@/hooks/use-language';
 import { useToast } from '@/hooks/use-toast';
 import { submitContactForm, ContactFormState } from './actions';
@@ -53,37 +53,86 @@ const HeroSection: FC = () => {
 const ServicesSection: FC = () => {
   const { t } = useLanguage();
   const services = [
-    { icon: Building, title: t('service1Title'), description: t('service1Desc') },
-    { icon: CheckCircle, title: t('service2Title'), description: t('service2Desc') },
-    { icon: Waypoints, title: t('service3Title'), description: t('service3Desc') },
-    { icon: ClipboardCheck, title: t('service4Title'), description: t('service4Desc') },
+    {
+      title: t('service1Title'),
+      description: t('service1Desc'),
+      icon: Globe,
+      imageUrl: 'https://placehold.co/600x400.png',
+      dataAiHint: 'global network'
+    },
+    {
+      title: t('service2Title'),
+      description: t('service2Desc'),
+      icon: Code,
+      imageUrl: 'https://placehold.co/600x400.png',
+      dataAiHint: 'software development'
+    },
+    {
+      title: t('service3Title'),
+      description: t('service3Desc'),
+      icon: Construction,
+      imageUrl: 'https://placehold.co/600x400.png',
+      dataAiHint: 'construction site'
+    },
+    {
+      title: t('service4Title'),
+      description: t('service4Desc'),
+      icon: Factory,
+      imageUrl: 'https://placehold.co/600x400.png',
+      dataAiHint: 'industrial manufacturing'
+    },
+    {
+      title: t('service5Title'),
+      description: t('service5Desc'),
+      icon: School,
+      imageUrl: 'https://placehold.co/600x400.png',
+      dataAiHint: 'professional training'
+    },
+     {
+      title: t('service6Title'),
+      description: t('service6Desc'),
+      icon: FileClock,
+      imageUrl: 'https://placehold.co/600x400.png',
+      dataAiHint: 'project timeline'
+    },
   ];
+
   return (
     <section id="services" className="py-24 sm:py-32 bg-secondary">
       <div className="container mx-auto px-4">
-        <div className="text-center">
-           <h2 className="text-sm font-bold uppercase tracking-widest text-primary">{t('services')}</h2>
+        <div className="text-center max-w-3xl mx-auto">
+          <h2 className="text-sm font-bold uppercase tracking-widest text-primary">{t('services')}</h2>
           <p className="mt-2 font-headline text-3xl font-bold text-foreground sm:text-4xl">{t('servicesTitle')}</p>
         </div>
-        <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-20 space-y-24">
           {services.map((service, index) => (
-            <Card key={index} className="text-center bg-card/50 dark:bg-card/30 border-transparent dark:border-white/10 shadow-sm hover:shadow-lg hover:bg-card transition-all duration-300 transform hover:-translate-y-2">
-              <CardHeader>
-                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                  <service.icon className="h-6 w-6" aria-hidden="true" />
+            <div key={index} className="grid md:grid-cols-2 gap-12 items-center">
+              <div className={`md:order-${index % 2 === 0 ? '1' : '2'}`}>
+                <div className="flex items-center gap-4">
+                   <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                      <service.icon className="h-6 w-6" aria-hidden="true" />
+                   </div>
+                   <h3 className="font-headline text-2xl font-bold text-foreground">{service.title}</h3>
                 </div>
-                <CardTitle className="mt-4 font-headline">{service.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">{service.description}</p>
-              </CardContent>
-            </Card>
+                <p className="mt-4 text-lg text-muted-foreground">{service.description}</p>
+                 <Button variant="link" className="px-0 mt-4 text-primary">
+                    Learn More <ArrowRight className="ml-2 h-4 w-4"/>
+                 </Button>
+              </div>
+              <div className={`md:order-${index % 2 === 0 ? '2' : '1'} group`}>
+                <div className="relative overflow-hidden rounded-lg shadow-lg">
+                  <Image src={service.imageUrl} data-ai-hint={service.dataAiHint} alt={service.title} width={600} height={400} className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105" />
+                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>
     </section>
   );
 };
+
 
 const PortfolioSection: FC = () => {
   const { t } = useLanguage();
