@@ -39,7 +39,7 @@ export function Header() {
             ))}
           </nav>
         </div>
-        <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
+        <div className="flex flex-1 items-center justify-end space-x-2">
           <div className="md:hidden">
             <Sheet>
               <SheetTrigger asChild>
@@ -67,10 +67,12 @@ export function Header() {
               </SheetContent>
             </Sheet>
           </div>
-          <Link href="/" className="flex items-center space-x-2 md:hidden">
-            <Image src="/logo-dark.svg" alt="Frata BIM Logo" width={120} height={40} className="dark:hidden" />
-            <Image src="/logo-light.svg" alt="Frata BIM Logo" width={120} height={40} className="hidden dark:block" />
-          </Link>
+          <div className="flex-1 md:hidden">
+            <Link href="/" className="flex items-center space-x-2 justify-center">
+                <Image src="/logo-dark.svg" alt="Frata BIM Logo" width={120} height={40} className="dark:hidden" />
+                <Image src="/logo-light.svg" alt="Frata BIM Logo" width={120} height={40} className="hidden dark:block" />
+            </Link>
+          </div>
           <div className="flex items-center">
             <LanguageSwitcher />
             <ThemeToggle />
