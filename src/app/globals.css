@@ -35,25 +35,25 @@ body {
     --radius: 0.5rem;
   }
   .dark {
-    --background: 224 71.4% 4.1%;
+    --background: 211 61% 10%; /* rgb(10, 25, 41) */
     --foreground: 210 20% 98%;
-    --card: 224 71.4% 5.1%;
+    --card: 211 50% 15%; /* A slightly lighter shade for cards */
     --card-foreground: 210 20% 98%;
-    --popover: 224 71.4% 4.1%;
+    --popover: 211 61% 10%;
     --popover-foreground: 210 20% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 210 20% 98%;
-    --secondary: 215 27.9% 16.9%;
+    --primary: 180 60% 50%; /* rgb(51, 204, 204) */
+    --primary-foreground: 211 61% 10%;
+    --secondary: 211 40% 25%;
     --secondary-foreground: 210 20% 98%;
-    --muted: 215.4 16.3% 56.9%;
-    --muted-foreground: 215.4 16.3% 56.9%;
-    --accent: 173.6 95.8% 39.4%;
-    --accent-foreground: 210 20% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 217 32.6% 17.5%;
-    --input: 217 32.6% 17.5%;
-    --ring: 217.2 91.2% 59.8%;
+    --muted: 211 30% 35%;
+    --muted-foreground: 211 25% 75%;
+    --accent: 180 50% 60%;
+    --accent-foreground: 211 61% 10%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 211 40% 25%;
+    --input: 211 40% 25%;
+    --ring: 180 60% 50%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
