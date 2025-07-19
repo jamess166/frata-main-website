@@ -57,43 +57,31 @@ const ServicesSection: FC = () => {
       title: t('service1Title'),
       description: t('service1Desc'),
       icon: Globe,
-      imageUrl: 'https://placehold.co/600x400.png',
-      dataAiHint: 'global network'
     },
     {
       title: t('service2Title'),
       description: t('service2Desc'),
       icon: Code,
-      imageUrl: 'https://placehold.co/600x400.png',
-      dataAiHint: 'software development'
     },
     {
       title: t('service3Title'),
       description: t('service3Desc'),
       icon: Construction,
-      imageUrl: 'https://placehold.co/600x400.png',
-      dataAiHint: 'construction site'
     },
     {
       title: t('service4Title'),
       description: t('service4Desc'),
       icon: Factory,
-      imageUrl: 'https://placehold.co/600x400.png',
-      dataAiHint: 'industrial manufacturing'
     },
     {
       title: t('service5Title'),
       description: t('service5Desc'),
       icon: School,
-      imageUrl: 'https://placehold.co/600x400.png',
-      dataAiHint: 'professional training'
     },
-     {
+    {
       title: t('service6Title'),
       description: t('service6Desc'),
       icon: FileClock,
-      imageUrl: 'https://placehold.co/600x400.png',
-      dataAiHint: 'project timeline'
     },
   ];
 
@@ -101,31 +89,27 @@ const ServicesSection: FC = () => {
     <section id="services" className="py-24 sm:py-32 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-sm font-bold uppercase tracking-widest text-primary">{t('services')}</h2>
+          <h2 className="text-base font-bold uppercase tracking-widest text-primary">{t('services')}</h2>
           <p className="mt-2 font-headline text-3xl font-bold text-foreground sm:text-4xl">{t('servicesTitle')}</p>
         </div>
-        <div className="mt-20 space-y-24">
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <div key={index} className="grid md:grid-cols-2 gap-12 items-center">
-              <div className={`md:order-${index % 2 === 0 ? '1' : '2'}`}>
-                <div className="flex items-center gap-4">
-                   <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                      <service.icon className="h-6 w-6" aria-hidden="true" />
-                   </div>
-                   <h3 className="font-headline text-2xl font-bold text-foreground">{service.title}</h3>
-                </div>
-                <p className="mt-4 text-lg text-muted-foreground">{service.description}</p>
-                 <Button variant="link" className="px-0 mt-4 text-primary">
+            <Card key={index} className="bg-card/50 dark:bg-card/30 border-white/10 flex flex-col group hover:border-primary/50 transition-colors duration-300">
+              <CardHeader className="flex-row items-center gap-4">
+                 <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+                    <service.icon className="h-6 w-6" aria-hidden="true" />
+                 </div>
+                 <CardTitle className="font-headline text-xl text-foreground">{service.title}</CardTitle>
+              </CardHeader>
+              <CardContent className="flex-grow">
+                <p className="text-muted-foreground">{service.description}</p>
+              </CardContent>
+               <CardFooter>
+                 <Button variant="link" className="px-0 text-primary">
                     Learn More <ArrowRight className="ml-2 h-4 w-4"/>
                  </Button>
-              </div>
-              <div className={`md:order-${index % 2 === 0 ? '2' : '1'} group`}>
-                <div className="relative overflow-hidden rounded-lg shadow-lg">
-                  <Image src={service.imageUrl} data-ai-hint={service.dataAiHint} alt={service.title} width={600} height={400} className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105" />
-                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                </div>
-              </div>
-            </div>
+              </CardFooter>
+            </Card>
           ))}
         </div>
       </div>
