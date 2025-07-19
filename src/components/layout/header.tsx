@@ -21,10 +21,10 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center">
+      <div className="flex h-16 items-center px-4 sm:px-6 lg:px-8">
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-6">
-          <Link href="/" className="flex items-center space-x-2">
+        <div className="hidden md:flex items-center">
+          <Link href="/" className="mr-6 flex items-center space-x-2">
             <Image src="/logo-dark.svg" alt="Frata BIM Logo" width={120} height={40} className="dark:hidden" />
             <Image src="/logo-light.svg" alt="Frata BIM Logo" width={120} height={40} className="hidden dark:block" />
           </Link>
@@ -42,7 +42,7 @@ export function Header() {
         </div>
 
         {/* Mobile Navigation */}
-        <div className="flex items-center justify-between w-full md:hidden">
+        <div className="flex items-center md:hidden">
             <Sheet>
                 <SheetTrigger asChild>
                 <Button variant="ghost" size="icon">
@@ -68,12 +68,15 @@ export function Header() {
                 </div>
                 </SheetContent>
             </Sheet>
-
+        </div>
+        
+        <div className="flex flex-1 items-center justify-center md:hidden">
             <Link href="/" className="flex items-center space-x-2">
                 <Image src="/logo-dark.svg" alt="Frata BIM Logo" width={120} height={40} className="dark:hidden" />
                 <Image src="/logo-light.svg" alt="Frata BIM Logo" width={120} height={40} className="hidden dark:block" />
             </Link>
         </div>
+
 
         {/* Right-aligned controls */}
         <div className="flex items-center ml-auto">
