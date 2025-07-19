@@ -29,7 +29,7 @@ const Animated = ({ children, className, delay = 0 }: { children: React.ReactNod
       ref={ref}
       className={cn(
         "transition-all duration-700 ease-out",
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10",
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5",
         className
       )}
       style={{ transitionDelay: `${delay}ms` }}
