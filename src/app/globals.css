@@ -43,7 +43,7 @@ body {
     --popover-foreground: 210 20% 98%;
     --primary: 180 60% 50%; /* rgb(51, 204, 204) */
     --primary-foreground: 211 61% 10%;
-    --secondary: 211 40% 25%;
+    --secondary: 211 55% 12%; /* Darker, more subtle secondary background */
     --secondary-foreground: 210 20% 98%;
     --muted: 211 30% 35%;
     --muted-foreground: 211 25% 75%;
