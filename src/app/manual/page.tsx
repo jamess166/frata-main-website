@@ -92,7 +92,7 @@ export default function ManualPage() {
             <SidebarMenu>
               {manualContent.map((category: Category) => (
                 <SidebarMenuItem key={category.id}>
-                  <h3 className="px-4 pt-4 pb-2 text-sm font-semibold text-muted-foreground tracking-wider uppercase">
+                  <h3 className="px-4 pt-8 pb-2 text-sm font-semibold text-muted-foreground tracking-wider uppercase">
                     {t(category.titleKey)}
                   </h3>
                   <ul className="space-y-1 pl-4">
