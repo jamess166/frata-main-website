@@ -68,6 +68,10 @@ const iconMap = {
     'HardHat': HardHat,
     'Layers': Layers,
     'CheckCircle': CheckCircle,
+    'TrendingUp': TrendingUp,
+    'Repeat': Repeat,
+    'ListChecks': ListChecks,
+    'Wrench': Wrench,
 } as const;
 
 type IconName = keyof typeof iconMap;
@@ -104,8 +108,21 @@ export const ServiceDetailClient: FC<ServiceDetailClientProps> = ({ serviceInfo 
   const title = t(serviceInfo.titleKey)
   const detail = t(serviceInfo.detailKey)
   
-  const [intro, twoDVthreeD, benefits, process] = detail.split('---SPLIT---');
-  const benefitItems = benefits ? benefits.trim().split('\n') : [];
+  const [
+    intro, 
+    problem, 
+    benefitsTender, 
+    benefitsDesign, 
+    benefitsConstruction, 
+    deliverables,
+    process,
+    cta
+  ] = detail.split('---SPLIT---');
+
+  const benefitsTenderItems = benefitsTender ? benefitsTender.trim().split('\n').slice(1) : [];
+  const benefitsDesignItems = benefitsDesign ? benefitsDesign.trim().split('\n').slice(1) : [];
+  const benefitsConstructionItems = benefitsConstruction ? benefitsConstruction.trim().split('\n').slice(1) : [];
+
 
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 space-y-16">
@@ -123,38 +140,66 @@ export const ServiceDetailClient: FC<ServiceDetailClientProps> = ({ serviceInfo 
             {title}
         </h1>
         <p className="mt-6 text-xl text-muted-foreground">
-            {t('service4Desc')}
+            {intro}
         </p>
       </header>
 
+      {/* Problem Section */}
       <section className="grid lg:grid-cols-2 gap-12 items-center">
-        <div className="space-y-6">
-            <ServiceDetailContent content={twoDVthreeD} />
-        </div>
         <div className="relative h-96 lg:h-full min-h-[24rem]">
             <Image
                 src="https://placehold.co/800x600.png"
-                data-ai-hint="3d rebar model"
-                alt="3D Rebar Model"
+                data-ai-hint="2d blueprint drawing"
+                alt="Traditional 2D rebar drawing"
                 layout="fill"
                 objectFit="cover"
                 className="rounded-lg shadow-xl"
             />
         </div>
+        <div className="space-y-6">
+            <ServiceDetailContent content={problem} />
+        </div>
       </section>
 
+      {/* Benefits Section */}
       <section className="py-24 bg-secondary -mx-24 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
             <div className="text-center max-w-3xl mx-auto">
                  <h2 className="text-base font-bold uppercase tracking-widest text-primary">{t('aboutValue3')}</h2>
                  <p className="font-headline text-3xl font-bold text-foreground sm:text-4xl mt-2">{t('valuesTitle')}</p>
             </div>
-            <BenefitsSection benefits={benefitItems} />
+            
+            <h3 className="font-headline text-2xl mt-12 mb-4 text-center text-primary">{t('benefitsTenderTitle')}</h3>
+            <BenefitsSection benefits={benefitsTenderItems} />
+            
+            <h3 className="font-headline text-2xl mt-12 mb-4 text-center text-primary">{t('benefitsDesignTitle')}</h3>
+            <BenefitsSection benefits={benefitsDesignItems} />
+            
+            <h3 className="font-headline text-2xl mt-12 mb-4 text-center text-primary">{t('benefitsConstructionTitle')}</h3>
+            <BenefitsSection benefits={benefitsConstructionItems} />
         </div>
       </section>
 
+      {/* Deliverables Section */}
       <section className="grid lg:grid-cols-2 gap-12 items-center">
          <div className="relative h-96 lg:h-full min-h-[24rem] lg:order-last">
+            <Image
+                src="https://placehold.co/800x600.png"
+                data-ai-hint="bim model on tablet"
+                alt="BIM model being reviewed on a tablet"
+                layout="fill"
+                objectFit="cover"
+                className="rounded-lg shadow-xl"
+            />
+        </div>
+        <div className="space-y-6">
+           <ServiceDetailContent content={deliverables} />
+        </div>
+      </section>
+
+       {/* Process Section */}
+      <section className="grid lg:grid-cols-2 gap-12 items-center">
+         <div className="relative h-96 lg:h-full min-h-[24rem]">
             <Image
                 src="https://placehold.co/800x600.png"
                 data-ai-hint="bim collaboration meeting"
@@ -169,10 +214,10 @@ export const ServiceDetailClient: FC<ServiceDetailClientProps> = ({ serviceInfo 
         </div>
       </section>
 
-       <div className="text-center pt-16">
+       <div className="text-center pt-16 bg-primary/5 dark:bg-primary/10 rounded-lg p-10">
            <h2 className="font-headline text-3xl font-bold">{t('ctaTitle')}</h2>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-              {t('ctaDesc')}
+              {cta}
             </p>
            <Button asChild size="lg" className="mt-8">
             <Link href="/#contact">{t('heroCTA')}</Link>
