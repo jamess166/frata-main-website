@@ -4,8 +4,10 @@ import type { FC } from "react"
 import Image from "next/image"
 import { useLanguage } from "@/hooks/use-language"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, CheckCircle, Layers, ListChecks, Repeat, TrendingUp, Wrench } from "lucide-react"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { ArrowLeft, CheckCircle, Layers, ListChecks, Repeat, TrendingUp, Wrench, Users, AlertTriangle, FileText, Scaling, HardHat } from "lucide-react"
 import Link from "next/link"
+import { cn } from "@/lib/utils"
 
 // Define a type for the translation keys related to services
 type ServiceTitleKey = `service${1|2|3|4|5|6}Title`;
@@ -31,44 +33,19 @@ const ServiceDetailContent: FC<{ content: string }> = ({ content }) => {
           const title = section.substring(4);
           return <h3 key={index} className="font-headline text-2xl mt-8 mb-4 text-primary">{title}</h3>;
         }
+        if (section.startsWith('## ')) {
+            const title = section.substring(3);
+            return <h2 key={index} className="font-headline text-3xl mt-12 mb-6 text-foreground text-center">{title}</h2>
+        }
         if (section.startsWith('- ')) {
           const items = section.split('\n').map(item => item.substring(2));
-          const icons = {
-            "3D Rebar Modeling": Layers,
-            "Rebar Shop Drawings": Wrench,
-            "Bar Bending Schedules (BBS)": ListChecks,
-            "As-Built Modeling": Repeat,
-            "Enhanced Accuracy": CheckCircle,
-            "Improved Visualization": Layers,
-            "Efficient Material Management": TrendingUp,
-            "Streamlined Construction": Wrench,
-            "Requirement Analysis": ListChecks,
-            "3D Modeling": Layers,
-            "Clash Detection": CheckCircle,
-            "Deliverables Generation": Wrench,
-            "Quality Assurance": CheckCircle,
-            "Modelado 3D de Armaduras": Layers,
-            "Planos de Taller de Armaduras": Wrench,
-            "Listas de Doblado de Barras (BBS)": ListChecks,
-            "Modelado As-Built": Repeat,
-            "Precisión Mejorada": CheckCircle,
-            "Visualización Optimizada": Layers,
-            "Gestión Eficiente de Materiales": TrendingUp,
-            "Construcción Simplificada": Wrench,
-            "Análisis de Requisitos": ListChecks,
-            "Detección de Interferencias": CheckCircle,
-            "Generación de Entregables": Wrench,
-            "Control de Calidad": CheckCircle,
-          };
           return (
             <ul key={index} className="space-y-3 p-0">
               {items.map((item, itemIndex) => {
-                const [itemName] = item.split(':');
-                const Icon = icons[itemName.trim() as keyof typeof icons] || CheckCircle;
                 return (
                   <li key={itemIndex} className="flex items-start gap-3 p-0 my-2">
                      <div className="flex-shrink-0 mt-1">
-                      <Icon className="h-5 w-5 text-primary" />
+                      <CheckCircle className="h-5 w-5 text-primary" />
                      </div>
                     <span>{item}</span>
                   </li>
@@ -83,12 +60,52 @@ const ServiceDetailContent: FC<{ content: string }> = ({ content }) => {
   );
 };
 
+const iconMap = {
+    'Users': Users,
+    'AlertTriangle': AlertTriangle,
+    'FileText': FileText,
+    'Scaling': Scaling,
+    'HardHat': HardHat,
+    'Layers': Layers,
+    'CheckCircle': CheckCircle,
+} as const;
+
+type IconName = keyof typeof iconMap;
+
+const BenefitsSection: FC<{ benefits: string[] }> = ({ benefits }) => {
+    return (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+            {benefits.map((benefit, index) => {
+                const [iconName, title, ...descriptionParts] = benefit.split(': ');
+                const description = descriptionParts.join(': ');
+                const IconComponent = iconMap[iconName as IconName] || CheckCircle;
+                return (
+                    <Card key={index} className="bg-secondary/50 border-0 shadow-none">
+                        <CardHeader className="flex flex-row items-center gap-4">
+                            <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                                <IconComponent className="h-6 w-6" />
+                            </div>
+                            <CardTitle className="font-headline text-xl text-foreground">{title}</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <p className="text-muted-foreground">{description}</p>
+                        </CardContent>
+                    </Card>
+                );
+            })}
+        </div>
+    );
+}
+
 
 export const ServiceDetailClient: FC<ServiceDetailClientProps> = ({ serviceInfo }) => {
   const { t } = useLanguage()
 
   const title = t(serviceInfo.titleKey)
   const detail = t(serviceInfo.detailKey)
+  
+  const [intro, twoDVthreeD, benefits, process] = detail.split('---SPLIT---');
+  const benefitItems = benefits ? benefits.trim().split('\n') : [];
 
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 space-y-16">
@@ -96,29 +113,62 @@ export const ServiceDetailClient: FC<ServiceDetailClientProps> = ({ serviceInfo 
         <Button asChild variant="ghost" className="-ml-4">
           <Link href="/#services">
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Services
+            {t('services')}
           </Link>
         </Button>
       </div>
 
-      <div className="grid lg:grid-cols-5 gap-16 items-start">
-        <div className="lg:col-span-3 space-y-6">
-          <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+      <header className="text-center max-w-4xl mx-auto">
+        <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
             {title}
-          </h1>
-          <ServiceDetailContent content={detail} />
+        </h1>
+        <p className="mt-6 text-xl text-muted-foreground">
+            {t('service4Desc')}
+        </p>
+      </header>
+
+      <section className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="space-y-6">
+            <ServiceDetailContent content={twoDVthreeD} />
         </div>
-        <div className="lg:col-span-2 relative h-96 lg:h-full min-h-[24rem] lg:min-h-[36rem] sticky top-24">
-          <Image
-            src={`https://placehold.co/800x1000.png`}
-            data-ai-hint={serviceInfo.dataAiHint}
-            alt={title}
-            layout="fill"
-            objectFit="cover"
-            className="rounded-lg shadow-xl"
-          />
+        <div className="relative h-96 lg:h-full min-h-[24rem]">
+            <Image
+                src="https://placehold.co/800x600.png"
+                data-ai-hint="3d rebar model"
+                alt="3D Rebar Model"
+                layout="fill"
+                objectFit="cover"
+                className="rounded-lg shadow-xl"
+            />
         </div>
-      </div>
+      </section>
+
+      <section className="py-24 bg-secondary -mx-24 px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto">
+            <div className="text-center max-w-3xl mx-auto">
+                 <h2 className="text-base font-bold uppercase tracking-widest text-primary">{t('aboutValue3')}</h2>
+                 <p className="font-headline text-3xl font-bold text-foreground sm:text-4xl mt-2">{t('valuesTitle')}</p>
+            </div>
+            <BenefitsSection benefits={benefitItems} />
+        </div>
+      </section>
+
+      <section className="grid lg:grid-cols-2 gap-12 items-center">
+         <div className="relative h-96 lg:h-full min-h-[24rem] lg:order-last">
+            <Image
+                src="https://placehold.co/800x600.png"
+                data-ai-hint="bim collaboration meeting"
+                alt="BIM Collaboration"
+                layout="fill"
+                objectFit="cover"
+                className="rounded-lg shadow-xl"
+            />
+        </div>
+        <div className="space-y-6">
+           <ServiceDetailContent content={process} />
+        </div>
+      </section>
+
        <div className="text-center pt-16">
            <h2 className="font-headline text-3xl font-bold">{t('ctaTitle')}</h2>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
