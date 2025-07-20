@@ -17,7 +17,6 @@ import { submitContactForm, ContactFormState } from './actions';
 import { PlexusBackground } from '@/components/plexus-background';
 import { useIntersectionObserver } from '@/hooks/use-intersection-observer';
 import { cn } from '@/lib/utils';
-import { BimRoom } from '@/components/bim-room';
 
 
 const Animated = ({ children, className, delay = 0 }: { children: React.ReactNode, className?: string, delay?: number }) => {
@@ -108,7 +107,7 @@ const AboutUsSection: FC = () => {
         </Animated>
         <Animated delay={200}>
           <div className="relative h-[500px] w-full rounded-lg overflow-hidden border shadow-lg bg-secondary">
-             <BimRoom />
+             <Image src="https://placehold.co/800x600.png" data-ai-hint="BIM model abstract" alt="BIM Model" layout="fill" objectFit="cover" />
           </div>
         </Animated>
       </div>
