@@ -143,6 +143,17 @@ export const ServiceDetailClient: FC<ServiceDetailClientProps> = ({ serviceInfo 
             {intro}
         </p>
       </header>
+        
+      <div className="my-12 rounded-lg border overflow-hidden shadow-lg aspect-w-16 aspect-h-9">
+        <Image
+          src="https://placehold.co/1200x675.png"
+          data-ai-hint="engineers bim meeting"
+          alt="Team of engineers reviewing a 3D rebar model"
+          width={1200}
+          height={675}
+          className="w-full object-cover"
+        />
+      </div>
 
       {/* Problem Section */}
       <section className="grid lg:grid-cols-2 gap-12 items-center">
