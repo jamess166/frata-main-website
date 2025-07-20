@@ -107,7 +107,7 @@ const AboutUsSection: FC = () => {
         </Animated>
         <Animated delay={200}>
           <div className="relative h-[500px] w-full rounded-lg overflow-hidden border shadow-lg bg-secondary">
-             <Image src="https://placehold.co/800x600.png" data-ai-hint="BIM model abstract" alt="BIM Model" layout="fill" objectFit="cover" />
+             <Image src="https://firebasestudio-hosting.web.app/images/clxnx43if0008m80ph2q0p1d8/clxp1h27j00002868s4w4s2g8_1721419914755.png" data-ai-hint="engineering meeting" alt="Engineering team discussing a BIM model" layout="fill" objectFit="cover" />
           </div>
         </Animated>
       </div>
