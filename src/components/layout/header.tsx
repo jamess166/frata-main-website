@@ -4,7 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { LanguageSwitcher } from "@/components/language-switcher"
 import { useLanguage } from "@/hooks/use-language"
@@ -51,11 +51,14 @@ export function Header() {
                 </Button>
                 </SheetTrigger>
                 <SheetContent side="left">
-                <Link href="/" className="flex items-center">
+                 <SheetHeader className="p-4">
+                    <SheetTitle className="sr-only">Navigation</SheetTitle>
+                 </SheetHeader>
+                <Link href="/" className="flex items-center px-4">
                     <Image src="/logo-dark.svg" alt="Frata BIM Logo" width={120} height={40} className="dark:hidden" />
                     <Image src="/logo-light.svg" alt="Frata BIM Logo" width={120} height={40} className="hidden dark:block" />
                 </Link>
-                <div className="grid gap-4 py-6">
+                <div className="grid gap-4 py-6 px-4">
                     {navItems.map(item => (
                     <Link
                         key={item.href}
