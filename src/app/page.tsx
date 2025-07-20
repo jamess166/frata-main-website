@@ -1,8 +1,8 @@
 "use client"
 
 import type { FC } from 'react';
-import React, { useEffect, useRef, useState } from 'react';
-import { useFormState, useFormStatus } from "react-dom";
+import React, { useEffect, useRef, useState, useActionState } from 'react';
+import { useFormStatus } from "react-dom";
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
@@ -218,7 +218,7 @@ const initialState: ContactFormState = {
 const ContactSection: FC = () => {
   const { t } = useLanguage();
   const { toast } = useToast();
-  const [state, formAction] = useFormState(submitContactForm, initialState);
+  const [state, formAction] = useActionState(submitContactForm, initialState);
   const formRef = React.useRef<HTMLFormElement>(null);
 
   useEffect(() => {
