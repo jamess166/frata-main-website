@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useEffect } from 'react';
-import { useTheme } from '@/components/theme-provider';
+import { useTheme } from 'next-themes';
 
 class Point {
   x: number;
@@ -56,8 +56,8 @@ export const PlexusBackground: React.FC = () => {
         lines: 'rgba(51, 204, 204, 0.1)'
       },
       light: {
-        points: 'rgba(59, 130, 246, 0.5)', // primary
-        lines: 'rgba(59, 130, 246, 0.1)'
+        points: 'rgba(0, 48, 143, 0.5)', // primary #00308F
+        lines: 'rgba(0, 48, 143, 0.1)'
       }
     };
     
