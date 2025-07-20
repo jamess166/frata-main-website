@@ -158,7 +158,7 @@ export function BimRoom() {
     // Cleanup
     return () => {
       window.removeEventListener("resize", handleResize)
-      if (mountRef.current) {
+      if (mountRef.current && renderer.domElement) {
         mountRef.current.removeChild(renderer.domElement)
       }
       scene.clear()
