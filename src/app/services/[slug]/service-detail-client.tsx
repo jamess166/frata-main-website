@@ -21,7 +21,7 @@ interface ServiceDetailClientProps {
   serviceInfo: ServiceInfo
 }
 
-const ServiceDetailContent: FC<{ content: string }> = () => {
+const ServiceDetailContent: FC<{ content: string }> = ({ content }) => {
   const sections = content.split('\n\n');
 
   return (
@@ -131,5 +131,3 @@ export const ServiceDetailClient: FC<ServiceDetailClientProps> = ({ serviceInfo 
     </div>
   )
 }
-
-    
