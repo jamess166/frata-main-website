@@ -22,10 +22,6 @@ interface ServiceInfo {
   dataAiHint: string;
 }
 
-interface ServiceDetailClientProps {
-  serviceInfo: ServiceInfo
-}
-
 const SectionTitle: FC<{ children: ReactNode, subtitle?: string }> = ({ children, subtitle }) => (
   <div className="text-center max-w-3xl mx-auto">
     {subtitle && <h2 className="text-base font-bold uppercase tracking-widest text-primary">{subtitle}</h2>}
@@ -96,58 +92,62 @@ export const ServiceDetailClient: FC<ServiceDetailClientProps> = ({ serviceInfo 
   const processSteps = process ? process.trim().split('\n').slice(1) : [];
   const whyUsPoints = whyUs ? whyUs.trim().split('\n').slice(1) : [];
   const quantifiedAdvantagesText = t('quantifiedAdvantages');
-    const quantifiedAdvantages = quantifiedAdvantagesText ? quantifiedAdvantagesText.trim().split('\n') : [];
+  const quantifiedAdvantages = quantifiedAdvantagesText ? quantifiedAdvantagesText.trim().split('\n') : [];
 
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 space-y-24">
-       <div className="relative">
-        <Button asChild variant="ghost" className="-ml-4">
-          <Link href="/#services">
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            {t('services')}
-          </Link>
-        </Button>
-      </div>
-
-      <header className="text-center max-w-4xl mx-auto space-y-6">
-        <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            {title}
-        </h1>
-        <p className="text-xl text-muted-foreground">
-            {intro}
-        </p>
-      </header>
-        
-      <div className="my-12 rounded-lg border overflow-hidden shadow-lg aspect-w-16 aspect-h-9">
-        <Image
-          src="https://placehold.co/1200x675.png"
-          data-ai-hint="3d rebar model"
-          alt="Team of engineers reviewing a 3D rebar model"
-          width={1200}
-          height={675}
-          className="w-full object-cover"
-        />
-      </div>
-
-      <section className="grid lg:grid-cols-2 gap-12 items-center">
-        <div className="relative h-96 lg:h-full min-h-[24rem]">
-            <Image
-                src="https://placehold.co/800x600.png"
-                data-ai-hint="2d blueprint drawing"
-                alt="Traditional 2D rebar drawing with errors"
-                layout="fill"
-                objectFit="cover"
-                className="rounded-lg shadow-xl"
-            />
+    <div className="space-y-24 pb-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24">
+        <div className="relative">
+          <Button asChild variant="ghost" className="-ml-4">
+            <Link href="/#services">
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              {t('services')}
+            </Link>
+          </Button>
         </div>
-        <div className="space-y-6">
-           <h3 className="font-headline text-3xl font-bold text-foreground">{(problem || "").split('\n')[0]}</h3>
-           <p className="text-lg text-muted-foreground leading-relaxed">{(problem || "").split('\n').slice(1).join(' ')}</p>
+
+        <header className="text-center max-w-4xl mx-auto space-y-6 mt-8">
+          <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+              {title}
+          </h1>
+          <p className="text-xl text-muted-foreground">
+              {intro}
+          </p>
+        </header>
+          
+        <div className="my-12 rounded-lg border overflow-hidden shadow-lg aspect-w-16 aspect-h-9">
+          <Image
+            src="https://placehold.co/1200x675.png"
+            data-ai-hint="3d rebar model"
+            alt="Team of engineers reviewing a 3D rebar model"
+            width={1200}
+            height={675}
+            className="w-full object-cover"
+          />
+        </div>
+      </div>
+      
+      <section className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="relative h-96 lg:h-full min-h-[24rem]">
+              <Image
+                  src="https://placehold.co/800x600.png"
+                  data-ai-hint="2d blueprint drawing"
+                  alt="Traditional 2D rebar drawing with errors"
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-lg shadow-xl"
+              />
+          </div>
+          <div className="space-y-6">
+            <h3 className="font-headline text-3xl font-bold text-foreground">{(problem || "").split('\n')[0]}</h3>
+            <p className="text-lg text-muted-foreground leading-relaxed">{(problem || "").split('\n').slice(1).join(' ')}</p>
+          </div>
         </div>
       </section>
 
-      <section className="py-24 bg-secondary -mx-4 sm:-mx-6 lg:-mx-8">
+      <section className="py-24 bg-secondary">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <SectionTitle subtitle={t('benefits')}>{t('benefitsByPhase')}</SectionTitle>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
@@ -166,7 +166,7 @@ export const ServiceDetailClient: FC<ServiceDetailClientProps> = ({ serviceInfo 
         </div>
       </section>
       
-      <section>
+      <section className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle subtitle="Results">{t('quantifiedAdvantagesTitle')}</SectionTitle>
            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
                 {quantifiedAdvantages.map((advantage, index) => {
@@ -186,27 +186,29 @@ export const ServiceDetailClient: FC<ServiceDetailClientProps> = ({ serviceInfo 
            </div>
       </section>
 
-      <section className="grid lg:grid-cols-2 gap-16 items-center">
-         <div className="relative h-[600px] lg:h-full min-h-[24rem] lg:order-last">
-            <Image
-                src="https://placehold.co/800x1000.png"
-                data-ai-hint="bim workflow diagram"
-                alt="BIM workflow process"
-                layout="fill"
-                objectFit="cover"
-                className="rounded-lg shadow-xl"
-            />
-        </div>
-        <div className="space-y-12">
-           <SectionTitle>{t('ourProcess')}</SectionTitle>
-           {processSteps.map((step, index) => {
-               const [title, description] = step.split(':');
-               return <ProcessStep key={title} number={`0${index + 1}`} title={title.replace(/\d+\. /, '').trim()}>{description}</ProcessStep>
-           })}
+      <section className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="relative h-[600px] lg:h-full min-h-[24rem] lg:order-last">
+              <Image
+                  src="https://placehold.co/800x1000.png"
+                  data-ai-hint="bim workflow diagram"
+                  alt="BIM workflow process"
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-lg shadow-xl"
+              />
+          </div>
+          <div className="space-y-12">
+            <SectionTitle>{t('ourProcess')}</SectionTitle>
+            {processSteps.map((step, index) => {
+                const [title, description] = step.split(':');
+                return <ProcessStep key={title} number={`0${index + 1}`} title={title.replace(/\d+\. /, '').trim()}>{description}</ProcessStep>
+            })}
+          </div>
         </div>
       </section>
 
-      <section className="py-24 bg-secondary -mx-4 sm:-mx-6 lg:-mx-8">
+      <section className="py-24 bg-secondary">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle>{t('whyChooseUs')}</SectionTitle>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
@@ -228,7 +230,7 @@ export const ServiceDetailClient: FC<ServiceDetailClientProps> = ({ serviceInfo 
         </div>
       </section>
 
-       <section className="py-24 bg-primary/5 dark:bg-primary/10 -mx-4 sm:-mx-6 lg:-mx-8">
+       <section className="py-24 bg-primary/5 dark:bg-primary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
            <h2 className="font-headline text-3xl font-bold">{t('ctaTitle')}</h2>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
