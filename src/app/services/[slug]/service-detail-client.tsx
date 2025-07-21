@@ -242,5 +242,3 @@ export const ServiceDetailClient: FC<ServiceDetailClientProps> = ({ serviceInfo 
     </div>
   )
 }
-
-    
