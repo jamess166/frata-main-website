@@ -6,7 +6,7 @@ import Image from "next/image"
 import { useLanguage } from "@/hooks/use-language"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowLeft, CheckCircle, TrendingUp, Users, HardHat, FileText, Scaling, ShieldCheck, Cpu, Zap, Percent } from "lucide-react"
+import { ArrowLeft, CheckCircle, TrendingUp, Users, HardHat, FileText, Scaling, ShieldCheck, Cpu, Zap, Percent, Wrench } from "lucide-react"
 import Link from "next/link"
 import React, { useRef } from "react"
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer"
@@ -92,7 +92,7 @@ export const ServiceDetailClient: FC<ServiceDetailClientProps> = ({ serviceInfo 
     whyUs
   ] = detail.split('---SPLIT---');
 
-  const benefitsByPhase = benefits ? benefits.trim().split('\n').filter(line => line.startsWith('**')) : [];
+  const benefitsByPhase = benefits ? benefits.trim().split('\n').filter(line => line.length > 0) : [];
   const processSteps = process ? process.trim().split('\n').slice(1) : [];
   const whyUsPoints = whyUs ? whyUs.trim().split('\n').slice(1) : [];
   const quantifiedAdvantagesText = t('quantifiedAdvantages');
@@ -152,7 +152,7 @@ export const ServiceDetailClient: FC<ServiceDetailClientProps> = ({ serviceInfo 
             <SectionTitle subtitle={t('benefits')}>{t('benefitsByPhase')}</SectionTitle>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
                 {benefitsByPhase.map((benefit) => {
-                    const [phase, description] = benefit.replace(/\*\*/g, '').split(':');
+                    const [phase, description] = benefit.split(':');
                     return (
                         <Card key={phase} className="bg-card/50 border-white/10 flex flex-col group hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-2 h-full p-6">
                            <CardTitle className="font-headline text-xl text-primary">{phase}</CardTitle>
@@ -201,7 +201,7 @@ export const ServiceDetailClient: FC<ServiceDetailClientProps> = ({ serviceInfo 
            <SectionTitle>{t('ourProcess')}</SectionTitle>
            {processSteps.map((step, index) => {
                const [title, description] = step.split(':');
-               return <ProcessStep key={title} number={`0${index + 1}`} title={title.replace(/\d+\./, '').trim()}>{description}</ProcessStep>
+               return <ProcessStep key={title} number={`0${index + 1}`} title={title.replace(/\d+\. /, '').trim()}>{description}</ProcessStep>
            })}
         </div>
       </section>
@@ -209,7 +209,7 @@ export const ServiceDetailClient: FC<ServiceDetailClientProps> = ({ serviceInfo 
       <section className="py-24 bg-secondary -mx-24 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
           <SectionTitle>{t('whyChooseUs')}</SectionTitle>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
             {whyUsPoints.map((point) => {
                  const [title, description] = point.split(':');
                  const icons: { [key: string]: React.ReactNode } = {
@@ -217,6 +217,7 @@ export const ServiceDetailClient: FC<ServiceDetailClientProps> = ({ serviceInfo 
                     'technology': <Cpu className="h-8 w-8" />,
                     'approach': <Zap className="h-8 w-8" />,
                     'savings': <Percent className="h-8 w-8" />,
+                    'specialized': <Wrench className="h-8 w-8" />,
                 };
                 const iconKey = Object.keys(icons).find(key => title.toLowerCase().includes(key)) || 'team';
                 return (
