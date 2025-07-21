@@ -80,8 +80,8 @@ const BenefitsSection: FC<{ benefits: string[] }> = ({ benefits }) => {
     return (
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
             {benefits.map((benefit, index) => {
-                const [iconName, title, ...descriptionParts] = benefit.split(': ');
-                const description = descriptionParts.join(': ');
+                const [iconName, title, ...descriptionParts] = benefit.split(':');
+                const description = descriptionParts.join(':');
                 const IconComponent = iconMap[iconName as IconName] || CheckCircle;
                 return (
                     <Card key={index} className="bg-secondary/50 border-0 shadow-none">
@@ -115,13 +115,13 @@ export const ServiceDetailClient: FC<ServiceDetailClientProps> = ({ serviceInfo 
     benefitsDesign, 
     benefitsConstruction, 
     deliverables,
-    process,
-    cta
+    process
   ] = detail.split('---SPLIT---');
 
   const benefitsTenderItems = benefitsTender ? benefitsTender.trim().split('\n').slice(1) : [];
   const benefitsDesignItems = benefitsDesign ? benefitsDesign.trim().split('\n').slice(1) : [];
   const benefitsConstructionItems = benefitsConstruction ? benefitsConstruction.trim().split('\n').slice(1) : [];
+  const cta = t('ctaDesc');
 
 
   return (

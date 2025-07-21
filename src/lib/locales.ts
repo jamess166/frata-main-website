@@ -55,34 +55,31 @@ export const translations = {
     service4Detail: `Boost your project with millimeter precision and total coordination. Our 3D rebar detailing service transforms the planning and execution of complex reinforced concrete structures using LOD 400 BIM models, ready for fabrication. We are experts who solve problems before construction begins, from bidding to on-site work.
 ---SPLIT---
 ### The Limitations of 2D... No Longer an Option
-Traditional 2D drawings fragment information: multiple sheets, scattered details, interpretation errors, and conflicts that remain invisible until it's too late. We work in 3D from the start. We detect conflicts before they cost money. We visualize every detail with clarity. We coordinate with all disciplines for construction without surprises.
+Traditional 2D drawings fragment information: multiple sheets, scattered details, interpretation errors, and conflicts that remain invisible until it's too late. With 3D modeling, we identify clashes before they cost money, visualize every detail with clarity, and coordinate with all disciplines to ensure construction proceeds without surprises, avoiding costly rework and delays.
 ---SPLIT---
 ### Benefits During Tender & Pre-construction
-Scaling: Accurate Tonnage, Solid Decisions: Tonnage estimation with less than a 3% margin of error. Ideal for fixed-price bids.
-ListChecks: Smart Procurement: Early and accurate orders for steel by diameter and quantity.
-TrendingUp: Buildability without Trial-and-Error: Early detection of construction issues, with solutions before the first bar is placed.
+Users:Accurate Tonnage, Solid Decisions:Tonnage estimation with less than a 3% margin of error. Ideal for fixed-price bids, providing financial certainty from the start.
+ListChecks:Smart Procurement:Early and accurate orders for steel by diameter and quantity, optimizing inventory and cash flow.
+TrendingUp:Buildability without Trial-and-Error:Early detection of construction issues, with solutions designed and validated in the model before the first bar is placed on site.
 ---SPLIT---
 ### Benefits During Design Stage
-AlertTriangle: Designs That Can Actually Be Built: We validate the practical feasibility of every structural detail.
-Repeat: Frictionless Collaboration: Continuous model flow between teams, always with the latest version.
-CheckCircle: Living Models: Live drawings linked to the 3D model for fast, clear, and unambiguous checks.
-Users: Cross-Disciplinary Coordination: Early interaction with MEP and other disciplines to eliminate conflicts before construction.
+AlertTriangle:Designs That Can Actually Be Built:We validate the practical feasibility of every structural detail, ensuring that the design is robust and buildable.
+Repeat:Frictionless Collaboration:Continuous model flow between teams ensures everyone is working with the latest version, eliminating confusion and errors.
+CheckCircle:Living Models:Drawings are dynamically linked to the 3D model for fast, clear, and unambiguous checks, making the review process more efficient.
 ---SPLIT---
 ### Benefits During Construction
-HardHat: Zero Rework, Zero Improvisation: We reduce on-site cutting, bending, and errors.
-FileText: Models Always at Hand: Access from tablets, phones, and AR/MR technology directly on site.
-Wrench: Visual Progress Tracking: Color-coding in the model according to status: delivered, installed, pending.
+HardHat:Zero Rework, Zero Improvisation:By detailing every component in 3D, we drastically reduce on-site cutting, bending, and errors, ensuring a smooth workflow.
+FileText:Models Always at Hand:Access updated models from tablets, phones, and even AR/MR technology directly on site, putting critical information in the hands of those who need it.
+Wrench:Visual Progress Tracking:Utilize color-coding in the model to track progress by status: delivered, installed, or pending, providing a clear visual report of the project's status.
 ---SPLIT---
 ### Professional and Actionable Deliverables
-- **100% Coordinated 3D Rebar Models, ready for 4D and 5D.**
-- **Clash and Constructability Reports.**
-- **Conversion of 2D drawings to intelligent BIM with attributes.**
-- **Shop Drawings and Bar Bending Schedules (BBS) generated directly from the approved model.**
+- **100% Coordinated 3D Rebar Models:** Ready for 4D (scheduling) and 5D (cost) integration, providing a comprehensive project overview.
+- **Clash and Constructability Reports:** Detailed reports that identify potential issues before they become costly problems on site.
+- **Conversion of 2D to Intelligent BIM:** We transform legacy 2D drawings into intelligent BIM models with rich attribute data for modern workflows.
+- **Shop Drawings and BBS:** Automated generation of shop drawings and Bar Bending Schedules (BBS) directly from the approved model, ensuring accuracy and consistency.
 ---SPLIT---
 ### Our Collaborative Process
-We use Trimble Connect and other leading platforms to ensure seamless integration among all project stakeholders. This means: centralized and accessible data, clear and friendly visualization, an agile workflow, and instant feedback.
----SPLIT---
-Ready to enhance the precision, efficiency, and collaboration of your next project? Let's discuss how our 3D rebar detailing services can bring your vision to life.`,
+We use Trimble Connect and other leading platforms to ensure seamless integration among all project stakeholders. This means: centralized and accessible data, clear and friendly visualization, an agile workflow, and instant feedback for a fully synchronized project.`,
     service5Title: 'BIM Training & Implementation',
     service5Desc: 'We offer comprehensive training programs and strategic implementation support to empower your team with the latest BIM skills and technologies.',
     service5Detail: 'Empower your team with the knowledge to succeed. We offer customized training programs for all skill levels, from basic BIM principles to advanced software techniques. Our implementation support helps your organization smoothly transition to BIM, establishing standards, workflows, and best practices to ensure you get the maximum return on your technology investment.',
@@ -216,37 +213,34 @@ Ready to enhance the precision, efficiency, and collaboration of your next proje
     service3Detail: 'Cierre la brecha entre el modelo digital y la construcción física con nuestro soporte en obra. Nuestros especialistas en BIM trabajan junto a su equipo de construcción para garantizar que el plan de ejecución de BIM se siga correctamente. Asistimos en la validación de modelos, la resolución de detección de conflictos en el campo, el diseño utilizando datos BIM y la resolución de problemas en tiempo real, minimizando el retrabajo y manteniendo su proyecto en el cronograma.',
     service4Title: 'BIM para Fabricación: Detallado de Acero de Alto Impacto',
     service4Desc: 'Nos especializamos en la creación de modelos de fabricación detallados, incluyendo el detallado de acero de refuerzo (rebar), para optimizar la manufactura.',
-    service4Detail: `Impulsa tu proyecto con precisión milimétrica y coordinación total. Nuestro servicio de detallado 3D de armaduras transforma la planificación y ejecución de estructuras de hormigón armado complejas mediante modelos BIM de nivel de desarrollo LOD 400, listos para fabricación. Somos expertos que resolvemos antes de construir, desde la licitación hasta la obra.
+    service4Detail: `Impulsa tu proyecto con precisión milimétrica y coordinación total. Nuestro servicio de detallado 3D de armaduras transforma la planificación y ejecución de estructuras de hormigón armado complejas mediante modelos BIM LOD 400, listos para fabricación. Somos expertos que resolvemos problemas antes de construir, desde la licitación hasta la obra.
 ---SPLIT---
 ### Las Limitaciones del 2D… Ya No Son una Opción
-Los planos 2D tradicionales fragmentan la información: múltiples hojas, detalles dispersos, errores de interpretación y conflictos invisibles hasta que es demasiado tarde. Nosotros trabajamos en 3D desde el inicio. Detectamos conflictos antes de que cuesten dinero. Visualizamos cada detalle con claridad. Coordinamos con todas las disciplinas para una construcción sin sorpresas.
+Los planos 2D tradicionales fragmentan la información: múltiples hojas, detalles dispersos, errores de interpretación y conflictos que permanecen invisibles hasta que es demasiado tarde. Con el modelado 3D, identificamos interferencias antes de que cuesten dinero, visualizamos cada detalle con claridad y coordinamos con todas las disciplinas para asegurar una construcción sin sorpresas, evitando costosos retrabajos y retrasos.
 ---SPLIT---
 ### Beneficios en Fase de Licitación y Preconstrucción
-Scaling: Tonelajes Precisos, Decisiones Sólidas: Estimación de tonelaje con un margen de error menor al 3%. Ideal para licitaciones a precio fijo.
-ListChecks: Compras Inteligentes: Pedidos tempranos y exactos de acero por diámetros y cantidades.
-TrendingUp: Constructibilidad Sin Ensayo-Error: Detección anticipada de problemas constructivos, con soluciones antes de colocar la primera varilla.
+Users:Tonelajes Precisos, Decisiones Sólidas:Estimación de tonelaje con un margen de error menor al 3%. Ideal para licitaciones a precio fijo, brindando certeza financiera desde el inicio.
+ListChecks:Compras Inteligentes:Pedidos tempranos y exactos de acero por diámetros y cantidades, optimizando el inventario y el flujo de caja.
+TrendingUp:Constructibilidad Sin Ensayo y Error:Detección anticipada de problemas constructivos, con soluciones diseñadas y validadas en el modelo antes de colocar la primera barra en obra.
 ---SPLIT---
 ### Beneficios en Fase de Diseño
-AlertTriangle: Diseños Que Sí Se Pueden Construir: Validamos la viabilidad práctica de cada detalle estructural.
-Repeat: Colaboración Sin Fricción: Flujo continuo de modelos entre equipos, siempre con la última versión.
-CheckCircle: Modelos Que Respiran: Planos vivos vinculados al modelo 3D para chequeos rápidos, claros y sin ambigüedades.
-Users: Coordinación Transversal: Interacción temprana con MEP y otras disciplinas para eliminar conflictos antes de obra.
+AlertTriangle:Diseños Que Sí Se Pueden Construir:Validamos la viabilidad práctica de cada detalle estructural, asegurando que el diseño sea robusto y construible.
+Repeat:Colaboración Sin Fricciones:El flujo continuo de modelos entre equipos asegura que todos trabajen con la última versión, eliminando confusiones y errores.
+CheckCircle:Modelos Vivos:Los planos están vinculados dinámicamente al modelo 3D para verificaciones rápidas, claras e inequívocas, haciendo el proceso de revisión más eficiente.
 ---SPLIT---
 ### Beneficios en Fase de Construcción
-HardHat: Cero Retrabajo, Cero Improvisación: Reducimos cortes, doblados y errores en campo.
-FileText: Modelos Siempre a Mano: Acceso desde tablets, teléfonos y tecnología AR/MR directamente en obra.
-Wrench: Seguimiento Visual del Progreso: Codificación por colores en el modelo según estado: entregado, instalado, pendiente.
+HardHat:Cero Retrabajo, Cero Improvisación:Al detallar cada componente en 3D, reducimos drásticamente los cortes, doblados y errores en obra, asegurando un flujo de trabajo fluido.
+FileText:Modelos Siempre a Mano:Acceda a modelos actualizados desde tabletas, teléfonos e incluso tecnología de AR/MR directamente en obra, poniendo la información crítica en manos de quienes la necesitan.
+Wrench:Seguimiento Visual del Progreso:Utilice la codificación por colores en el modelo para seguir el progreso por estado: entregado, instalado o pendiente, proporcionando un informe visual claro del estado del proyecto.
 ---SPLIT---
 ### Entregables Profesionales y Accionables
-- **Modelos 3D de armaduras 100% coordinados, listos para 4D y 5D.**
-- **Informes de interferencias y constructibilidad.**
-- **Conversión de planos 2D a BIM inteligente con atributos.**
-- **Planos de taller y listados de despiece (BBS) generados directamente desde el modelo aprobado.**
+- **Modelos 3D de armaduras 100% coordinados:** Listos para la integración 4D (planificación) y 5D (costos), proporcionando una visión integral del proyecto.
+- **Informes de Interferencias y Constructibilidad:** Informes detallados que identifican problemas potenciales antes de que se conviertan en costosos problemas en obra.
+- **Conversión de 2D a BIM Inteligente:** Transformamos planos 2D legados en modelos BIM inteligentes con datos enriquecidos para flujos de trabajo modernos.
+- **Planos de Taller y Listados de Despiece (BBS):** Generación automatizada de planos de taller y listados de despiece (BBS) directamente desde el modelo aprobado, garantizando precisión y consistencia.
 ---SPLIT---
 ### Nuestro Proceso Colaborativo
-Usamos Trimble Connect y otras plataformas líderes para garantizar una integración perfecta entre todos los actores del proyecto. Esto se traduce en: datos centralizados y accesibles, visualización clara y amigable, un flujo de trabajo ágil y retroalimentación instantánea.
----SPLIT---
-¿Listo para potenciar la precisión, eficiencia y colaboración de su próximo proyecto? Hablemos sobre cómo nuestros servicios de detallado 3D de armaduras pueden hacer realidad su visión.`,
+Usamos Trimble Connect y otras plataformas líderes para garantizar una integración perfecta entre todos los actores del proyecto. Esto se traduce en: datos centralizados y accesibles, visualización clara y amigable, un flujo de trabajo ágil y retroalimentación instantánea para un proyecto totalmente sincronizado.`,
     service5Title: 'Capacitación e Implementación BIM',
     service5Desc: 'Ofrecemos programas de capacitación integrales y soporte estratégico para capacitar a su equipo con las últimas tecnologías y habilidades BIM.',
     service5Detail: 'Capacite a su equipo con el conocimiento para tener éxito. Ofrecemos programas de formación personalizados para todos los niveles, desde principios básicos de BIM hasta técnicas avanzadas de software. Nuestro soporte de implementación ayuda a su organización a realizar una transición fluida a BIM, estableciendo estándares, flujos de trabajo y mejores prácticas para garantizar que obtenga el máximo rendimiento de su inversión en tecnología.',
