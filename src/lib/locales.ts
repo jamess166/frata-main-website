@@ -58,20 +58,20 @@ export const translations = {
     service3Detail: 'Bridge the gap between the digital model and physical construction with our on-site support. Our BIM specialists work alongside your construction team to ensure that the BIM execution plan is followed correctly. We assist with model validation, clash detection resolution in the field, layout using BIM data, and real-time problem-solving, minimizing rework and keeping your project on schedule.',
     service4Title: 'BIM for Manufacturing: High-Impact Rebar Detailing',
     service4Desc: 'We specialize in creating detailed fabrication models, including precise rebar detailing, to streamline manufacturing and assembly.',
-    service4Detail: `Our 3D rebar detailing service transforms the planning and execution of complex reinforced concrete structures using LOD 400 BIM models, ready for fabrication. We are experts who solve problems before construction begins, from bidding to on-site work.
+    service4Detail: `Our 3D rebar detailing service transforms the planning and execution of complex reinforced concrete structures using high-detail BIM models, ready for fabrication. We are experts who solve problems before construction begins, from bidding to on-site work.
 ---SPLIT---
 The Limitations of 2D... No Longer an Option
 Traditional 2D drawings fragment information, leading to clashes, errors, and costly rework discovered only on-site. With 3D modeling, we identify clashes before they cost money, visualize every detail with clarity, and coordinate with all disciplines to ensure construction proceeds without surprises, avoiding costly rework and delays.
 ---SPLIT---
 Pre-construction: Accurate tonnage estimation (±3%), smart procurement, and proactive buildability analysis.
 Design & Coordination: Feasibility validation, seamless model exchange, and live drawing links for faster checks.
-Fabrication & Assembly: Data export in the format required by the client, optimized prefabrication, and on-site AR/MR integration.
+Fabrication & Assembly: Data export in the client's required format and optimized prefabrication.
 Documentation & Handover: Updated "As-Built" models and complete traceability.
 ---SPLIT---
 ---SPLIT---
-Initial Assessment: Analysis of drawings, BIM goals, and LOD requirements.
-3D Modeling: Structural and parametric detailing with Revit, Tekla, and Advance Steel.
-Detailing: Generation of drawings, schedules, and CNC-ready files.
+Initial Assessment: Analysis of drawings, BIM goals, and modeling requirements.
+3D Modeling: Structural and parametric detailing with leading BIM software like Revit and Tekla.
+Detailing: Generation of drawings and listings in the required format, adapting to the standards of bending machines or client's request.
 BIM Coordination: Clash detection and harmonization across disciplines.
 Fabrication Support: Data export for workshop, prefabrication, and logistics.
 Final Delivery: "As-Built" model update and complete documentation.
@@ -222,20 +222,20 @@ Specialized Dedication: Unlike generalists, our exclusive focus on rebar detaili
     service3Detail: 'Cierre la brecha entre el modelo digital y la construcción física con nuestro soporte en obra. Nuestros especialistas en BIM trabajan junto a su equipo de construcción para garantizar que el plan de ejecución de BIM se siga correctamente. Asistimos en la validación de modelos, la resolución de detección de conflictos en el campo, el diseño utilizando datos BIM y la resolución de problemas en tiempo real, minimizando el retrabajo y manteniendo su proyecto en el cronograma.',
     service4Title: 'BIM para Fabricación: Detallado de Acero de Alto Impacto',
     service4Desc: 'Nos especializamos en la creación de modelos de fabricación detallados, incluyendo el detallado de acero de refuerzo (rebar), para optimizar la manufactura.',
-    service4Detail: `Nuestro servicio de detallado 3D de armaduras transforma la planificación y ejecución de estructuras de hormigón armado complejas mediante modelos BIM LOD 400, listos para fabricación. Somos expertos que resolvemos problemas antes de construir, desde la licitación hasta la obra.
+    service4Detail: `Nuestro servicio de detallado 3D de armaduras transforma la planificación y ejecución de estructuras de hormigón armado complejas mediante modelos BIM de alto detalle, listos para fabricación. Somos expertos que resolvemos problemas antes de construir, desde la licitación hasta la obra.
 ---SPLIT---
 Las Limitaciones del 2D… Ya No Son una Opción
-Los planos 2D tradicionales fragmentan la información, generando interferencias, errores y costosos retrabajos descubiertos solo en obra. Con el modelado 3D, identificamos interferencias antes de que cuesten dinero, visualizamos cada detalle con claridad y coordinamos con todas las disciplinas para asegurar una construcción sin sorpresas, evitando costosos retrabajos y retrasos.
+Los planos 2D tradicionales fragmentan la información, llevando a interferencias, errores y costosos retrabajos descubiertos solo en obra. Con el modelado 3D, identificamos interferencias antes de que cuesten dinero, visualizamos cada detalle con claridad y coordinamos con todas las disciplinas para asegurar una construcción sin sorpresas, evitando costosos retrabajos y retrasos.
 ---SPLIT---
-Pre-construcción: Estimación precisa de tonelaje (±3%), compras inteligentes y análisis proactivo de constructibilidad.
+Pre-construcción: Estimación de tonelaje precisa (±3%), compras inteligentes y análisis proactivo de constructibilidad.
 Diseño y Coordinación: Validación de viabilidad, flujo de modelos sin fricción y planos vivos vinculados al modelo para chequeos rápidos.
-Fabricación y Montaje: Exportación de datos en el formato requerido por el cliente, prefabricación optimizada e integración con AR/MR en obra.
+Fabricación y Montaje: Exportación de datos en el formato requerido por el cliente y prefabricación optimizada.
 Documentación y Cierre: Entrega de modelos "As-Built" actualizados y trazabilidad completa.
 ---SPLIT---
 ---SPLIT---
-Evaluación Inicial: Análisis de planos, objetivos BIM y requerimientos de LOD.
-Modelado 3D: Detallado estructural y paramétrico con Revit, Tekla y Advance Steel.
-Detallado: Generación de planos, listados y archivos para CNC.
+Evaluación Inicial: Análisis de planos, objetivos BIM y requerimientos de modelado.
+Modelado 3D: Detallado estructural y paramétrico con software BIM líder del mercado como Revit y Tekla.
+Detallado: Generación de planos y listados en el formato requerido, adecuándonos a los estándares de las máquinas de doblado o a lo solicitado por el cliente.
 Coordinación BIM: Detección de interferencias y armonización entre disciplinas.
 Soporte a Fabricación: Exportación de datos para taller, prefabricación y logística.
 Entrega Final: Actualización de modelo "As-Built" y documentación completa.
