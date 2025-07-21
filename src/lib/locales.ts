@@ -1,3 +1,4 @@
+
 export const locales = ['en', 'es'] as const;
 export type Locale = typeof locales[number];
 
@@ -11,6 +12,11 @@ export const translations = {
     contact: 'Contact',
     learnMore: 'Learn More',
     viewDetails: 'View Details',
+    benefits: 'Benefits',
+    benefitsByPhase: 'Key Benefits by Phase',
+    quantifiedAdvantagesTitle: 'Quantified Advantages',
+    ourProcess: 'Our Efficient Process',
+    whyChooseUs: 'Why Choose Us?',
     // Hero
     heroHeadline: 'Advanced BIM Solutions for Engineering',
     heroSubhead: 'We transform complex projects into digital realities with precision and efficiency. Discover the future of construction with Frata Ingenieros.',
@@ -55,21 +61,15 @@ export const translations = {
     service4Detail: `Our 3D rebar detailing service transforms the planning and execution of complex reinforced concrete structures using LOD 400 BIM models, ready for fabrication. We are experts who solve problems before construction begins, from bidding to on-site work.
 ---SPLIT---
 The Limitations of 2D... No Longer an Option
-Traditional 2D drawings fragment information: multiple sheets, scattered details, interpretation errors, and conflicts that remain invisible until it's too late. With 3D modeling, we identify clashes before they cost money, visualize every detail with clarity, and coordinate with all disciplines to ensure construction proceeds without surprises, avoiding costly rework and delays.
+Traditional 2D drawings fragment information, leading to clashes, errors, and costly rework discovered only on-site. With 3D modeling, we identify clashes before they cost money, visualize every detail with clarity, and coordinate with all disciplines to ensure construction proceeds without surprises.
 ---SPLIT---
-Key Benefits by Phase
-Pre-construction: Accurate tonnage estimation (±3%), smart procurement, and proactive buildability analysis.
-Design & Coordination: Feasibility validation, seamless model exchange, and live drawing links for faster checks.
-Fabrication & Assembly: CNC files for automation, optimized prefabrication, and on-site AR/MR integration.
-Documentation & Handover: Updated "As-Built" models and complete traceability.
+**Pre-construction: Accurate tonnage estimation (±3%), smart procurement, and proactive buildability analysis.
+**Design & Coordination: Feasibility validation, seamless model exchange, and live drawing links for faster checks.
+**Fabrication & Assembly: CNC files for automation, optimized prefabrication, and on-site AR/MR integration.
+**Documentation & Handover: Updated "As-Built" models and complete traceability.
 ---SPLIT---
 Quantified Advantages
-Productivity: Achieve up to 30% higher productivity compared to 2D methods.
-Accuracy: A 95% reduction in rework and material waste.
-Control: 100% project control through automated tracking and deliveries.
-Competitiveness: Enhance your profile with high-quality deliverables and a professional reputation.
 ---SPLIT---
-Our Efficient Process
 1. Initial Assessment: Analysis of drawings, BIM goals, and LOD requirements.
 2. 3D Modeling: Structural and parametric detailing with Revit, Tekla, and Advance Steel.
 3. Detailing: Generation of drawings, schedules, and CNC files.
@@ -77,17 +77,19 @@ Our Efficient Process
 5. Fabrication: Data export for workshop, prefabrication, and logistics.
 6. Final Delivery: "As-Built" model update and complete documentation.
 ---SPLIT---
-Why Choose Us?
-Experienced Team: Our team has decades of combined experience in BIM and structural reinforcement.
-Cutting-Edge Technology: Advanced mastery of Tekla, Revit, Navisworks, and Trimble Connect.
-Professional Approach: Clear methodology with measurable and traceable deliverables.
-Real Savings: Significant reduction in time and money through BIM optimization.`,
+1. Experienced Team: Our team has decades of combined experience in BIM and structural reinforcement.
+2. Cutting-Edge Technology: Advanced mastery of Tekla, Revit, Navisworks, and Trimble Connect.
+3. Professional Approach: Clear methodology with measurable and traceable deliverables.
+4. Real Savings: Significant reduction in time and money through BIM optimization.`,
     service5Title: 'BIM Training & Implementation',
     service5Desc: 'We offer comprehensive training programs and strategic implementation support to empower your team with the latest BIM skills and technologies.',
     service5Detail: 'Empower your team with the knowledge to succeed. We offer customized training programs for all skill levels, from basic BIM principles to advanced software techniques. Our implementation support helps your organization smoothly transition to BIM, establishing standards, workflows, and best practices to ensure you get the maximum return on your technology investment.',
     service6Title: 'Comprehensive BIM Modeling',
     service6Desc: 'We develop detailed, coordinated models for all disciplines: architecture, structures, and MEP.',
     service6Detail: 'Our BIM modeling service is the cornerstone of any successful digital construction project. We create accurate, data-rich 3D models for all disciplines: Architecture, Structures, and MEP (Mechanical, Electrical, and Plumbing). By centralizing all information, we guarantee seamless coordination, early clash detection, and a unified vision of the project, which translates into significant savings in time and resources during the construction phase.',
+    quantifiedAdvantages: `30%; Higher Productivity; Faster than traditional 2D methods
+95%; Error Reduction; Less rework and material waste
+100%; Project Control; Full traceability and automated deliveries`,
     // Portfolio
     portfolio: 'Portfolio',
     portfolioTitle: 'Our Projects',
@@ -174,6 +176,11 @@ Real Savings: Significant reduction in time and money through BIM optimization.`
     contact: 'Contacto',
     learnMore: 'Conoce Más',
     viewDetails: 'Ver Detalles',
+    benefits: 'Beneficios',
+    benefitsByPhase: 'Beneficios Clave por Fase',
+    quantifiedAdvantagesTitle: 'Ventajas Cuantificadas',
+    ourProcess: 'Nuestro Proceso Eficiente',
+    whyChooseUs: '¿Por Qué Elegirnos?',
     // Hero
     heroHeadline: 'Soluciones BIM Avanzadas para Ingeniería',
     heroSubhead: 'Transformamos proyectos complejos en realidades digitales con precisión y eficiencia. Descubra el futuro de la construcción con Frata Ingenieros.',
@@ -220,19 +227,13 @@ Real Savings: Significant reduction in time and money through BIM optimization.`
 Las Limitaciones del 2D… Ya No Son una Opción
 Los planos 2D tradicionales fragmentan la información, generando interferencias, errores y costosos retrabajos descubiertos solo en obra. Con el modelado 3D, identificamos interferencias antes de que cuesten dinero, visualizamos cada detalle con claridad y coordinamos con todas las disciplinas para asegurar una construcción sin sorpresas.
 ---SPLIT---
-Beneficios Clave por Fase del Proyecto
 Pre-construcción: Estimación precisa de tonelaje (±3%), compras inteligentes y análisis proactivo de constructibilidad.
 Diseño y Coordinación: Validación de viabilidad, flujo de modelos sin fricción y planos vivos vinculados al modelo para chequeos rápidos.
 Fabricación y Montaje: Archivos CNC para automatización, prefabricación optimizada e integración con AR/MR en obra.
 Documentación y Cierre: Entrega de modelos "As-Built" actualizados y trazabilidad completa.
 ---SPLIT---
 Ventajas Cuantificadas
-Productividad: Logre hasta un +30% de productividad frente a métodos 2D.
-Precisión: Una reducción del 95% en retrabajos y desperdicio de material.
-Control: Control del 100% del proyecto mediante seguimiento y entregas automatizadas.
-Competitividad: Mejore su perfil con entregables de alta calidad y una reputación profesional.
 ---SPLIT---
-Nuestro Proceso Eficiente
 1. Evaluación Inicial: Análisis de planos, objetivos BIM y requisitos de LOD.
 2. Modelado 3D: Detallado estructural y paramétrico con Revit, Tekla y Advance Steel.
 3. Detallamiento: Generación de planos, tablas y archivos CNC.
@@ -240,17 +241,19 @@ Nuestro Proceso Eficiente
 5. Fabricación: Exportación de datos para taller, prefabricación y logística.
 6. Entrega Final: Actualización del modelo "As-Built" y documentación completa.
 ---SPLIT---
-¿Por Qué Elegirnos?
-Equipo Experimentado: Nuestro equipo cuenta con décadas de experiencia combinada en BIM y refuerzo estructural.
-Tecnología de Punta: Dominio avanzado de Tekla, Revit, Navisworks y Trimble Connect.
-Enfoque Profesional: Metodología clara con entregables medibles y trazables.
-Ahorro Real: Reducción significativa de tiempo y dinero gracias a la optimización BIM.`,
+1. Equipo Experimentado: Nuestro equipo cuenta con décadas de experiencia combinada en BIM y refuerzo estructural.
+2. Tecnología de Punta: Dominio avanzado de Tekla, Revit, Navisworks y Trimble Connect.
+3. Enfoque Profesional: Metodología clara con entregables medibles y trazables.
+4. Ahorro Real: Reducción significativa de tiempo y dinero gracias a la optimización BIM.`,
     service5Title: 'Capacitación e Implementación BIM',
     service5Desc: 'Ofrecemos programas de capacitación integrales y soporte estratégico para capacitar a su equipo con las últimas tecnologías y habilidades BIM.',
     service5Detail: 'Capacite a su equipo con el conocimiento para tener éxito. Ofrecemos programas de formación personalizados para todos los niveles, desde principios básicos de BIM hasta técnicas avanzadas de software. Nuestro soporte de implementación ayuda a su organización a realizar una transición fluida a BIM, estableciendo estándares, flujos de trabajo y mejores prácticas para garantizar que obtenga el máximo rendimiento de su inversión en tecnología.',
     service6Title: 'Modelado BIM Integral',
     service6Desc: 'Desarrollamos modelos detallados y coordinados para todas las especialidades: arquitectura, estructuras e instalaciones (MEP).',
     service6Detail: 'Nuestro servicio de modelado BIM es la piedra angular de cualquier proyecto de construcción digital exitoso. Creamos modelos 3D precisos y ricos en datos para todas las disciplinas: Arquitectura, Estructuras e Instalaciones (MEP: Mecánica, Eléctrica y Sanitaria). Al centralizar toda la información, garantizamos una coordinación perfecta, una detección temprana de interferencias y una visión unificada del proyecto, lo que se traduce en ahorros significativos de tiempo y recursos en la fase de construcción.',
+    quantifiedAdvantages: `30%; Mayor Productividad; Más rápido que los métodos 2D tradicionales
+95%; Reducción de Errores; Menos retrabajo y desperdicio de material
+100%; Control del Proyecto; Trazabilidad total y entregas automatizadas`,
     // Portfolio
     portfolio: 'Portafolio',
     portfolioTitle: 'Nuestros Proyectos',
