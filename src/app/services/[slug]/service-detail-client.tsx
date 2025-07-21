@@ -228,7 +228,8 @@ export const ServiceDetailClient: FC<ServiceDetailClientProps> = ({ serviceInfo 
         </div>
       </section>
 
-       <div className="text-center pt-16 bg-primary/5 dark:bg-primary/10 rounded-lg p-10">
+       <section className="py-24 bg-primary/5 dark:bg-primary/10 -mx-4 sm:-mx-6 lg:-mx-8">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
            <h2 className="font-headline text-3xl font-bold">{t('ctaTitle')}</h2>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
               {t('ctaDesc')}
@@ -236,7 +237,10 @@ export const ServiceDetailClient: FC<ServiceDetailClientProps> = ({ serviceInfo 
            <Button asChild size="lg" className="mt-8">
             <Link href="/#contact">{t('heroCTA')}</Link>
           </Button>
-      </div>
+        </div>
+      </section>
     </div>
   )
 }
+
+    
