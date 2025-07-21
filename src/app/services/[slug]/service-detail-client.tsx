@@ -6,7 +6,7 @@ import Image from "next/image"
 import { useLanguage } from "@/hooks/use-language"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowLeft, CheckCircle, TrendingUp, Users, HardHat, FileText, Scaling, ShieldCheck, Cpu, Zap, Percent, Wrench } from "lucide-react"
+import { ArrowLeft, CheckCircle, TrendingUp, Users, HardHat, FileText, Scaling, ShieldCheck, Cpu, Zap, Percent, Wrench, AlertTriangle, Layers, ListChecks, Repeat } from "lucide-react"
 import Link from "next/link"
 import React, { useRef } from "react"
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer"
@@ -147,8 +147,8 @@ export const ServiceDetailClient: FC<ServiceDetailClientProps> = ({ serviceInfo 
         </div>
       </section>
 
-      <section className="py-24 bg-secondary -mx-24 px-4 sm:px-6 lg:px-8">
-        <div className="container mx-auto">
+      <section className="py-24 bg-secondary -mx-4 sm:-mx-6 lg:-mx-8">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <SectionTitle subtitle={t('benefits')}>{t('benefitsByPhase')}</SectionTitle>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
                 {benefitsByPhase.map((benefit) => {
@@ -206,8 +206,8 @@ export const ServiceDetailClient: FC<ServiceDetailClientProps> = ({ serviceInfo 
         </div>
       </section>
 
-      <section className="py-24 bg-secondary -mx-24 px-4 sm:px-6 lg:px-8">
-        <div className="container mx-auto">
+      <section className="py-24 bg-secondary -mx-4 sm:-mx-6 lg:-mx-8">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle>{t('whyChooseUs')}</SectionTitle>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
             {whyUsPoints.map((point) => {

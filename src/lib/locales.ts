@@ -65,16 +65,22 @@ Traditional 2D drawings fragment information, leading to clashes, errors, and co
 ---SPLIT---
 Pre-construction: Accurate tonnage estimation (±3%), smart procurement, and proactive buildability analysis.
 Design & Coordination: Feasibility validation, seamless model exchange, and live drawing links for faster checks.
-Fabrication & Assembly: CNC files for automation, optimized prefabrication, and on-site AR/MR integration.
+Fabrication & Assembly: Data export in the format required by the client, optimized prefabrication, and on-site AR/MR integration.
 Documentation & Handover: Updated "As-Built" models and complete traceability.
 ---SPLIT---
 ---SPLIT---
+Initial Assessment: Analysis of drawings, BIM goals, and LOD requirements.
+3D Modeling: Structural and parametric detailing with Revit, Tekla, and Advance Steel.
+Detailing: Generation of drawings, schedules, and CNC-ready files.
+BIM Coordination: Clash detection and harmonization across disciplines.
+Fabrication Support: Data export for workshop, prefabrication, and logistics.
+Final Delivery: "As-Built" model update and complete documentation.
 ---SPLIT---
-1. Experienced Team: Our team has decades of combined experience in BIM and structural reinforcement.
-2. Cutting-Edge Technology: Advanced mastery of Tekla, Revit, Navisworks, and Trimble Connect.
-3. Professional Approach: Clear methodology with measurable and traceable deliverables.
-4. Real Savings: Significant reduction in time and money through BIM optimization.
-5. Specialized Dedication: Unlike generalists, our exclusive focus on rebar detailing ensures a superior level of quality and expertise in every project.`,
+Experienced Team: Our team has decades of combined experience in BIM and structural reinforcement.
+Cutting-Edge Technology: Advanced mastery of Tekla, Revit, Navisworks, and Trimble Connect.
+Professional Approach: Clear methodology with measurable and traceable deliverables.
+Real Savings: Significant reduction in time and money through BIM optimization.
+Specialized Dedication: Unlike generalists, our exclusive focus on rebar detailing ensures a superior level of quality and expertise in every project.`,
     service5Title: 'BIM Training & Implementation',
     service5Desc: 'We offer comprehensive training programs and strategic implementation support to empower your team with the latest BIM skills and technologies.',
     service5Detail: 'Empower your team with the knowledge to succeed. We offer customized training programs for all skill levels, from basic BIM principles to advanced software techniques. Our implementation support helps your organization smoothly transition to BIM, establishing standards, workflows, and best practices to ensure you get the maximum return on your technology investment.',
@@ -223,16 +229,22 @@ Los planos 2D tradicionales fragmentan la información, generando interferencias
 ---SPLIT---
 Pre-construcción: Estimación precisa de tonelaje (±3%), compras inteligentes y análisis proactivo de constructibilidad.
 Diseño y Coordinación: Validación de viabilidad, flujo de modelos sin fricción y planos vivos vinculados al modelo para chequeos rápidos.
-Fabricación y Montaje: Archivos CNC para automatización, prefabricación optimizada e integración con AR/MR en obra.
+Fabricación y Montaje: Exportación de datos en el formato requerido por el cliente, prefabricación optimizada e integración con AR/MR en obra.
 Documentación y Cierre: Entrega de modelos "As-Built" actualizados y trazabilidad completa.
 ---SPLIT---
 ---SPLIT---
+Evaluación Inicial: Análisis de planos, objetivos BIM y requerimientos de LOD.
+Modelado 3D: Detallado estructural y paramétrico con Revit, Tekla y Advance Steel.
+Detallado: Generación de planos, listados y archivos para CNC.
+Coordinación BIM: Detección de interferencias y armonización entre disciplinas.
+Soporte a Fabricación: Exportación de datos para taller, prefabricación y logística.
+Entrega Final: Actualización de modelo "As-Built" y documentación completa.
 ---SPLIT---
-1. Equipo Experimentado: Nuestro equipo cuenta con décadas de experiencia combinada en BIM y refuerzo estructural.
-2. Tecnología de Punta: Dominio avanzado de Tekla, Revit, Navisworks y Trimble Connect.
-3. Enfoque Profesional: Metodología clara con entregables medibles y trazables.
-4. Ahorro Real: Reducción significativa de tiempo y dinero gracias a la optimización BIM.
-5. Dedicación Especializada: A diferencia de los generalistas, nuestro enfoque exclusivo en el detallado de acero garantiza un nivel de calidad y expertise superior en cada proyecto.`,
+Equipo Experimentado: Nuestro equipo cuenta con décadas de experiencia combinada en BIM y refuerzo estructural.
+Tecnología de Punta: Dominio avanzado de Tekla, Revit, Navisworks y Trimble Connect.
+Enfoque Profesional: Metodología clara con entregables medibles y trazables.
+Ahorro Real: Reducción significativa de tiempo y dinero gracias a la optimización BIM.
+Dedicación Especializada: A diferencia de los generalistas, nuestro enfoque exclusivo en el detallado de acero garantiza un nivel de calidad y expertise superior en cada proyecto.`,
     service5Title: 'Capacitación e Implementación BIM',
     service5Desc: 'Ofrecemos programas de capacitación integrales y soporte estratégico para capacitar a su equipo con las últimas tecnologías y habilidades BIM.',
     service5Detail: 'Capacite a su equipo con el conocimiento para tener éxito. Ofrecemos programas de formación personalizados para todos los niveles, desde principios básicos de BIM hasta técnicas avanzadas de software. Nuestro soporte de implementación ayuda a su organización a realizar una transición fluida a BIM, estableciendo estándares, flujos de trabajo y mejores prácticas para garantizar que obtenga el máximo rendimiento de su inversión en tecnología.',
@@ -320,5 +332,3 @@ Documentación y Cierre: Entrega de modelos "As-Built" actualizados y trazabilid
     faqButton: 'Haz una Pregunta'
   }
 };
-
-    
