@@ -1,4 +1,5 @@
 
+
 "use client"
 
 import type { FC, ReactNode } from "react"
@@ -67,19 +68,6 @@ const BenefitCard: FC<{ icon: React.ReactNode; title: string; children: ReactNod
             <p className="text-muted-foreground">{children}</p>
         </CardContent>
     </Card>
-);
-
-const ProcessStep: FC<{ number: string; title: string; children: ReactNode; isLast?: boolean }> = ({ number, title, children, isLast }) => (
-    <div className="relative flex flex-col items-center text-center">
-        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary text-primary-foreground font-headline text-2xl flex-shrink-0 z-10 border-4 border-secondary">
-            {number}
-        </div>
-        {!isLast && <div className="absolute top-8 h-24 w-1 bg-border -z-0"></div>}
-        <div className="mt-4">
-            <h4 className="font-headline text-xl font-bold">{title}</h4>
-            <p className="text-muted-foreground mt-1 max-w-xs">{children}</p>
-        </div>
-    </div>
 );
 
 const StatCard: FC<{ value: number; suffix: string; title: string; description: string }> = ({ value, suffix, title, description }) => {
@@ -235,9 +223,9 @@ const SoftwareDevelopmentService: FC = () => {
 
     return (
         <>
-           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <section className="container mx-auto px-4 sm:px-6 lg:px-8 pt-12">
                 <p className="text-xl text-muted-foreground text-center max-w-4xl mx-auto">{intro}</p>
-            </div>
+            </section>
 
             <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-24">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -286,32 +274,31 @@ const SoftwareDevelopmentService: FC = () => {
                 </div>
             </section>
             
-            <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-24">
-                <div className="grid lg:grid-cols-2 gap-16 items-center">
-                    <AnimatedSection className="lg:order-last">
-                        <div className="relative h-[600px] lg:h-full min-h-[24rem]">
-                            <Image
-                                src="https://placehold.co/800x1000.png"
-                                data-ai-hint="agile development workflow"
-                                alt="Agile software development process diagram"
-                                layout="fill"
-                                objectFit="cover"
-                                className="rounded-lg shadow-xl"
-                            />
-                        </div>
+            <section className="py-24">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                    <AnimatedSection>
+                         <SectionTitle>{processTitle}</SectionTitle>
                     </AnimatedSection>
-                    <div className="space-y-12">
-                        <AnimatedSection>
-                            <SectionTitle>{processTitle}</SectionTitle>
-                        </AnimatedSection>
-                        {processSteps.map((step, index) => {
-                            const [title, description] = step.substring(3).split(':');
-                            return (
-                                <AnimatedSection key={title} delay={100 * (index + 1)}>
-                                    <ProcessStep number={`0${index + 1}`} title={title}>{description}</ProcessStep>
-                                </AnimatedSection>
-                            )
-                        })}
+                    <div className="relative mt-16 max-w-3xl mx-auto">
+                        <div className="absolute left-8 top-0 h-full w-0.5 bg-border" aria-hidden="true" />
+                        <div className="relative flex flex-col gap-12">
+                            {processSteps.map((step, index) => {
+                                const [title, description] = step.substring(3).split(':');
+                                return (
+                                    <AnimatedSection key={title} delay={100 * (index + 1)}>
+                                        <div className="flex items-start gap-6">
+                                            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary text-primary-foreground font-headline text-2xl flex-shrink-0 z-10 border-4 border-background">
+                                                {`0${index + 1}`}
+                                            </div>
+                                            <div className="space-y-1 pt-3">
+                                                <h4 className="font-headline text-xl font-bold">{title}</h4>
+                                                <p className="text-muted-foreground">{description}</p>
+                                            </div>
+                                        </div>
+                                    </AnimatedSection>
+                                )
+                            })}
+                        </div>
                     </div>
                 </div>
             </section>
@@ -375,9 +362,9 @@ const OnSiteSupportService: FC = () => {
 
     return (
         <>
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <section className="container mx-auto px-4 sm:px-6 lg:px-8 pt-12">
                  <p className="text-xl text-muted-foreground text-center max-w-4xl mx-auto">{intro}</p>
-            </div>
+            </section>
             
              <section className="py-24 bg-secondary -mx-4 sm:-mx-6 lg:-mx-8 mt-16">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -415,7 +402,15 @@ const OnSiteSupportService: FC = () => {
                         const [title, description] = step.substring(3).split(':');
                         return (
                             <AnimatedSection key={title} delay={100 * (index + 1)}>
-                                <ProcessStep number={`0${index + 1}`} title={title} isLast={index === processSteps.length - 1}>{description}</ProcessStep>
+                                <div className="flex flex-col items-center text-center">
+                                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary text-primary-foreground font-headline text-2xl flex-shrink-0 z-10 border-4 border-background">
+                                        {`0${index + 1}`}
+                                    </div>
+                                    <div className="mt-4">
+                                        <h4 className="font-headline text-xl font-bold">{title}</h4>
+                                        <p className="text-muted-foreground mt-1 max-w-xs">{description}</p>
+                                    </div>
+                                </div>
                             </AnimatedSection>
                         );
                     })}
@@ -474,7 +469,7 @@ const RebarDetailingService: FC = () => {
 
     return (
         <>
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <section className="container mx-auto px-4 sm:px-6 lg:px-8 pt-12">
                 <p className="text-xl text-muted-foreground text-center max-w-4xl mx-auto">{intro}</p>
                  <div className="my-12 rounded-lg border overflow-hidden shadow-lg aspect-w-16 aspect-h-9">
                     <Image
@@ -486,7 +481,7 @@ const RebarDetailingService: FC = () => {
                         className="w-full object-cover"
                     />
                 </div>
-            </div>
+            </section>
             
             <section className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -548,24 +543,31 @@ const RebarDetailingService: FC = () => {
                 </div>
             </section>
 
-            <section className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid lg:grid-cols-2 gap-16 items-center">
-                    <div className="relative h-[600px] lg:h-full min-h-[24rem] lg:order-last">
-                        <Image
-                            src="https://placehold.co/800x1000.png"
-                            data-ai-hint="bim workflow diagram"
-                            alt="BIM workflow process"
-                            layout="fill"
-                            objectFit="cover"
-                            className="rounded-lg shadow-xl"
-                        />
-                    </div>
-                    <div className="space-y-12">
-                        <SectionTitle>{processTitle}</SectionTitle>
-                        {processSteps.map((step, index) => {
-                            const [title, description] = step.substring(3).split(':');
-                            return <ProcessStep key={title} number={`0${index + 1}`} title={title}>{description}</ProcessStep>
-                        })}
+            <section className="py-24">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                     <AnimatedSection>
+                         <SectionTitle>{processTitle}</SectionTitle>
+                    </AnimatedSection>
+                    <div className="relative mt-16 max-w-3xl mx-auto">
+                        <div className="absolute left-8 top-0 h-full w-0.5 bg-border" aria-hidden="true" />
+                        <div className="relative flex flex-col gap-12">
+                            {processSteps.map((step, index) => {
+                                const [title, description] = step.substring(3).split(':');
+                                return (
+                                     <AnimatedSection key={title} delay={100 * (index + 1)}>
+                                        <div className="flex items-start gap-6">
+                                            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary text-primary-foreground font-headline text-2xl flex-shrink-0 z-10 border-4 border-background">
+                                                {`0${index + 1}`}
+                                            </div>
+                                            <div className="space-y-1 pt-3">
+                                                <h4 className="font-headline text-xl font-bold">{title}</h4>
+                                                <p className="text-muted-foreground">{description}</p>
+                                            </div>
+                                        </div>
+                                    </AnimatedSection>
+                                )
+                            })}
+                        </div>
                     </div>
                 </div>
             </section>
@@ -621,38 +623,42 @@ export const ServiceDetailClient: FC<ServiceDetailClientProps> = ({ serviceInfo 
     }
   }
 
-  return (
-    <div className="bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24">
-          <Button asChild variant="ghost" className="-ml-4">
-          <Link href="/#services">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              {t('services')}
-          </Link>
-          </Button>
-          <header className="text-center max-w-4xl mx-auto space-y-6 mt-8">
-              <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-                  {t(serviceInfo.titleKey)}
-              </h1>
-          </header>
-      </div>
-      
-      <div className="space-y-12 mt-12">
-          <ServiceComponent />
-      </div>
+  const renderServiceLayout = (serviceComponent: ReactNode) => {
+    // Shared wrapper for all services
+    return (
+        <div className="bg-background">
+             <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24">
+                <Button asChild variant="ghost" className="-ml-4">
+                    <Link href="/#services">
+                        <ArrowLeft className="mr-2 h-4 w-4" />
+                        {t('services')}
+                    </Link>
+                </Button>
+                <header className="text-center max-w-4xl mx-auto space-y-6 mt-8">
+                    <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+                        {t(serviceInfo.titleKey)}
+                    </h1>
+                </header>
+             </div>
+            
+            <div className="mt-12">
+                {serviceComponent}
+            </div>
 
-      <section className="py-24 bg-primary/5 dark:bg-primary/10 mt-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-           <h2 className="font-headline text-3xl font-bold">{t('ctaTitle')}</h2>
-            <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-              {t('ctaDesc')}
-            </p>
-           <Button asChild size="lg" className="mt-8">
-            <Link href="/#contact">{t('heroCTA')}</Link>
-          </Button>
+            <section className="py-24 bg-primary/5 dark:bg-primary/10 mt-24">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h2 className="font-headline text-3xl font-bold">{t('ctaTitle')}</h2>
+                    <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
+                        {t('ctaDesc')}
+                    </p>
+                    <Button asChild size="lg" className="mt-8">
+                        <Link href="/#contact">{t('heroCTA')}</Link>
+                    </Button>
+                </div>
+            </section>
         </div>
-      </section>
-    </div>
-  )
-}
+    )
+  }
 
+  return renderServiceLayout(<ServiceComponent />);
+}
