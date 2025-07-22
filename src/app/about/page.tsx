@@ -2,9 +2,8 @@
 "use client"
 
 import type { FC } from "react"
-import Image from "next/image"
 import { useLanguage } from "@/hooks/use-language"
-import { Building, Target, Users, Zap, Milestone, Globe } from "lucide-react"
+import { Target, Globe, Zap } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
@@ -14,7 +13,7 @@ const HeroSection: FC = () => {
   const { t } = useLanguage()
   return (
     <section className="relative bg-slate-900 text-white py-32 lg:py-48">
-       <div className="absolute inset-0 bg-[url('data:image/svg+xml,<svg_xmlns="http://www.w3.org/2000/svg"_viewBox="0_0_100_100"><defs><pattern_id="grid"_width="10"_height="10"_patternUnits="userSpaceOnUse"><path_d="M_10_0_L_0_0_0_10"_fill="none"_stroke="rgba(255,255,255,0.03)"_stroke-width="1"/></pattern></defs><rect_width="100"_height="100"_fill="url(%23grid)"/></svg>')] opacity-50"></div>
+       <div className="absolute inset-0 bg-[url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><defs><pattern id=\"grid\" width=\"10\" height=\"10\" patternUnits=\"userSpaceOnUse\"><path d=\"M 10 0 L 0 0 0 10\" fill=\"none\" stroke=\"rgba(255,255,255,0.03)\" stroke-width=\"1\"/></pattern></defs><rect width=\"100%\" height=\"100%\" fill=\"url(%23grid)\"/></svg>')] opacity-50"></div>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <h1 className="font-headline text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl bg-gradient-to-r from-white to-slate-300 text-transparent bg-clip-text">
           {t('aboutHeadline')}
@@ -45,16 +44,15 @@ const OurStorySection: FC = () => {
         <div className="relative mt-16 max-w-3xl mx-auto">
           <div className="absolute left-1/2 top-4 bottom-0 w-0.5 bg-border -translate-x-1/2" aria-hidden="true"></div>
           {timelineEvents.map((event, index) => (
-            <div key={index} className="relative mb-12">
-              <div className="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-6 h-6 bg-primary rounded-full border-4 border-secondary"></div>
-              <div className={cn(
-                "w-[calc(50%-2rem)] p-6 bg-card rounded-lg shadow-md",
-                index % 2 === 0 ? "mr-auto text-right" : "ml-auto text-left"
-              )}>
-                <h3 className="font-headline text-xl font-bold text-foreground">{t(event.title as any)}</h3>
-                <p className="mt-2 text-muted-foreground">{t(event.description as any)}</p>
-              </div>
-            </div>
+            <div key={index} className="relative mb-12 flex items-center justify-center">
+                 <div className={cn("w-[calc(50%-2rem)] p-6 bg-card rounded-lg shadow-md",
+                 index % 2 === 0 ? "mr-auto text-right" : "ml-auto text-left"
+                 )}>
+                    <h3 className="font-headline text-xl font-bold text-foreground">{t(event.title as any)}</h3>
+                    <p className="mt-2 text-muted-foreground">{t(event.description as any)}</p>
+                </div>
+                 <div className="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-6 h-6 bg-primary rounded-full border-4 border-secondary"></div>
+             </div>
           ))}
         </div>
       </div>
@@ -126,5 +124,4 @@ const AboutPage: FC = () => {
 }
 
 export default AboutPage
-
     
