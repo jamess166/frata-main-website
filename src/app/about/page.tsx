@@ -13,7 +13,7 @@ const HeroSection: FC = () => {
   const { t } = useLanguage()
   return (
     <section className="relative bg-slate-900 text-white py-32 lg:py-48">
-       <div className="absolute inset-0 bg-[url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><defs><pattern id=\"grid\" width=\"10\" height=\"10\" patternUnits=\"userSpaceOnUse\"><path d=\"M 10 0 L 0 0 0 10\" fill=\"none\" stroke=\"rgba(255,255,255,0.03)\" stroke-width=\"1\"/></pattern></defs><rect width=\"100%\" height=\"100%\" fill=\"url(%23grid)\"/></svg>')] opacity-50"></div>
+       <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-50"></div>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <h1 className="font-headline text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl bg-gradient-to-r from-white to-slate-300 text-transparent bg-clip-text">
           {t('aboutHeadline')}
