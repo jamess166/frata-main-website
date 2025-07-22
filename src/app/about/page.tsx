@@ -9,12 +9,45 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 
+interface FloatingCardProps {
+  icon: string;
+  text: string;
+  className?: string;
+  animationDelay?: string;
+  animationDuration?: string;
+}
+
+const FloatingCard: FC<FloatingCardProps> = ({ icon, text, className, animationDelay, animationDuration }) => (
+    <div
+      className={cn(
+        "absolute bg-background/10 backdrop-blur-md border border-white/20 rounded-lg px-4 py-2 text-white font-medium flex items-center gap-2 animate-float",
+        className
+      )}
+      style={{
+        animationDelay: animationDelay || '0s',
+        animationDuration: animationDuration || '8s'
+      }}
+    >
+      <span>{icon}</span>
+      <span>{text}</span>
+    </div>
+);
+
+
 const HeroSection: FC = () => {
   const { t } = useLanguage()
   return (
-    <section className="relative bg-slate-900 text-white py-32 lg:py-48">
-       <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-50"></div>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+    <section className="relative bg-slate-900 text-white py-32 lg:py-48 overflow-hidden">
+       <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-50 animate-float"></div>
+       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+
+        {/* Floating elements */}
+        <FloatingCard icon="🏗️" text="BIM Technology" className="top-[15%] left-[10%]" animationDuration="10s" />
+        <FloatingCard icon="🚀" text="Innovation" className="top-[25%] right-[12%]" animationDelay="2s" animationDuration="12s" />
+        <FloatingCard icon="📊" text="Digital Solutions" className="bottom-[30%] left-[20%]" animationDelay="1s" animationDuration="9s" />
+        <FloatingCard icon="🌍" text="Global Reach" className="bottom-[15%] right-[25%]" animationDelay="3s" animationDuration="11s" />
+
+
         <h1 className="font-headline text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl bg-gradient-to-r from-white to-slate-300 text-transparent bg-clip-text">
           {t('aboutHeadline')}
         </h1>
