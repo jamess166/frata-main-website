@@ -8,43 +8,73 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
+import React, { useState, useEffect, useRef } from 'react';
 
 interface FloatingCardProps {
   icon: string;
   text: string;
   className?: string;
-  animationDelay?: string;
-  animationDuration?: string;
+  moveFactor?: number;
 }
 
-const FloatingCard: FC<FloatingCardProps> = ({ icon, text, className, animationDelay, animationDuration }) => (
-    <div
-      className={cn(
-        "absolute bg-background/10 backdrop-blur-md border border-white/20 rounded-lg px-4 py-2 text-white font-medium flex items-center gap-2 animate-float",
-        className
-      )}
-      style={{
-        animationDelay: animationDelay || '0s',
-        animationDuration: animationDuration || '8s'
-      }}
-    >
-      <span>{icon}</span>
-      <span>{text}</span>
-    </div>
-);
+const useMouseFollowAnimation = (moveFactor: number) => {
+  const [style, setStyle] = useState({});
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!ref.current) return;
+      
+      const { clientX, clientY } = e;
+      const { innerWidth, innerHeight } = window;
+
+      const moveX = (clientX / innerWidth - 0.5) * moveFactor;
+      const moveY = (clientY / innerHeight - 0.5) * moveFactor;
+
+      setStyle({
+        transform: `translate(${moveX}px, ${moveY}px)`,
+      });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, [moveFactor]);
+
+  return { ref, style };
+};
+
+
+const FloatingCard: FC<FloatingCardProps> = ({ icon, text, className, moveFactor = 20 }) => {
+    const { ref, style } = useMouseFollowAnimation(moveFactor);
+    return (
+        <div
+            ref={ref}
+            className={cn(
+                "absolute bg-background/10 backdrop-blur-md border border-white/20 rounded-lg px-4 py-2 text-white font-medium flex items-center gap-2 transition-transform duration-500 ease-out",
+                className
+            )}
+            style={style}
+            >
+            <span>{icon}</span>
+            <span>{text}</span>
+        </div>
+    );
+};
 
 
 const HeroSection: FC = () => {
   const { t } = useLanguage()
   return (
     <section className="relative bg-slate-900 text-white py-32 lg:py-48 overflow-hidden">
-       <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-50 animate-float"></div>
+       <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-50"></div>
        
-       {/* Floating elements */}
-       <FloatingCard icon="🏗️" text="BIM Technology" className="top-[15%] left-[55%] lg:left-[65%]" animationDuration="10s" />
-       <FloatingCard icon="🚀" text="Innovation" className="top-[45%] right-[10%] lg:right-[15%]" animationDelay="2s" animationDuration="12s" />
-       <FloatingCard icon="📊" text="Digital Solutions" className="bottom-[30%] left-[40%] lg:left-[50%]" animationDelay="1s" animationDuration="9s" />
-       <FloatingCard icon="🌍" text="Global Reach" className="bottom-[15%] right-[25%] lg:right-[35%]" animationDelay="3s" animationDuration="11s" />
+       <FloatingCard icon="🏗️" text="BIM Technology" className="top-[15%] left-[55%] lg:left-[65%]" moveFactor={30} />
+       <FloatingCard icon="🚀" text="Innovation" className="top-[45%] right-[10%] lg:right-[15%]" moveFactor={-25} />
+       <FloatingCard icon="📊" text="Digital Solutions" className="bottom-[30%] left-[40%] lg:left-[50%]" moveFactor={20} />
+       <FloatingCard icon="🌍" text="Global Reach" className="bottom-[15%] right-[25%] lg:right-[35%]" moveFactor={-15} />
 
        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-xl text-center lg:text-left">
