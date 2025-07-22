@@ -39,21 +39,22 @@ const HeroSection: FC = () => {
   return (
     <section className="relative bg-slate-900 text-white py-32 lg:py-48 overflow-hidden">
        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-50 animate-float"></div>
-       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+       
+       {/* Floating elements */}
+       <FloatingCard icon="🏗️" text="BIM Technology" className="top-[15%] left-[55%] lg:left-[65%]" animationDuration="10s" />
+       <FloatingCard icon="🚀" text="Innovation" className="top-[45%] right-[10%] lg:right-[15%]" animationDelay="2s" animationDuration="12s" />
+       <FloatingCard icon="📊" text="Digital Solutions" className="bottom-[30%] left-[40%] lg:left-[50%]" animationDelay="1s" animationDuration="9s" />
+       <FloatingCard icon="🌍" text="Global Reach" className="bottom-[15%] right-[25%] lg:right-[35%]" animationDelay="3s" animationDuration="11s" />
 
-        {/* Floating elements */}
-        <FloatingCard icon="🏗️" text="BIM Technology" className="top-[15%] left-[10%]" animationDuration="10s" />
-        <FloatingCard icon="🚀" text="Innovation" className="top-[25%] right-[12%]" animationDelay="2s" animationDuration="12s" />
-        <FloatingCard icon="📊" text="Digital Solutions" className="bottom-[30%] left-[20%]" animationDelay="1s" animationDuration="9s" />
-        <FloatingCard icon="🌍" text="Global Reach" className="bottom-[15%] right-[25%]" animationDelay="3s" animationDuration="11s" />
-
-
-        <h1 className="font-headline text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl bg-gradient-to-r from-white to-slate-300 text-transparent bg-clip-text">
-          {t('aboutHeadline')}
-        </h1>
-        <p className="mt-6 text-lg max-w-3xl mx-auto leading-8 text-slate-300">
-          {t('aboutDesc')}
-        </p>
+       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-xl text-center lg:text-left">
+            <h1 className="font-headline text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl bg-gradient-to-r from-white to-slate-300 text-transparent bg-clip-text">
+            {t('aboutHeadline')}
+            </h1>
+            <p className="mt-6 text-lg max-w-3xl leading-8 text-slate-300">
+            {t('aboutDesc')}
+            </p>
+        </div>
       </div>
     </section>
   )
