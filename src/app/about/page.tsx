@@ -1,3 +1,4 @@
+
 "use client"
 
 import type { FC } from "react"
@@ -7,111 +8,123 @@ import { Building, Target, Users, Zap, Milestone, Globe } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { cn } from "@/lib/utils"
 
-const AboutPage: FC = () => {
+const HeroSection: FC = () => {
   const { t } = useLanguage()
-
-  const values = [
-    { text: t('aboutValue1'), icon: Target },
-    { text: t('aboutValue2'), icon: Building },
-    { text: t('aboutValue3'), icon: Users },
-  ];
-
-  const teamMembers = [
-    { name: "CEO & Founder", role: t('teamRole1'), image: "https://placehold.co/400x400.png", dataAiHint: "professional headshot" },
-    { name: "Lead BIM Manager", role: t('teamRole2'), image: "https://placehold.co/400x400.png", dataAiHint: "engineer portrait" },
-    { name: "Head of Software Dev", role: t('teamRole3'), image: "https://placehold.co/400x400.png", dataAiHint: "developer profile" },
-  ];
-
-
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 space-y-24">
-      {/* Hero Section */}
-      <section className="text-center">
-        <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+    <section className="relative bg-slate-900 text-white py-32 lg:py-48">
+       <div className="absolute inset-0 bg-[url('data:image/svg+xml,<svg_xmlns="http://www.w3.org/2000/svg"_viewBox="0_0_100_100"><defs><pattern_id="grid"_width="10"_height="10"_patternUnits="userSpaceOnUse"><path_d="M_10_0_L_0_0_0_10"_fill="none"_stroke="rgba(255,255,255,0.03)"_stroke-width="1"/></pattern></defs><rect_width="100"_height="100"_fill="url(%23grid)"/></svg>')] opacity-50"></div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <h1 className="font-headline text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl bg-gradient-to-r from-white to-slate-300 text-transparent bg-clip-text">
           {t('aboutHeadline')}
         </h1>
-        <p className="mt-6 text-lg max-w-3xl mx-auto leading-8 text-muted-foreground">
+        <p className="mt-6 text-lg max-w-3xl mx-auto leading-8 text-slate-300">
           {t('aboutDesc')}
         </p>
-      </section>
+      </div>
+    </section>
+  )
+}
 
-      {/* Our Story Section */}
-       <section className="grid lg:grid-cols-2 gap-12 items-center">
-        <div className="space-y-6">
+const OurStorySection: FC = () => {
+  const { t } = useLanguage()
+
+  const timelineEvents = [
+    { title: 'ourStoryHeadline', description: 'ourStoryDesc', dataAiHint: 'engineering blueprint peru' },
+    { title: 'timelineEvent2Title', description: 'timelineEvent2Desc', dataAiHint: 'global business network' },
+    { title: 'timelineEvent3Title', description: 'timelineEvent3Desc', dataAiHint: 'innovation technology abstract' },
+  ];
+
+  return (
+    <section className="py-24 sm:py-32 bg-secondary">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-2xl mx-auto">
           <h2 className="text-base font-bold uppercase tracking-widest text-primary">{t('ourStoryTitle')}</h2>
-          <p className="font-headline text-3xl font-bold text-foreground sm:text-4xl">{t('ourStoryHeadline')}</p>
-          <p className="text-lg text-muted-foreground">
-            {t('ourStoryDesc')}
-          </p>
         </div>
-        <div className="relative h-96 lg:h-full min-h-[24rem]">
-           <Image src="https://placehold.co/600x800.png" data-ai-hint="engineering blueprint peru" alt="Frata Ingenieros Origins" layout="fill" objectFit="cover" className="rounded-lg shadow-xl" />
+        <div className="relative mt-16 max-w-3xl mx-auto">
+          <div className="absolute left-1/2 top-4 bottom-0 w-0.5 bg-border -translate-x-1/2" aria-hidden="true"></div>
+          {timelineEvents.map((event, index) => (
+            <div key={index} className="relative mb-12">
+              <div className="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-6 h-6 bg-primary rounded-full border-4 border-secondary"></div>
+              <div className={cn(
+                "w-[calc(50%-2rem)] p-6 bg-card rounded-lg shadow-md",
+                index % 2 === 0 ? "mr-auto text-right" : "ml-auto text-left"
+              )}>
+                <h3 className="font-headline text-xl font-bold text-foreground">{t(event.title as any)}</h3>
+                <p className="mt-2 text-muted-foreground">{t(event.description as any)}</p>
+              </div>
+            </div>
+          ))}
         </div>
-      </section>
+      </div>
+    </section>
+  );
+}
 
-      {/* Mission, Vision, Values Section */}
-      <section className="py-24 sm:py-32 bg-secondary -mx-24">
-         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl grid md:grid-cols-3 gap-8 text-center">
-          <div className="space-y-4">
-             <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-                <Target className="h-6 w-6"/>
-            </div>
-            <h3 className="font-headline text-2xl font-bold">{t('missionTitle')}</h3>
-            <p className="text-muted-foreground">{t('missionDesc')}</p>
-          </div>
-           <div className="space-y-4">
-             <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-                <Building className="h-6 w-6"/>
-            </div>
-            <h3 className="font-headline text-2xl font-bold">{t('visionTitle')}</h3>
-            <p className="text-muted-foreground">{t('visionDesc')}</p>
-          </div>
-           <div className="space-y-4">
-            <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-                <Users className="h-6 w-6"/>
-            </div>
-            <h3 className="font-headline text-2xl font-bold">{t('valuesTitle')}</h3>
-            <p className="text-muted-foreground">{t('valuesDesc')}</p>
-          </div>
-        </div>
-      </section>
+const MissionVisionValuesSection: FC = () => {
+  const { t } = useLanguage()
+  const items = [
+    { icon: Target, title: 'missionTitle', description: 'missionDesc' },
+    { icon: Globe, title: 'visionTitle', description: 'visionDesc' },
+    { icon: Zap, title: 'valuesTitle', description: 'valuesDesc' },
+  ]
 
-      {/* Team Section */}
-       {/* <section>
-        <div className="text-center">
-          <h2 className="text-base font-bold uppercase tracking-widest text-primary">{t('teamTitle')}</h2>
-          <p className="mt-2 font-headline text-3xl font-bold text-foreground sm:text-4xl">{t('teamHeadline')}</p>
-        </div>
-        <div className="mt-16 grid grid-cols-1 gap-y-10 gap-x-8 md:grid-cols-2 lg:grid-cols-3">
-          {teamMembers.map((member) => (
-            <Card key={member.name} className="text-center border-0 shadow-none bg-transparent">
-              <CardContent className="p-0">
-                <div className="relative h-80 w-full mb-4">
-                  <Image src={member.image} data-ai-hint={member.dataAiHint} alt={member.name} layout="fill" objectFit="cover" className="rounded-lg shadow-lg" />
+  return (
+    <section className="py-24 sm:py-32">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid md:grid-cols-3 gap-8">
+          {items.map((item, index) => (
+            <Card key={index} className="text-center border-0 shadow-none bg-transparent">
+              <CardHeader className="items-center">
+                <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <item.icon className="h-8 w-8" />
                 </div>
-                <h4 className="font-headline text-xl font-bold">{member.name}</h4>
-                <p className="text-primary">{member.role}</p>
+                <CardTitle className="font-headline text-2xl font-bold">{t(item.title as any)}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">{t(item.description as any)}</p>
               </CardContent>
             </Card>
           ))}
         </div>
-      </section> */}
+      </div>
+    </section>
+  )
+}
 
-       {/* CTA Section */}
-      <section className="text-center bg-primary/5 dark:bg-primary/10 rounded-lg p-10">
-        <h2 className="font-headline text-3xl font-bold">{t('ctaTitle')}</h2>
-        <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-          {t('ctaDesc')}
-        </p>
-        <div className="mt-8">
-          <Button asChild size="lg">
-            <Link href="/#contact">{t('heroCTA')}</Link>
-          </Button>
-        </div>
-      </section>
+const CtaSection: FC = () => {
+    const { t } = useLanguage()
+    return (
+        <section className="text-center bg-primary/5 dark:bg-primary/10 py-20">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 className="font-headline text-3xl font-bold">{t('ctaTitle')}</h2>
+                <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
+                {t('ctaDesc')}
+                </p>
+                <div className="mt-8">
+                <Button asChild size="lg">
+                    <Link href="/#contact">{t('heroCTA')}</Link>
+                </Button>
+                </div>
+            </div>
+        </section>
+    )
+}
+
+
+const AboutPage: FC = () => {
+
+  return (
+    <div className="bg-background">
+      <HeroSection />
+      <OurStorySection />
+      <MissionVisionValuesSection />
+      <CtaSection />
     </div>
   )
 }
 
 export default AboutPage
+
+    
