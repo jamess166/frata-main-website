@@ -12,6 +12,7 @@ import { useLanguage } from "@/hooks/use-language"
 export function Header() {
   const { t } = useLanguage()
   const navItems = [
+    { href: "/", label: t('home') },
     { href: "/about", label: t('about') },
     { href: "/#services", label: t('services') },
     { href: "/#portfolio", label: t('portfolio') },
@@ -25,8 +26,8 @@ export function Header() {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center">
           <Link href="/" className="mr-6 flex items-center space-x-2">
-            <Image src="/logo-dark.svg" alt="Frata BIM Logo" width={120} height={40} className="dark:hidden" />
-            <Image src="/logo-light.svg" alt="Frata BIM Logo" width={120} height={40} className="hidden dark:block" />
+            <Image src="/logo-dark.svg" alt="Frata BIM Logo" width={102} height={34} className="dark:hidden" />
+            <Image src="/logo-light.svg" alt="Frata BIM Logo" width={102} height={34} className="hidden dark:block" />
           </Link>
           <nav className="flex items-center space-x-6 text-sm font-medium">
             {navItems.map(item => (
@@ -55,8 +56,8 @@ export function Header() {
                     <SheetTitle className="sr-only">Navigation</SheetTitle>
                  </SheetHeader>
                 <Link href="/" className="flex items-center px-4">
-                    <Image src="/logo-dark.svg" alt="Frata BIM Logo" width={120} height={40} className="dark:hidden" />
-                    <Image src="/logo-light.svg" alt="Frata BIM Logo" width={120} height={40} className="hidden dark:block" />
+                    <Image src="/logo-dark.svg" alt="Frata BIM Logo" width={102} height={34} className="dark:hidden" />
+                    <Image src="/logo-light.svg" alt="Frata BIM Logo" width={102} height={34} className="hidden dark:block" />
                 </Link>
                 <div className="grid gap-4 py-6 px-4">
                     {navItems.map(item => (
@@ -75,8 +76,8 @@ export function Header() {
         
         <div className="flex flex-1 items-center justify-center md:hidden">
             <Link href="/" className="flex items-center space-x-2">
-                <Image src="/logo-dark.svg" alt="Frata BIM Logo" width={120} height={40} className="dark:hidden" />
-                <Image src="/logo-light.svg" alt="Frata BIM Logo" width={120} height={40} className="hidden dark:block" />
+                <Image src="/logo-dark.svg" alt="Frata BIM Logo" width={102} height={34} className="dark:hidden" />
+                <Image src="/logo-light.svg" alt="Frata BIM Logo" width={102} height={34} className="hidden dark:block" />
             </Link>
         </div>
 

@@ -5,6 +5,7 @@ export type Locale = typeof locales[number];
 export const translations = {
   en: {
     // Header
+    home: 'Home',
     about: 'About Us',
     services: 'Services',
     portfolio: 'Portfolio',
@@ -120,11 +121,11 @@ Our Efficient Process
 ---SPLIT---
 Why Choose Us?
 ---SPLIT---
-Experienced Team: Our team has decades of combined experience in BIM and structural reinforcement.
-Cutting-Edge Technology: Advanced mastery of Tekla, Revit, Navisworks, and Trimble Connect.
-Professional Approach: Clear methodology with measurable and traceable deliverables.
-Real Savings: Significant reduction in time and money through BIM optimization.
-Specialized Dedication: Unlike generalists, our exclusive focus on rebar detailing ensures a superior level of quality and expertise in every project.`,
+1. Experienced Team: Our team has decades of combined experience in BIM and structural reinforcement.
+2. Cutting-Edge Technology: Advanced mastery of Tekla, Revit, Navisworks, and Trimble Connect.
+3. Professional Approach: Clear methodology with measurable and traceable deliverables.
+4. Real Savings: Significant reduction in time and money through BIM optimization.
+5. Specialized Dedication: Unlike generalists, our exclusive focus on rebar detailing ensures a superior level of quality and expertise in every project.`,
     service5Title: 'BIM Training & Implementation',
     service5Desc: 'We offer comprehensive training programs and strategic implementation support to empower your team with the latest BIM skills and technologies.',
     service5Detail: 'Empower your team with the knowledge to succeed. We offer customized training programs for all skill levels, from basic BIM principles to advanced software techniques. Our implementation support helps your organization smoothly transition to BIM, establishing standards, workflows, and best practices to ensure you get the maximum return on your technology investment.',
@@ -213,6 +214,7 @@ Specialized Dedication: Unlike generalists, our exclusive focus on rebar detaili
   },
   es: {
     // Header
+    home: 'Inicio',
     about: 'Quiénes Somos',
     services: 'Servicios',
     portfolio: 'Portafolio',
@@ -328,11 +330,11 @@ Nuestro Proceso Eficiente
 ---SPLIT---
 ¿Por Qué Elegirnos?
 ---SPLIT---
-Equipo Experimentado: Nuestro equipo cuenta con décadas de experiencia combinada en BIM y refuerzo estructural.
-Tecnología de Punta: Dominio avanzado de Tekla, Revit, Navisworks y Trimble Connect.
-Enfoque Profesional: Metodología clara con entregables medibles y trazables.
-Ahorro Real: Reducción significativa de tiempo y dinero gracias a la optimización BIM.
-Dedicación Especializada: A diferencia de los generalistas, nuestro enfoque exclusivo en el detallado de acero garantiza un nivel de calidad y expertise superior en cada proyecto.`,
+1. Equipo Experimentado: Nuestro equipo cuenta con décadas de experiencia combinada en BIM y refuerzo estructural.
+2. Tecnología de Punta: Dominio avanzado de Tekla, Revit, Navisworks y Trimble Connect.
+3. Enfoque Profesional: Metodología clara con entregables medibles y trazables.
+4. Ahorro Real: Reducción significativa de tiempo y dinero gracias a la optimización BIM.
+5. Dedicación Especializada: A diferencia de los generalistas, nuestro enfoque exclusivo en el detallado de acero garantiza un nivel de calidad y expertise superior en cada proyecto.`,
     service5Title: 'Capacitación e Implementación BIM',
     service5Desc: 'Ofrecemos programas de capacitación integrales y soporte estratégico para capacitar a su equipo con las últimas tecnologías y habilidades BIM.',
     service5Detail: 'Capacite a su equipo con el conocimiento para tener éxito. Ofrecemos programas de formación personalizados para todos los niveles, desde principios básicos de BIM hasta técnicas avanzadas de software. Nuestro soporte de implementación ayuda a su organización a realizar una transición fluida a BIM, estableciendo estándares, flujos de trabajo y mejores prácticas para garantizar que obtenga el máximo rendimiento de su inversión en tecnología.',
