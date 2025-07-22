@@ -79,7 +79,9 @@ Our Implementation Process
     service2Desc: 'We create tailored software solutions and add-ins to automate your processes, enhance your BIM workflows, and boost productivity.',
     service2Detail: `Tailored Software That Drives Your Business. We craft custom software solutions designed for the real-world challenges of the AEC and manufacturing sectors, enhancing your workflows, productivity, and revenue.
 ---SPLIT---
-The Frata Difference: Engineers Who Code. We aren't just software developers; we are industry veterans. Our team combines deep expertise in AEC and manufacturing workflows with cutting-edge software engineering. We understand your processes, speak your language, and build solutions that solve your specific problems, not just write code.
+The Frata Difference: Engineers Who Code
+---SPLIT---
+We aren't just software developers; we are industry veterans. Our team combines deep expertise in AEC and manufacturing workflows with cutting-edge software engineering. We understand your processes, speak your language, and build solutions that solve your specific problems, not just write code.
 ---SPLIT---
 Our Custom Solutions
 ---SPLIT---
@@ -98,7 +100,28 @@ Our Development Process
 What Our Customers Say`,
     service3Title: 'On-Site BIM Construction Support',
     service3Desc: 'Our experts provide hands-on BIM support directly on your construction site, ensuring perfect implementation and immediate problem-solving.',
-    service3Detail: 'Bridge the gap between the digital model and physical construction with our on-site support. Our BIM specialists work alongside your construction team to ensure that the BIM execution plan is followed correctly. We assist with model validation, clash detection resolution in the field, layout using BIM data, and real-time problem-solving, minimizing rework and keeping your project on schedule.',
+    service3Detail: `Bridge the gap between the digital model and physical construction. Our experts provide practical BIM support directly on your construction site, ensuring perfect implementation and immediate problem-solving.
+---SPLIT---
+Why choose our On-Site BIM Support?
+---SPLIT---
+1. On-Site Experts: Our BIM specialists work directly at your construction site, providing immediate technical assistance and resolving issues in real time. Key benefits include direct coordination with teams and adaptation to real conditions.
+2. Practical Implementation: We translate BIM models into concrete actions, ensuring that digital information is correctly materialized in the physical construction. This includes model vs. reality verification and continuous quality control.
+3. Immediate Response: We eliminate waiting times with our on-site team, guaranteeing continuity in the construction processes. This means instant technical support and fast, well-founded decisions.
+4. Knowledge Transfer: We train your team as we work together, ensuring they acquire the necessary BIM skills for future projects. This fosters internal capabilities and progressive autonomy.
+---SPLIT---
+Our Support Process
+---SPLIT---
+1. Initial Analysis: We evaluate the current state of the project, identify specific needs, and define the objectives for our support.
+2. Team Deployment: We assign BIM specialists with proven experience in your type of project to work directly on-site.
+3. Active Implementation: We work side-by-side with your team, solving problems, optimizing processes, and ensuring BIM quality.
+4. Continuous Monitoring: We constantly supervise the implementation, make necessary adjustments, and document lessons learned.
+---SPLIT---
+Proven Results
+---SPLIT---
+1. Significant Error Reduction: Fewer clashes and coordination issues thanks to direct on-site support.
+2. Time Savings: Immediate problem resolution prevents delays and accelerates construction processes.
+3. Increased Quality: Continuous quality control and expert supervision ensure a higher quality final product.
+4. Empowered Teams: Your team gains the skills and confidence to manage BIM autonomously in the future.`,
     service4Title: 'BIM for Manufacturing: High-Impact Rebar Detailing',
     service4Desc: 'We specialize in creating detailed fabrication models, including precise rebar detailing, to streamline manufacturing and assembly.',
     service4Detail: `Our 3D rebar detailing service transforms the planning and execution of complex reinforced concrete structures using high-detail BIM models, ready for fabrication. We are experts who solve problems before construction begins, from bidding to on-site work.
@@ -292,7 +315,9 @@ Nuestro Proceso de Implementación
     service2Desc: 'Creamos soluciones de software y add-ins personalizados para automatizar sus procesos, mejorar sus flujos de trabajo BIM e impulsar la productividad.',
     service2Detail: `Software a Medida que Impulsa tu Negocio. Creamos soluciones de software personalizadas, diseñadas para los desafíos del mundo real en los sectores AEC y de manufactura, mejorando tus flujos de trabajo, productividad e ingresos.
 ---SPLIT---
-La Diferencia Frata: Ingenieros que Programan. No somos solo desarrolladores de software; somos veteranos de la industria. Nuestro equipo combina una profunda experiencia en los flujos de trabajo de AEC y manufactura con ingeniería de software de vanguardia. Entendemos tus procesos, hablamos tu idioma y construimos soluciones que resuelven tus problemas específicos, no solo escribimos código.
+La Diferencia Frata: Ingenieros que Programan
+---SPLIT---
+No somos solo desarrolladores de software; somos veteranos de la industria. Nuestro equipo combina una profunda experiencia en los flujos de trabajo de AEC y manufactura con ingeniería de software de vanguardia. Entendemos tus procesos, hablamos tu idioma y construimos soluciones que resuelven tus problemas específicos, no solo escribimos código.
 ---SPLIT---
 Nuestras Soluciones a Medida
 ---SPLIT---
@@ -311,7 +336,28 @@ Nuestro Proceso de Desarrollo
 Lo que Dicen Nuestros Clientes`,
     service3Title: 'Acompañamiento BIM en Obra',
     service3Desc: 'Nuestros expertos brindan soporte BIM práctico directamente en su obra, asegurando una implementación perfecta y resolución inmediata de problemas.',
-    service3Detail: 'Cierre la brecha entre el modelo digital y la construcción física con nuestro soporte en obra. Nuestros especialistas en BIM trabajan junto a su equipo de construcción para garantizar que el plan de ejecución de BIM se siga correctamente. Asistimos en la validación de modelos, la resolución de detección de conflictos en el campo, el diseño utilizando datos BIM y la resolución de problemas en tiempo real, minimizando el retrabajo y manteniendo su proyecto en el cronograma.',
+    service3Detail: `Cierre la brecha entre el modelo digital y la construcción física. Nuestros expertos brindan soporte BIM práctico directamente en su obra, asegurando una implementación perfecta y resolución inmediata de problemas.
+---SPLIT---
+¿Por qué elegir nuestro Acompañamiento BIM?
+---SPLIT---
+1. Expertos en Obra: Nuestros especialistas BIM trabajan directamente en su obra, proporcionando asistencia técnica inmediata y resolviendo problemas en tiempo real. Los beneficios clave incluyen la coordinación directa con los equipos y la adaptación a las condiciones reales.
+2. Implementación Práctica: Traducimos los modelos BIM en acciones concretas, asegurando que la información digital se materialice correctamente en la construcción física. Esto incluye la verificación de modelos vs. realidad y el control de calidad continuo.
+3. Respuesta Inmediata: Eliminamos los tiempos de espera con nuestro equipo presente en obra, garantizando la continuidad en los procesos constructivos. Esto se traduce en soporte técnico instantáneo y decisiones rápidas y fundamentadas.
+4. Transferencia de Conocimiento: Capacitamos a su equipo mientras trabajamos juntos, asegurando que adquieran las competencias BIM necesarias para futuros proyectos. Esto fomenta las capacidades internas y la autonomía progresiva.
+---SPLIT---
+Nuestro Proceso de Acompañamiento
+---SPLIT---
+1. Análisis Inicial: Evaluamos el estado actual del proyecto, identificamos necesidades específicas y definimos los objetivos del acompañamiento.
+2. Despliegue de Equipo: Asignamos especialistas BIM con experiencia comprobada en su tipo de proyecto para trabajar directamente en obra.
+3. Implementación Activa: Trabajamos codo a codo con su equipo, resolviendo problemas, optimizando procesos y garantizando la calidad BIM.
+4. Monitoreo Continuo: Supervisamos constantemente la implementación, realizamos los ajustes necesarios y documentamos las lecciones aprendidas.
+---SPLIT---
+Resultados Comprobados
+---SPLIT---
+1. Reducción Significativa de Errores: Menos conflictos y problemas de coordinación gracias al acompañamiento directo en obra.
+2. Ahorro de Tiempos: La resolución inmediata de problemas evita retrasos y acelera los procesos constructivos.
+3. Aumento de la Calidad: El control de calidad continuo y la supervisión experta aseguran un producto final de mayor calidad.
+4. Equipos Empoderados: Su equipo adquiere las competencias y la confianza para gestionar BIM de forma autónoma en el futuro.`,
     service4Title: 'BIM para Fabricación: Detallado de Acero de Alto Impacto',
     service4Desc: 'Nos especializamos en la creación de modelos de fabricación detallados, incluyendo el detallado de acero de refuerzo (rebar), para optimizar la manufactura.',
     service4Detail: `Nuestro servicio de detallado 3D de armaduras transforma la planificación y ejecución de estructuras de hormigón armado complejas mediante modelos BIM de alto detalle, listos para fabricación. Somos expertos que resolvemos problemas antes de construir, desde la licitación hasta la obra.
