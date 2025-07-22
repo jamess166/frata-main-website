@@ -6,7 +6,7 @@ import Image from "next/image"
 import { useLanguage } from "@/hooks/use-language"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowLeft, CheckCircle, Cpu, FileText, Globe, HardHat, Layers, ListChecks, Percent, Repeat, Scaling, ShieldCheck, TrendingUp, Users, Wrench, Zap } from "lucide-react"
+import { ArrowLeft, CheckCircle, Cpu, FileText, Globe, HardHat, Layers, ListChecks, Percent, Repeat, Scaling, ShieldCheck, TrendingUp, Users, Wrench, Zap, AlertTriangle } from "lucide-react"
 import Link from "next/link"
 import React, { useRef } from "react"
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer"
@@ -102,22 +102,17 @@ const RebarDetailingService: FC = () => {
         <div className="space-y-24">
             {/* Header */}
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <header className="text-center max-w-4xl mx-auto space-y-6">
-                    <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-                        {t('service4Title')}
-                    </h1>
-                    <p className="text-xl text-muted-foreground">{intro}</p>
-                </header>
-                <div className="my-12 rounded-lg border overflow-hidden shadow-lg aspect-w-16 aspect-h-9">
-                    <Image
-                        src="https://placehold.co/1200x675.png"
-                        data-ai-hint="3d rebar model"
-                        alt="Team of engineers reviewing a 3D rebar model"
-                        width={1200}
-                        height={675}
-                        className="w-full object-cover"
-                    />
-                </div>
+                <p className="text-xl text-muted-foreground">{intro}</p>
+            </div>
+            <div className="my-12 rounded-lg border overflow-hidden shadow-lg aspect-w-16 aspect-h-9">
+                <Image
+                    src="https://placehold.co/1200x675.png"
+                    data-ai-hint="3d rebar model"
+                    alt="Team of engineers reviewing a 3D rebar model"
+                    width={1200}
+                    height={675}
+                    className="w-full object-cover"
+                />
             </div>
 
             {/* Problem */}
@@ -198,7 +193,7 @@ const RebarDetailingService: FC = () => {
                         <SectionTitle>{processTitle}</SectionTitle>
                         {processSteps.map((step, index) => {
                             const [title, description] = step.split(':');
-                            return <ProcessStep key={title} number={`0${index + 1}`} title={title.replace(/\d+\. /, '').trim()}>{description}</ProcessStep>
+                            return <ProcessStep key={title} number={`0${index + 1}`} title={title.replace(/^\d+\.\s*/, '').trim()}>{description}</ProcessStep>
                         })}
                     </div>
                 </div>
@@ -212,15 +207,15 @@ const RebarDetailingService: FC = () => {
                         {whyUsPoints.map((point) => {
                              const [title, description] = point.split(':');
                              const icons: { [key: string]: React.ReactNode } = {
-                                'team': <Users className="h-8 w-8" />,
-                                'technology': <Cpu className="h-8 w-8" />,
-                                'approach': <Zap className="h-8 w-8" />,
-                                'savings': <Percent className="h-8 w-8" />,
-                                'specialized': <Wrench className="h-8 w-8" />,
+                                'equipo': <Users className="h-8 w-8" />,
+                                'tecnología': <Cpu className="h-8 w-8" />,
+                                'enfoque': <Zap className="h-8 w-8" />,
+                                'ahorro': <Percent className="h-8 w-8" />,
+                                'dedicación': <Wrench className="h-8 w-8" />,
                             };
                             const iconKey = Object.keys(icons).find(key => title.toLowerCase().includes(key)) || 'team';
                             return (
-                                <BenefitCard key={title} icon={icons[iconKey]} title={title.replace(/\d+\. /, '')}>{description}</BenefitCard>
+                                <BenefitCard key={title} icon={icons[iconKey]} title={title.replace(/^\d+\.\s*/, '')}>{description}</BenefitCard>
                             )
                         })}
                     </div>
@@ -249,21 +244,16 @@ const SoftwareDevelopmentService: FC = () => {
     
     // Placeholder testimonials
     const testimonials = [
-        { name: 'Romeu Reguengo', company: 'Concremat', quote: 'A fantastic partnership, deserving a 5-star rating. The tool reduced time spent by almost 70%.' },
-        { name: 'Guido Honders', company: 'Casteo B.V.', quote: 'DiRoots created tools that tremendously helped speed up our process. High-quality plugins and always on time.' },
-        { name: 'José S.', company: 'ICVP / LOGIMEP', quote: 'I highly recommend DiRoots. They created a personalized Revit plug-in from a Dynamo draft. Affordable price and quality work.' },
+        { name: 'Carlos Vargas', company: 'QC Ingenieros', quote: 'Una colaboración fantástica, merecedora de 5 estrellas. La herramienta que desarrollaron para nosotros redujo el tiempo que dedicábamos a tareas manuales en casi un 70%.' },
+        { name: 'Sofía Montoya', company: '5YMAS Constructora', quote: 'Frata Ingenieros creó un conjunto de herramientas para Revit que aceleraron enormemente nuestro proceso. Entregaron plugins de alta calidad y siempre a tiempo. Su enfoque profesional y amigable es lo que más destaco.' },
+        { name: 'Luis Fernández', company: 'LF Ingeniería', quote: 'Recomiendo encarecidamente a Frata Ingenieros. Crearon un plug-in de Revit personalizado a partir de un borrador que teníamos en Dynamo. Aprecié su precio asequible, el respeto por los plazos y la calidad del trabajo.' },
     ];
 
     return (
         <div className="space-y-24">
              {/* Header */}
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <header className="text-center max-w-4xl mx-auto space-y-6">
-                    <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-                        {t('service2Title')}
-                    </h1>
-                    <p className="text-xl text-muted-foreground">{intro}</p>
-                </header>
+                <p className="text-xl text-muted-foreground">{intro}</p>
                 <div className="my-12 rounded-lg border overflow-hidden shadow-lg aspect-w-16 aspect-h-9">
                     <Image
                         src="https://placehold.co/1200x675.png"
@@ -306,11 +296,11 @@ const SoftwareDevelopmentService: FC = () => {
                              const icons: { [key: string]: React.ReactNode } = {
                                 'add-ins': <Cpu className="h-8 w-8" />,
                                 'web': <Globe className="h-8 w-8" />,
-                                'automation': <Zap className="h-8 w-8" />,
+                                'automatización': <Zap className="h-8 w-8" />,
                             };
                             const iconKey = Object.keys(icons).find(key => title.toLowerCase().includes(key)) || 'add-ins';
                             return (
-                                <BenefitCard key={title} icon={icons[iconKey]} title={title.replace(/\d+\. /, '')}>{description}</BenefitCard>
+                                <BenefitCard key={title} icon={icons[iconKey]} title={title.replace(/^\d+\.\s*/, '')}>{description}</BenefitCard>
                             )
                         })}
                     </div>
@@ -334,7 +324,7 @@ const SoftwareDevelopmentService: FC = () => {
                         <SectionTitle>{processTitle}</SectionTitle>
                         {processSteps.map((step, index) => {
                             const [title, description] = step.split(':');
-                            return <ProcessStep key={title} number={`0${index + 1}`} title={title.replace(/\d+\. /, '').trim()}>{description}</ProcessStep>
+                            return <ProcessStep key={title} number={`0${index + 1}`} title={title.replace(/^\d+\.\s*/, '').trim()}>{description}</ProcessStep>
                         })}
                     </div>
                 </div>
@@ -374,26 +364,39 @@ export const ServiceDetailClient: FC<ServiceDetailClientProps> = ({ serviceInfo 
             return <RebarDetailingService />;
         // Add cases for other services here
         default:
-            return <div className="container mx-auto p-8">Service content not found.</div>;
+             return (
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center py-24">
+                    <AlertTriangle className="mx-auto h-12 w-12 text-yellow-500" />
+                    <h2 className="mt-4 text-2xl font-bold">Contenido no disponible</h2>
+                    <p className="mt-2 text-muted-foreground">
+                        El contenido detallado para este servicio aún no ha sido implementado.
+                    </p>
+                </div>
+            );
     }
   }
 
   return (
-    <>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24">
-        <Button asChild variant="ghost" className="-ml-4">
-          <Link href="/#services">
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            {t('services')}
-          </Link>
-        </Button>
-      </div>
+    <div className="space-y-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24">
+            <Button asChild variant="ghost" className="-ml-4">
+            <Link href="/#services">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                {t('services')}
+            </Link>
+            </Button>
+            <header className="text-center max-w-4xl mx-auto space-y-6 mt-8">
+                <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+                    {t(serviceInfo.titleKey)}
+                </h1>
+            </header>
+        </div>
       
-      <div className="py-12">
+      
         <ServiceComponent />
-      </div>
+      
 
-      <section className="py-24 bg-primary/5 dark:bg-primary/10">
+      <section className="py-24 bg-primary/5 dark:bg-primary/10 -mx-4 sm:-mx-6 lg:-mx-8">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
            <h2 className="font-headline text-3xl font-bold">{t('ctaTitle')}</h2>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
@@ -404,6 +407,6 @@ export const ServiceDetailClient: FC<ServiceDetailClientProps> = ({ serviceInfo 
           </Button>
         </div>
       </section>
-    </>
+    </div>
   )
 }
