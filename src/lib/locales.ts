@@ -11,6 +11,7 @@ export const translations = {
     portfolio: 'Portfolio',
     bimTools: 'BIMtools',
     contact: 'Contact',
+    blog: 'Blog',
     learnMore: 'Learn More',
     viewDetails: 'View Details',
     benefits: 'Benefits',
@@ -237,7 +238,12 @@ Why Choose Us?
     footerText: '© 2024 Frata Ingenieros. All rights reserved.',
     // FAQ
     faqTitle: 'Intelligent FAQ',
-    faqButton: 'Ask a Question'
+    faqButton: 'Ask a Question',
+    // Blog
+    blogTitle: 'Blog & News',
+    blogDescription: 'Explore our latest articles, insights, and news from the world of BIM and digital construction.',
+    readMore: 'Read More',
+    by: 'By',
   },
   es: {
     // Header
@@ -247,6 +253,7 @@ Why Choose Us?
     portfolio: 'Portafolio',
     bimTools: 'BIMtools',
     contact: 'Contacto',
+    blog: 'Blog',
     learnMore: 'Conoce Más',
     viewDetails: 'Ver Detalles',
     benefits: 'Beneficios',
@@ -473,8 +480,11 @@ Nuestro Proceso Eficiente
     footerText: '© 2024 Frata Ingenieros. Todos los derechos reservados.',
     // FAQ
     faqTitle: 'FAQ Inteligente',
-    faqButton: 'Haz una Pregunta'
+    faqButton: 'Haz una Pregunta',
+    // Blog
+    blogTitle: 'Blog y Noticias',
+    blogDescription: 'Explora nuestros últimos artículos, ideas y noticias del mundo de BIM y la construcción digital.',
+    readMore: 'Leer Más',
+    by: 'Por',
   }
 };
-
-    

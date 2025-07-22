@@ -17,17 +17,18 @@ export function Header() {
     { href: "/#services", label: t('services') },
     { href: "/#portfolio", label: t('portfolio') },
     { href: "/bimtools", label: t('bimTools') },
+    { href: "/blog", label: t('blog') },
     { href: "/#contact", label: t('contact') },
   ]
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="flex h-16 items-center px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto flex h-16 items-center px-4 sm:px-6 lg:px-8">
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center">
           <Link href="/" className="mr-6 flex items-center space-x-2">
-            <Image src="/logo-dark.svg" alt="Frata BIM Logo" width={102} height={34} className="dark:hidden" />
-            <Image src="/logo-light.svg" alt="Frata BIM Logo" width={102} height={34} className="hidden dark:block" />
+            <Image src="/logo-dark.svg" alt="Frata BIM Logo" width={87} height={29} className="dark:hidden" />
+            <Image src="/logo-light.svg" alt="Frata BIM Logo" width={87} height={29} className="hidden dark:block" />
           </Link>
           <nav className="flex items-center space-x-6 text-sm font-medium">
             {navItems.map(item => (
@@ -56,8 +57,8 @@ export function Header() {
                     <SheetTitle className="sr-only">Navigation</SheetTitle>
                  </SheetHeader>
                 <Link href="/" className="flex items-center px-4">
-                    <Image src="/logo-dark.svg" alt="Frata BIM Logo" width={102} height={34} className="dark:hidden" />
-                    <Image src="/logo-light.svg" alt="Frata BIM Logo" width={102} height={34} className="hidden dark:block" />
+                    <Image src="/logo-dark.svg" alt="Frata BIM Logo" width={87} height={29} className="dark:hidden" />
+                    <Image src="/logo-light.svg" alt="Frata BIM Logo" width={87} height={29} className="hidden dark:block" />
                 </Link>
                 <div className="grid gap-4 py-6 px-4">
                     {navItems.map(item => (
@@ -76,8 +77,8 @@ export function Header() {
         
         <div className="flex flex-1 items-center justify-center md:hidden">
             <Link href="/" className="flex items-center space-x-2">
-                <Image src="/logo-dark.svg" alt="Frata BIM Logo" width={102} height={34} className="dark:hidden" />
-                <Image src="/logo-light.svg" alt="Frata BIM Logo" width={102} height={34} className="hidden dark:block" />
+                <Image src="/logo-dark.svg" alt="Frata BIM Logo" width={87} height={29} className="dark:hidden" />
+                <Image src="/logo-light.svg" alt="Frata BIM Logo" width={87} height={29} className="hidden dark:block" />
             </Link>
         </div>
 
