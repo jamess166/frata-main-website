@@ -61,14 +61,14 @@ Key Advantages
 Our Services
 ---SPLIT---
 1. Dedicated BIM Teams: We assign complete and dedicated teams exclusively to your project, with professionals specialized in your industry and type of construction. This includes senior and junior BIM modelers, certified BIM coordinators, and dedicated project managers.
-2. Seamless Collaboration: Advanced technological infrastructure that allows for real-time collaboration, regardless of geographical location. We use platforms like BIM 360 for fluid communication and centralized version management.
+2. Seamless Collaboration: Advanced technological infrastructure that allows for real-time collaboration, regardless of geographical location. We use the most widely used CDE platforms worldwide for fluid communication and centralized version management.
 3. Expert Talent Selection: A rigorous selection process ensures that only the best BIM professionals work on your projects. We verify certifications, experience in similar projects, and communication skills.
 ---SPLIT---
 Our Implementation Process
 ---SPLIT---
 1. Requirements Analysis: We evaluate your specific needs, timeline, budget, and technical project requirements.
 2. Team Selection: We identify and select the perfect professionals for your project based on experience and specialization.
-3. Rapid Onboarding: We integrate the team with your processes, standards, tools, and methodologies in less than 48 hours.
+3. Rapid Onboarding: We integrate the team with your processes, standards, tools, and methodologies quickly and efficiently.
 4. Execution and Monitoring: Continuous project management with regular reports, quality control, and adjustments as needed.`,
     service2Title: 'Custom BIM Software Development',
     service2Desc: 'We create tailored software solutions and add-ins to automate your processes, enhance your BIM workflows, and boost productivity.',
@@ -269,14 +269,14 @@ Ventajas Clave
 Nuestros Servicios
 ---SPLIT---
 1. Equipos BIM Dedicados: Asignamos equipos completos y dedicados exclusivamente a tu proyecto, con profesionales especializados en tu industria y tipo de construcción. Incluye modeladores BIM senior y junior, coordinadores BIM certificados y gestores de proyecto dedicados.
-2. Colaboración Sin Fronteras: Infraestructura tecnológica avanzada que permite colaboración en tiempo real, independientemente de la ubicación geográfica. Usamos plataformas como BIM 360 para una comunicación fluida y gestión centralizada de versiones.
+2. Colaboración Sin Fronteras: Infraestructura tecnológica avanzada que permite colaboración en tiempo real, independientemente de la ubicación geográfica. Usamos las plataformas CDE más usadas a nivel mundial para una comunicación fluida y gestión centralizada de versiones.
 3. Selección de Talento Experta: Proceso riguroso de selección que garantiza que solo los mejores profesionales BIM trabajen en tus proyectos. Verificamos certificaciones, experiencia en proyectos similares y habilidades de comunicación.
 ---SPLIT---
 Nuestro Proceso de Implementación
 ---SPLIT---
 1. Análisis de Requisitos: Evaluamos tus necesidades específicas, cronograma, presupuesto y requisitos técnicos del proyecto.
 2. Selección de Equipo: Identificamos y seleccionamos a los profesionales perfectos para tu proyecto basándonos en experiencia y especialización.
-3. Onboarding Rápido: Integramos al equipo con tus procesos, estándares, herramientas y metodologías en menos de 48 horas.
+3. Onboarding Rápido: Integramos al equipo con tus procesos, estándares, herramientas y metodologías de forma rápida y eficiente.
 4. Ejecución y Monitoreo: Gestión continua del proyecto con reportes regulares, control de calidad y ajustes según sea necesario.`,
     service2Title: 'Desarrollo de Software BIM a Medida',
     service2Desc: 'Creamos soluciones de software y add-ins personalizados para automatizar sus procesos, mejorar sus flujos de trabajo BIM e impulsar la productividad.',
@@ -420,3 +420,5 @@ Dedicación Especializada: A diferencia de los generalistas, nuestro enfoque exc
     faqButton: 'Haz una Pregunta'
   }
 };
+
+    
