@@ -1,3 +1,4 @@
+
 "use client"
 
 import type { FC } from 'react';
@@ -43,7 +44,7 @@ const Animated = ({ children, className, delay = 0 }: { children: React.ReactNod
 const HeroSection: FC = () => {
   const { t } = useLanguage();
   return (
-    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden py-20 sm:py-32 lg:py-40">
+    <section className="relative min-h-[80vh] md:min-h-screen flex items-center justify-center overflow-hidden py-20 sm:py-32 lg:py-40">
       <div className="absolute inset-0 z-0">
          <PlexusBackground />
       </div>
