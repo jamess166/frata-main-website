@@ -3,24 +3,68 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { Menu } from "lucide-react"
+import { Menu, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { LanguageSwitcher } from "@/components/language-switcher"
 import { useLanguage } from "@/hooks/use-language"
+import { cn } from "@/lib/utils"
 
 export function Header() {
   const { t } = useLanguage()
+  
+  const services = [
+    { slug: 'global-remote-bim-teams', titleKey: 'service1Title' },
+    { slug: 'custom-bim-software-development', titleKey: 'service2Title' },
+    { slug: 'on-site-bim-construction-support', titleKey: 'service3Title' },
+    { slug: 'bim-for-manufacturing', titleKey: 'service4Title' },
+    { slug: 'bim-training-and-implementation', titleKey: 'service5Title' },
+    { slug: 'comprehensive-bim-modeling', titleKey: 'service6Title' },
+  ]
+
   const navItems = [
     { href: "/", label: t('home') },
     { href: "/about", label: t('about') },
-    { href: "/#services", label: t('services') },
-    { href: "/#portfolio", label: t('portfolio') },
+    // Portfolio hidden as requested
+    // { href: "/#portfolio", label: t('portfolio') },
     { href: "/bimtools", label: t('bimTools') },
     { href: "/blog", label: t('blog') },
     { href: "/#contact", label: t('contact') },
   ]
+
+  const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
+    <Link
+      href={href}
+      className="transition-colors hover:text-primary text-foreground/80 font-medium"
+    >
+      {children}
+    </Link>
+  )
+  
+  const ServicesMenu = () => (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="ghost" className="transition-colors hover:text-primary text-foreground/80 font-medium p-0 h-auto hover:bg-transparent">
+          {t('services')}
+          <ChevronDown className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180" />
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="start" className="w-56">
+        {services.map(service => (
+          <DropdownMenuItem key={service.slug} asChild>
+            <Link href={`/services/${service.slug}`}>{t(service.titleKey as any)}</Link>
+          </DropdownMenuItem>
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
+  )
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -31,16 +75,11 @@ export function Header() {
             <Image src="/logo-dark.svg" alt="Frata BIM Logo" width={87} height={29} className="dark:hidden" />
             <Image src="/logo-light.svg" alt="Frata BIM Logo" width={87} height={29} className="hidden dark:block" />
           </Link>
-          <nav className="flex items-center space-x-6 text-sm font-medium">
+          <nav className="flex items-center space-x-6 text-sm">
             {navItems.map(item => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="transition-colors hover:text-foreground/80 text-foreground/60"
-              >
-                {item.label}
-              </Link>
+              <NavLink key={item.href} href={item.href}>{item.label}</NavLink>
             ))}
+            <ServicesMenu />
           </nav>
         </div>
 
@@ -71,6 +110,15 @@ export function Header() {
                         {item.label}
                     </Link>
                     ))}
+                    {/* Services in mobile */}
+                     <div className="flex w-full items-center py-2 text-lg font-semibold">{t('services')}</div>
+                     <div className="grid gap-2 pl-4">
+                        {services.map(service => (
+                             <Link key={service.slug} href={`/services/${service.slug}`} className="text-muted-foreground hover:text-foreground">
+                                {t(service.titleKey as any)}
+                             </Link>
+                        ))}
+                     </div>
                 </div>
                 </SheetContent>
             </Sheet>
