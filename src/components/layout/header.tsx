@@ -32,8 +32,7 @@ export function Header() {
   const navItems = [
     { href: "/", label: t('home') },
     { href: "/about", label: t('about') },
-    // Portfolio hidden as requested
-    // { href: "/#portfolio", label: t('portfolio') },
+    // Services will be injected here
     { href: "/bimtools", label: t('bimTools') },
     { href: "/blog", label: t('blog') },
     { href: "/#contact", label: t('contact') },
@@ -48,23 +47,40 @@ export function Header() {
     </Link>
   )
   
-  const ServicesMenu = () => (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="transition-colors hover:text-primary text-foreground/80 font-medium p-0 h-auto hover:bg-transparent">
-          {t('services')}
-          <ChevronDown className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180" />
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="start" className="w-56">
-        {services.map(service => (
-          <DropdownMenuItem key={service.slug} asChild>
-            <Link href={`/services/${service.slug}`}>{t(service.titleKey as any)}</Link>
-          </DropdownMenuItem>
-        ))}
-      </DropdownMenuContent>
-    </DropdownMenu>
-  )
+  const ServicesMenu = ({ isMobile = false }: { isMobile?: boolean }) => {
+    if (isMobile) {
+      return (
+        <div className="grid gap-2">
+          <div className="flex w-full items-center py-2 text-lg font-semibold">{t('services')}</div>
+          <div className="grid gap-2 pl-4">
+            {services.map(service => (
+              <Link key={service.slug} href={`/services/${service.slug}`} className="text-muted-foreground hover:text-foreground">
+                {t(service.titleKey as any)}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )
+    }
+
+    return (
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="ghost" className="transition-colors hover:text-primary text-foreground/80 font-medium p-0 h-auto hover:bg-transparent">
+            {t('services')}
+            <ChevronDown className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180" />
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="start" className="w-56 md:w-72">
+          {services.map(service => (
+            <DropdownMenuItem key={service.slug} asChild>
+              <Link href={`/services/${service.slug}`}>{t(service.titleKey as any)}</Link>
+            </DropdownMenuItem>
+          ))}
+        </DropdownMenuContent>
+      </DropdownMenu>
+    )
+  }
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -76,10 +92,12 @@ export function Header() {
             <Image src="/logo-light.svg" alt="Frata BIM Logo" width={87} height={29} className="hidden dark:block" />
           </Link>
           <nav className="flex items-center space-x-6 text-sm">
-            {navItems.map(item => (
-              <NavLink key={item.href} href={item.href}>{item.label}</NavLink>
-            ))}
+            <NavLink href="/">{t('home')}</NavLink>
+            <NavLink href="/about">{t('about')}</NavLink>
             <ServicesMenu />
+            <NavLink href="/bimtools">{t('bimTools')}</NavLink>
+            <NavLink href="/blog">{t('blog')}</NavLink>
+            <NavLink href="/#contact">{t('contact')}</NavLink>
           </nav>
         </div>
 
@@ -101,24 +119,12 @@ export function Header() {
                     <Image src="/logo-light.svg" alt="Frata BIM Logo" width={87} height={29} className="hidden dark:block" />
                 </Link>
                 <div className="grid gap-4 py-6 px-4">
-                    {navItems.map(item => (
-                    <Link
-                        key={item.href}
-                        href={item.href}
-                        className="flex w-full items-center py-2 text-lg font-semibold"
-                    >
-                        {item.label}
-                    </Link>
-                    ))}
-                    {/* Services in mobile */}
-                     <div className="flex w-full items-center py-2 text-lg font-semibold">{t('services')}</div>
-                     <div className="grid gap-2 pl-4">
-                        {services.map(service => (
-                             <Link key={service.slug} href={`/services/${service.slug}`} className="text-muted-foreground hover:text-foreground">
-                                {t(service.titleKey as any)}
-                             </Link>
-                        ))}
-                     </div>
+                    <Link href="/" className="flex w-full items-center py-2 text-lg font-semibold">{t('home')}</Link>
+                    <Link href="/about" className="flex w-full items-center py-2 text-lg font-semibold">{t('about')}</Link>
+                    <ServicesMenu isMobile />
+                    <Link href="/bimtools" className="flex w-full items-center py-2 text-lg font-semibold">{t('bimTools')}</Link>
+                    <Link href="/blog" className="flex w-full items-center py-2 text-lg font-semibold">{t('blog')}</Link>
+                    <Link href="/#contact" className="flex w-full items-center py-2 text-lg font-semibold">{t('contact')}</Link>
                 </div>
                 </SheetContent>
             </Sheet>
