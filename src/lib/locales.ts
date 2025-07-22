@@ -49,7 +49,27 @@ export const translations = {
     servicesTitle: 'Our Services',
     service1Title: 'Global Remote BIM Teams',
     service1Desc: 'We provide dedicated remote BIM teams worldwide, ensuring seamless collaboration and access to top talent for your projects, no matter where you are.',
-    service1Detail: 'Our global remote BIM teams integrate seamlessly into your existing workflows. We provide highly skilled and experienced BIM professionals who can handle everything from modeling and coordination to project management. This service allows you to scale your team on-demand, reduce overhead costs, and access specialized expertise without geographical limitations. We ensure clear communication and project alignment through robust digital collaboration platforms.',
+    service1Detail: `Access the world's best BIM talent. We provide specialized remote teams that seamlessly integrate with your workflow, ensuring exceptional quality and smooth collaboration from any location.
+---SPLIT---
+Key Advantages
+---SPLIT---
+1. Global Talent Access: We connect you with a network of certified BIM professionals from around the world, ensuring you get the right expertise for your project.
+2. Flexible Scalability: Adjust the size of your team according to project needs, from a single specialist to a full team. We scale with you.
+3. Cost Reduction: Optimize your budget by avoiding the costs associated with hiring, training, and maintaining a full-time in-house team.
+4. Guaranteed Quality: Our rigorous selection process and continuous project management ensure that every deliverable meets the highest quality standards.
+---SPLIT---
+Our Services
+---SPLIT---
+1. Dedicated BIM Teams: We assign complete and dedicated teams exclusively to your project, with professionals specialized in your industry and type of construction. This includes senior and junior BIM modelers, certified BIM coordinators, and dedicated project managers.
+2. Seamless Collaboration: Advanced technological infrastructure that allows for real-time collaboration, regardless of geographical location. We use platforms like BIM 360 for fluid communication and centralized version management.
+3. Expert Talent Selection: A rigorous selection process ensures that only the best BIM professionals work on your projects. We verify certifications, experience in similar projects, and communication skills.
+---SPLIT---
+Our Implementation Process
+---SPLIT---
+1. Requirements Analysis: We evaluate your specific needs, timeline, budget, and technical project requirements.
+2. Team Selection: We identify and select the perfect professionals for your project based on experience and specialization.
+3. Rapid Onboarding: We integrate the team with your processes, standards, tools, and methodologies in less than 48 hours.
+4. Execution and Monitoring: Continuous project management with regular reports, quality control, and adjustments as needed.`,
     service2Title: 'Custom BIM Software Development',
     service2Desc: 'We create tailored software solutions and add-ins to automate your processes, enhance your BIM workflows, and boost productivity.',
     service2Detail: `Tailored Software That Drives Your Business. We craft custom software solutions designed for the real-world challenges of the AEC and manufacturing sectors, enhancing your workflows, productivity, and revenue.
@@ -237,7 +257,27 @@ Specialized Dedication: Unlike generalists, our exclusive focus on rebar detaili
     servicesTitle: 'Nuestros Servicios',
     service1Title: 'Equipos BIM Remotos Globales',
     service1Desc: 'Ofrecemos equipos BIM remotos dedicados en todo el mundo, garantizando una colaboración fluida y acceso a los mejores talentos para sus proyectos.',
-    service1Detail: 'Nuestros equipos BIM remotos globales se integran perfectamente en sus flujos de trabajo existentes. Proporcionamos profesionales de BIM altamente cualificados y experimentados que pueden gestionar todo, desde el modelado y la coordinación hasta la gestión de proyectos. Este servicio le permite escalar su equipo bajo demanda, reducir los costos generales y acceder a conocimientos especializados sin limitaciones geográficas. Aseguramos una comunicación clara y una alineación del proyecto a través de sólidas plataformas de colaboración digital.',
+    service1Detail: `Accede al mejor talento BIM del mundo. Proporcionamos equipos remotos especializados que se integran perfectamente con tu flujo de trabajo, garantizando calidad excepcional y colaboración fluida desde cualquier ubicación.
+---SPLIT---
+Ventajas Clave
+---SPLIT---
+1. Acceso a Talento Global: Te conectamos con una red de profesionales BIM certificados de todo el mundo, asegurando que obtengas la experiencia adecuada para tu proyecto.
+2. Escalabilidad Flexible: Ajusta el tamaño de tu equipo según las necesidades del proyecto, desde un solo especialista hasta un equipo completo. Crecemos contigo.
+3. Reducción de Costos: Optimiza tu presupuesto evitando los costos asociados a la contratación, capacitación y mantenimiento de un equipo interno a tiempo completo.
+4. Calidad Garantizada: Nuestro riguroso proceso de selección y la gestión continua de proyectos aseguran que cada entregable cumpla con los más altos estándares de calidad.
+---SPLIT---
+Nuestros Servicios
+---SPLIT---
+1. Equipos BIM Dedicados: Asignamos equipos completos y dedicados exclusivamente a tu proyecto, con profesionales especializados en tu industria y tipo de construcción. Incluye modeladores BIM senior y junior, coordinadores BIM certificados y gestores de proyecto dedicados.
+2. Colaboración Sin Fronteras: Infraestructura tecnológica avanzada que permite colaboración en tiempo real, independientemente de la ubicación geográfica. Usamos plataformas como BIM 360 para una comunicación fluida y gestión centralizada de versiones.
+3. Selección de Talento Experta: Proceso riguroso de selección que garantiza que solo los mejores profesionales BIM trabajen en tus proyectos. Verificamos certificaciones, experiencia en proyectos similares y habilidades de comunicación.
+---SPLIT---
+Nuestro Proceso de Implementación
+---SPLIT---
+1. Análisis de Requisitos: Evaluamos tus necesidades específicas, cronograma, presupuesto y requisitos técnicos del proyecto.
+2. Selección de Equipo: Identificamos y seleccionamos a los profesionales perfectos para tu proyecto basándonos en experiencia y especialización.
+3. Onboarding Rápido: Integramos al equipo con tus procesos, estándares, herramientas y metodologías en menos de 48 horas.
+4. Ejecución y Monitoreo: Gestión continua del proyecto con reportes regulares, control de calidad y ajustes según sea necesario.`,
     service2Title: 'Desarrollo de Software BIM a Medida',
     service2Desc: 'Creamos soluciones de software y add-ins personalizados para automatizar sus procesos, mejorar sus flujos de trabajo BIM e impulsar la productividad.',
     service2Detail: `Software a Medida que Impulsa tu Negocio. Creamos soluciones de software personalizadas, diseñadas para los desafíos del mundo real en los sectores AEC y de manufactura, mejorando tus flujos de trabajo, productividad e ingresos.
@@ -268,7 +308,7 @@ Lo que Dicen Nuestros Clientes`,
 ---SPLIT---
 Las Limitaciones del 2D… Ya No Son una Opción. Los planos 2D tradicionales fragmentan la información, llevando a interferencias, errores y costosos retrabajos descubiertos solo en obra. Con el modelado 3D, identificamos interferencias antes de que cuesten dinero, visualizamos cada detalle con claridad y coordinamos con todas las disciplinas para asegurar una construcción sin sorpresas, evitando costosos retrabajos y retrasos.
 ---SPLIT---
-Beneficios Clave por Fase.
+Beneficios Clave por Fase
 ---SPLIT---
 Pre-construcción: Estimación de tonelaje precisa (±3%), compras inteligentes y análisis proactivo de constructibilidad.
 Diseño y Coordinación: Validación de viabilidad, flujo de modelos sin fricción y planos vivos vinculados al modelo para chequeos rápidos.
