@@ -52,7 +52,24 @@ export const translations = {
     service1Detail: 'Our global remote BIM teams integrate seamlessly into your existing workflows. We provide highly skilled and experienced BIM professionals who can handle everything from modeling and coordination to project management. This service allows you to scale your team on-demand, reduce overhead costs, and access specialized expertise without geographical limitations. We ensure clear communication and project alignment through robust digital collaboration platforms.',
     service2Title: 'Custom BIM Software Development',
     service2Desc: 'We create tailored software solutions and add-ins to automate your processes, enhance your BIM workflows, and boost productivity.',
-    service2Detail: 'Unlock new levels of efficiency with our custom software development services. We specialize in creating bespoke add-ins for Revit, Navisworks, Tekla, and other BIM platforms. Whether you need to automate repetitive tasks, enforce company standards, or integrate BIM data with other systems, our development team can build a solution that perfectly fits your needs, saving you time and reducing errors.',
+    service2Detail: `Tailored Software That Drives Your Business. We craft custom software solutions designed for the real-world challenges of the AEC and manufacturing sectors, enhancing your workflows, productivity, and revenue.
+---SPLIT---
+The Frata Difference: Engineers Who Code. We aren't just software developers; we are industry veterans. Our team combines deep expertise in AEC and manufacturing workflows with cutting-edge software engineering. We understand your processes, speak your language, and build solutions that solve your specific problems, not just write code.
+---SPLIT---
+Our Custom Solutions. We develop a wide range of solutions, including:
+---SPLIT---
+1. BIM Platform Add-ins: Custom tools for Revit, Tekla, and Navisworks to automate repetitive tasks, enforce standards, and streamline complex modeling processes.
+2. Web Applications & IFC Viewers: Innovative web apps and cloud-based viewers that make BIM data accessible to all stakeholders, anywhere, on any device.
+3. Process Automation: Bespoke scripts and applications that connect disparate systems, automate data transfer, and eliminate manual, error-prone tasks.
+---SPLIT---
+Our Development Process.
+1. Discovery & Strategy: We start by understanding your goals, challenges, and existing workflows to define a clear project roadmap.
+2. Prototyping & Design: We create mockups and prototypes to validate the concept and ensure the user experience is intuitive and efficient.
+3. Agile Development: We build the solution in iterative sprints, providing regular updates and incorporating your feedback along the way.
+4. Testing & QA: Rigorous testing is performed to ensure the software is robust, reliable, and bug-free.
+5. Deployment & Support: We assist with deployment and provide ongoing support and maintenance to ensure your solution continues to deliver value.
+---SPLIT---
+What Our Customers Say`,
     service3Title: 'On-Site BIM Construction Support',
     service3Desc: 'Our experts provide hands-on BIM support directly on your construction site, ensuring perfect implementation and immediate problem-solving.',
     service3Detail: 'Bridge the gap between the digital model and physical construction with our on-site support. Our BIM specialists work alongside your construction team to ensure that the BIM execution plan is followed correctly. We assist with model validation, clash detection resolution in the field, layout using BIM data, and real-time problem-solving, minimizing rework and keeping your project on schedule.',
@@ -60,21 +77,27 @@ export const translations = {
     service4Desc: 'We specialize in creating detailed fabrication models, including precise rebar detailing, to streamline manufacturing and assembly.',
     service4Detail: `Our 3D rebar detailing service transforms the planning and execution of complex reinforced concrete structures using high-detail BIM models, ready for fabrication. We are experts who solve problems before construction begins, from bidding to on-site work.
 ---SPLIT---
-The Limitations of 2D... No Longer an Option
-Traditional 2D drawings fragment information, leading to clashes, errors, and costly rework discovered only on-site. With 3D modeling, we identify clashes before they cost money, visualize every detail with clarity, and coordinate with all disciplines to ensure construction proceeds without surprises, avoiding costly rework and delays.
+The Limitations of 2D… No Longer an Option. Traditional 2D drawings fragment information, leading to clashes, errors, and costly rework discovered only on-site. With 3D modeling, we identify clashes before they cost money, visualize every detail with clarity, and coordinate with all disciplines to ensure construction proceeds without surprises, avoiding costly rework and delays.
+---SPLIT---
+Key Benefits by Phase.
 ---SPLIT---
 Pre-construction: Accurate tonnage estimation (±3%), smart procurement, and proactive buildability analysis.
 Design & Coordination: Feasibility validation, seamless model exchange, and live drawing links for faster checks.
 Fabrication & Assembly: Data export in the client's required format and optimized prefabrication.
 Documentation & Handover: Updated "As-Built" models and complete traceability.
 ---SPLIT---
+Quantified Advantages
 ---SPLIT---
-Initial Assessment: Analysis of drawings, BIM goals, and modeling requirements.
-3D Modeling: Structural and parametric detailing with leading BIM software like Revit and Tekla.
-Detailing: Generation of drawings and listings in the required format, adapting to the standards of bending machines or client's request.
-BIM Coordination: Clash detection and harmonization across disciplines.
-Fabrication Support: Data export for workshop, prefabrication, and logistics.
-Final Delivery: "As-Built" model update and complete documentation.
+Our Efficient Process
+---SPLIT---
+1. Initial Assessment: Analysis of drawings, BIM goals, and modeling requirements.
+2. 3D Modeling: Structural and parametric detailing with leading BIM software like Revit and Tekla.
+3. Detailing: Generation of drawings and listings in the required format, adapting to the standards of bending machines or client's request.
+4. BIM Coordination: Clash detection and harmonization across disciplines.
+5. Fabrication Support: Data export for workshop, prefabrication, and logistics.
+6. Final Delivery: "As-Built" model update and complete documentation.
+---SPLIT---
+Why Choose Us?
 ---SPLIT---
 Experienced Team: Our team has decades of combined experience in BIM and structural reinforcement.
 Cutting-Edge Technology: Advanced mastery of Tekla, Revit, Navisworks, and Trimble Connect.
@@ -216,7 +239,24 @@ Specialized Dedication: Unlike generalists, our exclusive focus on rebar detaili
     service1Detail: 'Nuestros equipos BIM remotos globales se integran perfectamente en sus flujos de trabajo existentes. Proporcionamos profesionales de BIM altamente cualificados y experimentados que pueden gestionar todo, desde el modelado y la coordinación hasta la gestión de proyectos. Este servicio le permite escalar su equipo bajo demanda, reducir los costos generales y acceder a conocimientos especializados sin limitaciones geográficas. Aseguramos una comunicación clara y una alineación del proyecto a través de sólidas plataformas de colaboración digital.',
     service2Title: 'Desarrollo de Software BIM a Medida',
     service2Desc: 'Creamos soluciones de software y add-ins personalizados para automatizar sus procesos, mejorar sus flujos de trabajo BIM e impulsar la productividad.',
-    service2Detail: 'Desbloquee nuevos niveles de eficiencia con nuestros servicios de desarrollo de software a medida. Nos especializamos en la creación de complementos personalizados para Revit, Navisworks, Tekla y otras plataformas BIM. Ya sea que necesite automatizar tareas repetitivas, aplicar estándares de la empresa o integrar datos BIM con otros sistemas, nuestro equipo de desarrollo puede crear una solución que se adapte perfectamente a sus necesidades, ahorrándole tiempo y reduciendo errores.',
+    service2Detail: `Software a Medida que Impulsa tu Negocio. Creamos soluciones de software personalizadas, diseñadas para los desafíos del mundo real en los sectores AEC y de manufactura, mejorando tus flujos de trabajo, productividad e ingresos.
+---SPLIT---
+La Diferencia Frata: Ingenieros que Programan. No somos solo desarrolladores de software; somos veteranos de la industria. Nuestro equipo combina una profunda experiencia en los flujos de trabajo de AEC y manufactura con ingeniería de software de vanguardia. Entendemos tus procesos, hablamos tu idioma y construimos soluciones que resuelven tus problemas específicos, no solo escribimos código.
+---SPLIT---
+Nuestras Soluciones a Medida. Desarrollamos una amplia gama de soluciones, que incluyen:
+---SPLIT---
+1. Add-ins para Plataformas BIM: Herramientas personalizadas para Revit, Tekla y Navisworks para automatizar tareas repetitivas, aplicar estándares y agilizar procesos de modelado complejos.
+2. Aplicaciones Web y Visores IFC: Aplicaciones web innovadoras y visores en la nube que hacen que los datos BIM sean accesibles para todos los interesados, en cualquier lugar y en cualquier dispositivo.
+3. Automatización de Procesos: Scripts y aplicaciones a medida que conectan sistemas dispares, automatizan la transferencia de datos y eliminan tareas manuales propensas a errores.
+---SPLIT---
+Nuestro Proceso de Desarrollo.
+1. Descubrimiento y Estrategia: Comenzamos por entender tus objetivos, desafíos y flujos de trabajo existentes para definir una hoja de ruta clara del proyecto.
+2. Prototipado y Diseño: Creamos maquetas y prototipos para validar el concepto y asegurar que la experiencia de usuario sea intuitiva y eficiente.
+3. Desarrollo Ágil: Construimos la solución en sprints iterativos, proporcionando actualizaciones regulares e incorporando tus comentarios en el camino.
+4. Pruebas y QA: Se realizan pruebas rigurosas para asegurar que el software sea robusto, confiable y libre de errores.
+5. Despliegue y Soporte: Asistimos en el despliegue y proporcionamos soporte y mantenimiento continuo para asegurar que tu solución siga aportando valor.
+---SPLIT---
+Lo que Dicen Nuestros Clientes`,
     service3Title: 'Acompañamiento BIM en Obra',
     service3Desc: 'Nuestros expertos brindan soporte BIM práctico directamente en su obra, asegurando una implementación perfecta y resolución inmediata de problemas.',
     service3Detail: 'Cierre la brecha entre el modelo digital y la construcción física con nuestro soporte en obra. Nuestros especialistas en BIM trabajan junto a su equipo de construcción para garantizar que el plan de ejecución de BIM se siga correctamente. Asistimos en la validación de modelos, la resolución de detección de conflictos en el campo, el diseño utilizando datos BIM y la resolución de problemas en tiempo real, minimizando el retrabajo y manteniendo su proyecto en el cronograma.',
@@ -224,21 +264,27 @@ Specialized Dedication: Unlike generalists, our exclusive focus on rebar detaili
     service4Desc: 'Nos especializamos en la creación de modelos de fabricación detallados, incluyendo el detallado de acero de refuerzo (rebar), para optimizar la manufactura.',
     service4Detail: `Nuestro servicio de detallado 3D de armaduras transforma la planificación y ejecución de estructuras de hormigón armado complejas mediante modelos BIM de alto detalle, listos para fabricación. Somos expertos que resolvemos problemas antes de construir, desde la licitación hasta la obra.
 ---SPLIT---
-Las Limitaciones del 2D… Ya No Son una Opción
-Los planos 2D tradicionales fragmentan la información, llevando a interferencias, errores y costosos retrabajos descubiertos solo en obra. Con el modelado 3D, identificamos interferencias antes de que cuesten dinero, visualizamos cada detalle con claridad y coordinamos con todas las disciplinas para asegurar una construcción sin sorpresas, evitando costosos retrabajos y retrasos.
+Las Limitaciones del 2D… Ya No Son una Opción. Los planos 2D tradicionales fragmentan la información, llevando a interferencias, errores y costosos retrabajos descubiertos solo en obra. Con el modelado 3D, identificamos interferencias antes de que cuesten dinero, visualizamos cada detalle con claridad y coordinamos con todas las disciplinas para asegurar una construcción sin sorpresas, evitando costosos retrabajos y retrasos.
+---SPLIT---
+Beneficios Clave por Fase.
 ---SPLIT---
 Pre-construcción: Estimación de tonelaje precisa (±3%), compras inteligentes y análisis proactivo de constructibilidad.
 Diseño y Coordinación: Validación de viabilidad, flujo de modelos sin fricción y planos vivos vinculados al modelo para chequeos rápidos.
 Fabricación y Montaje: Exportación de datos en el formato requerido por el cliente y prefabricación optimizada.
 Documentación y Cierre: Entrega de modelos "As-Built" actualizados y trazabilidad completa.
 ---SPLIT---
+Ventajas Cuantificadas
 ---SPLIT---
-Evaluación Inicial: Análisis de planos, objetivos BIM y requerimientos de modelado.
-Modelado 3D: Detallado estructural y paramétrico con software BIM líder del mercado como Revit y Tekla.
-Detallado: Generación de planos y listados en el formato requerido, adecuándonos a los estándares de las máquinas de doblado o a lo solicitado por el cliente.
-Coordinación BIM: Detección de interferencias y armonización entre disciplinas.
-Soporte a Fabricación: Exportación de datos para taller, prefabricación y logística.
-Entrega Final: Actualización de modelo "As-Built" y documentación completa.
+Nuestro Proceso Eficiente
+---SPLIT---
+1. Evaluación Inicial: Análisis de planos, objetivos BIM y requerimientos de modelado.
+2. Modelado 3D: Detallado estructural y paramétrico con software BIM líder del mercado como Revit y Tekla.
+3. Detallado: Generación de planos y listados en el formato requerido, adecuándonos a los estándares de las máquinas de doblado o a lo solicitado por el cliente.
+4. Coordinación BIM: Detección de interferencias y armonización entre disciplinas.
+5. Soporte a Fabricación: Exportación de datos para taller, prefabricación y logística.
+6. Entrega Final: Actualización de modelo "As-Built" y documentación completa.
+---SPLIT---
+¿Por Qué Elegirnos?
 ---SPLIT---
 Equipo Experimentado: Nuestro equipo cuenta con décadas de experiencia combinada en BIM y refuerzo estructural.
 Tecnología de Punta: Dominio avanzado de Tekla, Revit, Navisworks y Trimble Connect.
