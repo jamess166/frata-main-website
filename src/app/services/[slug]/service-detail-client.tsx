@@ -99,9 +99,9 @@ const RebarDetailingService: FC = () => {
     const whyUsPoints = whyUs ? whyUs.trim().split('\n') : [];
 
     return (
-        <div className="space-y-24 pb-24">
+        <div className="space-y-24">
             {/* Header */}
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <header className="text-center max-w-4xl mx-auto space-y-6">
                     <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
                         {t('service4Title')}
@@ -255,9 +255,9 @@ const SoftwareDevelopmentService: FC = () => {
     ];
 
     return (
-        <div className="space-y-24 pb-24">
+        <div className="space-y-24">
              {/* Header */}
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <header className="text-center max-w-4xl mx-auto space-y-6">
                     <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
                         {t('service2Title')}
@@ -374,26 +374,26 @@ export const ServiceDetailClient: FC<ServiceDetailClientProps> = ({ serviceInfo 
             return <RebarDetailingService />;
         // Add cases for other services here
         default:
-            return <div>Service content not found.</div>;
+            return <div className="container mx-auto p-8">Service content not found.</div>;
     }
   }
 
   return (
-    <div className="space-y-24 pb-24">
+    <>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24">
-        <div className="relative">
-          <Button asChild variant="ghost" className="-ml-4">
-            <Link href="/#services">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              {t('services')}
-            </Link>
-          </Button>
-        </div>
+        <Button asChild variant="ghost" className="-ml-4">
+          <Link href="/#services">
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            {t('services')}
+          </Link>
+        </Button>
       </div>
       
-      <ServiceComponent />
+      <div className="py-12">
+        <ServiceComponent />
+      </div>
 
-      <section className="py-24 bg-primary/5 dark:bg-primary/10 -mx-4 sm:-mx-6 lg:-mx-8">
+      <section className="py-24 bg-primary/5 dark:bg-primary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
            <h2 className="font-headline text-3xl font-bold">{t('ctaTitle')}</h2>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
@@ -404,6 +404,6 @@ export const ServiceDetailClient: FC<ServiceDetailClientProps> = ({ serviceInfo 
           </Button>
         </div>
       </section>
-    </div>
+    </>
   )
 }

@@ -56,13 +56,14 @@ export const translations = {
 ---SPLIT---
 The Frata Difference: Engineers Who Code. We aren't just software developers; we are industry veterans. Our team combines deep expertise in AEC and manufacturing workflows with cutting-edge software engineering. We understand your processes, speak your language, and build solutions that solve your specific problems, not just write code.
 ---SPLIT---
-Our Custom Solutions. We develop a wide range of solutions, including:
+Our Custom Solutions
 ---SPLIT---
 1. BIM Platform Add-ins: Custom tools for Revit, Tekla, and Navisworks to automate repetitive tasks, enforce standards, and streamline complex modeling processes.
 2. Web Applications & IFC Viewers: Innovative web apps and cloud-based viewers that make BIM data accessible to all stakeholders, anywhere, on any device.
 3. Process Automation: Bespoke scripts and applications that connect disparate systems, automate data transfer, and eliminate manual, error-prone tasks.
 ---SPLIT---
-Our Development Process.
+Our Development Process
+---SPLIT---
 1. Discovery & Strategy: We start by understanding your goals, challenges, and existing workflows to define a clear project roadmap.
 2. Prototyping & Design: We create mockups and prototypes to validate the concept and ensure the user experience is intuitive and efficient.
 3. Agile Development: We build the solution in iterative sprints, providing regular updates and incorporating your feedback along the way.
@@ -79,7 +80,7 @@ What Our Customers Say`,
 ---SPLIT---
 The Limitations of 2D… No Longer an Option. Traditional 2D drawings fragment information, leading to clashes, errors, and costly rework discovered only on-site. With 3D modeling, we identify clashes before they cost money, visualize every detail with clarity, and coordinate with all disciplines to ensure construction proceeds without surprises, avoiding costly rework and delays.
 ---SPLIT---
-Key Benefits by Phase.
+Key Benefits by Phase
 ---SPLIT---
 Pre-construction: Accurate tonnage estimation (±3%), smart procurement, and proactive buildability analysis.
 Design & Coordination: Feasibility validation, seamless model exchange, and live drawing links for faster checks.
@@ -243,13 +244,14 @@ Specialized Dedication: Unlike generalists, our exclusive focus on rebar detaili
 ---SPLIT---
 La Diferencia Frata: Ingenieros que Programan. No somos solo desarrolladores de software; somos veteranos de la industria. Nuestro equipo combina una profunda experiencia en los flujos de trabajo de AEC y manufactura con ingeniería de software de vanguardia. Entendemos tus procesos, hablamos tu idioma y construimos soluciones que resuelven tus problemas específicos, no solo escribimos código.
 ---SPLIT---
-Nuestras Soluciones a Medida. Desarrollamos una amplia gama de soluciones, que incluyen:
+Nuestras Soluciones a Medida
 ---SPLIT---
 1. Add-ins para Plataformas BIM: Herramientas personalizadas para Revit, Tekla y Navisworks para automatizar tareas repetitivas, aplicar estándares y agilizar procesos de modelado complejos.
 2. Aplicaciones Web y Visores IFC: Aplicaciones web innovadoras y visores en la nube que hacen que los datos BIM sean accesibles para todos los interesados, en cualquier lugar y en cualquier dispositivo.
 3. Automatización de Procesos: Scripts y aplicaciones a medida que conectan sistemas dispares, automatizan la transferencia de datos y eliminan tareas manuales propensas a errores.
 ---SPLIT---
-Nuestro Proceso de Desarrollo.
+Nuestro Proceso de Desarrollo
+---SPLIT---
 1. Descubrimiento y Estrategia: Comenzamos por entender tus objetivos, desafíos y flujos de trabajo existentes para definir una hoja de ruta clara del proyecto.
 2. Prototipado y Diseño: Creamos maquetas y prototipos para validar el concepto y asegurar que la experiencia de usuario sea intuitiva y eficiente.
 3. Desarrollo Ágil: Construimos la solución en sprints iterativos, proporcionando actualizaciones regulares e incorporando tus comentarios en el camino.
