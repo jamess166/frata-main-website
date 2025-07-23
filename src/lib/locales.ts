@@ -156,7 +156,33 @@ Why Choose Us?
 5. Specialized Dedication: Unlike generalists, our exclusive focus on rebar detailing ensures a superior level of quality and expertise in every project.`,
     service5Title: 'BIM Training & Implementation',
     service5Desc: 'We offer comprehensive training programs and strategic implementation support to empower your team with the latest BIM skills and technologies.',
-    service5Detail: 'Empower your team with the knowledge to succeed. We offer customized training programs for all skill levels, from basic BIM principles to advanced software techniques. Our implementation support helps your organization smoothly transition to BIM, establishing standards, workflows, and best practices to ensure you get the maximum return on your technology investment.',
+    service5Detail: `Empower your organization with comprehensive training programs and strategic support. We train companies and the public sector in the latest BIM technologies and methodologies.
+---SPLIT---
+Experts in ISO 19650
+---SPLIT---
+We are specialists in the application of the ISO 19650 series of standards. Our training ensures that your teams not only master BIM tools but also understand and apply the international framework for managing information over the entire life cycle of a built asset using BIM.
+1. Standardized Processes: We implement workflows aligned with international best practices.
+2. CDE Mastery: We train in the use of Common Data Environments for efficient and secure information exchange.
+3. Certified Quality: Our programs prepare your team for professional certifications in BIM management.
+---SPLIT---
+Our Training Programs
+---SPLIT---
+1. Corporate BIM Training: Custom programs for corporate teams. From fundamentals to advanced implementation of BIM methodology in real construction and infrastructure projects.
+2. Public Sector Training: Specialized training for government institutions and public entities. Implementation of BIM standards in public works and bidding processes.
+3. Strategic Implementation: Comprehensive support for the implementation of BIM in your organization. From planning to execution, we guarantee a successful transition.
+4. Professional Certification: Industry-recognized certification programs. We validate the acquired skills and grant official certificates of BIM proficiency.
+---SPLIT---
+Our Methodology
+---SPLIT---
+1. Diagnosis: We analyze your current capabilities and define clear learning objectives.
+2. Customization: We design a training plan tailored to the specific needs of your team and projects.
+3. Practical Training: We combine theory with hands-on workshops using real-world cases and cutting-edge software.
+4. Ongoing Support: We provide post-training support to resolve doubts and ensure continuous optimization of implemented BIM processes.
+---SPLIT---
+Who We Train
+---SPLIT---
+1. Construction Companies: We train technical and management teams in BIM methodologies to optimize construction processes and improve business productivity.
+2. Public Sector: We train officials and technicians from public institutions in the implementation of BIM for public works and government procurement processes.`,
     service6Title: 'Comprehensive BIM Modeling',
     service6Desc: 'We develop detailed, coordinated models for all disciplines: architecture, structures, and MEP.',
     service6Detail: 'Our BIM modeling service is the cornerstone of any successful digital construction project. We create accurate, data-rich 3D models for all disciplines: Architecture, Structures, and MEP (Mechanical, Electrical, and Plumbing). By centralizing all information, we guarantee seamless coordination, early clash detection, and a unified vision of the project, which translates into significant savings in time and resources during the construction phase.',
@@ -398,7 +424,33 @@ Nuestro Proceso Eficiente
 5. Dedicación Especializada: A diferencia de los generalistas, nuestro enfoque exclusivo en el detallado de acero garantiza un nivel de calidad y expertise superior en cada proyecto.`,
     service5Title: 'Capacitación e Implementación BIM',
     service5Desc: 'Ofrecemos programas de capacitación integrales y soporte estratégico para capacitar a su equipo con las últimas tecnologías y habilidades BIM.',
-    service5Detail: 'Capacite a su equipo con el conocimiento para tener éxito. Ofrecemos programas de formación personalizados para todos los niveles, desde principios básicos de BIM hasta técnicas avanzadas de software. Nuestro soporte de implementación ayuda a su organización a realizar una transición fluida a BIM, estableciendo estándares, flujos de trabajo y mejores prácticas para garantizar que obtenga el máximo rendimiento de su inversión en tecnología.',
+    service5Detail: `Empodere a su organización con programas de capacitación integrales y soporte estratégico. Capacitamos a empresas y sector público en las últimas tecnologías y metodologías BIM.
+---SPLIT---
+Expertos en la Norma ISO 19650
+---SPLIT---
+Somos especialistas en la aplicación de la serie de normas ISO 19650. Nuestra formación asegura que sus equipos no solo dominen las herramientas BIM, sino que también comprendan y apliquen el marco internacional para la gestión de la información a lo largo de todo el ciclo de vida de un activo construido utilizando BIM.
+1. Procesos Estandarizados: Implementamos flujos de trabajo alineados con las mejores prácticas internacionales.
+2. Dominio de CDE: Capacitamos en el uso de Entornos de Datos Comunes para un intercambio de información eficiente y seguro.
+3. Calidad Certificada: Nuestros programas preparan a su equipo para obtener certificaciones profesionales en gestión BIM.
+---SPLIT---
+Nuestros Programas de Formación
+---SPLIT---
+1. Capacitación Empresarial BIM: Programas personalizados para equipos corporativos. Desde fundamentos hasta implementación avanzada de metodología BIM en proyectos reales de construcción e infraestructura.
+2. Formación Sector Público: Capacitación especializada para instituciones gubernamentales y entidades públicas. Implementación de estándares BIM en obras públicas y procesos de licitación.
+3. Implementación Estratégica: Soporte integral para la implementación de BIM en su organización. Desde la planificación hasta la ejecución, garantizamos una transición exitosa.
+4. Certificación Profesional: Programas de certificación reconocidos en la industria. Validamos las competencias adquiridas y otorgamos certificados oficiales de dominio BIM.
+---SPLIT---
+Nuestra Metodología
+---SPLIT---
+1. Diagnóstico: Analizamos sus capacidades actuales y definimos objetivos de aprendizaje claros.
+2. Personalización: Diseñamos un plan de formación a medida de las necesidades específicas de su equipo y proyectos.
+3. Formación Práctica: Combinamos la teoría con talleres prácticos usando casos reales y software de última generación.
+4. Soporte Continuo: Brindamos acompañamiento post-capacitación para resolver dudas y asegurar la optimización continua de los procesos BIM implementados.
+---SPLIT---
+A Quién Capacitamos
+---SPLIT---
+1. Empresas Constructoras: Capacitamos equipos técnicos y gerenciales en metodologías BIM para optimizar procesos constructivos y mejorar la productividad empresarial.
+2. Sector Público: Formamos funcionarios y técnicos de instituciones públicas en la implementación de BIM para obras públicas y procesos de contratación estatal.`,
     service6Title: 'Modelado BIM Integral',
     service6Desc: 'Desarrollamos modelos detallados y coordinados para todas las especialidades: arquitectura, estructuras e instalaciones (MEP).',
     service6Detail: 'Nuestro servicio de modelado BIM es la piedra angular de cualquier proyecto de construcción digital exitoso. Creamos modelos 3D precisos y ricos en datos para todas las disciplinas: Arquitectura, Estructuras e Instalaciones (MEP: Mecánica, Eléctrica y Sanitaria). Al centralizar toda la información, garantizamos una coordinación perfecta, una detección temprana de interferencias y una visión unificada del proyecto, lo que se traduce en ahorros significativos de tiempo y recursos en la fase de construcción.',

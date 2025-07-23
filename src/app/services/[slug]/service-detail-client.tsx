@@ -7,7 +7,7 @@ import Image from "next/image"
 import { useLanguage } from "@/hooks/use-language"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowLeft, CheckCircle, Cpu, FileText, Globe, HardHat, Layers, ListChecks, Percent, Repeat, Scaling, ShieldCheck, TrendingUp, Users, Wrench, Zap, AlertTriangle, Briefcase, Lightbulb, Search, Award, BarChart, Check, Clock, Code, Users2 } from "lucide-react"
+import { ArrowLeft, CheckCircle, Cpu, FileText, Globe, HardHat, Layers, ListChecks, Percent, Repeat, Scaling, ShieldCheck, TrendingUp, Users, Wrench, Zap, AlertTriangle, Briefcase, Lightbulb, Search, Award, BarChart, Check, Clock, Code, Users2, Building, University } from "lucide-react"
 import Link from "next/link"
 import React, { useRef } from "react"
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer"
@@ -597,6 +597,155 @@ const RebarDetailingService: FC = () => {
     );
 }
 
+const TrainingService: FC = () => {
+    const { t } = useLanguage();
+    const detail = t('service5Detail');
+    const [
+        intro,
+        isoTitle,
+        iso,
+        programsTitle,
+        programs,
+        methodologyTitle,
+        methodology,
+        audienceTitle,
+        audience
+    ] = detail.split('---SPLIT---');
+
+    const isoPoints = iso ? iso.trim().split('\n') : [];
+    const programPoints = programs ? programs.trim().split('\n') : [];
+    const methodologySteps = methodology ? methodology.trim().split('\n') : [];
+    const audiencePoints = audience ? audience.trim().split('\n') : [];
+
+    const programIcons: { [key: string]: React.ReactNode } = {
+        '1.': <Briefcase className="h-8 w-8 text-primary" />,
+        '2.': <University className="h-8 w-8 text-primary" />,
+        '3.': <Zap className="h-8 w-8 text-primary" />,
+        '4.': <Award className="h-8 w-8 text-primary" />,
+    };
+
+    const audienceIcons: { [key: string]: React.ReactNode } = {
+        '1.': <Building className="h-10 w-10 text-primary" />,
+        '2.': <University className="h-10 w-10 text-primary" />,
+    };
+
+    return (
+        <>
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <p className="text-xl text-muted-foreground text-center max-w-4xl mx-auto">{intro}</p>
+            </div>
+
+            <section className="py-24 bg-secondary -mx-4 sm:-mx-6 lg:-mx-8 mt-16">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
+                    <AnimatedSection>
+                        <div className="relative h-96">
+                             <Image
+                                src="https://placehold.co/800x600.png"
+                                data-ai-hint="ISO standard document"
+                                alt="ISO 19650 Standard"
+                                layout="fill"
+                                objectFit="cover"
+                                className="rounded-lg shadow-xl"
+                            />
+                        </div>
+                    </AnimatedSection>
+                    <AnimatedSection delay={200}>
+                        <div className="space-y-4">
+                            <h3 className="font-headline text-3xl font-bold text-foreground">{isoTitle}</h3>
+                            <ul className="space-y-4">
+                                {isoPoints.map(point => {
+                                    const [title, description] = point.substring(3).split(':');
+                                    return (
+                                        <li key={title} className="flex items-start gap-4">
+                                            <CheckCircle className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+                                            <div>
+                                                <h4 className="font-semibold text-foreground">{title}</h4>
+                                                <p className="text-muted-foreground">{description}</p>
+                                            </div>
+                                        </li>
+                                    )
+                                })}
+                            </ul>
+                        </div>
+                    </AnimatedSection>
+                </div>
+            </section>
+
+            <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-24">
+                 <AnimatedSection>
+                    <SectionTitle>{programsTitle}</SectionTitle>
+                </AnimatedSection>
+                <div className="grid md:grid-cols-2 gap-8 mt-12">
+                     {programPoints.map((point, index) => {
+                        const [title, description] = point.substring(3).split(':');
+                        const iconKey = Object.keys(programIcons).find(key => point.startsWith(key)) || '1.';
+                        return (
+                            <AnimatedSection key={title} delay={100 * (index + 1)}>
+                                 <Card className="p-6 h-full border-0 shadow-sm hover:shadow-lg transition-shadow duration-300">
+                                     <div className="flex items-start gap-4">
+                                        <div className="flex-shrink-0">{programIcons[iconKey]}</div>
+                                        <div>
+                                            <h4 className="font-bold text-lg text-foreground mb-1">{title}</h4>
+                                            <p className="text-muted-foreground">{description}</p>
+                                        </div>
+                                    </div>
+                                </AnimatedSection>
+                            </AnimatedSection>
+                        );
+                    })}
+                </div>
+            </section>
+
+            <section className="py-24 bg-secondary -mx-4 sm:-mx-6 lg:-mx-8">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                    <AnimatedSection>
+                        <SectionTitle>{methodologyTitle}</SectionTitle>
+                    </AnimatedSection>
+                    <div className="grid md:grid-cols-4 gap-8 mt-16">
+                        {methodologySteps.map((step, index) => {
+                            const [title, description] = step.substring(3).split(':');
+                            return (
+                                <AnimatedSection key={title} delay={100 * (index + 1)}>
+                                    <div className="flex flex-col items-center text-center">
+                                        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary text-primary-foreground font-headline text-2xl flex-shrink-0 z-10 border-4 border-background">
+                                            {`0${index + 1}`}
+                                        </div>
+                                        <div className="mt-4">
+                                            <h4 className="font-headline text-xl font-bold">{title}</h4>
+                                            <p className="text-muted-foreground mt-1 max-w-xs">{description}</p>
+                                        </div>
+                                    </div>
+                                </AnimatedSection>
+                            );
+                        })}
+                    </div>
+                </div>
+            </section>
+
+            <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-24">
+                <AnimatedSection>
+                    <SectionTitle>{audienceTitle}</SectionTitle>
+                </AnimatedSection>
+                <div className="grid md:grid-cols-2 gap-8 mt-12">
+                    {audiencePoints.map((point, index) => {
+                        const [title, description] = point.substring(3).split(':');
+                        const iconKey = Object.keys(audienceIcons).find(key => point.startsWith(key)) || '1.';
+                        return (
+                            <AnimatedSection key={title} delay={150 * (index + 1)}>
+                                <Card className="p-8 text-center bg-card/50 hover:bg-card/70 transition-colors duration-300 h-full">
+                                    <div className="flex justify-center mb-4">{audienceIcons[iconKey]}</div>
+                                    <h3 className="font-headline text-2xl font-bold mb-2">{title}</h3>
+                                    <p className="text-muted-foreground">{description}</p>
+                                </Card>
+                            </AnimatedSection>
+                        )
+                    })}
+                </div>
+            </section>
+        </>
+    );
+}
+
 export const ServiceDetailClient: FC<ServiceDetailClientProps> = ({ serviceInfo }) => {
   const { t } = useLanguage()
 
@@ -610,6 +759,8 @@ export const ServiceDetailClient: FC<ServiceDetailClientProps> = ({ serviceInfo 
             return <OnSiteSupportService />;
         case 'service4Detail':
             return <RebarDetailingService />;
+        case 'service5Detail':
+            return <TrainingService />;
         default:
              return (
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center py-24">
