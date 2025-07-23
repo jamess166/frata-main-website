@@ -621,12 +621,12 @@ const TrainingService: FC = () => {
         '1.': <Briefcase className="h-8 w-8 text-primary" />,
         '2.': <University className="h-8 w-8 text-primary" />,
         '3.': <Zap className="h-8 w-8 text-primary" />,
-        '4.': <Award className="h-8 w-8 text-primary" />,
+        '4.': <Award className="h-8 w-8 text-primary" />
     };
 
     const audienceIcons: { [key: string]: React.ReactNode } = {
         '1.': <Building className="h-10 w-10 text-primary" />,
-        '2.': <University className="h-10 w-10 text-primary" />,
+        '2.': <University className="h-10 w-10 text-primary" />
     };
 
     return (
