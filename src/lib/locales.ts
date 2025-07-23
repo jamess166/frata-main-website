@@ -170,7 +170,6 @@ Our Training Programs
 1. Corporate BIM Training: Custom programs for corporate teams. From fundamentals to advanced implementation of BIM methodology in real construction and infrastructure projects.
 2. Public Sector Training: Specialized training for government institutions and public entities. Implementation of BIM standards in public works and bidding processes.
 3. Strategic Implementation: Comprehensive support for the implementation of BIM in your organization. From planning to execution, we guarantee a successful transition.
-4. Professional Certification: Industry-recognized certification programs. We validate the acquired skills and grant official certificates of BIM proficiency.
 ---SPLIT---
 Our Methodology
 ---SPLIT---
@@ -182,7 +181,8 @@ Our Methodology
 Who We Train
 ---SPLIT---
 1. Construction Companies: We train technical and management teams in BIM methodologies to optimize construction processes and improve business productivity.
-2. Public Sector: We train officials and technicians from public institutions in the implementation of BIM for public works and government procurement processes.`,
+2. Public Sector: We train officials and technicians from public institutions in the implementation of BIM for public works and government procurement processes.
+3. Consulting Firms: We develop BIM skills in design and engineering firms to improve project quality and multidisciplinary coordination.`,
     service6Title: 'Comprehensive BIM Modeling',
     service6Desc: 'We develop detailed, coordinated models for all disciplines: architecture, structures, and MEP.',
     service6Detail: 'Our BIM modeling service is the cornerstone of any successful digital construction project. We create accurate, data-rich 3D models for all disciplines: Architecture, Structures, and MEP (Mechanical, Electrical, and Plumbing). By centralizing all information, we guarantee seamless coordination, early clash detection, and a unified vision of the project, which translates into significant savings in time and resources during the construction phase.',
@@ -438,7 +438,6 @@ Nuestros Programas de Formación
 1. Capacitación Empresarial BIM: Programas personalizados para equipos corporativos. Desde fundamentos hasta implementación avanzada de metodología BIM en proyectos reales de construcción e infraestructura.
 2. Formación Sector Público: Capacitación especializada para instituciones gubernamentales y entidades públicas. Implementación de estándares BIM en obras públicas y procesos de licitación.
 3. Implementación Estratégica: Soporte integral para la implementación de BIM en su organización. Desde la planificación hasta la ejecución, garantizamos una transición exitosa.
-4. Certificación Profesional: Programas de certificación reconocidos en la industria. Validamos las competencias adquiridas y otorgamos certificados oficiales de dominio BIM.
 ---SPLIT---
 Nuestra Metodología
 ---SPLIT---
@@ -450,7 +449,8 @@ Nuestra Metodología
 A Quién Capacitamos
 ---SPLIT---
 1. Empresas Constructoras: Capacitamos equipos técnicos y gerenciales en metodologías BIM para optimizar procesos constructivos y mejorar la productividad empresarial.
-2. Sector Público: Formamos funcionarios y técnicos de instituciones públicas en la implementación de BIM para obras públicas y procesos de contratación estatal.`,
+2. Sector Público: Formamos funcionarios y técnicos de instituciones públicas en la implementación de BIM para obras públicas y procesos de contratación estatal.
+3. Empresas Consultoras: Desarrollamos competencias BIM en empresas de diseño e ingeniería para mejorar la calidad de los proyectos y la coordinación multidisciplinaria.`,
     service6Title: 'Modelado BIM Integral',
     service6Desc: 'Desarrollamos modelos detallados y coordinados para todas las especialidades: arquitectura, estructuras e instalaciones (MEP).',
     service6Detail: 'Nuestro servicio de modelado BIM es la piedra angular de cualquier proyecto de construcción digital exitoso. Creamos modelos 3D precisos y ricos en datos para todas las disciplinas: Arquitectura, Estructuras e Instalaciones (MEP: Mecánica, Eléctrica y Sanitaria). Al centralizar toda la información, garantizamos una coordinación perfecta, una detección temprana de interferencias y una visión unificada del proyecto, lo que se traduce en ahorros significativos de tiempo y recursos en la fase de construcción.',

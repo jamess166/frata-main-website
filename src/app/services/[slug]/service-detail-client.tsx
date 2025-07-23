@@ -6,7 +6,7 @@ import Image from "next/image"
 import { useLanguage } from "@/hooks/use-language"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowLeft, CheckCircle, Cpu, FileText, Globe, HardHat, Layers, ListChecks, Percent, Repeat, Scaling, ShieldCheck, TrendingUp, Users, Wrench, Zap, AlertTriangle, Briefcase, Lightbulb, Search, Award, BarChart, Check, Clock, Code, Users2, Building, University } from "lucide-react"
+import { ArrowLeft, CheckCircle, Cpu, FileText, Globe, HardHat, Layers, ListChecks, Percent, Repeat, Scaling, ShieldCheck, TrendingUp, Users, Wrench, Zap, AlertTriangle, Briefcase, Lightbulb, Search, Award, BarChart, Check, Clock, Code, Users2, Building, University, Landmark } from "lucide-react"
 import Link from "next/link"
 import React, { useRef } from "react"
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer"
@@ -618,14 +618,14 @@ const TrainingService: FC = () => {
 
     const programIcons: { [key: string]: React.ReactNode } = {
         '1.': <Briefcase className="h-8 w-8 text-primary" />,
-        '2.': <University className="h-8 w-8 text-primary" />,
+        '2.': <Landmark className="h-8 w-8 text-primary" />,
         '3.': <Zap className="h-8 w-8 text-primary" />,
-        '4.': <Award className="h-8 w-8 text-primary" />,
     };
 
     const audienceIcons: { [key: string]: React.ReactNode } = {
         '1.': <Building className="h-10 w-10 text-primary" />,
-        '2.': <University className="h-10 w-10 text-primary" />,
+        '2.': <Landmark className="h-10 w-10 text-primary" />,
+        '3.': <University className="h-10 w-10 text-primary" />,
     };
 
     return (
@@ -674,7 +674,7 @@ const TrainingService: FC = () => {
                  <AnimatedSection>
                     <SectionTitle>{programsTitle}</SectionTitle>
                 </AnimatedSection>
-                <div className="grid md:grid-cols-2 gap-8 mt-12">
+                <div className="grid md:grid-cols-3 gap-8 mt-12">
                      {programPoints.map((point, index) => {
                         const [title, description] = point.substring(3).split(':');
                         const iconKey = Object.keys(programIcons).find(key => point.startsWith(key)) || '1.';
@@ -725,7 +725,7 @@ const TrainingService: FC = () => {
                 <AnimatedSection>
                     <SectionTitle>{audienceTitle}</SectionTitle>
                 </AnimatedSection>
-                <div className="grid md:grid-cols-2 gap-8 mt-12">
+                <div className="grid md:grid-cols-3 gap-8 mt-12">
                     {audiencePoints.map((point, index) => {
                         const [title, description] = point.substring(3).split(':');
                         const iconKey = Object.keys(audienceIcons).find(key => point.startsWith(key)) || '1.';
@@ -812,5 +812,3 @@ export const ServiceDetailClient: FC<ServiceDetailClientProps> = ({ serviceInfo 
 
   return renderServiceLayout(<ServiceComponent />);
 }
-
-    
