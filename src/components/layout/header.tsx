@@ -12,6 +12,12 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { LanguageSwitcher } from "@/components/language-switcher"
 import { useLanguage } from "@/hooks/use-language"
@@ -50,16 +56,26 @@ export function Header() {
   const ServicesMenu = ({ isMobile = false }: { isMobile?: boolean }) => {
     if (isMobile) {
       return (
-        <div className="grid gap-2">
-          <div className="flex w-full items-center py-2 text-lg font-semibold">{t('services')}</div>
-          <div className="grid gap-2 pl-4">
-            {services.map(service => (
-              <Link key={service.slug} href={`/services/${service.slug}`} className="text-muted-foreground hover:text-foreground">
-                {t(service.titleKey as any)}
-              </Link>
-            ))}
-          </div>
-        </div>
+        <Accordion type="single" collapsible className="w-full">
+          <AccordionItem value="services" className="border-b-0">
+            <AccordionTrigger className="flex w-full items-center py-2 text-lg font-semibold hover:no-underline">
+              {t('services')}
+            </AccordionTrigger>
+            <AccordionContent>
+              <div className="grid gap-1 pl-4">
+                {services.map(service => (
+                  <Link
+                    key={service.slug}
+                    href={`/services/${service.slug}`}
+                    className="block rounded-md py-2 text-muted-foreground hover:text-foreground"
+                  >
+                    {t(service.titleKey as any)}
+                  </Link>
+                ))}
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
       )
     }
 
@@ -110,7 +126,7 @@ export function Header() {
                     <span className="sr-only">Toggle Menu</span>
                 </Button>
                 </SheetTrigger>
-                <SheetContent side="left">
+                <SheetContent side="left" className="pr-0">
                  <SheetHeader className="p-4">
                     <SheetTitle className="sr-only">Navigation</SheetTitle>
                  </SheetHeader>
@@ -118,7 +134,7 @@ export function Header() {
                     <Image src="/logo-dark.svg" alt="Frata BIM Logo" width={87} height={29} className="dark:hidden" />
                     <Image src="/logo-light.svg" alt="Frata BIM Logo" width={87} height={29} className="hidden dark:block" />
                 </Link>
-                <div className="grid gap-4 py-6 px-4">
+                <div className="grid gap-2 py-6 px-4">
                     <Link href="/" className="flex w-full items-center py-2 text-lg font-semibold">{t('home')}</Link>
                     <Link href="/about" className="flex w-full items-center py-2 text-lg font-semibold">{t('about')}</Link>
                     <ServicesMenu isMobile />
