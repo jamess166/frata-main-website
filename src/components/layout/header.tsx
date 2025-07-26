@@ -40,7 +40,6 @@ export function Header() {
     { href: "/about", label: t('about') },
     // Services will be injected here
     { href: "/bimtools", label: t('bimTools') },
-    { href: "/blog", label: t('blog') },
     { href: "/#contact", label: t('contact') },
   ]
 
@@ -112,7 +111,6 @@ export function Header() {
             <NavLink href="/about">{t('about')}</NavLink>
             <ServicesMenu />
             <NavLink href="/bimtools">{t('bimTools')}</NavLink>
-            <NavLink href="/blog">{t('blog')}</NavLink>
             <NavLink href="/#contact">{t('contact')}</NavLink>
           </nav>
         </div>
@@ -139,7 +137,6 @@ export function Header() {
                     <Link href="/about" className="flex w-full items-center py-2 text-lg font-semibold">{t('about')}</Link>
                     <ServicesMenu isMobile />
                     <Link href="/bimtools" className="flex w-full items-center py-2 text-lg font-semibold">{t('bimTools')}</Link>
-                    <Link href="/blog" className="flex w-full items-center py-2 text-lg font-semibold">{t('blog')}</Link>
                     <Link href="/#contact" className="flex w-full items-center py-2 text-lg font-semibold">{t('contact')}</Link>
                 </div>
                 </SheetContent>
