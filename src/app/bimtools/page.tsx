@@ -44,9 +44,9 @@ const BIMtoolsPage: FC = () => {
             </div>
             
             <div className="max-w-5xl mx-auto">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full justify-center">
                 {/* Free Version Card */}
-                <Card className="flex flex-col">
+                <Card className="flex flex-col w-full max-w-md lg:max-w-none">
                     <CardHeader className="text-center">
                     <CardTitle className="font-headline text-3xl">{t('bimToolsFreeTitle')}</CardTitle>
                     <CardDescription className="text-center mx-auto">{t('bimToolsFreeDesc')}</CardDescription>
@@ -76,7 +76,7 @@ const BIMtoolsPage: FC = () => {
                 </Card>
 
                 {/* Pro Version Card */}
-                <Card className="flex flex-col border-primary shadow-lg relative overflow-hidden">
+                <Card className="flex flex-col border-primary shadow-lg relative overflow-hidden w-full max-w-md lg:max-w-none">
                     <div className="absolute top-0 right-0 bg-primary text-primary-foreground px-4 py-1 text-sm font-bold rounded-bl-lg flex items-center gap-1">
                         <Star className="h-4 w-4"/> PRO
                     </div>
