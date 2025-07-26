@@ -256,7 +256,7 @@ const ContactSection: FC = () => {
           <p className="mt-4 text-lg leading-8 text-muted-foreground">{t('contactDesc')}</p>
         </Animated>
         <Animated delay={200}>
-          <Card className="max-w-xl mx-auto mt-16 shadow-lg bg-card/50 dark:bg-card/30 border-white/10">
+          <Card className="max-w-xl mx-auto mt-8 shadow-lg bg-card/50 dark:bg-card/30 border-white/10">
             <CardContent className="p-6 sm:p-8">
               <form ref={formRef} action={formAction} className="space-y-6">
                 <div>
