@@ -44,7 +44,7 @@ const BIMtoolsPage: FC = () => {
             </div>
             
             <div className="max-w-5xl mx-auto">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full justify-center">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full justify-items-center">
                 {/* Free Version Card */}
                 <Card className="flex flex-col w-full max-w-md lg:max-w-none">
                     <CardHeader className="text-center">
