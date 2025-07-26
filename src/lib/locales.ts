@@ -163,7 +163,6 @@ Experts in ISO 19650
 We are specialists in the application of the ISO 19650 series of standards. Our training ensures that your teams not only master BIM tools but also understand and apply the international framework for managing information over the entire life cycle of a built asset using BIM.
 1. Standardized Processes: We implement workflows aligned with international best practices.
 2. CDE Mastery: We train in the use of Common Data Environments for efficient and secure information exchange.
-3. Certified Quality: Our programs prepare your team for professional certifications in BIM management.
 ---SPLIT---
 Our Training Programs
 ---SPLIT---
@@ -431,7 +430,6 @@ Expertos en la Norma ISO 19650
 Somos especialistas en la aplicación de la serie de normas ISO 19650. Nuestra formación asegura que sus equipos no solo dominen las herramientas BIM, sino que también comprendan y apliquen el marco internacional para la gestión de la información a lo largo de todo el ciclo de vida de un activo construido utilizando BIM.
 1. Procesos Estandarizados: Implementamos flujos de trabajo alineados con las mejores prácticas internacionales.
 2. Dominio de CDE: Capacitamos en el uso de Entornos de Datos Comunes para un intercambio de información eficiente y seguro.
-3. Calidad Certificada: Nuestros programas preparan a su equipo para obtener certificaciones profesionales en gestión BIM.
 ---SPLIT---
 Nuestros Programas de Formación
 ---SPLIT---

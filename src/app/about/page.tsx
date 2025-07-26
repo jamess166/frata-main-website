@@ -2,13 +2,15 @@
 "use client"
 
 import type { FC } from "react"
-import { useLanguage } from "@/hooks/use-language"
-import { Target, Globe, Zap } from "lucide-react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+import Image from "next/image"
 import Link from "next/link"
-import { cn } from "@/lib/utils"
 import React, { useState, useEffect, useRef } from 'react';
+import { useLanguage } from "@/hooks/use-language"
+import { Target, Globe, Zap, Users } from "lucide-react"
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 
 interface FloatingCardProps {
   icon: string;
@@ -129,23 +131,66 @@ const MissionVisionValuesSection: FC = () => {
   const items = [
     { icon: Target, title: 'missionTitle', description: 'missionDesc' },
     { icon: Globe, title: 'visionTitle', description: 'visionDesc' },
-    { icon: Zap, title: 'valuesTitle', description: 'valuesDesc' },
+    { icon: Users, title: 'valuesTitle', description: 'valuesDesc' },
   ]
 
   return (
     <section className="py-24 sm:py-32">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-3 gap-8">
-          {items.map((item, index) => (
-            <Card key={index} className="text-center border-0 shadow-none bg-transparent">
-              <CardHeader className="items-center">
-                <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
-                  <item.icon className="h-8 w-8" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+                <div className="relative h-[500px] w-full rounded-lg overflow-hidden border shadow-lg bg-secondary order-last lg:order-first">
+                    <Image
+                        src="https://placehold.co/800x1000.png"
+                        alt="Frata Ingenieros office or team collaboration"
+                        layout="fill"
+                        objectFit="cover"
+                        data-ai-hint="engineering office collaboration"
+                    />
                 </div>
-                <CardTitle className="font-headline text-2xl font-bold">{t(item.title as any)}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">{t(item.description as any)}</p>
+                <div className="space-y-12">
+                    {items.map((item, index) => (
+                        <div key={index} className="flex items-start gap-6">
+                            <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                                <item.icon className="h-6 w-6" />
+                            </div>
+                            <div>
+                                <h3 className="font-headline text-2xl font-bold">{t(item.title as any)}</h3>
+                                <p className="mt-2 text-muted-foreground">{t(item.description as any)}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    </section>
+  )
+}
+
+
+const TeamSection: FC = () => {
+  const { t } = useLanguage()
+  const teamMembers = [
+    { name: "Carlos Poma", role: t('teamRole1'), image: 'https://placehold.co/400x400.png', dataAiHint: "male engineer portrait" },
+    { name: "Ana García", role: t('teamRole2'), image: 'https://placehold.co/400x400.png', dataAiHint: "female architect portrait" },
+    { name: "Luis Fernandez", role: t('teamRole3'), image: 'https://placehold.co/400x400.png', dataAiHint: "male developer portrait" },
+  ]
+  return (
+    <section className="py-24 sm:py-32 bg-secondary">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-2xl mx-auto">
+          <h2 className="text-base font-bold uppercase tracking-widest text-primary">{t('teamTitle')}</h2>
+          <p className="mt-2 font-headline text-3xl font-bold text-foreground sm:text-4xl">{t('teamHeadline')}</p>
+        </div>
+        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {teamMembers.map((member, index) => (
+            <Card key={index} className="text-center border-0 shadow-lg bg-card/50 hover:-translate-y-2 transition-transform duration-300">
+              <CardContent className="p-6">
+                 <Avatar className="h-32 w-32 mx-auto mb-4 border-4 border-primary/20">
+                    <AvatarImage src={member.image} alt={member.name} data-ai-hint={member.dataAiHint} />
+                    <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>
+                </Avatar>
+                <CardTitle className="font-headline text-xl">{member.name}</CardTitle>
+                <CardDescription className="text-primary">{member.role}</CardDescription>
               </CardContent>
             </Card>
           ))}
@@ -182,6 +227,7 @@ const AboutPage: FC = () => {
       <HeroSection />
       <OurStorySection />
       <MissionVisionValuesSection />
+      <TeamSection />
       <CtaSection />
     </div>
   )
