@@ -291,7 +291,7 @@ export default function Home() {
       <HeroSection />
       <AboutUsSection />
       <ServicesSection />
-      <PortfolioSection />
+      {/* <PortfolioSection /> */}
       <ContactSection />
     </>
   );
