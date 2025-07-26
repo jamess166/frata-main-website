@@ -1,3 +1,4 @@
+
 "use client"
 
 import type { FC } from 'react';
@@ -42,8 +43,8 @@ const BIMtoolsPage: FC = () => {
             </p>
             </div>
             
-            <div className="w-full">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full max-w-none">
+            <div className="max-w-5xl mx-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full">
                 {/* Free Version Card */}
                 <Card className="flex flex-col">
                     <CardHeader className="text-center">
