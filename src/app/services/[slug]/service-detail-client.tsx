@@ -112,18 +112,29 @@ const RemoteTeamsService: FC = () => {
     };
 
     const serviceIcons: { [key: string]: React.ReactNode } = {
-        '1.': <Users className="h-8 w-8 text-primary" />,
-        '2.': <Layers className="h-8 w-8 text-primary" />,
-        '3.': <Search className="h-8 w-8 text-primary" />,
+        '1.': <Users className="h-8 w-8" />,
+        '2.': <Layers className="h-8 w-8" />,
+        '3.': <Search className="h-8 w-8" />,
     };
 
     return (
         <>
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <p className="text-xl text-muted-foreground text-center max-w-4xl mx-auto">{intro}</p>
+                 <AnimatedSection className="my-16">
+                    <div className="relative aspect-video rounded-lg border overflow-hidden shadow-lg">
+                        <Image
+                            src="https://placehold.co/1200x675.png"
+                            data-ai-hint="global team video call"
+                            alt="Global remote BIM team collaborating"
+                            layout="fill"
+                            objectFit="cover"
+                        />
+                    </div>
+                </AnimatedSection>
             </div>
 
-            <section className="py-24 bg-secondary -mx-4 sm:-mx-6 lg:-mx-8 mt-16">
+            <section className="py-24 bg-secondary -mx-4 sm:-mx-6 lg:-mx-8">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <AnimatedSection>
                         <SectionTitle>{advantagesTitle}</SectionTitle>
@@ -146,28 +157,46 @@ const RemoteTeamsService: FC = () => {
                 </div>
             </section>
 
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24">
-                <AnimatedSection>
-                    <SectionTitle>{servicesTitle}</SectionTitle>
-                </AnimatedSection>
-                <div className="grid lg:grid-cols-3 gap-12 mt-16 items-start">
-                    {servicePoints.map((point, index) => {
-                         const [title, description] = point.substring(3).split(':');
-                         const iconKey = Object.keys(serviceIcons).find(key => point.startsWith(key)) || '1.';
-                         return (
-                            <AnimatedSection key={title} delay={100 * (index + 1)}>
-                                <div className="flex flex-col items-center text-center">
-                                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
-                                        {serviceIcons[iconKey]}
-                                    </div>
-                                    <h3 className="font-headline text-2xl font-bold mb-4">{title}</h3>
-                                    <p className="text-muted-foreground">{description}</p>
+             <section className="py-24">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid lg:grid-cols-2 gap-16 items-center">
+                        <AnimatedSection>
+                             <div className="space-y-4">
+                                <SectionTitle>{servicesTitle}</SectionTitle>
+                                <div className="space-y-8 pt-8">
+                                    {servicePoints.map((point, index) => {
+                                        const [title, description] = point.substring(3).split(':');
+                                        const iconKey = Object.keys(serviceIcons).find(key => point.startsWith(key)) || '1.';
+                                        return (
+                                            <div key={title} className="flex items-start gap-4">
+                                                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary flex-shrink-0">
+                                                    {serviceIcons[iconKey]}
+                                                </div>
+                                                <div>
+                                                    <h3 className="font-headline text-xl font-bold mb-1">{title}</h3>
+                                                    <p className="text-muted-foreground">{description}</p>
+                                                </div>
+                                            </div>
+                                        )
+                                    })}
                                 </div>
-                            </AnimatedSection>
-                         )
-                    })}
+                             </div>
+                        </AnimatedSection>
+                        <AnimatedSection delay={200}>
+                            <div className="relative aspect-square">
+                                 <Image
+                                    src="https://placehold.co/600x600.png"
+                                    data-ai-hint="engineers architect collaboration"
+                                    alt="Seamless collaboration with remote teams"
+                                    layout="fill"
+                                    objectFit="cover"
+                                    className="rounded-lg shadow-xl"
+                                />
+                            </div>
+                        </AnimatedSection>
+                    </div>
                 </div>
-            </div>
+            </section>
 
             <section className="py-24 bg-secondary -mx-4 sm:-mx-6 lg:-mx-8">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -616,13 +645,13 @@ const TrainingService: FC = () => {
     const methodologySteps = methodology ? methodology.trim().split('\n') : [];
     const audiencePoints = audience ? audience.trim().split('\n') : [];
 
-    const programIcons: { [key: string]: React.ReactNode } = {
+    const programIcons = {
         '1.': <Briefcase className="h-8 w-8 text-primary" />,
         '2.': <Landmark className="h-8 w-8 text-primary" />,
         '3.': <Zap className="h-8 w-8 text-primary" />,
     };
 
-    const audienceIcons: { [key: string]: React.ReactNode } = {
+    const audienceIcons = {
         '1.': <Building className="h-10 w-10 text-primary" />,
         '2.': <Landmark className="h-10 w-10 text-primary" />,
         '3.': <University className="h-10 w-10 text-primary" />,
