@@ -104,8 +104,8 @@ export function Header() {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center">
           <Link href="/" className="mr-6 flex items-center space-x-2">
-            <Image src="/images/logo-dark.png" alt="Frata BIM Logo" width={87} height={29} className="dark:hidden" />
-            <Image src="/images/logo-light.png" alt="Frata BIM Logo" width={87} height={29} className="hidden dark:block" />
+            <Image src="/images/logo-dark.svg" alt="Frata BIM Logo" width={87} height={29} className="dark:hidden" />
+            <Image src="/images/logo-light.svg" alt="Frata BIM Logo" width={87} height={29} className="hidden dark:block" />
           </Link>
           <nav className="flex items-center space-x-6 text-sm">
             <NavLink href="/">{t('home')}</NavLink>
@@ -131,8 +131,8 @@ export function Header() {
                     <SheetTitle className="sr-only">Navigation</SheetTitle>
                  </SheetHeader>
                 <Link href="/" className="flex items-center px-4">
-                    <Image src="/images/logo-dark.png" alt="Frata BIM Logo" width={87} height={29} className="dark:hidden" />
-                    <Image src="/images/logo-light.png" alt="Frata BIM Logo" width={87} height={29} className="hidden dark:block" />
+                    <Image src="/images/logo-dark.svg" alt="Frata BIM Logo" width={87} height={29} className="dark:hidden" />
+                    <Image src="/images/logo-light.svg" alt="Frata BIM Logo" width={87} height={29} className="hidden dark:block" />
                 </Link>
                 <div className="grid gap-2 py-6 px-4">
                     <Link href="/" className="flex w-full items-center py-2 text-lg font-semibold">{t('home')}</Link>
@@ -148,8 +148,8 @@ export function Header() {
         
         <div className="flex flex-1 items-center justify-center md:hidden">
             <Link href="/" className="flex items-center space-x-2">
-                <Image src="/images/logo-dark.png" alt="Frata BIM Logo" width={87} height={29} className="dark:hidden" />
-                <Image src="/images/logo-light.png" alt="Frata BIM Logo" width={87} height={29} className="hidden dark:block" />
+                <Image src="/images/logo-dark.svg" alt="Frata BIM Logo" width={87} height={29} className="dark:hidden" />
+                <Image src="/images/logo-light.svg" alt="Frata BIM Logo" width={87} height={29} className="hidden dark:block" />
             </Link>
         </div>
 
