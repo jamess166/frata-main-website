@@ -14,7 +14,7 @@ import { useCountUp } from "@/hooks/use-count-up"
 import { cn } from "@/lib/utils"
 
 
-type ServiceTitleKey = `service${1|2|3|4|5|6}Title` | 'quantifiedAdvantages';
+type ServiceTitleKey = `service${1|2|3|4|5|6}Title` | 'quantifiedAdvantages' | 'whatWeModel' | 'keyBenefits';
 type ServiceDetailKey = `service${1|2|3|4|5|6}Detail`;
 
 interface ServiceInfo {
@@ -679,7 +679,7 @@ const TrainingService: FC = () => {
                     <AnimatedSection>
                         <div className="relative h-96">
                              <Image
-                                src="https://placehold.co/800x600.png"
+                                src="/images/Capacitacion.jpeg"
                                 data-ai-hint="ISO standard document"
                                 alt="ISO 19650 Standard"
                                 layout="fill"
@@ -785,6 +785,122 @@ const TrainingService: FC = () => {
     );
 }
 
+const ComprehensiveModelingService: FC = () => {
+    const { t } = useLanguage();
+    const detail = t('service6Detail');
+    const [
+        intro,
+        whatWeModelTitle,
+        whatWeModel,
+        benefitsTitle,
+        benefits,
+        processTitle,
+        process,
+    ] = detail.split('---SPLIT---');
+
+    const whatWeModelPoints = whatWeModel ? whatWeModel.trim().split('\n') : [];
+    const benefitPoints = benefits ? benefits.trim().split('\n') : [];
+    const processSteps = process ? process.trim().split('\n') : [];
+
+    const whatWeModelIcons: { [key: string]: React.ReactNode } = {
+        '1.': <Building className="h-8 w-8" />,
+        '2.': <Landmark className="h-8 w-8" />, // Using Landmark for Structure
+        '3.': <Wrench className="h-8 w-8" />, // Using Wrench for MEP
+    };
+
+    return (
+        <>
+            <section className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <p className="text-xl text-muted-foreground text-center max-w-4xl mx-auto">{intro}</p>
+                <AnimatedSection className="my-16">
+                    <div className="relative aspect-video rounded-lg border overflow-hidden shadow-lg">
+                        <Image
+                            src="https://placehold.co/1200x675.png"
+                            data-ai-hint="3d architectural model"
+                            alt="Comprehensive BIM model showing multiple disciplines"
+                            layout="fill"
+                            objectFit="cover"
+                        />
+                    </div>
+                </AnimatedSection>
+            </section>
+
+            <section className="py-24 bg-secondary -mx-4 sm:-mx-6 lg:-mx-8">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                    <AnimatedSection>
+                        <SectionTitle>{whatWeModelTitle}</SectionTitle>
+                    </AnimatedSection>
+                    <div className="grid md:grid-cols-3 gap-8 mt-12">
+                        {whatWeModelPoints.map((point, index) => {
+                            const [title, description] = point.substring(3).split(':');
+                            const iconKey = Object.keys(whatWeModelIcons).find(key => point.startsWith(key)) || '1.';
+                            return (
+                                <AnimatedSection key={title} delay={100 * (index + 1)}>
+                                    <BenefitCard icon={whatWeModelIcons[iconKey]} title={title}>{description}</BenefitCard>
+                                </AnimatedSection>
+                            );
+                        })}
+                    </div>
+                </div>
+            </section>
+
+            <section className="py-24">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                    <AnimatedSection>
+                        <SectionTitle>{benefitsTitle}</SectionTitle>
+                    </AnimatedSection>
+                    <div className="grid md:grid-cols-2 gap-8 mt-12 max-w-4xl mx-auto">
+                        {benefitPoints.map((point, index) => {
+                             const [title, description] = point.substring(3).split(':');
+                             return (
+                                 <AnimatedSection key={title} delay={100 * (index + 1)}>
+                                      <div className="flex items-start gap-4">
+                                         <div className="flex-shrink-0"><CheckCircle className="h-6 w-6 text-primary mt-1" /></div>
+                                         <div>
+                                             <h4 className="font-bold text-lg text-foreground">{title}</h4>
+                                             <p className="text-muted-foreground">{description}</p>
+                                         </div>
+                                     </div>
+                                 </AnimatedSection>
+                             );
+                        })}
+                    </div>
+                </div>
+            </section>
+
+            <section className="py-24 bg-secondary -mx-4 sm:-mx-6 lg:-mx-8">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                    <AnimatedSection>
+                        <SectionTitle>{processTitle}</SectionTitle>
+                    </AnimatedSection>
+                    <div className="relative mt-16 max-w-3xl mx-auto">
+                        <div className="absolute left-8 top-0 h-full w-0.5 bg-border" aria-hidden="true" />
+                        <div className="relative flex flex-col gap-12">
+                            {processSteps.map((step, index) => {
+                                const [title, description] = step.substring(3).split(':');
+                                return (
+                                    <AnimatedSection key={title} delay={100 * (index + 1)}>
+                                        <div className="flex items-start gap-6">
+                                            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary text-primary-foreground font-headline text-2xl flex-shrink-0 z-10 border-4 border-background">
+                                                {`0${index + 1}`}
+                                            </div>
+                                            <div className="space-y-1 pt-3">
+                                                <h4 className="font-headline text-xl font-bold">{title}</h4>
+                                                <p className="text-muted-foreground">{description}</p>
+                                            </div>
+                                        </div>
+                                    </AnimatedSection>
+                                )
+                            })}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </>
+    );
+};
+
+
 export const ServiceDetailClient: FC<ServiceDetailClientProps> = ({ serviceInfo }) => {
   const { t } = useLanguage()
 
@@ -800,6 +916,8 @@ export const ServiceDetailClient: FC<ServiceDetailClientProps> = ({ serviceInfo 
             return <RebarDetailingService />;
         case 'service5Detail':
             return <TrainingService />;
+        case 'service6Detail':
+            return <ComprehensiveModelingService />;
         default:
              return (
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center py-24">

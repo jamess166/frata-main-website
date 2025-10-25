@@ -19,6 +19,8 @@ export const translations = {
     quantifiedAdvantagesTitle: 'Quantified Advantages',
     ourProcess: 'Our Efficient Process',
     whyChooseUs: 'Why Choose Us?',
+    whatWeModel: 'What We Model',
+    keyBenefits: 'Key Benefits',
     // Hero
     heroHeadline: 'Advanced BIM Solutions for Engineering',
     heroSubhead: 'We transform complex projects into digital realities with precision and efficiency. Discover the future of construction with Frata Ingenieros.',
@@ -184,7 +186,27 @@ Who We Train
 3. Consulting Firms: We develop BIM skills in design and engineering firms to improve project quality and multidisciplinary coordination.`,
     service6Title: 'Comprehensive BIM Modeling',
     service6Desc: 'We develop detailed, coordinated models for all disciplines: architecture, structures, and MEP.',
-    service6Detail: 'Our BIM modeling service is the cornerstone of any successful digital construction project. We create accurate, data-rich 3D models for all disciplines: Architecture, Structures, and MEP (Mechanical, Electrical, and Plumbing). By centralizing all information, we guarantee seamless coordination, early clash detection, and a unified vision of the project, which translates into significant savings in time and resources during the construction phase.',
+    service6Detail: `Our BIM modeling service is the cornerstone of any successful digital construction project. We create accurate, data-rich 3D models that serve as a central source of truth for all disciplines.
+---SPLIT---
+What We Model
+---SPLIT---
+1. Architecture: From conceptual design to detailed construction models, we bring architectural visions to life with precision.
+2. Structure: We model all structural elements, from foundations to the roof, ensuring integrity and seamless coordination.
+3. MEP (Mechanical, Electrical, & Plumbing): Detailed modeling of all MEP systems to detect clashes and optimize system layouts before construction begins.
+---SPLIT---
+Key Benefits
+---SPLIT---
+1. Unified Vision: A single, coordinated model eliminates information silos and ensures everyone is working from the same page.
+2. Early Clash Detection: By integrating all disciplines, we identify and resolve conflicts in the digital phase, saving significant time and money on site.
+3. Enhanced Accuracy: Our models are rich with data, providing precise quantities, specifications, and information for procurement and fabrication.
+4. Improved Collaboration: A centralized model fosters better communication and decision-making among all project stakeholders.
+---SPLIT---
+Our Process
+---SPLIT---
+1. Information Gathering: We collect all necessary project documents, including 2D plans, specifications, and design criteria.
+2. Model Development: Our specialists create detailed models for each discipline according to the established BIM Execution Plan (BEP).
+3. Coordination & Clash Detection: We merge the models into a federated model, running regular clash detection and hosting coordination meetings.
+4. Model Delivery: We deliver a fully coordinated, clash-free model ready for use in subsequent project phases, from construction to facility management.`,
     quantifiedAdvantages: `30%; Higher Productivity; Faster than traditional 2D methods
 95%; Error Reduction; Less rework and material waste
 100%; Project Control; Full traceability and automated deliveries`,
@@ -286,6 +308,8 @@ Who We Train
     quantifiedAdvantagesTitle: 'Ventajas Cuantificadas',
     ourProcess: 'Nuestro Proceso Eficiente',
     whyChooseUs: '¿Por Qué Elegirnos?',
+    whatWeModel: 'Qué Modelamos',
+    keyBenefits: 'Beneficios Clave',
     // Hero
     heroHeadline: 'Soluciones BIM Avanzadas para Ingeniería',
     heroSubhead: 'Transformamos proyectos complejos en realidades digitales con precisión y eficiencia. Descubra el futuro de la construcción con Frata Ingenieros.',
@@ -451,7 +475,27 @@ A Quién Capacitamos
 3. Empresas Consultoras: Desarrollamos competencias BIM en empresas de diseño e ingeniería para mejorar la calidad de los proyectos y la coordinación multidisciplinaria.`,
     service6Title: 'Modelado BIM Integral',
     service6Desc: 'Desarrollamos modelos detallados y coordinados para todas las especialidades: arquitectura, estructuras e instalaciones (MEP).',
-    service6Detail: 'Nuestro servicio de modelado BIM es la piedra angular de cualquier proyecto de construcción digital exitoso. Creamos modelos 3D precisos y ricos en datos para todas las disciplinas: Arquitectura, Estructuras e Instalaciones (MEP: Mecánica, Eléctrica y Sanitaria). Al centralizar toda la información, garantizamos una coordinación perfecta, una detección temprana de interferencias y una visión unificada del proyecto, lo que se traduce en ahorros significativos de tiempo y recursos en la fase de construcción.',
+    service6Detail: `Nuestro servicio de modelado BIM es la piedra angular de cualquier proyecto de construcción digital exitoso. Creamos modelos 3D precisos y ricos en datos que sirven como una fuente central de verdad para todas las disciplinas.
+---SPLIT---
+Qué Modelamos
+---SPLIT---
+1. Arquitectura: Desde el diseño conceptual hasta los modelos de construcción detallados, damos vida a las visiones arquitectónicas con precisión.
+2. Estructura: Modelamos todos los elementos estructurales, desde los cimientos hasta el techo, asegurando la integridad y la coordinación perfecta.
+3. MEP (Mecánica, Eléctrica y Sanitaria): Modelado detallado de todos los sistemas MEP para detectar interferencias y optimizar los trazados de los sistemas antes de que comience la construcción.
+---SPLIT---
+Beneficios Clave
+---SPLIT---
+1. Visión Unificada: Un único modelo coordinado elimina los silos de información y asegura que todos trabajen desde la misma página.
+2. Detección Temprana de Interferencias: Al integrar todas las disciplinas, identificamos y resolvemos conflictos en la fase digital, ahorrando tiempo y dinero significativos en obra.
+3. Precisión Mejorada: Nuestros modelos son ricos en datos, proporcionando cantidades, especificaciones e información precisa para la adquisición y fabricación.
+4. Colaboración Mejorada: Un modelo centralizado fomenta una mejor comunicación y toma de decisiones entre todos los interesados del proyecto.
+---SPLIT---
+Nuestro Proceso
+---SPLIT---
+1. Recopilación de Información: Recopilamos todos los documentos necesarios del proyecto, incluidos los planos 2D, las especificaciones y los criterios de diseño.
+2. Desarrollo del Modelo: Nuestros especialistas crean modelos detallados para cada disciplina de acuerdo con el Plan de Ejecución BIM (PEB) establecido.
+3. Coordinación y Detección de Interferencias: Fusionamos los modelos en un modelo federado, realizando detecciones de interferencias periódicas y organizando reuniones de coordinación.
+4. Entrega del Modelo: Entregamos un modelo totalmente coordinado y libre de interferencias, listo para su uso en las fases posteriores del proyecto, desde la construcción hasta la gestión de instalaciones.`,
     quantifiedAdvantages: `30%; Mayor Productividad; Más rápido que los métodos 2D tradicionales
 95%; Reducción de Errores; Menos retrabajo y desperdicio de material
 100%; Control del Proyecto; Trazabilidad total y entregas automatizadas`,
