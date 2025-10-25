@@ -185,7 +185,7 @@ const RemoteTeamsService: FC = () => {
                         <AnimatedSection delay={200}>
                             <div className="relative aspect-square">
                                  <Image
-                                    src="https://placehold.co/600x600.png"
+                                    src="/images/equipoBIM2.png"
                                     data-ai-hint="engineers architect collaboration"
                                     alt="Seamless collaboration with remote teams"
                                     layout="fill"
@@ -244,9 +244,9 @@ const SoftwareDevelopmentService: FC = () => {
     const processSteps = process ? process.trim().split('\n') : [];
     
     const testimonials = [
-        { name: 'Carlos Vargas', company: 'QC Ingenieros', quote: 'Una colaboración fantástica, merecedora de 5 estrellas. La herramienta que desarrollaron para nosotros redujo el tiempo que dedicábamos a tareas manuales en casi un 70%.' },
-        { name: 'Sofía Montoya', company: '5YMAS Constructora', quote: 'Frata Ingenieros creó un conjunto de herramientas para Revit que aceleraron enormemente nuestro proceso. Entregaron plugins de alta calidad y siempre a tiempo. Su enfoque profesional y amigable es lo que más destaco.' },
-        { name: 'Luis Fernández', company: 'LF Ingeniería', quote: 'Recomiendo encarecidamente a Frata Ingenieros. Crearon un plug-in de Revit personalizado a partir de un borrador que teníamos en Dynamo. Aprecié su precio asequible, el respeto por los plazos y la calidad del trabajo.' },
+        { name: 'Oscar Quiróz', company: 'QC Ingenieros', quote: 'Una colaboración fantástica, merecedora de 5 estrellas. La herramienta que desarrollaron para nosotros redujo el tiempo que dedicábamos a tareas manuales en casi un 70%.' },
+        { name: 'Mario Tello', company: '5YMAS Estudio Ténico', quote: 'Frata Ingenieros creó un conjunto de herramientas para Revit que aceleraron enormemente nuestro proceso. Entregaron plugins de alta calidad y siempre a tiempo. Su enfoque profesional y amigable es lo que más destaco.' },
+        { name: 'Francisco Loyola', company: 'LF Ingeniería', quote: 'Recomiendo encarecidamente a Frata Ingenieros. Crearon un plug-in de Revit personalizado a partir de un borrador que teníamos en Dynamo. Aprecié su precio asequible, el respeto por los plazos y la calidad del trabajo.' },
     ];
 
     return (
@@ -260,7 +260,7 @@ const SoftwareDevelopmentService: FC = () => {
                     <AnimatedSection>
                         <div className="relative h-96 lg:h-full min-h-[24rem]">
                             <Image
-                                src="https://placehold.co/800x600.png"
+                                src="/images/softwareDeveloper.png"
                                 data-ai-hint="engineers collaborating code"
                                 alt="Software engineers with AEC industry expertise"
                                 layout="fill"
@@ -390,11 +390,22 @@ const OnSiteSupportService: FC = () => {
 
     return (
         <>
-            <section className="container mx-auto px-4 sm:px-6 lg:px-8 pt-12">
-                 <p className="text-xl text-muted-foreground text-center max-w-4xl mx-auto">{intro}</p>
-            </section>
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <p className="text-xl text-muted-foreground text-center max-w-4xl mx-auto">{intro}</p>
+                <AnimatedSection className="my-16">
+                    <div className="relative aspect-video rounded-lg border overflow-hidden shadow-lg">
+                        <Image
+                            src="https://placehold.co/1200x675.png"
+                            data-ai-hint="construction site engineer tablet"
+                            alt="Engineer on construction site with a tablet"
+                            layout="fill"
+                            objectFit="cover"
+                        />
+                    </div>
+                </AnimatedSection>
+            </div>
             
-             <section className="py-24 bg-secondary -mx-4 sm:-mx-6 lg:-mx-8 mt-16">
+             <section className="py-24 bg-secondary -mx-4 sm:-mx-6 lg:-mx-8">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <AnimatedSection>
                         <SectionTitle>{whyUsTitle}</SectionTitle>

@@ -140,7 +140,7 @@ const MissionVisionValuesSection: FC = () => {
             <div className="grid lg:grid-cols-2 gap-16 items-center">
                 <div className="relative h-[500px] w-full rounded-lg overflow-hidden border shadow-lg bg-secondary order-last lg:order-first">
                     <Image
-                        src="https://placehold.co/800x1000.png"
+                        src="/images/quienesSomos.png"
                         alt="Frata Ingenieros office or team collaboration"
                         layout="fill"
                         objectFit="cover"
@@ -170,9 +170,8 @@ const MissionVisionValuesSection: FC = () => {
 const TeamSection: FC = () => {
   const { t } = useLanguage()
   const teamMembers = [
-    { name: "Carlos Poma", role: t('teamRole1'), image: 'https://placehold.co/400x400.png', dataAiHint: "male engineer portrait" },
-    { name: "Ana García", role: t('teamRole2'), image: 'https://placehold.co/400x400.png', dataAiHint: "female architect portrait" },
-    { name: "Luis Fernandez", role: t('teamRole3'), image: 'https://placehold.co/400x400.png', dataAiHint: "male developer portrait" },
+    { name: "James Cabrera", role: t('teamRole1'), image: 'https://media.licdn.com/dms/image/v2/D5603AQFPIvHL…eta&t=ex7Jw-1odE-917TULU6K6rkAgfBnaZmfprQYZ1uwoH8', dataAiHint: "male engineer portrait" },
+    { name: "Sheyla Gonzales", role: t('teamRole1'), image: 'https://media.licdn.com/dms/image/v2/C4E03AQH3mZy7b1GnYA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1648053960670?e=1762992000&v=beta&t=KJvFTkWOIARZ4gBrh76EfzuEawIHNmeOOhVAsYCA3xg', dataAiHint: "female architect portrait" },
   ]
   return (
     <section className="py-24 sm:py-32 bg-secondary">
