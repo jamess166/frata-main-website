@@ -815,7 +815,7 @@ const ComprehensiveModelingService: FC = () => {
                 <AnimatedSection className="my-16">
                     <div className="relative aspect-video rounded-lg border overflow-hidden shadow-lg">
                         <Image
-                            src="https://placehold.co/1200x675.png"
+                            src="/images/ModeladoIntegral.jpg"
                             data-ai-hint="3d architectural model"
                             alt="Comprehensive BIM model showing multiple disciplines"
                             layout="fill"
