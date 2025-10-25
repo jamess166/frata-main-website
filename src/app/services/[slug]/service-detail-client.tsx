@@ -395,7 +395,7 @@ const OnSiteSupportService: FC = () => {
                 <AnimatedSection className="my-16">
                     <div className="relative aspect-video rounded-lg border overflow-hidden shadow-lg">
                         <Image
-                            src="https://placehold.co/1200x675.png"
+                            src="/images/BIMObra.png"
                             data-ai-hint="construction site engineer tablet"
                             alt="Engineer on construction site with a tablet"
                             layout="fill"
@@ -512,7 +512,7 @@ const RebarDetailingService: FC = () => {
                 <p className="text-xl text-muted-foreground text-center max-w-4xl mx-auto">{intro}</p>
                  <div className="my-12 rounded-lg border overflow-hidden shadow-lg aspect-w-16 aspect-h-9">
                     <Image
-                        src="https://placehold.co/1200x675.png"
+                        src="/images/Ingenieria_Detalle.JPG"
                         data-ai-hint="3d rebar model"
                         alt="Team of engineers reviewing a 3D rebar model"
                         width={1200}
@@ -526,7 +526,7 @@ const RebarDetailingService: FC = () => {
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     <div className="relative h-96 lg:h-full min-h-[24rem]">
                         <Image
-                            src="https://placehold.co/800x600.png"
+                            src="/images/Plano_Ingenieria_Detalle.png"
                             data-ai-hint="2d blueprint drawing"
                             alt="Traditional 2D rebar drawing with errors"
                             layout="fill"

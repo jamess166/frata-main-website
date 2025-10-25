@@ -150,7 +150,7 @@ Our Efficient Process
 Why Choose Us?
 ---SPLIT---
 1. Experienced Team: Our team has decades of combined experience in BIM and structural reinforcement.
-2. Cutting-Edge Technology: Advanced mastery of Tekla, Revit, Navisworks, and Trimble Connect.
+2. Cutting-Edge Technology: Advanced mastery of Tekla, Revit, Navisworks, Trimble Connect, and Autodesk Construction Cloud.
 3. Professional Approach: Clear methodology with measurable and traceable deliverables.
 4. Real Savings: Significant reduction in time and money through BIM optimization.
 5. Specialized Dedication: Unlike generalists, our exclusive focus on rebar detailing ensures a superior level of quality and expertise in every project.`,
@@ -417,7 +417,7 @@ Nuestro Proceso Eficiente
 ¿Por Qué Elegirnos?
 ---SPLIT---
 1. Equipo Experimentado: Nuestro equipo cuenta con décadas de experiencia combinada en BIM y refuerzo estructural.
-2. Tecnología de Punta: Dominio avanzado de Tekla, Revit, Navisworks y Trimble Connect.
+2. Tecnología de Punta: Dominio avanzado de Tekla, Revit, Navisworks, Trimble Connect y Autodesk Construction Cloud.
 3. Enfoque Profesional: Metodología clara con entregables medibles y trazables.
 4. Ahorro Real: Reducción significativa de tiempo y dinero gracias a la optimización BIM.
 5. Dedicación Especializada: A diferencia de los generalistas, nuestro enfoque exclusivo en el detallado de acero garantiza un nivel de calidad y expertise superior en cada proyecto.`,
