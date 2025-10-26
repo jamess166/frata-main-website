@@ -5,7 +5,7 @@ import { LanguageProvider } from '@/contexts/language-context';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { Toaster } from '@/components/ui/toaster';
-import { FaqChatButton } from '@/components/faq-chat-button';
+// import { FaqChatButton } from '@/components/faq-chat-button';
 
 export const metadata: Metadata = {
   title: 'Frata BIM Services',
@@ -37,7 +37,7 @@ export default function RootLayout({
               <main className="flex-grow">{children}</main>
               <Footer />
             </div>
-            <FaqChatButton />
+            {/* <FaqChatButton /> */}
             <Toaster />
           </LanguageProvider>
         </ThemeProvider>

@@ -14,11 +14,12 @@ import { Label } from '@/components/ui/label';
 import { Check, ArrowRight, Globe, Code, Construction, Factory, School, Shapes, Building, Target, Users } from 'lucide-react';
 import { useLanguage } from '@/hooks/use-language';
 import { useToast } from '@/hooks/use-toast';
-import { submitContactForm, ContactFormState } from './actions';
+// import { submitContactForm, ContactFormState } from './actions.disabled';
 import { PlexusBackground } from '@/components/plexus-background';
 import { useIntersectionObserver } from '@/hooks/use-intersection-observer';
 import { cn } from '@/lib/utils';
 
+import { useForm, ValidationError } from '@formspree/react';
 
 const Animated = ({ children, className, delay = 0 }: { children: React.ReactNode, className?: string, delay?: number }) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -219,62 +220,97 @@ const SubmitButton: FC = () => {
   );
 };
 
-const initialState: ContactFormState = {
-  message: "",
-};
-
-const ContactSection: FC = () => {
+const ContactSection: React.FC = () => {
   const { t } = useLanguage();
   const { toast } = useToast();
-  const [state, formAction] = useActionState(submitContactForm, initialState);
+  const [state, handleSubmit] = useForm("mblplrvv"); // Tu ID de Formspree
   const formRef = React.useRef<HTMLFormElement>(null);
 
   useEffect(() => {
-    if (state.message) {
-      if (state.success) {
-        toast({
-          title: "Success!",
-          description: t('formSuccess'),
-        });
-        formRef.current?.reset();
-      } else if (state.errors) {
-        toast({
-          variant: "destructive",
-          title: "Error",
-          description: state.message,
-        });
-      }
+    if (state.succeeded) {
+      toast({
+        title: "Success!",
+        description: t('formSuccess'),
+      });
+      formRef.current?.reset();
     }
-  }, [state, toast, t]);
+  }, [state.succeeded, toast, t]);
 
   return (
     <section id="contact" className="py-24 sm:py-32 bg-secondary">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <Animated className="mx-auto max-w-2xl text-center">
-          <h2 className="text-sm font-bold uppercase tracking-widest text-primary">{t('contact')}</h2>
-          <p className="mt-2 font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">{t('contactTitle')}</p>
-          <p className="mt-4 text-lg leading-8 text-muted-foreground">{t('contactDesc')}</p>
+          <h2 className="text-sm font-bold uppercase tracking-widest text-primary">
+            {t('contact')}
+          </h2>
+          <p className="mt-2 font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            {t('contactTitle')}
+          </p>
+          <p className="mt-4 text-lg leading-8 text-muted-foreground">
+            {t('contactDesc')}
+          </p>
         </Animated>
         <Animated delay={200}>
           <Card className="max-w-xl mx-auto mt-8 shadow-lg bg-card/50 dark:bg-card/30 border-white/10">
             <CardContent className="p-6 sm:p-8">
-              <form ref={formRef} action={formAction} className="space-y-6">
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <Label htmlFor="name">{t('formName')}</Label>
-                  <Input id="name" name="name" type="text" autoComplete="name" required />
-                  {state.errors?.name && <p className="text-sm font-medium text-destructive mt-1">{state.errors.name[0]}</p>}
+                  <Input 
+                    id="name" 
+                    name="name" 
+                    type="text" 
+                    autoComplete="name" 
+                    required 
+                  />
+                  <ValidationError 
+                    prefix="Name" 
+                    field="name"
+                    errors={state.errors}
+                    className="text-sm font-medium text-destructive mt-1"
+                  />
                 </div>
+                
                 <div>
                   <Label htmlFor="email">{t('formEmail')}</Label>
-                  <Input id="email" name="email" type="email" autoComplete="email" required />
-                  {state.errors?.email && <p className="text-sm font-medium text-destructive mt-1">{state.errors.email[0]}</p>}
+                  <Input 
+                    id="email" 
+                    name="email" 
+                    type="email" 
+                    autoComplete="email" 
+                    required 
+                  />
+                  <ValidationError 
+                    prefix="Email" 
+                    field="email"
+                    errors={state.errors}
+                    className="text-sm font-medium text-destructive mt-1"
+                  />
                 </div>
+                
                 <div>
                   <Label htmlFor="message">{t('formMessage')}</Label>
-                  <Textarea id="message" name="message" rows={4} required />
-                  {state.errors?.message && <p className="text-sm font-medium text-destructive mt-1">{state.errors.message[0]}</p>}
+                  <Textarea 
+                    id="message" 
+                    name="message" 
+                    rows={4} 
+                    required 
+                  />
+                  <ValidationError 
+                    prefix="Message" 
+                    field="message"
+                    errors={state.errors}
+                    className="text-sm font-medium text-destructive mt-1"
+                  />
                 </div>
-                <SubmitButton />
+                
+                <Button 
+                  type="submit" 
+                  disabled={state.submitting}
+                  className="w-full"
+                >
+                  {state.submitting ? t('sending') || 'Enviando...' : t('send') || 'Enviar'}
+                </Button>
               </form>
             </CardContent>
           </Card>
@@ -283,6 +319,71 @@ const ContactSection: FC = () => {
     </section>
   );
 };
+
+// const initialState: ContactFormState = {
+//   message: "",
+// };
+
+// const ContactSection: FC = () => {
+//   const { t } = useLanguage();
+//   const { toast } = useToast();
+//   const [state, formAction] = useActionState(submitContactForm, initialState);
+//   const formRef = React.useRef<HTMLFormElement>(null);
+
+//   useEffect(() => {
+//     if (state.message) {
+//       if (state.success) {
+//         toast({
+//           title: "Success!",
+//           description: t('formSuccess'),
+//         });
+//         formRef.current?.reset();
+//       } else if (state.errors) {
+//         toast({
+//           variant: "destructive",
+//           title: "Error",
+//           description: state.message,
+//         });
+//       }
+//     }
+//   }, [state, toast, t]);
+
+//   return (
+//     <section id="contact" className="py-24 sm:py-32 bg-secondary">
+//       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+//         <Animated className="mx-auto max-w-2xl text-center">
+//           <h2 className="text-sm font-bold uppercase tracking-widest text-primary">{t('contact')}</h2>
+//           <p className="mt-2 font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">{t('contactTitle')}</p>
+//           <p className="mt-4 text-lg leading-8 text-muted-foreground">{t('contactDesc')}</p>
+//         </Animated>
+//         <Animated delay={200}>
+//           <Card className="max-w-xl mx-auto mt-8 shadow-lg bg-card/50 dark:bg-card/30 border-white/10">
+//             <CardContent className="p-6 sm:p-8">
+//               <form ref={formRef} action={formAction} className="space-y-6">
+//                 <div>
+//                   <Label htmlFor="name">{t('formName')}</Label>
+//                   <Input id="name" name="name" type="text" autoComplete="name" required />
+//                   {state.errors?.name && <p className="text-sm font-medium text-destructive mt-1">{state.errors.name[0]}</p>}
+//                 </div>
+//                 <div>
+//                   <Label htmlFor="email">{t('formEmail')}</Label>
+//                   <Input id="email" name="email" type="email" autoComplete="email" required />
+//                   {state.errors?.email && <p className="text-sm font-medium text-destructive mt-1">{state.errors.email[0]}</p>}
+//                 </div>
+//                 <div>
+//                   <Label htmlFor="message">{t('formMessage')}</Label>
+//                   <Textarea id="message" name="message" rows={4} required />
+//                   {state.errors?.message && <p className="text-sm font-medium text-destructive mt-1">{state.errors.message[0]}</p>}
+//                 </div>
+//                 <SubmitButton />
+//               </form>
+//             </CardContent>
+//           </Card>
+//         </Animated>
+//       </div>
+//     </section>
+//   );
+// };
 
 
 export default function Home() {

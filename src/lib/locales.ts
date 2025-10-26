@@ -1,3 +1,5 @@
+import { se } from "date-fns/locale";
+import { Send } from "lucide-react";
 
 export const locales = ['en', 'es'] as const;
 export type Locale = typeof locales[number];
@@ -211,7 +213,7 @@ Our Process
 95%; Error Reduction; Less rework and material waste
 100%; Project Control; Full traceability and automated deliveries`,
     // Portfolio
-    portfolio: 'Portfolio',
+    // portfolio: 'Portfolio',
     portfolioTitle: 'Our Projects',
     project1Title: 'Commercial Tower',
     project1Desc: 'Full BIM coordination for a 40-story skyscraper.',
@@ -291,6 +293,8 @@ Our Process
     blogDescription: 'Explore our latest articles, insights, and news from the world of BIM and digital construction.',
     readMore: 'Read More',
     by: 'By',
+    send: 'Send',
+    sending: 'Sending...',
   },
   es: {
     // Header
@@ -500,7 +504,7 @@ Nuestro Proceso
 95%; Reducción de Errores; Menos retrabajo y desperdicio de material
 100%; Control del Proyecto; Trazabilidad total y entregas automatizadas`,
     // Portfolio
-    portfolio: 'Portafolio',
+    // portfolio: 'Portafolio',
     portfolioTitle: 'Nuestros Proyectos',
     project1Title: 'Torre Comercial',
     project1Desc: 'Coordinación BIM completa para un rascacielos de 40 pisos.',
@@ -580,5 +584,7 @@ Nuestro Proceso
     blogDescription: 'Explora nuestros últimos artículos, ideas y noticias del mundo de BIM y la construcción digital.',
     readMore: 'Leer Más',
     by: 'Por',
+    Send: 'Enviar',
+    sending: 'Enviando...',
   }
 };

@@ -124,7 +124,7 @@ const RemoteTeamsService: FC = () => {
                  <AnimatedSection className="my-16">
                     <div className="relative aspect-video rounded-lg border overflow-hidden shadow-lg">
                         <Image
-                            src="/images/remoteTeamBanner.png"
+                            src="/images/equipoBIM.png"
                             data-ai-hint="remote team collaboration"
                             alt="Global remote BIM team collaborating"
                             layout="fill"
