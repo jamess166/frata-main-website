@@ -8,8 +8,51 @@ import { Toaster } from '@/components/ui/toaster';
 // import { FaqChatButton } from '@/components/faq-chat-button';
 
 export const metadata: Metadata = {
-  title: 'Frata BIM Services',
-  description: 'Advanced BIM Solutions for Engineering by Frata Ingenieros',
+  title: {
+    default: "Consultoría BIM y Modelamiento BIM en Perú | Frata Ingenieros",
+    template: "%s | Frata Ingenieros",
+  },
+  description:
+    "Especialistas en Consultoría BIM, Modelamiento BIM y Coordinación de proyectos en Lima y todo el Perú. Optimiza tu construcción con tecnología BIM.",
+  keywords: [
+    "Consultoría BIM Perú",
+    "Modelamiento BIM",
+    "Servicios BIM Perú",
+    "Coordinación BIM",
+    "Supervisión BIM",
+    "Modelado BIM Estructuras"
+  ],
+  alternates: {
+    canonical: "https://www.frataingenieros.com/",
+    languages: {
+      "es": "https://www.frataingenieros.com/",
+      "en": "https://www.frataingenieros.com/en",
+    }
+  },
+  openGraph: {
+    title: "Frata Ingenieros",
+    description:
+      "Consultoría y modelamiento BIM en Perú — expertos en coordinación y supervisión BIM.",
+    url: "https://www.frataingenieros.com/",
+    siteName: "Frata Ingenieros",
+    images: [
+      {
+        url: "https://www.frataingenieros.com/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Frata Ingenieros - Consultoría BIM"
+      }
+    ],
+    locale: "es_ES",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Frata Ingenieros",
+    description:
+      "Consultoría y modelamiento BIM en Perú — expertos en coordinación y supervisión BIM.",
+    images: ["https://www.frataingenieros.com/images/og-image.jpg"],
+  }
 };
 
 export default function RootLayout({
@@ -18,7 +61,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="es" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

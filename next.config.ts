@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
+    unoptimized: true, // <- desactiva Image Optimization para output: 'export'
     remotePatterns: [
       {
         protocol: 'https',
@@ -25,6 +26,8 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // si quieres i18n activa, añádelo aquí (pero quita output: 'export' en ese caso)
+  // i18n: { locales: ['es','en'], defaultLocale: 'es' },
 };
 
 export default nextConfig;

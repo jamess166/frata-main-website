@@ -26,7 +26,6 @@ const BIMtoolsPage: FC = () => {
     t('featureUngroupRebar'),
     t('featureHostSync'),
     t('featureSelectByParameter'),
-    t('featureApiAccess'),
     t('featurePrioritySupport'),
   ]
 

@@ -1,4 +1,3 @@
-
 "use client"
 
 import type { FC } from "react"
@@ -73,10 +72,10 @@ const HeroSection: FC = () => {
     <section className="relative bg-slate-900 text-white py-32 lg:py-48 overflow-hidden">
        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-50"></div>
        
-       <FloatingCard icon="🏗️" text="BIM Technology" className="top-[15%] left-[55%] lg:left-[65%]" moveFactor={50} />
-       <FloatingCard icon="🚀" text="Innovation" className="top-[45%] right-[10%] lg:right-[15%]" moveFactor={-45} />
-       <FloatingCard icon="📊" text="Digital Solutions" className="bottom-[30%] left-[40%] lg:left-[50%]" moveFactor={35} />
-       <FloatingCard icon="🌍" text="Global Reach" className="bottom-[15%] right-[25%] lg:right-[35%]" moveFactor={-30} />
+       <FloatingCard icon="🏗️" text="BIM Technology" className="hidden lg:block top-[15%] left-[55%] lg:left-[65%]" moveFactor={50} />
+       <FloatingCard icon="🚀" text="Innovation" className="hidden lg:block top-[45%] right-[10%] lg:right-[15%]" moveFactor={-45} />
+       <FloatingCard icon="📊" text="Digital Solutions" className="hidden lg:block bottom-[30%] left-[40%] lg:left-[50%]" moveFactor={35} />
+       <FloatingCard icon="🌍" text="Global Reach" className="hidden lg:block bottom-[15%] right-[25%] lg:right-[35%]" moveFactor={-30} />
 
        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-xl text-center lg:text-left">
@@ -233,4 +232,3 @@ const AboutPage: FC = () => {
 }
 
 export default AboutPage
-    
