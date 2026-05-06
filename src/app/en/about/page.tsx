@@ -6,61 +6,61 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export const metadata: Metadata = {
-  title: "Nosotros | Frata Ingenieros",
+  title: "About | Frata Ingenieros",
   description:
-    "Conoce a Frata Ingenieros, una firma orientada a consultoria BIM, modelado BIM y desarrollo tecnico para Revit o Tekla.",
+    "Learn more about Frata Ingenieros, a firm focused on BIM consulting, BIM modeling and technical development for Revit or Tekla.",
   alternates: {
-    canonical: "https://www.frataingenieros.com/about",
+    canonical: "https://www.frataingenieros.com/en/about",
   },
 };
 
 const values = [
   {
-    title: "Pensamiento tecnico",
-    description: "Tomamos decisiones desde la logica de produccion, coordinacion y control de informacion.",
+    title: "Technical thinking",
+    description: "We make decisions from the perspective of production, coordination and information control.",
     icon: Compass,
   },
   {
-    title: "Capacidad de ejecucion",
-    description: "No nos quedamos en discurso BIM; modelamos, coordinamos y desarrollamos herramientas utiles.",
+    title: "Execution capability",
+    description: "We do not stay in BIM discourse. We model, coordinate and develop tools that teams can actually use.",
     icon: Blocks,
   },
   {
-    title: "Cercania con el problema real",
-    description: "Trabajamos desde necesidades concretas de oficina tecnica, obra, fabricacion y software.",
+    title: "Closeness to real problems",
+    description: "We work around the needs of technical offices, jobsites, fabrication and software operations.",
     icon: Users2,
   },
 ];
 
 const timeline = [
   {
-    year: "Origen",
-    title: "Nacemos desde la practica BIM",
+    year: "Origin",
+    title: "We started from real BIM practice",
     description:
-      "Frata surge desde la necesidad de resolver problemas reales de modelado, coordinacion y produccion en proyectos tecnicos.",
+      "Frata emerged from the need to solve real modeling, coordination and production problems in technical projects.",
   },
   {
     year: "Expansion",
-    title: "De servicios a soluciones",
+    title: "From services to solutions",
     description:
-      "La firma evoluciona desde soporte BIM tradicional hacia una oferta que combina consultoria, modelado y automatizacion.",
+      "The firm evolved from traditional BIM support into an offer that combines consulting, modeling and automation.",
   },
   {
-    year: "Hoy",
-    title: "Ingenieria con software propio",
+    year: "Today",
+    title: "Engineering backed by software capability",
     description:
-      "BIMtools y el desarrollo para Revit/Tekla refuerzan una posicion clara: no solo implementamos BIM, tambien construimos capacidad tecnica.",
+      "BIMtools and development for Revit/Tekla reinforce a clear position: we do not just implement BIM, we build technical capability.",
   },
 ];
 
 const strengths = [
-  "Consultoria BIM con foco operativo y no solo documental.",
-  "Modelado BIM integral para arquitectura, estructura y MEP.",
-  "Desarrollo de addins y automatizaciones para Revit o Tekla.",
-  "Capacidad para acompañar equipos en oficina tecnica, obra y fabricacion.",
+  "BIM consulting focused on operations rather than only documentation.",
+  "Comprehensive BIM modeling for architecture, structure and MEP.",
+  "Add-in and automation development for Revit or Tekla.",
+  "The ability to support teams in technical office, jobsite and fabrication environments.",
 ];
 
-export default function AboutPage() {
+export default function AboutPageEn() {
   return (
     <div className="bg-background">
       <section className="relative overflow-hidden border-b">
@@ -68,21 +68,20 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 pb-20 pt-16 sm:px-6 lg:px-8 lg:pb-28 lg:pt-24">
           <div className="grid gap-12 lg:grid-cols-[1fr_0.95fr] lg:items-center">
             <div className="relative z-10 max-w-3xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">Nosotros</p>
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">About</p>
               <h1 className="mt-4 font-headline text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-                Una firma BIM que combina criterio de ingenieria con capacidad real de desarrollo.
+                A BIM firm that combines engineering judgment with real software capability.
               </h1>
               <p className="mt-6 text-lg leading-8 text-muted-foreground">
-                Frata Ingenieros no se posiciona solo como consultora. Nuestra fortaleza esta en conectar consultoria
-                BIM, modelado, coordinacion y software tecnico para que los clientes puedan operar mejor.
+                Frata Ingenieros should not be positioned as just another consultancy. Our strength lies in connecting BIM consulting, modeling, coordination and technical software so clients can operate better.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Button asChild size="lg" className="rounded-full px-7">
-                  <Link href="/#contact">Hablar con Frata</Link>
+                  <Link href="/en/#contact">Talk to Frata</Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="rounded-full px-7">
-                  <Link href="/bimtools">
-                    Ver BIMtools
+                  <Link href="/en/bimtools">
+                    View BIMtools
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
@@ -90,18 +89,12 @@ export default function AboutPage() {
             </div>
 
             <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950 shadow-2xl shadow-slate-950/20">
-              <Image
-                src="/images/quienesSomos.png"
-                alt="Equipo de Frata Ingenieros"
-                width={1200}
-                height={900}
-                className="h-[360px] w-full object-cover opacity-85"
-              />
+              <Image src="/images/quienesSomos.png" alt="Frata Ingenieros team" width={1200} height={900} className="h-[360px] w-full object-cover opacity-85" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/25 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                 <p className="text-sm uppercase tracking-[0.2em] text-cyan-300">Frata Ingenieros</p>
                 <p className="mt-2 text-lg text-slate-200">
-                  Consultoria BIM, modelado y desarrollo tecnico para equipos que necesitan ejecutar mejor.
+                  BIM consulting, modeling and technical development for teams that need to execute better.
                 </p>
               </div>
             </div>
@@ -130,9 +123,9 @@ export default function AboutPage() {
       <section className="border-y bg-secondary/45">
         <div className="container mx-auto grid gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8 lg:py-24">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">Trayectoria</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">Trajectory</p>
             <h2 className="mt-4 font-headline text-3xl font-bold tracking-tight sm:text-4xl">
-              Como hemos ido afinando nuestra posicion
+              How our positioning has evolved
             </h2>
           </div>
           <div className="grid gap-5">
@@ -152,18 +145,12 @@ export default function AboutPage() {
       <section className="container mx-auto px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
         <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
           <div className="relative overflow-hidden rounded-[2rem] border shadow-xl">
-            <Image
-              src="/images/equipoBIM2.png"
-              alt="Capacidades BIM de Frata Ingenieros"
-              width={1200}
-              height={900}
-              className="h-[380px] w-full object-cover"
-            />
+            <Image src="/images/equipoBIM2.png" alt="Frata Ingenieros BIM capabilities" width={1200} height={900} className="h-[380px] w-full object-cover" />
           </div>
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">Fortalezas</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">Strengths</p>
             <h2 className="mt-4 font-headline text-3xl font-bold tracking-tight sm:text-4xl">
-              Donde Frata puede diferenciarse de una consultora BIM promedio
+              Where Frata can stand apart from an average BIM consultancy
             </h2>
             <div className="mt-8 grid gap-4">
               {strengths.map((item) => (
@@ -180,31 +167,30 @@ export default function AboutPage() {
       <section className="overflow-hidden border-y bg-slate-950 text-white">
         <div className="container mx-auto grid gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[1fr_1fr] lg:px-8 lg:py-24">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-300">Posicionamiento</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-300">Positioning</p>
             <h2 className="mt-4 font-headline text-4xl font-bold tracking-tight sm:text-5xl">
-              El desarrollo para Revit o Tekla debe ser parte central de tu identidad de marca.
+              Development for Revit or Tekla should be a central part of your brand identity.
             </h2>
             <p className="mt-6 text-lg leading-8 text-slate-300">
-              Muchas firmas hablan de BIM. Pocas pueden demostrar que resuelven problemas tecnicos con software propio.
-              Esa es una ventaja fuerte para tu narrativa comercial y para SEO.
+              Many firms talk about BIM. Far fewer can show they solve technical problems through their own software. That is a strong advantage for both commercial narrative and SEO.
             </p>
           </div>
           <div className="grid gap-5 sm:grid-cols-2">
             <Card className="rounded-[1.75rem] border-white/10 bg-white/5 text-white">
               <CardContent className="p-6">
                 <Code2 className="h-6 w-6 text-cyan-300" />
-                <h3 className="mt-5 text-xl font-semibold">Software propio</h3>
+                <h3 className="mt-5 text-xl font-semibold">Own software capability</h3>
                 <p className="mt-3 text-sm leading-7 text-slate-300">
-                  El producto refuerza la autoridad tecnica y la capacidad de automatizacion.
+                  Product development reinforces technical authority and automation capacity.
                 </p>
               </CardContent>
             </Card>
             <Card className="rounded-[1.75rem] border-white/10 bg-white/5 text-white">
               <CardContent className="p-6">
                 <Blocks className="h-6 w-6 text-cyan-300" />
-                <h3 className="mt-5 text-xl font-semibold">Servicios mas creibles</h3>
+                <h3 className="mt-5 text-xl font-semibold">More credible services</h3>
                 <p className="mt-3 text-sm leading-7 text-slate-300">
-                  La consultoria y el modelado ganan peso cuando se apoyan en herramientas reales.
+                  Consulting and modeling gain weight when they are backed by real tools.
                 </p>
               </CardContent>
             </Card>
@@ -214,14 +200,13 @@ export default function AboutPage() {
 
       <section className="container mx-auto px-4 py-20 text-center sm:px-6 lg:px-8 lg:py-24">
         <h2 className="font-headline text-3xl font-bold sm:text-4xl">
-          Si quieres una firma mas moderna, la web tiene que mostrar esta mezcla de BIM y desarrollo con mucha mas claridad.
+          If you want a more modern firm, the website has to show this blend of BIM and development much more clearly.
         </h2>
         <p className="mx-auto mt-4 max-w-3xl text-lg text-muted-foreground">
-          Esta pagina ya empuja esa direccion. El siguiente paso natural seria aplicar el mismo criterio a casos de
-          exito, testimonios y paginas individuales de producto.
+          This page already pushes in that direction. The natural next step would be applying the same logic to case studies, testimonials and product-specific landing pages.
         </p>
         <Button asChild size="lg" className="mt-8 rounded-full px-7">
-          <Link href="/#contact">Solicitar reunion</Link>
+          <Link href="/en/#contact">Request a meeting</Link>
         </Button>
       </section>
     </div>

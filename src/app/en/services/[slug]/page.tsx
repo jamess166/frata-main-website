@@ -5,7 +5,8 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { serviceContent, type ServiceSlug } from "@/lib/service-content";
+import { serviceContentEn } from "@/lib/service-content-en";
+import type { ServiceSlug } from "@/lib/service-content";
 
 interface ServicePageProps {
   params: Promise<{
@@ -14,32 +15,25 @@ interface ServicePageProps {
 }
 
 export async function generateStaticParams() {
-  return Object.keys(serviceContent).map((slug) => ({
-    slug,
-  }));
+  return Object.keys(serviceContentEn).map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
   const { slug } = await params;
-  const service = serviceContent[slug];
-
-  if (!service) {
-    return { title: "Servicio no encontrado" };
-  }
-
+  const service = serviceContentEn[slug];
+  if (!service) return { title: "Service not found" };
   return {
     title: service.shortTitle,
     description: service.description,
     alternates: {
-      canonical: `https://www.frataingenieros.com/services/${service.slug}`,
+      canonical: `https://www.frataingenieros.com/en/services/${service.slug}`,
     },
   };
 }
 
-export default async function ServicePage({ params }: ServicePageProps) {
+export default async function ServicePageEn({ params }: ServicePageProps) {
   const { slug } = await params;
-  const service = serviceContent[slug];
-
+  const service = serviceContentEn[slug];
   if (!service) notFound();
 
   return (
@@ -47,28 +41,23 @@ export default async function ServicePage({ params }: ServicePageProps) {
       <section className="relative overflow-hidden border-b">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(34,211,238,0.16),_transparent_34%),radial-gradient(circle_at_85%_20%,_rgba(249,115,22,0.12),_transparent_24%)]" />
         <div className="container mx-auto px-4 pb-16 pt-14 sm:px-6 lg:px-8 lg:pb-24 lg:pt-20">
-          <Link
-            href="/#services"
-            className="relative z-10 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-          >
+          <Link href="/en/#services" className="relative z-10 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
             <ArrowLeft className="h-4 w-4" />
-            Volver a servicios
+            Back to services
           </Link>
 
           <div className="relative z-10 mt-8 grid gap-12 lg:grid-cols-[1fr_0.95fr] lg:items-center">
             <div className="max-w-3xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">Servicio BIM</p>
-              <h1 className="mt-4 font-headline text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-                {service.title}
-              </h1>
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">BIM service</p>
+              <h1 className="mt-4 font-headline text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">{service.title}</h1>
               <p className="mt-6 text-lg leading-8 text-muted-foreground">{service.intro}</p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Button asChild size="lg" className="rounded-full px-7">
-                  <Link href="/#contact">Solicitar propuesta</Link>
+                  <Link href="/en/#contact">Request proposal</Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="rounded-full px-7">
-                  <Link href="/bimtools">
-                    Ver BIMtools
+                  <Link href="/en/bimtools">
+                    View BIMtools
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
@@ -76,13 +65,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
             </div>
 
             <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950 shadow-2xl shadow-slate-950/20">
-              <Image
-                src={service.image}
-                alt={service.imageAlt}
-                width={1200}
-                height={850}
-                className="h-[360px] w-full object-cover opacity-85"
-              />
+              <Image src={service.image} alt={service.imageAlt} width={1200} height={850} className="h-[360px] w-full object-cover opacity-85" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                 <p className="text-sm uppercase tracking-[0.2em] text-cyan-300">{service.shortTitle}</p>
@@ -95,12 +78,9 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
       <section className="container mx-auto px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
         <div className="max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">Pilares</p>
-          <h2 className="mt-4 font-headline text-3xl font-bold tracking-tight sm:text-4xl">
-            Que resuelve este servicio
-          </h2>
+          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">Pillars</p>
+          <h2 className="mt-4 font-headline text-3xl font-bold tracking-tight sm:text-4xl">What this service solves</h2>
         </div>
-
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {service.pillars.map((pillar) => (
             <Card key={pillar.title} className="rounded-[1.75rem] border-border/70 bg-card/75">
@@ -119,10 +99,8 @@ export default async function ServicePage({ params }: ServicePageProps) {
         <div className="container mx-auto px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">Metodo</p>
-              <h2 className="mt-4 font-headline text-3xl font-bold tracking-tight sm:text-4xl">
-                Como trabajamos este tipo de encargo
-              </h2>
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">Method</p>
+              <h2 className="mt-4 font-headline text-3xl font-bold tracking-tight sm:text-4xl">How we execute this kind of work</h2>
             </div>
             <div className="grid gap-5">
               {service.process.map((item, index) => (
@@ -141,12 +119,9 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
       <section className="container mx-auto px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
         <div className="max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">Resultados</p>
-          <h2 className="mt-4 font-headline text-3xl font-bold tracking-tight sm:text-4xl">
-            Impacto que el cliente deberia esperar
-          </h2>
+          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">Outcomes</p>
+          <h2 className="mt-4 font-headline text-3xl font-bold tracking-tight sm:text-4xl">Impact a client should expect</h2>
         </div>
-
         <div className="mt-10 grid gap-4">
           {service.outcomes.map((outcome) => (
             <div key={outcome} className="flex items-start gap-3 rounded-2xl border bg-card/75 p-5">
@@ -160,13 +135,13 @@ export default async function ServicePage({ params }: ServicePageProps) {
       <section className="border-t bg-[linear-gradient(180deg,_transparent,_rgba(34,211,238,0.06))]">
         <div className="container mx-auto px-4 py-20 text-center sm:px-6 lg:px-8 lg:py-24">
           <h2 className="font-headline text-3xl font-bold sm:text-4xl">
-            Si tu operacion BIM necesita ordenar procesos o desarrollar capacidad propia, este es el siguiente paso.
+            If your BIM operation needs stronger processes or custom software capability, this is the next step.
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-            Podemos ayudarte con consultoria, modelado, acompanamiento o desarrollo tecnico sobre Revit y Tekla.
+            We can support you through consulting, modeling, on-site assistance or technical development for Revit and Tekla.
           </p>
           <Button asChild size="lg" className="mt-8 rounded-full px-7">
-            <Link href="/#contact">Hablar con Frata</Link>
+            <Link href="/en/#contact">Talk to Frata</Link>
           </Button>
         </div>
       </section>

@@ -1,32 +1,44 @@
-"use client"
+"use client";
 
-import { Github, Linkedin, Twitter } from "lucide-react"
-import { useLanguage } from "@/hooks/use-language"
-import Link from 'next/link'
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export function Footer() {
-  const { t } = useLanguage()
+  const pathname = usePathname() || "/";
+  const isEnglish = pathname === "/en" || pathname.startsWith("/en/");
+  const base = isEnglish ? "/en" : "";
 
   return (
-    <footer className="bg-secondary">
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-          <div className="flex space-x-4 justify-center md:justify-start">
-            <Link href="/" className="text-muted-foreground hover:text-foreground">
-              <Twitter className="h-5 w-5" />
-            </Link>
-            <Link href="/" className="text-muted-foreground hover:text-foreground">
-              <Github className="h-5 w-5" />
-            </Link>
-            <Link href="/" className="text-muted-foreground hover:text-foreground">
-              <Linkedin className="h-5 w-5" />
-            </Link>
-          </div>
-          <p className="mt-4 md:mt-0 text-center text-sm text-muted-foreground">
-            {t('footerText')}
+    <footer className="border-t bg-secondary/55">
+      <div className="container mx-auto flex flex-col gap-6 px-4 py-8 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+        <div>
+          <p className="font-headline text-lg font-semibold text-foreground">Frata Ingenieros</p>
+          <p className="mt-1 text-sm text-muted-foreground">
+            {isEnglish
+              ? "BIM consulting, BIM modeling and technical development for Revit or Tekla."
+              : "Consultoria BIM, modelado BIM y desarrollo tecnico para Revit o Tekla."}
           </p>
         </div>
+
+        <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
+          <Link href={base || "/"} className="transition-colors hover:text-foreground">
+            {isEnglish ? "Home" : "Inicio"}
+          </Link>
+          <Link href={`${base}/about`} className="transition-colors hover:text-foreground">
+            {isEnglish ? "About" : "Nosotros"}
+          </Link>
+          <Link href={`${base}/bimtools`} className="transition-colors hover:text-foreground">
+            BIMtools
+          </Link>
+          <Link href={`${base}/#contact`} className="transition-colors hover:text-foreground">
+            {isEnglish ? "Contact" : "Contacto"}
+          </Link>
+        </div>
+
+        <p className="text-sm text-muted-foreground">
+          {isEnglish ? "© 2026 Frata Ingenieros. All rights reserved." : "© 2026 Frata Ingenieros. Todos los derechos reservados."}
+        </p>
       </div>
     </footer>
-  )
+  );
 }
