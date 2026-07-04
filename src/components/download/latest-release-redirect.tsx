@@ -62,9 +62,9 @@ export function LatestReleaseRedirect({
 
   return (
     <div className="bg-background">
-      <section className="border-b bg-[radial-gradient(circle_at_top,_rgba(8,145,178,0.16),_transparent_48%)]">
+      <section className="border-b bg-[radial-gradient(circle_at_top,_hsl(var(--primary)/0.14),_transparent_48%)]">
         <div className="container mx-auto px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
-          <div className="mx-auto max-w-4xl rounded-[2rem] border border-primary/20 bg-card/80 p-8 shadow-xl backdrop-blur sm:p-10">
+          <div className="mx-auto max-w-4xl rounded-2xl border border-primary/20 bg-card/80 p-8 shadow-xl backdrop-blur sm:p-10">
             <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/12 text-primary">
               <LoaderCircle className="h-8 w-8 animate-spin" />
             </div>
@@ -78,7 +78,7 @@ export function LatestReleaseRedirect({
               <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-muted-foreground">{message}</p>
             </div>
 
-            <div className="mt-10 grid gap-4 rounded-[1.75rem] border border-border/70 bg-secondary/45 p-5 sm:grid-cols-2">
+            <div className="mt-10 grid gap-4 rounded-xl border border-border/70 bg-secondary/45 p-5 sm:grid-cols-2">
               <div className="flex items-start gap-3">
                 <div className="mt-1 rounded-full bg-primary/12 p-2 text-primary">
                   <Download className="h-4 w-4" />
@@ -112,7 +112,7 @@ export function LatestReleaseRedirect({
             </div>
 
             <div className="mt-8 flex justify-center">
-              <Button asChild variant="outline" className="rounded-full">
+              <Button asChild variant="outline" className="rounded-md">
                 <a href={latestReleasePage} target="_blank" rel="noreferrer">
                   {locale === "en" ? "Open latest release manually" : "Abrir ultima release manualmente"}
                 </a>

@@ -10,25 +10,25 @@
     --card-foreground: 210 32% 12%;
     --popover: 0 0% 100%;
     --popover-foreground: 210 32% 12%;
-    --primary: 191 91% 36%;
+    --primary: 207 80% 43%;
     --primary-foreground: 0 0% 100%;
     --secondary: 38 35% 92%;
     --secondary-foreground: 210 32% 14%;
     --muted: 36 20% 88%;
     --muted-foreground: 210 14% 40%;
-    --accent: 16 88% 56%;
+    --accent: 24 84% 42%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 78% 52%;
     --destructive-foreground: 0 0% 100%;
     --border: 30 18% 84%;
     --input: 30 18% 84%;
-    --ring: 191 91% 36%;
-    --chart-1: 191 91% 36%;
-    --chart-2: 16 88% 56%;
+    --ring: 207 80% 43%;
+    --chart-1: 207 80% 43%;
+    --chart-2: 24 84% 42%;
     --chart-3: 217 48% 26%;
     --chart-4: 46 92% 56%;
     --chart-5: 153 50% 42%;
-    --radius: 1rem;
+    --radius: 0.625rem;
   }
 
   .dark {
@@ -38,21 +38,21 @@
     --card-foreground: 40 24% 94%;
     --popover: 212 38% 12%;
     --popover-foreground: 40 24% 94%;
-    --primary: 187 82% 55%;
+    --primary: 207 85% 60%;
     --primary-foreground: 210 45% 9%;
     --secondary: 212 26% 16%;
     --secondary-foreground: 40 24% 94%;
     --muted: 214 18% 25%;
     --muted-foreground: 37 15% 72%;
-    --accent: 21 92% 60%;
+    --accent: 24 88% 58%;
     --accent-foreground: 210 45% 9%;
     --destructive: 0 63% 41%;
     --destructive-foreground: 0 0% 100%;
     --border: 213 17% 24%;
     --input: 213 17% 24%;
-    --ring: 187 82% 55%;
-    --chart-1: 187 82% 55%;
-    --chart-2: 21 92% 60%;
+    --ring: 207 85% 60%;
+    --chart-1: 207 85% 60%;
+    --chart-2: 24 88% 58%;
     --chart-3: 43 95% 62%;
     --chart-4: 158 52% 48%;
     --chart-5: 340 82% 64%;
@@ -69,12 +69,18 @@
   body {
     @apply bg-background text-foreground;
     font-family: Inter, sans-serif;
-    background-image:
-      radial-gradient(circle at top, rgba(34, 211, 238, 0.12), transparent 32%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 35%);
   }
 
   ::selection {
     background: hsl(var(--primary) / 0.25);
+  }
+}
+
+@layer utilities {
+  .bg-blueprint-grid {
+    background-image:
+      linear-gradient(hsl(var(--foreground) / 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--foreground) / 0.06) 1px, transparent 1px);
+    background-size: 32px 32px;
   }
 }

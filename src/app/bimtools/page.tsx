@@ -203,7 +203,7 @@ export default function BimtoolsPage() {
                   <li>Revision de manuales y funciones</li>
                   <li>Base para decidir si Premium encaja con tu equipo</li>
                 </ul>
-                <Button asChild variant="outline" className="mt-4 rounded-full">
+                <Button asChild variant="outline" className="mt-4 rounded-md">
                   <Link href="/download">
                     <Download className="mr-2 h-4 w-4" />
                     Descargar prueba
@@ -235,13 +235,13 @@ export default function BimtoolsPage() {
                   <li>Activacion de acceso premium despues del pago</li>
                 </ul>
                 <div className="flex flex-wrap gap-3 pt-2">
-                  <Button asChild className="rounded-full">
+                  <Button asChild className="rounded-md">
                     <Link href="/bimtools/suscripcion">
                       <CreditCard className="mr-2 h-4 w-4" />
                       Ver suscripcion premium
                     </Link>
                   </Button>
-                  <Button asChild variant="ghost" className="rounded-full px-0 text-primary hover:text-primary">
+                  <Button asChild variant="ghost" className="rounded-md px-0 text-primary hover:text-primary">
                     <Link href={`mailto:${activationEmail}`}>
                       <Mail className="mr-2 h-4 w-4" />
                       Consultar activacion

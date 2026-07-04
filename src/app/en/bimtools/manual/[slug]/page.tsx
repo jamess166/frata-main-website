@@ -156,7 +156,7 @@ export default async function ManualDetailPageEn({ params }: ManualDetailPagePro
         </aside>
 
         <article className="min-w-0">
-          <div className="rounded-[2rem] border bg-card/60 p-6 shadow-sm sm:p-10">
+          <div className="rounded-2xl border bg-card/60 p-6 shadow-sm sm:p-10">
             <div
               className="prose prose-slate max-w-none prose-headings:font-headline prose-headings:text-foreground prose-p:text-muted-foreground prose-li:text-muted-foreground prose-strong:text-foreground dark:prose-invert"
               dangerouslySetInnerHTML={{ __html: renderedMarkdown.toString() }}
@@ -164,7 +164,7 @@ export default async function ManualDetailPageEn({ params }: ManualDetailPagePro
           </div>
 
           {manual.media.images.length > 0 ? (
-            <section className="mt-10 rounded-[2rem] border bg-card/60 p-6 shadow-sm sm:p-10">
+            <section className="mt-10 rounded-2xl border bg-card/60 p-6 shadow-sm sm:p-10">
               <h2 className="font-headline text-2xl font-bold text-foreground">Gallery</h2>
               <div className="mt-6 grid gap-5 md:grid-cols-2">
                 {manual.media.images.map((image) => (
@@ -177,7 +177,7 @@ export default async function ManualDetailPageEn({ params }: ManualDetailPagePro
           ) : null}
 
           {youtubeEmbedUrl ? (
-            <section className="mt-10 rounded-[2rem] border bg-card/60 p-6 shadow-sm sm:p-10">
+            <section className="mt-10 rounded-2xl border bg-card/60 p-6 shadow-sm sm:p-10">
               <h2 className="font-headline text-2xl font-bold text-foreground">Video</h2>
               <div className="mt-6 overflow-hidden rounded-3xl border bg-background/70">
                 <div className="aspect-video">

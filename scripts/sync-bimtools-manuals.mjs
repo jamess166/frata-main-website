@@ -400,14 +400,21 @@ export const bimtoolsManuals: BimtoolsManualEntry[] = ${JSON.stringify(
 `;
 }
 
+function skipSync(reason) {
+  console.warn(`[sync-bimtools-manuals] Skipping sync: ${reason}`);
+  console.warn(`[sync-bimtools-manuals] Keeping existing ${outputFile}`);
+}
+
 if (!fs.existsSync(sourceRoot)) {
-  throw new Error(`Source repository not found: ${sourceRoot}`);
+  skipSync(`source repository not found: ${sourceRoot}`);
+  process.exit(0);
 }
 
 const entries = discoverEntries(sourceRoot);
 
 if (entries.length === 0) {
-  throw new Error(`No manual entries discovered under: ${sourceRoot}`);
+  skipSync(`no manual entries discovered under: ${sourceRoot} (suite folder layout may have changed)`);
+  process.exit(0);
 }
 
 fs.rmSync(publicMediaRoot, { recursive: true, force: true });

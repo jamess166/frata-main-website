@@ -61,13 +61,13 @@ export default async function BimtoolsSuitePageEn({ params }: SuitePageProps) {
             </h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-muted-foreground">{suite.description}</p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Button asChild className="rounded-full">
+              <Button asChild className="rounded-md">
                   <Link href="/en/bimtools/subscription">
                     <CreditCard className="mr-2 h-4 w-4" />
                     Subscribe
                   </Link>
               </Button>
-              <Button asChild variant="outline" className="rounded-full">
+              <Button asChild variant="outline" className="rounded-md">
                 <Link href="/en/download">
                   <Download className="mr-2 h-4 w-4" />
                   Download trial
