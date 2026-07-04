@@ -1,15 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, CreditCard, Download, Layers3, Mail, Sparkles, Star } from "lucide-react";
+import { AddinIcon } from "@/components/bimtools/addin-icon";
+import { HashScrollHandler } from "@/components/layout/hash-scroll-handler";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { getBimtoolsOverview, getBimtoolsSuitesWithManuals } from "@/lib/bimtools";
+import { buildSoftwareApplicationSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "BIMtools para Revit | Automatizacion BIM de Frata",
+  title: {
+    absolute: "BIMtools — Suite de Addins para Revit | Frata Ingenieros",
+  },
   description:
-    "Suite de addins BIM para Revit con herramientas para exportacion, navegacion, estructuras, parametros y automatizacion de flujos de trabajo.",
+    "BIMtools es la suite de addins para Revit de Frata Ingenieros: 21 herramientas para exportación, navegación, estructuras, parámetros y automatización BIM. 7 premium a USD 20/mes.",
   keywords: [
     "addins revit",
     "plugins revit",
@@ -18,9 +23,35 @@ export const metadata: Metadata = {
     "desarrollo revit api",
     "manuales revit",
     "herramientas bim",
+    "BIMtools",
+    "suite revit",
   ],
   alternates: {
     canonical: "https://www.frataingenieros.com/bimtools",
+  },
+  openGraph: {
+    title: "BIMtools — Suite de Addins para Revit | Frata Ingenieros",
+    description:
+      "21 addins para Revit, 7 premium a USD 20/mes. Exportación, navegación, estructuras, parámetros y automatización de flujos BIM.",
+    url: "https://www.frataingenieros.com/bimtools",
+    siteName: "Frata Ingenieros",
+    locale: "es_PE",
+    type: "website",
+    images: [
+      {
+        url: "https://www.frataingenieros.com/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "BIMtools - Suite de Addins para Revit por Frata Ingenieros",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "BIMtools — Suite de Addins para Revit | Frata Ingenieros",
+    description:
+      "21 addins para Revit, 7 premium a USD 20/mes. Exportación, navegación, estructuras, parámetros y automatización de flujos BIM.",
+    images: ["https://www.frataingenieros.com/images/og-image.jpg"],
   },
 };
 
@@ -31,9 +62,17 @@ const activationEmail =
   "info@frataingenieros.com";
 
 export default function BimtoolsPage() {
+  const jsonLd = buildSoftwareApplicationSchema(overview.totalAddins, overview.premiumAddins);
+
   return (
-    <div className="bg-background">
-      <section className="relative overflow-hidden border-b bg-[radial-gradient(circle_at_top_left,_rgba(8,145,178,0.24),_transparent_32%),linear-gradient(180deg,_hsl(var(--background)),_hsl(var(--secondary)))]">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <div className="bg-background">
+      <HashScrollHandler />
+      <section className="relative overflow-hidden border-b hero-gradient-animated bg-[radial-gradient(circle_at_top_left,_rgba(8,145,178,0.24),_transparent_32%),linear-gradient(180deg,_hsl(var(--background)),_hsl(var(--secondary)))] dark:bg-none">
         <div className="container mx-auto px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
           <div className="grid gap-12 lg:grid-cols-[1.3fr_0.7fr] lg:items-end">
             <div className="max-w-4xl">
@@ -123,7 +162,7 @@ export default function BimtoolsPage() {
         </div>
       </section>
 
-      <section className="container mx-auto px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+      <section id="suites" className="container mx-auto scroll-mt-24 px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
         <div className="max-w-3xl">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">Suites</p>
           <h2 className="mt-3 font-headline text-3xl font-bold tracking-tight sm:text-4xl">
@@ -154,7 +193,11 @@ export default function BimtoolsPage() {
                   <p className="text-muted-foreground">{suite.description}</p>
                   <div className="mt-6 flex flex-wrap gap-2">
                     {suite.manuals.map((manual) => (
-                      <span key={manual.slug} className="rounded-full border px-3 py-1.5 text-sm text-foreground">
+                      <span
+                        key={manual.slug}
+                        className="inline-flex items-center gap-2 rounded-full border px-2.5 py-1.5 text-sm text-foreground"
+                      >
+                        <AddinIcon icon={manual.icon} name={manual.addinName} size="sm" />
                         {manual.title.es.split(" - ")[0]}
                       </span>
                     ))}
@@ -203,7 +246,7 @@ export default function BimtoolsPage() {
                   <li>Revision de manuales y funciones</li>
                   <li>Base para decidir si Premium encaja con tu equipo</li>
                 </ul>
-                <Button asChild variant="outline" className="mt-4 rounded-full">
+                <Button asChild variant="outline" className="mt-4">
                   <Link href="/download">
                     <Download className="mr-2 h-4 w-4" />
                     Descargar prueba
@@ -235,14 +278,14 @@ export default function BimtoolsPage() {
                   <li>Activacion de acceso premium despues del pago</li>
                 </ul>
                 <div className="flex flex-wrap gap-3 pt-2">
-                  <Button asChild className="rounded-full">
+                  <Button asChild className="">
                     <Link href="/bimtools/suscripcion">
                       <CreditCard className="mr-2 h-4 w-4" />
                       Ver suscripcion premium
                     </Link>
                   </Button>
-                  <Button asChild variant="ghost" className="rounded-full px-0 text-primary hover:text-primary">
-                    <Link href={`mailto:${activationEmail}`}>
+                  <Button asChild variant="ghost" className="px-0 text-primary hover:text-primary">
+                    <Link href="/#contact">
                       <Mail className="mr-2 h-4 w-4" />
                       Consultar activacion
                     </Link>
@@ -254,5 +297,6 @@ export default function BimtoolsPage() {
         </div>
       </section>
     </div>
+    </>
   );
 }

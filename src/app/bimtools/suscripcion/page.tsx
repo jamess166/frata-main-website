@@ -43,13 +43,13 @@ export default function BimtoolsSubscriptionPage() {
               velocidad en produccion y acceso completo a todo el ecosistema premium.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button asChild className="rounded-full">
+              <Button asChild className="">
                 <Link href={paypalUrl} target="_blank" rel="noreferrer">
                   <CreditCard className="mr-2 h-4 w-4" />
                   Pagar con PayPal
                 </Link>
               </Button>
-              <Button asChild variant="outline" className="rounded-full">
+              <Button asChild variant="outline" className="">
                 <Link href="#pago">Ver proceso completo</Link>
               </Button>
             </div>
@@ -72,7 +72,7 @@ export default function BimtoolsSubscriptionPage() {
                 <li>Ideal para empezar sin compromiso anual</li>
                 <li>Mismo ecosistema premium completo</li>
               </ul>
-              <Button asChild className="mt-6 rounded-full">
+              <Button asChild className="mt-6">
                 <Link href="#pago">Suscribirme mensual</Link>
               </Button>
             </CardContent>
@@ -92,7 +92,7 @@ export default function BimtoolsSubscriptionPage() {
                 <li>Mejor valor para uso continuo</li>
                 <li>Un solo acceso para todo el stack premium</li>
               </ul>
-              <Button asChild className="mt-6 rounded-full">
+              <Button asChild className="mt-6">
                 <Link href="#pago">Suscribirme anual</Link>
               </Button>
             </CardContent>
@@ -121,7 +121,7 @@ export default function BimtoolsSubscriptionPage() {
                 <p className="text-sm leading-7 text-muted-foreground">
                   Si quieres revisar primero el entorno BIMtools, descarga e instala la version de prueba.
                 </p>
-                <Button asChild variant="outline" size="sm" className="mt-5 rounded-full">
+                <Button asChild variant="outline" size="sm" className="mt-5">
                   <Link href="/download">Descargar prueba</Link>
                 </Button>
               </CardContent>
@@ -200,7 +200,7 @@ export default function BimtoolsSubscriptionPage() {
               </CardDescription>
             </CardHeader>
             <CardContent className="flex h-full flex-col justify-between space-y-6">
-              <div className="rounded-[1.75rem] border border-primary/20 bg-primary/10 p-6">
+              <div className="rounded-xl border border-primary/20 bg-primary/10 p-6">
                 <p className="text-sm font-semibold text-foreground">Antes de pagar</p>
                 <ul className="mt-4 space-y-3 text-sm leading-7 text-muted-foreground">
                   <li>Si quieres acceso mensual, elige el plan de USD 20</li>
@@ -210,7 +210,7 @@ export default function BimtoolsSubscriptionPage() {
               </div>
 
               <div className="space-y-4">
-                <Button asChild className="w-full rounded-full py-6 text-base">
+                <Button asChild className="w-full py-6 text-base">
                   <Link href={paypalUrl} target="_blank" rel="noreferrer">
                     <CreditCard className="mr-2 h-5 w-5" />
                     Abrir pago en PayPal
@@ -227,7 +227,7 @@ export default function BimtoolsSubscriptionPage() {
 
       <div className="pointer-events-none fixed inset-x-0 bottom-4 z-40 px-4">
         <div className="container mx-auto flex justify-end">
-          <Button asChild className="pointer-events-auto rounded-full px-6 shadow-xl">
+          <Button asChild className="pointer-events-auto px-6 shadow-xl">
             <Link href={paypalUrl} target="_blank" rel="noreferrer">
               <CreditCard className="mr-2 h-4 w-4" />
               Pagar con PayPal

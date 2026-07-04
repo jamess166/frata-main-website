@@ -63,7 +63,7 @@ export function HomeContactSection({ locale = "es" }: { locale?: "es" | "en" }) 
   }, [copy.successDescription, copy.successTitle, state.succeeded, toast]);
 
   return (
-    <section id="contact" className="border-t bg-[linear-gradient(180deg,_transparent,_rgba(34,211,238,0.06))]">
+    <section id="contact" className="border-t bg-[linear-gradient(180deg,_transparent,_hsl(var(--primary)/0.06))]">
       <div className="container mx-auto grid gap-10 px-4 py-20 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8 lg:py-28">
         <div className="max-w-xl">
           <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">Contacto</p>

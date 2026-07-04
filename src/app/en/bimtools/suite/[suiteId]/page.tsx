@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, CreditCard, Download, Layers3, Star } from "lucide-react";
+import { AddinIcon } from "@/components/bimtools/addin-icon";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { getBimtoolsSuiteWithManuals, getBimtoolsSuitesWithManuals } from "@/lib/bimtools";
@@ -61,13 +62,13 @@ export default async function BimtoolsSuitePageEn({ params }: SuitePageProps) {
             </h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-muted-foreground">{suite.description}</p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Button asChild className="rounded-full">
+              <Button asChild className="">
                   <Link href="/en/bimtools/subscription">
                     <CreditCard className="mr-2 h-4 w-4" />
                     Subscribe
                   </Link>
               </Button>
-              <Button asChild variant="outline" className="rounded-full">
+              <Button asChild variant="outline" className="">
                 <Link href="/en/download">
                   <Download className="mr-2 h-4 w-4" />
                   Download trial
@@ -84,26 +85,31 @@ export default async function BimtoolsSuitePageEn({ params }: SuitePageProps) {
             <Link key={manual.slug} href={`/en/bimtools/manual/${manual.slug}`} className="block h-full">
               <Card className="h-full border-border/70 bg-card/75 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
                 <CardHeader className="space-y-4">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <CardDescription>{manual.addinName}</CardDescription>
-                    <span
-                      className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-medium ${
-                        manual.commerce.isPremium
-                          ? "bg-primary text-primary-foreground"
-                          : "border border-border bg-background text-muted-foreground"
-                      }`}
-                    >
-                      {manual.commerce.isPremium ? (
-                        <>
-                          <Star className="mr-1 h-3 w-3" />
-                          Premium
-                        </>
-                      ) : (
-                        "Free"
-                      )}
-                    </span>
+                  <div className="flex items-start gap-4">
+                    <AddinIcon icon={manual.icon} name={manual.addinName} size="lg" />
+                    <div className="min-w-0 flex-1">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <CardDescription>{manual.addinName}</CardDescription>
+                        <span
+                          className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-medium ${
+                            manual.commerce.isPremium
+                              ? "bg-primary text-primary-foreground"
+                              : "border border-border bg-background text-muted-foreground"
+                          }`}
+                        >
+                          {manual.commerce.isPremium ? (
+                            <>
+                              <Star className="mr-1 h-3 w-3" />
+                              Premium
+                            </>
+                          ) : (
+                            "Free"
+                          )}
+                        </span>
+                      </div>
+                      <CardTitle className="mt-3 font-headline text-2xl leading-tight">{manual.title.en}</CardTitle>
+                    </div>
                   </div>
-                  <CardTitle className="font-headline text-2xl leading-tight">{manual.title.en}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm leading-7 text-muted-foreground">{manual.excerpt.en}</p>

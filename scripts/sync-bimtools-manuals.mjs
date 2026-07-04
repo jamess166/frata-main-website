@@ -7,6 +7,7 @@ const defaultSourceRoot = "D:\\Developer\\Autodesk\\Revit\\frata-tools-revit\\fr
 const sourceRoot = process.env.FRATA_TOOLS_REPO || defaultSourceRoot;
 const outputFile = path.join(websiteRoot, "src", "lib", "generated", "bimtools-manuals.ts");
 const publicMediaRoot = path.join(websiteRoot, "public", "bimtools-media");
+const publicIconRoot = path.join(websiteRoot, "public", "bimtools-icons");
 const supportedImageExtensions = new Set([".png", ".jpg", ".jpeg", ".webp", ".gif", ".svg"]);
 const defaultActivationEmail = "info@frataingenieros.com";
 const defaultPremiumTrialDays = 30;
@@ -141,6 +142,128 @@ function toHumanLabel(value) {
     .trim();
 }
 
+function normalizeLookupValue(value) {
+  return String(value || "")
+    .replace(/\.[^.]+$/, "")
+    .replace(/[^a-zA-Z0-9]/g, "")
+    .toLowerCase();
+}
+
+function toLowerCamelCase(value) {
+  if (!value) return "";
+  return value.charAt(0).toLowerCase() + value.slice(1);
+}
+
+function findReferencedIconFile(addinDir) {
+  const queue = [addinDir];
+
+  while (queue.length > 0) {
+    const current = queue.pop();
+    const entries = fs.readdirSync(current, { withFileTypes: true });
+
+    for (const entry of entries) {
+      const fullPath = path.join(current, entry.name);
+
+      if (entry.isDirectory()) {
+        queue.push(fullPath);
+        continue;
+      }
+
+      if (!entry.isFile() || path.extname(entry.name).toLowerCase() !== ".cs") {
+        continue;
+      }
+
+      const source = readTextFile(fullPath);
+      const largeImageMatch = source.match(/SetLargeImage\(".*?\/Resources\/img\/([^"]+)"\)/);
+      if (largeImageMatch?.[1]) {
+        return largeImageMatch[1].trim();
+      }
+
+      const imageMatch = source.match(/SetImage\(".*?\/Resources\/img\/([^"]+)"\)/);
+      if (imageMatch?.[1]) {
+        return imageMatch[1].trim();
+      }
+    }
+  }
+
+  return "";
+}
+
+function collectIcon(addinDir, suiteName, suiteId, slug, addinName) {
+  const suiteIconDir = path.join(sourceRoot, suiteName, "Resources", "img");
+  if (!fs.existsSync(suiteIconDir)) {
+    return null;
+  }
+
+  const files = fs
+    .readdirSync(suiteIconDir, { withFileTypes: true })
+    .filter((entry) => entry.isFile() && supportedImageExtensions.has(path.extname(entry.name).toLowerCase()))
+    .map((entry) => entry.name);
+
+  if (files.length === 0) {
+    return null;
+  }
+
+  const referencedFile = findReferencedIconFile(addinDir);
+  const aliasSeeds = [
+    addinName,
+    addinName.replace(/Tools$/i, ""),
+    toLowerCamelCase(addinName),
+    toLowerCamelCase(addinName.replace(/Tools$/i, "")),
+  ].filter(Boolean);
+
+  const preferredBaseNames = [
+    referencedFile,
+    ...aliasSeeds.flatMap((seed) => [
+      `${seed}IconBig`,
+      `${seed}Big`,
+      `${seed}Icon`,
+      seed,
+    ]),
+  ]
+    .map(normalizeLookupValue)
+    .filter(Boolean);
+
+  let selectedFile =
+    files.find((file) => normalizeLookupValue(file) === normalizeLookupValue(referencedFile)) || "";
+
+  if (!selectedFile) {
+    for (const preferred of preferredBaseNames) {
+      const exact = files.find((file) => normalizeLookupValue(file) === preferred);
+      if (exact) {
+        selectedFile = exact;
+        break;
+      }
+    }
+  }
+
+  if (!selectedFile) {
+    const addinKey = normalizeLookupValue(addinName);
+    const containsMatches = files.filter((file) => normalizeLookupValue(file).includes(addinKey));
+
+    selectedFile =
+      containsMatches.find((file) => /iconbig|big/.test(normalizeLookupValue(file))) ||
+      containsMatches.find((file) => /icon/.test(normalizeLookupValue(file))) ||
+      containsMatches[0] ||
+      "";
+  }
+
+  if (!selectedFile) {
+    return null;
+  }
+
+  const ext = path.extname(selectedFile).toLowerCase();
+  const outputDir = path.join(publicIconRoot, suiteId);
+  const outputFilePath = path.join(outputDir, `${slug}${ext}`);
+  fs.mkdirSync(outputDir, { recursive: true });
+  fs.copyFileSync(path.join(suiteIconDir, selectedFile), outputFilePath);
+
+  return {
+    src: `/bimtools-icons/${suiteId}/${slug}${ext}`,
+    alt: `${addinName} icon`,
+  };
+}
+
 function collectMedia(addinDir, suiteId, slug) {
   const meta = readOptionalJson(path.join(addinDir, "manual.meta.json")) || {};
   const mediaDir = findMediaFolder(addinDir);
@@ -176,6 +299,30 @@ function collectMedia(addinDir, suiteId, slug) {
 
 function readTextFile(filePath) {
   return fs.readFileSync(filePath, "utf8").replace(/^\uFEFF/, "");
+}
+
+function ensureCleanDirectory(dirPath) {
+  if (!fs.existsSync(dirPath)) {
+    return;
+  }
+
+  const entries = fs.readdirSync(dirPath, { withFileTypes: true });
+
+  for (const entry of entries) {
+    const entryPath = path.join(dirPath, entry.name);
+
+    if (entry.isDirectory()) {
+      if (fs.existsSync(entryPath)) {
+        ensureCleanDirectory(entryPath);
+        fs.rmSync(entryPath, { recursive: true, force: true });
+      }
+      continue;
+    }
+
+    if (fs.existsSync(entryPath)) {
+      fs.rmSync(entryPath, { force: true });
+    }
+  }
 }
 
 function findCommandMetadata(addinDir) {
@@ -304,6 +451,7 @@ function discoverEntries(root) {
       const enMarkdown = enDocument.content;
       const slug = createSlugFromDirectory(addinName.name);
       const media = collectMedia(addinDir, suiteMeta[suiteName].id, slug);
+      const icon = collectIcon(addinDir, suiteName, suiteMeta[suiteName].id, slug, addinName.name);
       const commerce = resolveCommerce(esDocument.data, enDocument.data, addinDir);
 
       entries.push({
@@ -322,6 +470,7 @@ function discoverEntries(root) {
           es: esMarkdown,
           en: enMarkdown,
         },
+        icon,
         media,
         commerce,
       });
@@ -355,6 +504,10 @@ export interface BimtoolsManualEntry {
   title: Record<ManualLocale, string>;
   excerpt: Record<ManualLocale, string>;
   markdown: Record<ManualLocale, string>;
+  icon: {
+    src: string;
+    alt: string;
+  } | null;
   media: {
     images: Array<{
       src: string;
@@ -391,6 +544,7 @@ export const bimtoolsManuals: BimtoolsManualEntry[] = ${JSON.stringify(
       title: entry.title,
       excerpt: entry.excerpt,
       markdown: entry.markdown,
+      icon: entry.icon,
       media: entry.media,
       commerce: entry.commerce,
     })),
@@ -400,17 +554,28 @@ export const bimtoolsManuals: BimtoolsManualEntry[] = ${JSON.stringify(
 `;
 }
 
+function skipSync(reason) {
+  console.warn(`[sync-bimtools-manuals] Skipping regeneration: ${reason}`);
+  console.warn(`[sync-bimtools-manuals] Keeping existing ${outputFile}`);
+}
+
 if (!fs.existsSync(sourceRoot)) {
-  throw new Error(`Source repository not found: ${sourceRoot}`);
+  skipSync(`source repository not found at ${sourceRoot}`);
+  process.exit(0);
 }
 
 const entries = discoverEntries(sourceRoot);
 
 if (entries.length === 0) {
-  throw new Error(`No manual entries discovered under: ${sourceRoot}`);
+  skipSync(`no manual entries discovered under ${sourceRoot} (folder layout may have changed)`);
+  process.exit(0);
 }
 
+ensureCleanDirectory(publicMediaRoot);
+ensureCleanDirectory(publicIconRoot);
 fs.rmSync(publicMediaRoot, { recursive: true, force: true });
+fs.rmSync(publicIconRoot, { recursive: true, force: true });
+
 fs.mkdirSync(path.dirname(outputFile), { recursive: true });
 fs.writeFileSync(outputFile, toTsModule(entries), "utf8");
 

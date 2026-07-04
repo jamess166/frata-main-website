@@ -34,7 +34,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContent> = {
       "Integramos modeladores, coordinadores y soporte BIM remoto para ampliar capacidad sin frenar la operacion.",
     intro:
       "Cuando una empresa necesita escalar produccion BIM sin perder control tecnico, el problema no es solo contratar mas gente. Hace falta integrar un equipo que entienda tus estandares, tus plazos y tu forma de coordinar.",
-    image: "/images/equipoBIM.png",
+    image: "/images/equipoBIM.webp",
     imageAlt: "Equipo BIM remoto colaborando",
     pillars: [
       {
@@ -70,7 +70,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContent> = {
       "Creamos addins, automatizaciones y aplicaciones tecnicas para reducir trabajo manual y elevar productividad BIM.",
     intro:
       "La diferencia entre una consultora tradicional y una consultora con software propio es enorme. En Frata convertimos problemas operativos en herramientas concretas para Revit, Tekla y flujos conectados.",
-    image: "/images/softwareDeveloper.png",
+    image: "/images/softwareDeveloper.webp",
     imageAlt: "Desarrollo de software BIM para Revit o Tekla",
     pillars: [
       {
@@ -106,7 +106,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContent> = {
       "Llevamos criterio BIM al frente de obra para resolver interferencias, validar informacion y acelerar decisiones.",
     intro:
       "El modelo vale poco si no conversa con lo que sucede en campo. Nuestro acompanamiento BIM en obra ayuda a traducir informacion digital en acciones utiles para supervision, produccion y control.",
-    image: "/images/BIMObra.png",
+    image: "/images/BIMObra.webp",
     imageAlt: "Acompanamiento BIM en obra",
     pillars: [
       {
@@ -142,7 +142,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContent> = {
       "Modelado detallado y documentacion lista para fabricacion, con foco en acero de refuerzo, trazabilidad y prefabricacion.",
     intro:
       "En fabricacion el error cuesta mucho mas. Por eso trabajamos modelos y entregables orientados a precision, secuencia y aprovechamiento real en taller y montaje.",
-    image: "/images/Ingenieria_Detalle.JPG",
+    image: "/images/Ingenieria_Detalle.webp",
     imageAlt: "Detallado BIM para fabricacion",
     pillars: [
       {
@@ -178,7 +178,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContent> = {
       "Ayudamos a empresas y entidades a adoptar BIM con metodo, estandares y formacion aplicada a su realidad.",
     intro:
       "Implementar BIM no es dar un curso y listo. Se necesita diagnostico, definicion de procesos, acompasamiento de equipos y una ruta clara para que la adopcion se sostenga en el tiempo.",
-    image: "/images/Capacitacion.jpeg",
+    image: "/images/Capacitacion.webp",
     imageAlt: "Capacitacion e implementacion BIM",
     pillars: [
       {
@@ -214,7 +214,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContent> = {
       "Desarrollamos modelos coordinados y utiles para diseno, documentacion, control y coordinacion multidisciplinaria.",
     intro:
       "Un buen modelo BIM no solo se ve bien: ordena informacion, ayuda a detectar conflictos y sirve como base para decisiones tecnicas. Nuestro enfoque busca que el modelo sea realmente operativo.",
-    image: "/images/ModeladoIntegral.jpg",
+    image: "/images/Ingenieria_Detalle.webp",
     imageAlt: "Modelado BIM integral",
     pillars: [
       {

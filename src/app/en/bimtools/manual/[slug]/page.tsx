@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { remark } from "remark";
 import html from "remark-html";
 import { ArrowLeft, ArrowRight, CreditCard, Download, Star } from "lucide-react";
+import { AddinIcon } from "@/components/bimtools/addin-icon";
+import { ManualImageGallery } from "@/components/bimtools/manual-image-gallery";
 import { Badge } from "@/components/ui/badge";
 import { getBimtoolManual, getBimtoolsSuitesWithManuals } from "@/lib/bimtools";
 
@@ -74,19 +76,24 @@ export default async function ManualDetailPageEn({ params }: ManualDetailPagePro
   return (
     <div className="bg-background">
       <div className="container mx-auto px-4 py-10 sm:px-6 lg:px-8 lg:py-16">
-        <Link
-          href="/en/bimtools/manual"
+        <a
+          href="/en/bimtools#suites"
           className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
         >
           <ArrowLeft className="h-4 w-4" />
-          Back to BIMtools manuals
-        </Link>
+          Back to BIMtools
+        </a>
       </div>
 
       <div className="container mx-auto grid gap-12 px-4 pb-20 sm:px-6 lg:grid-cols-[320px_minmax(0,1fr)] lg:px-8">
         <aside className="h-fit rounded-3xl border bg-secondary/40 p-6 lg:sticky lg:top-24">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">{manual.suiteLabel}</p>
-          <h1 className="mt-3 font-headline text-3xl font-bold leading-tight">{manual.title.en}</h1>
+          <div className="mt-4 flex items-start gap-4">
+            <AddinIcon icon={manual.icon} name={manual.addinName} size="lg" />
+            <div className="min-w-0">
+              <h1 className="font-headline text-3xl font-bold leading-tight">{manual.title.en}</h1>
+            </div>
+          </div>
           <div className="mt-4 flex flex-wrap gap-2">
             <Badge variant={manual.commerce.isPremium ? "default" : "outline"} className="rounded-full">
               {manual.commerce.isPremium ? (
@@ -141,13 +148,14 @@ export default async function ManualDetailPageEn({ params }: ManualDetailPagePro
                   <Link
                     key={entry.slug}
                     href={`/en/bimtools/manual/${entry.slug}`}
-                    className={`block rounded-2xl border px-4 py-3 text-sm transition-colors ${
+                    className={`flex items-center gap-3 rounded-xl border px-4 py-3 text-sm transition-colors ${
                       entry.slug === manual.slug
                         ? "border-primary/40 bg-primary/10 text-primary"
                         : "border-border bg-background/70 text-muted-foreground hover:border-primary/30 hover:text-foreground"
                     }`}
                   >
-                    {entry.title.en}
+                    <AddinIcon icon={entry.icon} name={entry.addinName} size="sm" />
+                    <span className="truncate">{entry.addinName}</span>
                   </Link>
                 ))}
               </div>
@@ -156,7 +164,7 @@ export default async function ManualDetailPageEn({ params }: ManualDetailPagePro
         </aside>
 
         <article className="min-w-0">
-          <div className="rounded-[2rem] border bg-card/60 p-6 shadow-sm sm:p-10">
+          <div className="rounded-2xl border bg-card/60 p-6 shadow-sm sm:p-10">
             <div
               className="prose prose-slate max-w-none prose-headings:font-headline prose-headings:text-foreground prose-p:text-muted-foreground prose-li:text-muted-foreground prose-strong:text-foreground dark:prose-invert"
               dangerouslySetInnerHTML={{ __html: renderedMarkdown.toString() }}
@@ -164,20 +172,14 @@ export default async function ManualDetailPageEn({ params }: ManualDetailPagePro
           </div>
 
           {manual.media.images.length > 0 ? (
-            <section className="mt-10 rounded-[2rem] border bg-card/60 p-6 shadow-sm sm:p-10">
+            <section className="mt-10 rounded-2xl border bg-card/60 p-6 shadow-sm sm:p-10">
               <h2 className="font-headline text-2xl font-bold text-foreground">Gallery</h2>
-              <div className="mt-6 grid gap-5 md:grid-cols-2">
-                {manual.media.images.map((image) => (
-                  <figure key={image.src} className="overflow-hidden rounded-3xl border bg-background/70">
-                    <img src={image.src} alt={image.alt} className="h-full w-full object-cover" loading="lazy" />
-                  </figure>
-                ))}
-              </div>
+              <ManualImageGallery images={manual.media.images} locale="en" />
             </section>
           ) : null}
 
           {youtubeEmbedUrl ? (
-            <section className="mt-10 rounded-[2rem] border bg-card/60 p-6 shadow-sm sm:p-10">
+            <section className="mt-10 rounded-2xl border bg-card/60 p-6 shadow-sm sm:p-10">
               <h2 className="font-headline text-2xl font-bold text-foreground">Video</h2>
               <div className="mt-6 overflow-hidden rounded-3xl border bg-background/70">
                 <div className="aspect-video">

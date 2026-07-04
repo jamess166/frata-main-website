@@ -9,7 +9,7 @@ export const serviceContentEn: Record<ServiceSlug, ServiceContent> = {
       "We integrate remote BIM modelers, coordinators and support profiles to expand production capacity without disrupting operations.",
     intro:
       "When a company needs to scale BIM production without losing technical control, the problem is not only hiring more people. It requires an integrated team that understands your standards, deadlines and coordination workflow.",
-    image: "/images/equipoBIM.png",
+    image: "/images/equipoBIM.webp",
     imageAlt: "Remote BIM team collaborating",
     pillars: [
       {
@@ -45,7 +45,7 @@ export const serviceContentEn: Record<ServiceSlug, ServiceContent> = {
       "We create add-ins, automations and technical applications that reduce manual work and improve BIM productivity.",
     intro:
       "The difference between a traditional consultancy and one with its own software capability is significant. At Frata, we turn operational problems into practical tools for Revit, Tekla and connected technical workflows.",
-    image: "/images/softwareDeveloper.png",
+    image: "/images/softwareDeveloper.webp",
     imageAlt: "BIM software development for Revit and Tekla",
     pillars: [
       {
@@ -81,7 +81,7 @@ export const serviceContentEn: Record<ServiceSlug, ServiceContent> = {
       "We bring BIM criteria to the jobsite to solve clashes, validate information and accelerate technical decisions.",
     intro:
       "A model has limited value if it does not connect with what happens on site. Our on-site BIM support translates digital information into practical action for supervision, production and control teams.",
-    image: "/images/BIMObra.png",
+    image: "/images/BIMObra.webp",
     imageAlt: "On-site BIM support",
     pillars: [
       {
@@ -117,7 +117,7 @@ export const serviceContentEn: Record<ServiceSlug, ServiceContent> = {
       "Detailed modeling and fabrication-ready documentation focused on reinforcement, traceability and prefabrication.",
     intro:
       "In fabrication, errors are far more expensive. That is why we develop models and deliverables oriented to precision, sequence and real usefulness in workshop and assembly environments.",
-    image: "/images/Ingenieria_Detalle.JPG",
+    image: "/images/Ingenieria_Detalle.webp",
     imageAlt: "BIM detailing for fabrication",
     pillars: [
       {
@@ -153,7 +153,7 @@ export const serviceContentEn: Record<ServiceSlug, ServiceContent> = {
       "We help companies and institutions adopt BIM with method, standards and training tied to their real operational context.",
     intro:
       "Implementing BIM is not just delivering a course. It requires diagnosis, process definition, team alignment and a clear roadmap so adoption becomes sustainable over time.",
-    image: "/images/Capacitacion.jpeg",
+    image: "/images/Capacitacion.webp",
     imageAlt: "BIM training and implementation",
     pillars: [
       {
@@ -189,7 +189,7 @@ export const serviceContentEn: Record<ServiceSlug, ServiceContent> = {
       "We develop coordinated models that support design, documentation, control and multidisciplinary collaboration.",
     intro:
       "A good BIM model should do more than look correct: it should organize information, support clash detection and help teams make better technical decisions. Our approach focuses on operational value.",
-    image: "/images/ModeladoIntegral.jpg",
+    image: "/images/Ingenieria_Detalle.webp",
     imageAlt: "Comprehensive BIM modeling",
     pillars: [
       {

@@ -63,8 +63,8 @@ const strengths = [
 export default function AboutPage() {
   return (
     <div className="bg-background">
-      <section className="relative overflow-hidden border-b">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(34,211,238,0.14),_transparent_32%),radial-gradient(circle_at_80%_16%,_rgba(249,115,22,0.12),_transparent_22%)]" />
+      <section className="relative overflow-hidden border-b hero-gradient-animated">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_hsl(var(--primary)/0.14),_transparent_32%),radial-gradient(circle_at_80%_16%,_hsl(var(--accent)/0.12),_transparent_22%)]" />
         <div className="container mx-auto px-4 pb-20 pt-16 sm:px-6 lg:px-8 lg:pb-28 lg:pt-24">
           <div className="grid gap-12 lg:grid-cols-[1fr_0.95fr] lg:items-center">
             <div className="relative z-10 max-w-3xl">
@@ -77,10 +77,10 @@ export default function AboutPage() {
                 BIM, modelado, coordinacion y software tecnico para que los clientes puedan operar mejor.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
-                <Button asChild size="lg" className="rounded-full px-7">
+                <Button asChild size="lg" className="px-7">
                   <Link href="/#contact">Hablar con Frata</Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="rounded-full px-7">
+                <Button asChild size="lg" variant="outline" className="px-7">
                   <Link href="/bimtools">
                     Ver BIMtools
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -89,9 +89,9 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950 shadow-2xl shadow-slate-950/20">
+            <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-slate-950 shadow-2xl shadow-slate-950/20">
               <Image
-                src="/images/quienesSomos.png"
+                src="/images/quienesSomos.webp"
                 alt="Equipo de Frata Ingenieros"
                 width={1200}
                 height={900}
@@ -99,7 +99,7 @@ export default function AboutPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/25 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                <p className="text-sm uppercase tracking-[0.2em] text-cyan-300">Frata Ingenieros</p>
+                <p className="text-sm uppercase tracking-[0.2em] text-primary">Frata Ingenieros</p>
                 <p className="mt-2 text-lg text-slate-200">
                   Consultoria BIM, modelado y desarrollo tecnico para equipos que necesitan ejecutar mejor.
                 </p>
@@ -112,7 +112,7 @@ export default function AboutPage() {
       <section className="container mx-auto px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
         <div className="grid gap-6 md:grid-cols-3">
           {values.map((value) => (
-            <Card key={value.title} className="rounded-[1.75rem] border-border/70 bg-card/75">
+            <Card key={value.title} className="rounded-xl border-border/70 bg-card/75">
               <CardHeader>
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
                   <value.icon className="h-6 w-6" />
@@ -137,7 +137,7 @@ export default function AboutPage() {
           </div>
           <div className="grid gap-5">
             {timeline.map((item) => (
-              <div key={item.title} className="grid gap-4 rounded-[1.75rem] border bg-background/80 p-6 sm:grid-cols-[120px_1fr]">
+              <div key={item.title} className="grid gap-4 rounded-xl border bg-background/80 p-6 sm:grid-cols-[120px_1fr]">
                 <div className="font-headline text-2xl font-bold text-primary">{item.year}</div>
                 <div>
                   <h3 className="text-xl font-semibold text-foreground">{item.title}</h3>
@@ -151,9 +151,9 @@ export default function AboutPage() {
 
       <section className="container mx-auto px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
         <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-          <div className="relative overflow-hidden rounded-[2rem] border shadow-xl">
+          <div className="relative overflow-hidden rounded-2xl border shadow-xl">
             <Image
-              src="/images/equipoBIM2.png"
+              src="/images/equipoBIM2.webp"
               alt="Capacidades BIM de Frata Ingenieros"
               width={1200}
               height={900}
@@ -180,7 +180,7 @@ export default function AboutPage() {
       <section className="overflow-hidden border-y bg-slate-950 text-white">
         <div className="container mx-auto grid gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[1fr_1fr] lg:px-8 lg:py-24">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-300">Posicionamiento</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">Posicionamiento</p>
             <h2 className="mt-4 font-headline text-4xl font-bold tracking-tight sm:text-5xl">
               El desarrollo para Revit o Tekla debe ser parte central de tu identidad de marca.
             </h2>
@@ -190,18 +190,18 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="grid gap-5 sm:grid-cols-2">
-            <Card className="rounded-[1.75rem] border-white/10 bg-white/5 text-white">
+            <Card className="rounded-xl border-white/10 bg-white/5 text-white">
               <CardContent className="p-6">
-                <Code2 className="h-6 w-6 text-cyan-300" />
+                <Code2 className="h-6 w-6 text-primary" />
                 <h3 className="mt-5 text-xl font-semibold">Software propio</h3>
                 <p className="mt-3 text-sm leading-7 text-slate-300">
                   El producto refuerza la autoridad tecnica y la capacidad de automatizacion.
                 </p>
               </CardContent>
             </Card>
-            <Card className="rounded-[1.75rem] border-white/10 bg-white/5 text-white">
+            <Card className="rounded-xl border-white/10 bg-white/5 text-white">
               <CardContent className="p-6">
-                <Blocks className="h-6 w-6 text-cyan-300" />
+                <Blocks className="h-6 w-6 text-primary" />
                 <h3 className="mt-5 text-xl font-semibold">Servicios mas creibles</h3>
                 <p className="mt-3 text-sm leading-7 text-slate-300">
                   La consultoria y el modelado ganan peso cuando se apoyan en herramientas reales.
@@ -220,7 +220,7 @@ export default function AboutPage() {
           Esta pagina ya empuja esa direccion. El siguiente paso natural seria aplicar el mismo criterio a casos de
           exito, testimonios y paginas individuales de producto.
         </p>
-        <Button asChild size="lg" className="mt-8 rounded-full px-7">
+        <Button asChild size="lg" className="mt-8 px-7">
           <Link href="/#contact">Solicitar reunion</Link>
         </Button>
       </section>

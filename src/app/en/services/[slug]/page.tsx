@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { serviceContentEn } from "@/lib/service-content-en";
 import type { ServiceSlug } from "@/lib/service-content";
+import { buildServiceSchema } from "@/lib/schema";
 
 interface ServicePageProps {
   params: Promise<{
@@ -18,15 +19,45 @@ export async function generateStaticParams() {
   return Object.keys(serviceContentEn).map((slug) => ({ slug }));
 }
 
+const META_TITLE_OVERRIDES_EN: Partial<Record<ServiceSlug, string>> = {
+  "custom-bim-software-development": "Custom Revit Addin Development",
+  "bim-training-and-implementation": "BIM Implementation for AEC Companies",
+};
+
 export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
   const { slug } = await params;
   const service = serviceContentEn[slug];
   if (!service) return { title: "Service not found" };
+
+  const pageTitle = META_TITLE_OVERRIDES_EN[slug] ?? service.shortTitle;
+
   return {
-    title: service.shortTitle,
+    title: pageTitle,
     description: service.description,
     alternates: {
       canonical: `https://www.frataingenieros.com/en/services/${service.slug}`,
+    },
+    openGraph: {
+      title: `${pageTitle} | Frata Ingenieros`,
+      description: service.description,
+      url: `https://www.frataingenieros.com/en/services/${service.slug}`,
+      siteName: "Frata Ingenieros",
+      locale: "en_US",
+      type: "website",
+      images: [
+        {
+          url: "https://www.frataingenieros.com/images/og-image.jpg",
+          width: 1200,
+          height: 630,
+          alt: `${pageTitle} - Frata Ingenieros`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${pageTitle} | Frata Ingenieros`,
+      description: service.description,
+      images: ["https://www.frataingenieros.com/images/og-image.jpg"],
     },
   };
 }
@@ -36,10 +67,21 @@ export default async function ServicePageEn({ params }: ServicePageProps) {
   const service = serviceContentEn[slug];
   if (!service) notFound();
 
+  const jsonLd = buildServiceSchema(
+    service.title,
+    service.description,
+    `https://www.frataingenieros.com/en/services/${slug}`
+  );
+
   return (
-    <div className="bg-background">
-      <section className="relative overflow-hidden border-b">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(34,211,238,0.16),_transparent_34%),radial-gradient(circle_at_85%_20%,_rgba(249,115,22,0.12),_transparent_24%)]" />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <div className="bg-background">
+      <section className="relative overflow-hidden border-b hero-gradient-animated">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_hsl(var(--primary)/0.16),_transparent_34%),radial-gradient(circle_at_85%_20%,_hsl(var(--accent)/0.12),_transparent_24%)] dark:opacity-0" />
         <div className="container mx-auto px-4 pb-16 pt-14 sm:px-6 lg:px-8 lg:pb-24 lg:pt-20">
           <Link href="/en/#services" className="relative z-10 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
             <ArrowLeft className="h-4 w-4" />
@@ -52,10 +94,10 @@ export default async function ServicePageEn({ params }: ServicePageProps) {
               <h1 className="mt-4 font-headline text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">{service.title}</h1>
               <p className="mt-6 text-lg leading-8 text-muted-foreground">{service.intro}</p>
               <div className="mt-8 flex flex-wrap gap-4">
-                <Button asChild size="lg" className="rounded-full px-7">
+                <Button asChild size="lg" className="px-7">
                   <Link href="/en/#contact">Request proposal</Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="rounded-full px-7">
+                <Button asChild size="lg" variant="outline" className="px-7">
                   <Link href="/en/bimtools">
                     View BIMtools
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -64,11 +106,11 @@ export default async function ServicePageEn({ params }: ServicePageProps) {
               </div>
             </div>
 
-            <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950 shadow-2xl shadow-slate-950/20">
+            <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-slate-950 shadow-2xl shadow-slate-950/20">
               <Image src={service.image} alt={service.imageAlt} width={1200} height={850} className="h-[360px] w-full object-cover opacity-85" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                <p className="text-sm uppercase tracking-[0.2em] text-cyan-300">{service.shortTitle}</p>
+                <p className="text-sm uppercase tracking-[0.2em] text-primary">{service.shortTitle}</p>
                 <p className="mt-2 text-lg text-slate-200">{service.description}</p>
               </div>
             </div>
@@ -83,7 +125,7 @@ export default async function ServicePageEn({ params }: ServicePageProps) {
         </div>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {service.pillars.map((pillar) => (
-            <Card key={pillar.title} className="rounded-[1.75rem] border-border/70 bg-card/75">
+            <Card key={pillar.title} className="rounded-xl border-border/70 bg-card/75">
               <CardHeader>
                 <CardTitle className="font-headline text-2xl">{pillar.title}</CardTitle>
               </CardHeader>
@@ -104,7 +146,7 @@ export default async function ServicePageEn({ params }: ServicePageProps) {
             </div>
             <div className="grid gap-5">
               {service.process.map((item, index) => (
-                <div key={item.title} className="grid gap-4 rounded-[1.75rem] border bg-background/80 p-6 sm:grid-cols-[72px_1fr]">
+                <div key={item.title} className="grid gap-4 rounded-xl border bg-background/80 p-6 sm:grid-cols-[72px_1fr]">
                   <div className="font-headline text-3xl font-bold text-primary">{`0${index + 1}`}</div>
                   <div>
                     <h3 className="text-xl font-semibold text-foreground">{item.title}</h3>
@@ -132,7 +174,7 @@ export default async function ServicePageEn({ params }: ServicePageProps) {
         </div>
       </section>
 
-      <section className="border-t bg-[linear-gradient(180deg,_transparent,_rgba(34,211,238,0.06))]">
+      <section className="border-t bg-[linear-gradient(180deg,_transparent,_hsl(var(--primary)/0.06))]">
         <div className="container mx-auto px-4 py-20 text-center sm:px-6 lg:px-8 lg:py-24">
           <h2 className="font-headline text-3xl font-bold sm:text-4xl">
             If your BIM operation needs stronger processes or custom software capability, this is the next step.
@@ -140,11 +182,12 @@ export default async function ServicePageEn({ params }: ServicePageProps) {
           <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
             We can support you through consulting, modeling, on-site assistance or technical development for Revit and Tekla.
           </p>
-          <Button asChild size="lg" className="mt-8 rounded-full px-7">
+          <Button asChild size="lg" className="mt-8 px-7">
             <Link href="/en/#contact">Talk to Frata</Link>
           </Button>
         </div>
       </section>
     </div>
+    </>
   );
 }
