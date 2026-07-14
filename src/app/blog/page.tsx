@@ -1,15 +1,15 @@
 import Link from "next/link";
-import Image from "next/image";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { ArrowUpRight } from "lucide-react";
+import { Eyebrow } from "@/components/site/eyebrow";
+import { Reveal } from "@/components/site/reveal";
 import { getAllPosts } from "@/lib/blog";
 
 const copy = {
-  blogTitle: "Blog y Noticias",
-  blogDescription: "Explora nuestros ultimos articulos, ideas y noticias del mundo de BIM y la construccion digital.",
-  readMore: "Leer mas",
+  blogTitle: "Blog y noticias",
+  blogDescription:
+    "Artículos, ideas y noticias del mundo BIM y la construcción digital.",
   by: "Por",
 } as const;
 
@@ -17,51 +17,58 @@ export default async function BlogPage() {
   const posts = await getAllPosts();
 
   return (
-    <div className="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
-      <header className="mb-12 text-center">
-        <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-          {copy.blogTitle}
-        </h1>
-        <p className="mt-4 mx-auto max-w-2xl text-lg text-muted-foreground">{copy.blogDescription}</p>
-      </header>
+    <>
+      <section>
+        <div className="container mx-auto px-4 pb-16 pt-20 sm:px-6 lg:px-8 lg:pb-20 lg:pt-28">
+          <Reveal>
+            <Eyebrow>Blog</Eyebrow>
+          </Reveal>
+          <Reveal delay={100}>
+            <h1 className="mt-8 max-w-4xl font-headline text-display-lg font-black text-foreground">
+              {copy.blogTitle}
+            </h1>
+          </Reveal>
+          <Reveal delay={200}>
+            <p className="mt-8 max-w-2xl text-lg leading-8 text-muted-foreground">
+              {copy.blogDescription}
+            </p>
+          </Reveal>
+        </div>
+      </section>
 
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {posts.map((post) => (
-          <Card key={post.slug} className="group flex flex-col overflow-hidden">
-            <Link href={`/blog/${post.slug}`} className="block">
-              <div className="relative h-64 w-full">
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  data-ai-hint="technology blog"
-                />
-              </div>
-            </Link>
-            <CardHeader>
-              <CardTitle className="font-headline text-2xl">
-                <Link href={`/blog/${post.slug}`} className="transition-colors hover:text-primary">
-                  {post.title}
-                </Link>
-              </CardTitle>
-              <CardDescription>
-                <time dateTime={post.date}>{format(new Date(post.date), "d 'de' MMMM, yyyy", { locale: es })}</time>
-                <span className="mx-2">•</span>
-                <span>{`${copy.by} ${post.author}`}</span>
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="flex-grow">
-              <p className="text-muted-foreground">{post.summary}</p>
-            </CardContent>
-            <div className="p-6 pt-0">
-              <Button asChild variant="link" className="px-0">
-                <Link href={`/blog/${post.slug}`}>{copy.readMore}</Link>
-              </Button>
-            </div>
-          </Card>
-        ))}
-      </div>
-    </div>
+      <section className="border-t border-border">
+        <div className="container mx-auto px-4 pb-24 sm:px-6 lg:px-8 lg:pb-32">
+          {posts.map((post, i) => (
+            <Reveal key={post.slug} delay={i * 60}>
+              <Link href={`/blog/${post.slug}`} className="block">
+                <article className="group grid gap-4 border-b border-border py-10 md:grid-cols-[200px_1fr_auto] md:items-baseline md:gap-8 lg:py-14">
+                  <time
+                    dateTime={post.date}
+                    className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground"
+                  >
+                    {format(new Date(post.date), "d MMM yyyy", { locale: es })}
+                  </time>
+                  <div>
+                    <h2 className="font-headline text-2xl font-bold tracking-tight text-foreground transition-colors group-hover:text-primary sm:text-3xl">
+                      {post.title}
+                    </h2>
+                    <p className="mt-3 max-w-2xl text-sm leading-7 text-muted-foreground">
+                      {post.summary}
+                    </p>
+                    <p className="mt-4 text-xs uppercase tracking-[0.14em] text-muted-foreground">
+                      {copy.by} {post.author}
+                    </p>
+                  </div>
+                  <span className="hidden items-center gap-2 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground transition-all group-hover:translate-x-1 group-hover:text-primary md:flex">
+                    Leer
+                    <ArrowUpRight className="h-4 w-4" />
+                  </span>
+                </article>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+    </>
   );
 }

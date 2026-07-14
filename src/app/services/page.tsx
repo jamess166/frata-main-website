@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Eyebrow } from "@/components/site/eyebrow";
+import { NumberedRow } from "@/components/site/numbered-row";
+import { Reveal } from "@/components/site/reveal";
 import { serviceContent } from "@/lib/service-content";
 
 export const metadata: Metadata = {
@@ -54,116 +55,119 @@ const PRICING = [
   },
 ];
 
+const outcomes = [
+  "Equipos BIM más ordenados y con menos fricción operativa.",
+  "Modelos coordinados listos para documentar, revisar y entregar.",
+  "Software propio que automatiza tareas repetitivas de alto volumen.",
+  "Procesos BIM que se mantienen aunque cambie el equipo.",
+  "Entregables técnicos alineados al cliente y al proyecto real.",
+  "Capacidad de producción que crece sin depender de un solo recurso.",
+];
+
 export default function ServicesPage() {
   const services = Object.values(serviceContent);
 
   return (
-    <div className="bg-background">
-      {/* hero */}
-      <section className="relative overflow-hidden border-b hero-gradient-animated">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_hsl(var(--primary)/0.12),_transparent_40%)]" />
-        <div className="container mx-auto px-4 pb-16 pt-14 sm:px-6 lg:px-8 lg:pb-24 lg:pt-20">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">Servicios</p>
-            <h1 className="mt-4 font-headline text-4xl font-bold tracking-tight sm:text-5xl">
-              Capacidades BIM para empresas que operan con criterio técnico.
+    <>
+      {/* ── Hero ─────────────────────────────────────────────── */}
+      <section>
+        <div className="container mx-auto px-4 pb-16 pt-20 sm:px-6 lg:px-8 lg:pb-24 lg:pt-28">
+          <Reveal>
+            <Eyebrow>Servicios</Eyebrow>
+          </Reveal>
+          <Reveal delay={100}>
+            <h1 className="mt-8 max-w-4xl font-headline text-display-lg font-black text-foreground">
+              Nuestras especialidades.
+              <br />
+              <span className="text-muted-foreground">Lo único que ofrecemos.</span>
             </h1>
-            <p className="mt-5 text-lg leading-8 text-muted-foreground">
-              Desde consultoría y modelado hasta desarrollo de software a medida. Cada servicio está diseñado
-              para resolver un problema real en la operación BIM de tu empresa.
+          </Reveal>
+          <Reveal delay={200}>
+            <p className="mt-8 max-w-2xl text-lg leading-8 text-muted-foreground">
+              Desde consultoría y modelado hasta software a medida. Cada servicio resuelve
+              un problema real en la operación BIM de tu empresa.
             </p>
-          </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* service list */}
-      <section className="container mx-auto px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
-            <Card
-              key={service.slug}
-              className="group rounded-2xl border-border/70 bg-card/75 shadow-sm transition-all hover:-translate-y-1 hover:border-primary/35 hover:shadow-xl"
-            >
-              <CardHeader>
-                <CardTitle className="font-headline text-xl">{service.shortTitle}</CardTitle>
-                <p className="mt-2 text-sm leading-7 text-muted-foreground">{service.description}</p>
-              </CardHeader>
-              <CardContent>
-                <Button asChild variant="link" className="px-0">
-                  <Link href={`/services/${service.slug}`}>
-                    Ver detalle
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
+      {/* ── Índice 01–06 ─────────────────────────────────────── */}
+      <section className="border-t border-border">
+        <div className="container mx-auto px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+          {services.map((service, i) => (
+            <Reveal key={service.slug} delay={i * 60}>
+              <NumberedRow
+                index={String(i + 1).padStart(2, "0")}
+                title={service.shortTitle}
+                description={service.description}
+                href={`/services/${service.slug}`}
+                cta="Ver servicio"
+              />
+            </Reveal>
           ))}
         </div>
       </section>
 
-      {/* pricing indicative */}
-      <section className="border-t bg-secondary/30">
-        <div className="container mx-auto px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-          <div className="text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">Inversión</p>
-            <h2 className="mt-4 font-headline text-3xl font-bold tracking-tight sm:text-4xl">
+      {/* ── Inversión ────────────────────────────────────────── */}
+      <section className="border-t border-border">
+        <div className="container mx-auto px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+          <Reveal>
+            <Eyebrow>Inversión</Eyebrow>
+          </Reveal>
+          <Reveal delay={100}>
+            <h2 className="mt-6 max-w-3xl font-headline text-display-md font-bold text-foreground">
               ¿Cuánto cuesta trabajar con Frata?
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-              Los precios son referenciales. Cada proyecto se cotiza según alcance, complejidad y duración.
+          </Reveal>
+          <Reveal delay={200}>
+            <p className="mt-6 max-w-2xl text-base leading-8 text-muted-foreground">
+              Los precios son referenciales. Cada proyecto se cotiza según alcance,
+              complejidad y duración.
             </p>
-          </div>
+          </Reveal>
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-3">
-            {PRICING.map((plan) => (
-              <div
-                key={plan.name}
-                className={`flex flex-col rounded-3xl border p-8 ${
-                  plan.highlight
-                    ? "border-primary/40 bg-primary/5 shadow-lg shadow-primary/10"
-                    : "border-border/70 bg-card/75"
-                }`}
-              >
-                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">{plan.name}</p>
-                <p className="mt-3 font-headline text-3xl font-bold">{plan.price}</p>
-                <p className="mt-4 flex-1 text-sm leading-7 text-muted-foreground">{plan.description}</p>
-                <Button
-                  asChild
-                  className={`mt-8 rounded-full ${plan.highlight ? "" : "variant-outline"}`}
-                  variant={plan.highlight ? "default" : "outline"}
-                >
-                  <Link href={plan.href}>{plan.cta}</Link>
-                </Button>
-              </div>
+          <div className="mt-16 grid gap-px border border-border bg-border sm:grid-cols-3">
+            {PRICING.map((plan, i) => (
+              <Reveal key={plan.name} delay={i * 80} className="h-full">
+                <div className={`flex h-full flex-col bg-background p-8 lg:p-10 ${plan.highlight ? "bg-secondary" : ""}`}>
+                  <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">{plan.name}</p>
+                  <p className="mt-4 font-headline text-3xl font-bold text-foreground">{plan.price}</p>
+                  <p className="mt-5 flex-1 text-sm leading-7 text-muted-foreground">{plan.description}</p>
+                  <Button
+                    asChild
+                    className="mt-8 w-full rounded-none text-xs font-medium uppercase tracking-[0.14em]"
+                    variant={plan.highlight ? "default" : "outline"}
+                  >
+                    <Link href={plan.href}>{plan.cta}</Link>
+                  </Button>
+                </div>
+              </Reveal>
             ))}
           </div>
 
-          <p className="mt-8 text-center text-xs text-muted-foreground">
+          <p className="mt-8 text-xs text-muted-foreground">
             * Precios en USD. Los valores indicados son de referencia; cada propuesta se elabora según el alcance específico del proyecto.
           </p>
         </div>
       </section>
 
-      {/* outcomes */}
-      <section className="border-t">
-        <div className="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              "Equipos BIM más ordenados y con menos fricción operativa.",
-              "Modelos coordinados listos para documentar, revisar y entregar.",
-              "Software propio que automatiza tareas repetitivas de alto volumen.",
-              "Procesos BIM que se mantienen aunque cambie el equipo.",
-              "Entregables técnicos alineados al cliente y al proyecto real.",
-              "Capacidad de producción que crece sin depender de un solo recurso.",
-            ].map((outcome) => (
-              <div key={outcome} className="flex items-start gap-3 rounded-2xl border bg-card/75 p-5">
-                <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
-                <p className="text-sm leading-7 text-muted-foreground">{outcome}</p>
-              </div>
+      {/* ── Resultados ───────────────────────────────────────── */}
+      <section className="border-t border-border">
+        <div className="container mx-auto px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+          <Reveal>
+            <Eyebrow>Resultados</Eyebrow>
+          </Reveal>
+          <div className="mt-12 grid gap-x-12 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+            {outcomes.map((outcome, i) => (
+              <Reveal key={outcome} delay={i * 60}>
+                <div className="border-t border-border pt-6">
+                  <p className="text-sm leading-7 text-foreground/80">{outcome}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 }

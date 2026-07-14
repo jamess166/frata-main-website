@@ -1,95 +1,110 @@
 import Image from "next/image";
-import { CheckCircle2, Building2, Wrench, Lightbulb } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
 import type { CaseStudy } from "@/lib/case-studies";
 
 interface CaseStudyCardProps {
   caseStudy: CaseStudy;
+  index?: string;
   locale?: "es" | "en";
 }
 
 const LABELS = {
   es: {
     challenge: "Desafío",
-    solution: "Solución implementada",
+    solution: "Solución",
     result: "Resultado",
-    imagePlaceholder: "Imagen del proyecto",
   },
   en: {
     challenge: "Challenge",
     solution: "Solution",
     result: "Result",
-    imagePlaceholder: "Project image",
   },
 } as const;
 
-export function CaseStudyCard({ caseStudy, locale = "es" }: CaseStudyCardProps) {
+export function CaseStudyCard({ caseStudy, index, locale = "es" }: CaseStudyCardProps) {
   const labels = LABELS[locale];
-  const { client, sector, service, technologies, challenge, solution, result, image } = caseStudy;
+  const isEn = locale === "en";
+  const cs = caseStudy;
+
+  const sector = isEn ? cs.sectorEn ?? cs.sector : cs.sector;
+  const service = isEn ? cs.serviceEn ?? cs.service : cs.service;
+  const challenge = isEn ? cs.challengeEn ?? cs.challenge : cs.challenge;
+  const solution = isEn ? cs.solutionEn ?? cs.solution : cs.solution;
+  const result = isEn ? cs.resultEn ?? cs.result : cs.result;
 
   return (
-    <article className="overflow-hidden rounded-3xl border bg-card/75 shadow-sm">
-      {/* image or placeholder */}
-      {image ? (
-        <div className="relative h-56 w-full overflow-hidden sm:h-64">
-          <Image
-            src={image}
-            alt={`${client} — ${sector}`}
-            fill
-            className="object-cover"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
-        </div>
-      ) : (
-        <div className="flex h-56 w-full items-center justify-center bg-secondary/60 sm:h-64">
-          <Building2 className="h-12 w-12 text-muted-foreground/30" />
-        </div>
-      )}
+    <article className="border-t border-border py-14 lg:py-20">
+      <div className="grid gap-10 lg:grid-cols-[90px_1fr] lg:gap-8">
+        {index && <span className="font-code text-sm text-muted-foreground">{index}</span>}
 
-      <div className="p-6 sm:p-8">
-        {/* header */}
-        <div className="flex flex-wrap items-start justify-between gap-3">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">{sector}</p>
-            <h3 className="mt-1 font-headline text-xl font-bold sm:text-2xl">{client}</h3>
-            <p className="mt-1 text-sm text-muted-foreground">{service}</p>
-          </div>
-        </div>
+        <div>
+          {/* header */}
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
+            {cs.client} · {sector}
+          </p>
+          <h3 className="mt-4 max-w-3xl font-headline text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+            {service}
+          </h3>
 
-        {/* tech badges */}
-        <div className="mt-4 flex flex-wrap gap-2">
-          {technologies.map((tech) => (
-            <Badge key={tech} variant="secondary" className="rounded-full">
-              {tech}
-            </Badge>
-          ))}
-        </div>
-
-        {/* content sections */}
-        <div className="mt-6 grid gap-5 sm:grid-cols-1 lg:grid-cols-3">
-          <div className="space-y-2">
-            <div className="flex items-center gap-2 text-sm font-semibold">
-              <Lightbulb className="h-4 w-4 text-accent" />
-              {labels.challenge}
-            </div>
-            <p className="text-sm leading-7 text-muted-foreground">{challenge}</p>
+          {/* tech */}
+          <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2">
+            {cs.technologies.map((tech) => (
+              <span
+                key={tech}
+                className="text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground"
+              >
+                {tech}
+              </span>
+            ))}
           </div>
 
-          <div className="space-y-2">
-            <div className="flex items-center gap-2 text-sm font-semibold">
-              <Wrench className="h-4 w-4 text-primary" />
-              {labels.solution}
+          {/* image */}
+          {cs.image && (
+            <div className="mt-10 overflow-hidden">
+              <Image
+                src={cs.image}
+                alt={`${cs.client} — ${sector}`}
+                width={1400}
+                height={700}
+                loading="lazy"
+                className="h-64 w-full object-cover grayscale transition duration-500 hover:grayscale-0 sm:h-80 lg:h-96"
+              />
             </div>
-            <p className="text-sm leading-7 text-muted-foreground">{solution}</p>
-          </div>
+          )}
 
-          <div className="space-y-2">
-            <div className="flex items-center gap-2 text-sm font-semibold">
-              <CheckCircle2 className="h-4 w-4 text-emerald-500" />
-              {labels.result}
+          {/* metrics */}
+          {cs.metrics && cs.metrics.length > 0 && (
+            <div className="mt-10 grid grid-cols-2 gap-8 sm:grid-cols-3">
+              {cs.metrics.map((m) => (
+                <div key={isEn ? m.labelEn : m.label} className="border-t border-border pt-4">
+                  <p className="font-headline text-3xl font-bold text-primary sm:text-4xl">{m.value}</p>
+                  <p className="mt-2 text-xs leading-5 text-muted-foreground">
+                    {isEn ? m.labelEn : m.label}
+                  </p>
+                </div>
+              ))}
             </div>
-            <p className="text-sm leading-7 text-muted-foreground">{result}</p>
+          )}
+
+          {/* challenge / solution / result */}
+          <div className="mt-10 grid gap-10 lg:grid-cols-3 lg:gap-8">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
+                {labels.challenge}
+              </p>
+              <p className="mt-4 text-sm leading-7 text-muted-foreground">{challenge}</p>
+            </div>
+            <div>
+              <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
+                {labels.solution}
+              </p>
+              <p className="mt-4 text-sm leading-7 text-muted-foreground">{solution}</p>
+            </div>
+            <div>
+              <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
+                {labels.result}
+              </p>
+              <p className="mt-4 text-sm leading-7 text-muted-foreground">{result}</p>
+            </div>
           </div>
         </div>
       </div>

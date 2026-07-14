@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Blocks, Building2, Code2, Compass, Users2 } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Eyebrow } from "@/components/site/eyebrow";
+import { NumberedRow } from "@/components/site/numbered-row";
+import { Reveal } from "@/components/site/reveal";
 
 export const metadata: Metadata = {
-  title: "Nosotros | Frata Ingenieros",
+  title: "Nosotros",
   description:
     "Conoce a Frata Ingenieros, una firma orientada a consultoria BIM, modelado BIM y desarrollo tecnico para Revit o Tekla.",
   alternates: {
@@ -16,214 +18,205 @@ export const metadata: Metadata = {
 
 const values = [
   {
-    title: "Pensamiento tecnico",
-    description: "Tomamos decisiones desde la logica de produccion, coordinacion y control de informacion.",
-    icon: Compass,
+    index: "01",
+    title: "Pensamiento técnico",
+    description: "Decidimos desde la lógica de producción, coordinación y control de información.",
   },
   {
-    title: "Capacidad de ejecucion",
-    description: "No nos quedamos en discurso BIM; modelamos, coordinamos y desarrollamos herramientas utiles.",
-    icon: Blocks,
+    index: "02",
+    title: "Capacidad de ejecución",
+    description: "No nos quedamos en discurso BIM: modelamos, coordinamos y desarrollamos herramientas útiles.",
   },
   {
-    title: "Cercania con el problema real",
-    description: "Trabajamos desde necesidades concretas de oficina tecnica, obra, fabricacion y software.",
-    icon: Users2,
+    index: "03",
+    title: "Cercanía con el problema real",
+    description: "Trabajamos desde necesidades concretas de oficina técnica, obra, fabricación y software.",
   },
 ];
 
 const timeline = [
   {
     year: "Origen",
-    title: "Nacemos desde la practica BIM",
+    title: "Nacimos desde la práctica BIM",
     description:
-      "Frata surge desde la necesidad de resolver problemas reales de modelado, coordinacion y produccion en proyectos tecnicos.",
+      "Frata surge de la necesidad de resolver problemas reales de modelado, coordinación y producción en proyectos técnicos.",
   },
   {
-    year: "Expansion",
+    year: "Expansión",
     title: "De servicios a soluciones",
     description:
-      "La firma evoluciona desde soporte BIM tradicional hacia una oferta que combina consultoria, modelado y automatizacion.",
+      "Evolucionamos del soporte BIM tradicional hacia una oferta que combina consultoría, modelado y automatización.",
   },
   {
     year: "Hoy",
-    title: "Ingenieria con software propio",
+    title: "Ingeniería con software propio",
     description:
-      "BIMtools y el desarrollo para Revit/Tekla refuerzan una posicion clara: no solo implementamos BIM, tambien construimos capacidad tecnica.",
+      "BIMtools y el desarrollo para Revit y Tekla nos definen: no solo implementamos BIM, construimos capacidad técnica.",
   },
 ];
 
 const strengths = [
-  "Consultoria BIM con foco operativo y no solo documental.",
+  "Consultoría BIM con foco operativo, no solo documental.",
   "Modelado BIM integral para arquitectura, estructura y MEP.",
-  "Desarrollo de addins y automatizaciones para Revit o Tekla.",
-  "Capacidad para acompañar equipos en oficina tecnica, obra y fabricacion.",
+  "Addins y automatizaciones propias para Revit y Tekla.",
+  "Acompañamiento a equipos en oficina técnica, obra y fabricación.",
 ];
 
 export default function AboutPage() {
   return (
-    <div className="bg-background">
-      <section className="relative overflow-hidden border-b hero-gradient-animated">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_hsl(var(--primary)/0.14),_transparent_32%),radial-gradient(circle_at_80%_16%,_hsl(var(--accent)/0.12),_transparent_22%)]" />
-        <div className="container mx-auto px-4 pb-20 pt-16 sm:px-6 lg:px-8 lg:pb-28 lg:pt-24">
-          <div className="grid gap-12 lg:grid-cols-[1fr_0.95fr] lg:items-center">
-            <div className="relative z-10 max-w-3xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">Nosotros</p>
-              <h1 className="mt-4 font-headline text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-                Una firma BIM que combina criterio de ingenieria con capacidad real de desarrollo.
-              </h1>
-              <p className="mt-6 text-lg leading-8 text-muted-foreground">
-                Frata Ingenieros no se posiciona solo como consultora. Nuestra fortaleza esta en conectar consultoria
-                BIM, modelado, coordinacion y software tecnico para que los clientes puedan operar mejor.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <Button asChild size="lg" className="px-7">
-                  <Link href="/#contact">Hablar con Frata</Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="px-7">
-                  <Link href="/bimtools">
-                    Ver BIMtools
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </div>
-            </div>
-
-            <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-slate-950 shadow-2xl shadow-slate-950/20">
+    <>
+      {/* ── Hero ─────────────────────────────────────────────── */}
+      <section>
+        <div className="container mx-auto px-4 pb-16 pt-20 sm:px-6 lg:px-8 lg:pb-24 lg:pt-28">
+          <Reveal>
+            <Eyebrow>Nosotros</Eyebrow>
+          </Reveal>
+          <Reveal delay={100}>
+            <h1 className="mt-8 max-w-4xl font-headline text-display-lg font-black text-foreground">
+              Ingeniería BIM con capacidad real de desarrollo.
+            </h1>
+          </Reveal>
+          <Reveal delay={200}>
+            <p className="mt-8 max-w-2xl text-lg leading-8 text-muted-foreground">
+              Somos una firma peruana que conecta consultoría BIM, modelado, coordinación y
+              software técnico. Nuestro diferencial: las herramientas que ofrecemos las
+              construimos y las usamos en producción propia.
+            </p>
+          </Reveal>
+        </div>
+        <Reveal delay={300}>
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="overflow-hidden">
               <Image
                 src="/images/quienesSomos.webp"
                 alt="Equipo de Frata Ingenieros"
-                width={1200}
+                width={1600}
                 height={900}
-                className="h-[360px] w-full object-cover opacity-85"
+                priority
+                className="h-[320px] w-full object-cover grayscale sm:h-[420px] lg:h-[520px]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/25 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                <p className="text-sm uppercase tracking-[0.2em] text-primary">Frata Ingenieros</p>
-                <p className="mt-2 text-lg text-slate-200">
-                  Consultoria BIM, modelado y desarrollo tecnico para equipos que necesitan ejecutar mejor.
-                </p>
-              </div>
             </div>
           </div>
-        </div>
+        </Reveal>
       </section>
 
-      <section className="container mx-auto px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
-        <div className="grid gap-6 md:grid-cols-3">
-          {values.map((value) => (
-            <Card key={value.title} className="rounded-xl border-border/70 bg-card/75">
-              <CardHeader>
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                  <value.icon className="h-6 w-6" />
-                </div>
-                <CardTitle className="font-headline text-2xl">{value.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm leading-7 text-muted-foreground">{value.description}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      <section className="border-y bg-secondary/45">
-        <div className="container mx-auto grid gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8 lg:py-24">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">Trayectoria</p>
-            <h2 className="mt-4 font-headline text-3xl font-bold tracking-tight sm:text-4xl">
-              Como hemos ido afinando nuestra posicion
-            </h2>
-          </div>
-          <div className="grid gap-5">
-            {timeline.map((item) => (
-              <div key={item.title} className="grid gap-4 rounded-xl border bg-background/80 p-6 sm:grid-cols-[120px_1fr]">
-                <div className="font-headline text-2xl font-bold text-primary">{item.year}</div>
-                <div>
-                  <h3 className="text-xl font-semibold text-foreground">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-7 text-muted-foreground">{item.description}</p>
-                </div>
-              </div>
+      {/* ── Valores ──────────────────────────────────────────── */}
+      <section className="border-t border-border mt-24 lg:mt-32">
+        <div className="container mx-auto px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+          <Reveal>
+            <Eyebrow>Cómo trabajamos</Eyebrow>
+          </Reveal>
+          <div className="mt-12">
+            {values.map((value, i) => (
+              <Reveal key={value.index} delay={i * 80}>
+                <NumberedRow
+                  index={value.index}
+                  title={value.title}
+                  description={value.description}
+                />
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="container mx-auto px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
-        <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-          <div className="relative overflow-hidden rounded-2xl border shadow-xl">
-            <Image
-              src="/images/equipoBIM2.webp"
-              alt="Capacidades BIM de Frata Ingenieros"
-              width={1200}
-              height={900}
-              className="h-[380px] w-full object-cover"
-            />
+      {/* ── Trayectoria ──────────────────────────────────────── */}
+      <section className="border-t border-border">
+        <div className="container mx-auto grid gap-14 px-4 py-24 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8 lg:py-32">
+          <div>
+            <Reveal>
+              <Eyebrow>Trayectoria</Eyebrow>
+            </Reveal>
+            <Reveal delay={100}>
+              <h2 className="mt-6 font-headline text-display-md font-bold text-foreground">
+                De la práctica al producto.
+              </h2>
+            </Reveal>
           </div>
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">Fortalezas</p>
-            <h2 className="mt-4 font-headline text-3xl font-bold tracking-tight sm:text-4xl">
-              Donde Frata puede diferenciarse de una consultora BIM promedio
-            </h2>
-            <div className="mt-8 grid gap-4">
-              {strengths.map((item) => (
-                <div key={item} className="flex items-start gap-3 rounded-2xl border bg-card/70 p-4">
-                  <Building2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
-                  <p className="text-sm leading-7 text-muted-foreground">{item}</p>
+            {timeline.map((item, i) => (
+              <Reveal key={item.title} delay={i * 80}>
+                <div className="grid gap-3 border-t border-border py-8 sm:grid-cols-[120px_1fr] sm:gap-8 lg:py-10">
+                  <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
+                    {item.year}
+                  </p>
+                  <div>
+                    <h3 className="font-headline text-2xl font-bold tracking-tight text-foreground">
+                      {item.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-7 text-muted-foreground">{item.description}</p>
+                  </div>
                 </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Fortalezas ───────────────────────────────────────── */}
+      <section className="border-t border-border">
+        <div className="container mx-auto grid gap-14 px-4 py-24 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8 lg:py-32">
+          <Reveal>
+            <div className="overflow-hidden">
+              <Image
+                src="/images/equipoBIM2.webp"
+                alt="Capacidades BIM de Frata Ingenieros"
+                width={1200}
+                height={900}
+                className="h-80 w-full object-cover grayscale lg:h-[420px]"
+              />
+            </div>
+          </Reveal>
+          <div>
+            <Reveal>
+              <Eyebrow>Fortalezas</Eyebrow>
+            </Reveal>
+            <Reveal delay={100}>
+              <h2 className="mt-6 font-headline text-display-md font-bold text-foreground">
+                BIM que se sostiene en obra, no en diapositivas.
+              </h2>
+            </Reveal>
+            <div className="mt-10">
+              {strengths.map((item, i) => (
+                <Reveal key={item} delay={i * 80}>
+                  <div className="border-t border-border py-5">
+                    <p className="text-sm leading-7 text-foreground/80">{item}</p>
+                  </div>
+                </Reveal>
               ))}
             </div>
           </div>
         </div>
       </section>
 
-      <section className="overflow-hidden border-y bg-slate-950 text-white">
-        <div className="container mx-auto grid gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[1fr_1fr] lg:px-8 lg:py-24">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">Posicionamiento</p>
-            <h2 className="mt-4 font-headline text-4xl font-bold tracking-tight sm:text-5xl">
-              El desarrollo para Revit o Tekla debe ser parte central de tu identidad de marca.
+      {/* ── CTA ──────────────────────────────────────────────── */}
+      <section className="border-t border-border">
+        <div className="container mx-auto px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+          <Reveal>
+            <h2 className="max-w-4xl font-headline text-display-lg font-bold text-foreground">
+              ¿Tu operación BIM necesita un equipo técnico de verdad?
             </h2>
-            <p className="mt-6 text-lg leading-8 text-slate-300">
-              Muchas firmas hablan de BIM. Pocas pueden demostrar que resuelven problemas tecnicos con software propio.
-              Esa es una ventaja fuerte para tu narrativa comercial y para SEO.
-            </p>
-          </div>
-          <div className="grid gap-5 sm:grid-cols-2">
-            <Card className="rounded-xl border-white/10 bg-white/5 text-white">
-              <CardContent className="p-6">
-                <Code2 className="h-6 w-6 text-primary" />
-                <h3 className="mt-5 text-xl font-semibold">Software propio</h3>
-                <p className="mt-3 text-sm leading-7 text-slate-300">
-                  El producto refuerza la autoridad tecnica y la capacidad de automatizacion.
-                </p>
-              </CardContent>
-            </Card>
-            <Card className="rounded-xl border-white/10 bg-white/5 text-white">
-              <CardContent className="p-6">
-                <Blocks className="h-6 w-6 text-primary" />
-                <h3 className="mt-5 text-xl font-semibold">Servicios mas creibles</h3>
-                <p className="mt-3 text-sm leading-7 text-slate-300">
-                  La consultoria y el modelado ganan peso cuando se apoyan en herramientas reales.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
+          </Reveal>
+          <Reveal delay={100}>
+            <div className="mt-10 flex flex-wrap gap-4">
+              <Button asChild size="lg" className="rounded-none px-8 text-xs font-medium uppercase tracking-[0.14em]">
+                <Link href="/#contact">Hablemos</Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="rounded-none border-border px-8 text-xs font-medium uppercase tracking-[0.14em] hover:bg-secondary"
+              >
+                <Link href="/bimtools">
+                  Ver BIMtools
+                  <ArrowUpRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
+          </Reveal>
         </div>
       </section>
-
-      <section className="container mx-auto px-4 py-20 text-center sm:px-6 lg:px-8 lg:py-24">
-        <h2 className="font-headline text-3xl font-bold sm:text-4xl">
-          Si quieres una firma mas moderna, la web tiene que mostrar esta mezcla de BIM y desarrollo con mucha mas claridad.
-        </h2>
-        <p className="mx-auto mt-4 max-w-3xl text-lg text-muted-foreground">
-          Esta pagina ya empuja esa direccion. El siguiente paso natural seria aplicar el mismo criterio a casos de
-          exito, testimonios y paginas individuales de producto.
-        </p>
-        <Button asChild size="lg" className="mt-8 px-7">
-          <Link href="/#contact">Solicitar reunion</Link>
-        </Button>
-      </section>
-    </div>
+    </>
   );
 }

@@ -3,7 +3,7 @@ import path from "node:path";
 import matter from "gray-matter";
 
 const websiteRoot = process.cwd();
-const defaultSourceRoot = "D:\\Developer\\Autodesk\\Revit\\frata-tools-revit\\frata-tools-revit";
+const defaultSourceRoot = "D:\\Developer\\Autodesk\\Revit\\frata-tools-revit\\frata-tools-revit\\frata-tools-revit";
 const sourceRoot = process.env.FRATA_TOOLS_REPO || defaultSourceRoot;
 const outputFile = path.join(websiteRoot, "src", "lib", "generated", "bimtools-manuals.ts");
 const publicMediaRoot = path.join(websiteRoot, "public", "bimtools-media");
@@ -13,9 +13,9 @@ const defaultActivationEmail = "info@frataingenieros.com";
 const defaultPremiumTrialDays = 30;
 
 const suiteMeta = {
-  "Architecture.Create": {
-    id: "architecture-create",
-    label: "Architecture Create",
+  Architecture: {
+    id: "architecture",
+    label: "Architecture",
     description:
       "Automatizacion para convertir datos arquitectonicos del modelo en elementos constructivos con menos trabajo manual.",
     order: 1,
@@ -34,18 +34,18 @@ const suiteMeta = {
       "Herramientas para encontrar, abrir y seleccionar informacion del modelo con menos friccion.",
     order: 3,
   },
-  "Structure.Create": {
-    id: "structure-create",
-    label: "Structure Create",
+  Structure: {
+    id: "structure",
+    label: "Structure",
     description:
-      "Automatizacion para crear armaduras y componentes estructurales con mayor velocidad y precision.",
+      "Automatizacion para crear, editar y sincronizar armaduras y componentes estructurales con mayor velocidad y precision.",
     order: 4,
   },
-  "Structure.Modify": {
-    id: "structure-modify",
-    label: "Structure Modify",
+  Drawing2D: {
+    id: "drawing2d",
+    label: "Drawing 2D",
     description:
-      "Utilidades para editar, sincronizar y visualizar refuerzo estructural en modelos complejos.",
+      "Herramientas para anotacion y produccion de planos 2D con menos trabajo manual.",
     order: 5,
   },
 };
@@ -190,15 +190,18 @@ function findReferencedIconFile(addinDir) {
 }
 
 function collectIcon(addinDir, suiteName, suiteId, slug, addinName) {
-  const suiteIconDir = path.join(sourceRoot, suiteName, "Resources", "img");
-  if (!fs.existsSync(suiteIconDir)) {
-    return null;
-  }
+  // Icons live per-addin (Addins/<Addin>/Resources/img); older layouts kept them at suite level.
+  const iconDirs = [
+    path.join(addinDir, "Resources", "img"),
+    path.join(sourceRoot, "Modules", suiteName, "Resources", "img"),
+  ].filter((dir) => fs.existsSync(dir) && fs.statSync(dir).isDirectory());
 
-  const files = fs
-    .readdirSync(suiteIconDir, { withFileTypes: true })
-    .filter((entry) => entry.isFile() && supportedImageExtensions.has(path.extname(entry.name).toLowerCase()))
-    .map((entry) => entry.name);
+  const files = iconDirs.flatMap((dir) =>
+    fs
+      .readdirSync(dir, { withFileTypes: true })
+      .filter((entry) => entry.isFile() && supportedImageExtensions.has(path.extname(entry.name).toLowerCase()))
+      .map((entry) => ({ dir, name: entry.name }))
+  );
 
   if (files.length === 0) {
     return null;
@@ -215,21 +218,24 @@ function collectIcon(addinDir, suiteName, suiteId, slug, addinName) {
   const preferredBaseNames = [
     referencedFile,
     ...aliasSeeds.flatMap((seed) => [
+      `${seed}512`,
       `${seed}IconBig`,
       `${seed}Big`,
       `${seed}Icon`,
       seed,
+      `${seed}32`,
     ]),
+    "icon",
   ]
     .map(normalizeLookupValue)
     .filter(Boolean);
 
   let selectedFile =
-    files.find((file) => normalizeLookupValue(file) === normalizeLookupValue(referencedFile)) || "";
+    files.find((file) => normalizeLookupValue(file.name) === normalizeLookupValue(referencedFile)) || null;
 
   if (!selectedFile) {
     for (const preferred of preferredBaseNames) {
-      const exact = files.find((file) => normalizeLookupValue(file) === preferred);
+      const exact = files.find((file) => normalizeLookupValue(file.name) === preferred);
       if (exact) {
         selectedFile = exact;
         break;
@@ -239,24 +245,24 @@ function collectIcon(addinDir, suiteName, suiteId, slug, addinName) {
 
   if (!selectedFile) {
     const addinKey = normalizeLookupValue(addinName);
-    const containsMatches = files.filter((file) => normalizeLookupValue(file).includes(addinKey));
+    const containsMatches = files.filter((file) => normalizeLookupValue(file.name).includes(addinKey));
 
     selectedFile =
-      containsMatches.find((file) => /iconbig|big/.test(normalizeLookupValue(file))) ||
-      containsMatches.find((file) => /icon/.test(normalizeLookupValue(file))) ||
+      containsMatches.find((file) => /512|iconbig|big/.test(normalizeLookupValue(file.name))) ||
+      containsMatches.find((file) => /icon/.test(normalizeLookupValue(file.name))) ||
       containsMatches[0] ||
-      "";
+      null;
   }
 
   if (!selectedFile) {
     return null;
   }
 
-  const ext = path.extname(selectedFile).toLowerCase();
+  const ext = path.extname(selectedFile.name).toLowerCase();
   const outputDir = path.join(publicIconRoot, suiteId);
   const outputFilePath = path.join(outputDir, `${slug}${ext}`);
   fs.mkdirSync(outputDir, { recursive: true });
-  fs.copyFileSync(path.join(suiteIconDir, selectedFile), outputFilePath);
+  fs.copyFileSync(path.join(selectedFile.dir, selectedFile.name), outputFilePath);
 
   return {
     src: `/bimtools-icons/${suiteId}/${slug}${ext}`,
@@ -299,30 +305,6 @@ function collectMedia(addinDir, suiteId, slug) {
 
 function readTextFile(filePath) {
   return fs.readFileSync(filePath, "utf8").replace(/^\uFEFF/, "");
-}
-
-function ensureCleanDirectory(dirPath) {
-  if (!fs.existsSync(dirPath)) {
-    return;
-  }
-
-  const entries = fs.readdirSync(dirPath, { withFileTypes: true });
-
-  for (const entry of entries) {
-    const entryPath = path.join(dirPath, entry.name);
-
-    if (entry.isDirectory()) {
-      if (fs.existsSync(entryPath)) {
-        ensureCleanDirectory(entryPath);
-        fs.rmSync(entryPath, { recursive: true, force: true });
-      }
-      continue;
-    }
-
-    if (fs.existsSync(entryPath)) {
-      fs.rmSync(entryPath, { force: true });
-    }
-  }
 }
 
 function findCommandMetadata(addinDir) {
@@ -430,7 +412,7 @@ function discoverEntries(root) {
   const entries = [];
 
   for (const suiteName of Object.keys(suiteMeta)) {
-    const addinsRoot = path.join(root, suiteName, "Addins");
+    const addinsRoot = path.join(root, "Modules", suiteName, "Addins");
     if (!fs.existsSync(addinsRoot)) continue;
 
     for (const addinName of fs.readdirSync(addinsRoot, { withFileTypes: true })) {
@@ -564,17 +546,16 @@ if (!fs.existsSync(sourceRoot)) {
   process.exit(0);
 }
 
+// Clean stale assets BEFORE discovery — discoverEntries copies fresh icons/media into these folders.
+fs.rmSync(publicMediaRoot, { recursive: true, force: true });
+fs.rmSync(publicIconRoot, { recursive: true, force: true });
+
 const entries = discoverEntries(sourceRoot);
 
 if (entries.length === 0) {
   skipSync(`no manual entries discovered under ${sourceRoot} (folder layout may have changed)`);
   process.exit(0);
 }
-
-ensureCleanDirectory(publicMediaRoot);
-ensureCleanDirectory(publicIconRoot);
-fs.rmSync(publicMediaRoot, { recursive: true, force: true });
-fs.rmSync(publicIconRoot, { recursive: true, force: true });
 
 fs.mkdirSync(path.dirname(outputFile), { recursive: true });
 fs.writeFileSync(outputFile, toTsModule(entries), "utf8");

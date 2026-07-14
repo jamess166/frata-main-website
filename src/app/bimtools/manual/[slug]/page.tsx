@@ -3,10 +3,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { remark } from "remark";
 import html from "remark-html";
-import { ArrowLeft, ArrowRight, CreditCard, Download, Star } from "lucide-react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { AddinIcon } from "@/components/bimtools/addin-icon";
 import { ManualImageGallery } from "@/components/bimtools/manual-image-gallery";
-import { Badge } from "@/components/ui/badge";
 import { getBimtoolManual, getBimtoolsSuitesWithManuals } from "@/lib/bimtools";
 
 interface ManualDetailPageProps {
@@ -80,84 +79,78 @@ export default async function ManualDetailPage({ params }: ManualDetailPageProps
   const youtubeEmbedUrl = getYoutubeEmbedUrl(manual.media.youtubeUrl, manual.media.youtubeId);
 
   return (
-    <div className="bg-background">
-      <div className="container mx-auto px-4 py-10 sm:px-6 lg:px-8 lg:py-16">
+    <>
+      <div className="container mx-auto px-4 pt-12 sm:px-6 lg:px-8 lg:pt-16">
         <a
           href="/bimtools#suites"
-          className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+          className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-primary"
         >
           <ArrowLeft className="h-4 w-4" />
           Volver a BIMtools
         </a>
       </div>
 
-      <div className="container mx-auto grid gap-12 px-4 pb-20 sm:px-6 lg:grid-cols-[320px_minmax(0,1fr)] lg:px-8">
-        <aside className="h-fit rounded-3xl border bg-secondary/40 p-6 lg:sticky lg:top-24">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">{manual.suiteLabel}</p>
-          <div className="mt-4 flex items-start gap-4">
+      <div className="container mx-auto grid gap-14 px-4 py-14 sm:px-6 lg:grid-cols-[320px_minmax(0,1fr)] lg:px-8 lg:py-20">
+        <aside className="h-fit lg:sticky lg:top-24">
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">{manual.suiteLabel}</p>
+          <div className="mt-5 flex items-start gap-4">
             <AddinIcon icon={manual.icon} name={manual.addinName} size="lg" />
-            <div className="min-w-0">
-              <h1 className="font-headline text-3xl font-bold leading-tight">{manual.title.es}</h1>
-            </div>
+            <h1 className="min-w-0 font-headline text-3xl font-bold leading-tight tracking-tight text-foreground">
+              {manual.title.es}
+            </h1>
           </div>
-          <div className="mt-4 flex flex-wrap gap-2">
-            <Badge variant={manual.commerce.isPremium ? "default" : "outline"} className="rounded-full">
-              {manual.commerce.isPremium ? (
-                <>
-                  <Star className="mr-1 h-3 w-3" />
-                  Premium
-                </>
-              ) : (
-                "Gratis"
-              )}
-            </Badge>
+          <p className="mt-4 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
             {manual.commerce.isPremium ? (
-              <Badge variant="secondary" className="rounded-full">
-                Prueba de {manual.commerce.trialDays} dias
-              </Badge>
-            ) : null}
-          </div>
-          <p className="mt-4 text-sm leading-7 text-muted-foreground">{manual.excerpt.es}</p>
+              <>
+                <span className="text-primary">Premium</span>
+                {manual.commerce.trialDays ? ` · Prueba de ${manual.commerce.trialDays} días` : null}
+              </>
+            ) : (
+              "Gratis"
+            )}
+          </p>
+          <p className="mt-5 border-t border-border pt-5 text-sm leading-7 text-muted-foreground">
+            {manual.excerpt.es}
+          </p>
 
-          <div className="mt-6 space-y-3">
+          <div className="mt-8 space-y-3">
             {manual.commerce.isPremium ? (
-              <div className="rounded-2xl border border-primary/20 bg-primary/10 p-4">
-                <p className="text-sm font-semibold text-foreground">Suscripcion premium BIMtools</p>
-                <p className="mt-2 text-sm leading-7 text-muted-foreground">
-                  Accede a este addin y a todos los addins premium por <strong>USD 20 al mes</strong> o <strong>USD 100 al año</strong>.
-                </p>
-              </div>
+              <p className="text-sm leading-7 text-muted-foreground">
+                Accede a este addin y a todos los addins premium por{" "}
+                <strong className="text-foreground">USD 20/mes</strong> o{" "}
+                <strong className="text-foreground">USD 100/año</strong>.
+              </p>
             ) : null}
             {manual.commerce.isPremium && manual.commerce.purchaseUrl ? (
               <Link
                 href="/bimtools/suscripcion"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+                className="inline-flex w-full items-center justify-center bg-primary px-5 py-3 text-xs font-medium uppercase tracking-[0.14em] text-primary-foreground transition-opacity hover:opacity-90"
               >
-                <CreditCard className="h-4 w-4" />
-                Comprar suscripcion premium
+                Comprar suscripción premium
               </Link>
             ) : null}
             <Link
               href="/download"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full border px-5 py-3 text-sm font-medium transition-colors hover:border-primary/40 hover:text-primary"
+              className="inline-flex w-full items-center justify-center border border-border px-5 py-3 text-xs font-medium uppercase tracking-[0.14em] text-foreground transition-colors hover:border-primary hover:text-primary"
             >
-              <Download className="h-4 w-4" />
               Descargar instalador de prueba
             </Link>
           </div>
 
           {currentSuite ? (
-            <div className="mt-8 border-t pt-6">
-              <p className="text-sm font-semibold text-foreground">Mas herramientas de esta suite</p>
-              <div className="mt-4 space-y-2">
+            <div className="mt-10 border-t border-border pt-6">
+              <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
+                Más herramientas de esta suite
+              </p>
+              <div className="mt-4">
                 {currentSuite.manuals.map((entry) => (
                   <Link
                     key={entry.slug}
                     href={`/bimtools/manual/${entry.slug}`}
-                    className={`flex items-center gap-3 rounded-xl border px-4 py-3 text-sm transition-colors ${
+                    className={`flex items-center gap-3 border-t border-border py-3 text-sm transition-colors ${
                       entry.slug === manual.slug
-                        ? "border-primary/40 bg-primary/10 text-primary"
-                        : "border-border bg-background/70 text-muted-foreground hover:border-primary/30 hover:text-foreground"
+                        ? "text-primary"
+                        : "text-muted-foreground hover:text-foreground"
                     }`}
                   >
                     <AddinIcon icon={entry.icon} name={entry.addinName} size="sm" />
@@ -170,24 +163,22 @@ export default async function ManualDetailPage({ params }: ManualDetailPageProps
         </aside>
 
         <article className="min-w-0">
-          <div className="rounded-2xl border bg-card/60 p-6 shadow-sm sm:p-10">
-            <div
-              className="prose prose-slate max-w-none prose-headings:font-headline prose-headings:text-foreground prose-p:text-muted-foreground prose-li:text-muted-foreground prose-strong:text-foreground dark:prose-invert"
-              dangerouslySetInnerHTML={{ __html: renderedMarkdown.toString() }}
-            />
-          </div>
+          <div
+            className="prose prose-invert max-w-none prose-headings:font-headline prose-headings:tracking-tight prose-headings:text-foreground prose-p:text-muted-foreground prose-li:text-muted-foreground prose-strong:text-foreground prose-a:text-primary"
+            dangerouslySetInnerHTML={{ __html: renderedMarkdown.toString() }}
+          />
 
           {manual.media.images.length > 0 ? (
-            <section className="mt-10 rounded-2xl border bg-card/60 p-6 shadow-sm sm:p-10">
-              <h2 className="font-headline text-2xl font-bold text-foreground">Galeria</h2>
+            <section className="mt-14 border-t border-border pt-10">
+              <h2 className="font-headline text-2xl font-bold tracking-tight text-foreground">Galería</h2>
               <ManualImageGallery images={manual.media.images} locale="es" />
             </section>
           ) : null}
 
           {youtubeEmbedUrl ? (
-            <section className="mt-10 rounded-2xl border bg-card/60 p-6 shadow-sm sm:p-10">
-              <h2 className="font-headline text-2xl font-bold text-foreground">Video</h2>
-              <div className="mt-6 overflow-hidden rounded-3xl border bg-background/70">
+            <section className="mt-14 border-t border-border pt-10">
+              <h2 className="font-headline text-2xl font-bold tracking-tight text-foreground">Video</h2>
+              <div className="mt-6 overflow-hidden border border-border">
                 <div className="aspect-video">
                   <iframe
                     src={youtubeEmbedUrl}
@@ -202,31 +193,31 @@ export default async function ManualDetailPage({ params }: ManualDetailPageProps
             </section>
           ) : null}
 
-          <div className="mt-10 flex flex-wrap gap-4">
+          <div className="mt-14 flex flex-wrap gap-4 border-t border-border pt-10">
             <Link
               href="/bimtools"
-              className="inline-flex items-center gap-2 rounded-full border px-5 py-3 text-sm font-medium transition-colors hover:border-primary/40 hover:text-primary"
+              className="inline-flex items-center gap-2 border border-border px-5 py-3 text-xs font-medium uppercase tracking-[0.14em] text-foreground transition-colors hover:border-primary hover:text-primary"
             >
               Ver BIMtools
-              <ArrowRight className="h-4 w-4" />
+              <ArrowUpRight className="h-4 w-4" />
             </Link>
             <Link
               href="/download"
-              className="inline-flex items-center gap-2 rounded-full border px-5 py-3 text-sm font-medium transition-colors hover:border-primary/40 hover:text-primary"
+              className="inline-flex items-center gap-2 border border-border px-5 py-3 text-xs font-medium uppercase tracking-[0.14em] text-foreground transition-colors hover:border-primary hover:text-primary"
             >
               Descargar prueba
             </Link>
             {manual.commerce.isPremium && manual.commerce.purchaseUrl ? (
               <Link
                 href="/bimtools/suscripcion"
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+                className="inline-flex items-center gap-2 bg-primary px-5 py-3 text-xs font-medium uppercase tracking-[0.14em] text-primary-foreground transition-opacity hover:opacity-90"
               >
-                Comprar suscripcion premium
+                Comprar suscripción premium
               </Link>
             ) : null}
           </div>
         </article>
       </div>
-    </div>
+    </>
   );
 }

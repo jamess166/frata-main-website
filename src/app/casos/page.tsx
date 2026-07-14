@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
 import { CaseStudyCard } from "@/components/cases/case-study-card";
+import { Eyebrow } from "@/components/site/eyebrow";
+import { Reveal } from "@/components/site/reveal";
 import { caseStudies } from "@/lib/case-studies";
 
 export const metadata: Metadata = {
@@ -32,39 +32,37 @@ export const metadata: Metadata = {
 
 export default function CasosPage() {
   return (
-    <div className="bg-background">
-      <section className="relative overflow-hidden border-b hero-gradient-animated">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_hsl(var(--primary)/0.12),_transparent_40%)]" />
-        <div className="container mx-auto px-4 pb-14 pt-12 sm:px-6 lg:px-8 lg:pb-20 lg:pt-16">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Volver al inicio
-          </Link>
-          <div className="mt-6 max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">
-              Casos de éxito
-            </p>
-            <h1 className="mt-4 font-headline text-4xl font-bold tracking-tight sm:text-5xl">
-              Proyectos reales con resultados concretos.
+    <>
+      <section>
+        <div className="container mx-auto px-4 pb-16 pt-20 sm:px-6 lg:px-8 lg:pb-24 lg:pt-28">
+          <Reveal>
+            <Eyebrow>Casos de éxito</Eyebrow>
+          </Reveal>
+          <Reveal delay={100}>
+            <h1 className="mt-8 max-w-4xl font-headline text-display-lg font-black text-foreground">
+              Proyectos reales.
+              <br />
+              <span className="text-muted-foreground">Resultados concretos.</span>
             </h1>
-            <p className="mt-5 text-lg leading-8 text-muted-foreground">
-              Proyectos de consultoría BIM, modelado y desarrollo de addins implementados por Frata
-              Ingenieros en infraestructura, edificaciones e interoperabilidad de plataformas.
+          </Reveal>
+          <Reveal delay={200}>
+            <p className="mt-8 max-w-2xl text-lg leading-8 text-muted-foreground">
+              Consultoría BIM, modelado y desarrollo de addins en infraestructura,
+              edificaciones e interoperabilidad de plataformas.
             </p>
-          </div>
+          </Reveal>
         </div>
       </section>
 
-      <section className="container mx-auto px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-        <div className="grid gap-10">
-          {caseStudies.map((cs) => (
-            <CaseStudyCard key={cs.slug} caseStudy={cs} locale="es" />
+      <section>
+        <div className="container mx-auto px-4 pb-24 sm:px-6 lg:px-8 lg:pb-32">
+          {caseStudies.map((cs, i) => (
+            <Reveal key={cs.slug} delay={i * 60}>
+              <CaseStudyCard caseStudy={cs} index={String(i + 1).padStart(2, "0")} locale="es" />
+            </Reveal>
           ))}
         </div>
       </section>
-    </div>
+    </>
   );
 }

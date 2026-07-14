@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BookOpenText, Layers3, Star } from "lucide-react";
 import { AddinIcon } from "@/components/bimtools/addin-icon";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Badge } from "@/components/ui/badge";
+import { Eyebrow } from "@/components/site/eyebrow";
+import { Reveal } from "@/components/site/reveal";
 import { getBimtoolsSuitesWithManuals } from "@/lib/bimtools";
 
 export const metadata: Metadata = {
@@ -19,80 +19,82 @@ const suites = getBimtoolsSuitesWithManuals();
 
 export default function ManualPage() {
   return (
-    <div className="bg-background">
-      <section className="border-b bg-[linear-gradient(180deg,_rgba(8,145,178,0.08),_transparent_55%)]">
-        <div className="container mx-auto px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-          <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
-              <BookOpenText className="h-4 w-4" />
-              Manuales BIMtools
-            </div>
-            <h1 className="mt-6 font-headline text-4xl font-bold tracking-tight sm:text-5xl">
-              Documentacion por addin, dentro de la suite BIMtools.
+    <>
+      <section>
+        <div className="container mx-auto px-4 pb-16 pt-20 sm:px-6 lg:px-8 lg:pb-20 lg:pt-28">
+          <Reveal>
+            <Eyebrow>Manuales BIMtools</Eyebrow>
+          </Reveal>
+          <Reveal delay={100}>
+            <h1 className="mt-8 max-w-4xl font-headline text-display-lg font-black text-foreground">
+              Documentación por addin.
             </h1>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-muted-foreground">
-              Consulta cada herramienta por separado para revisar funciones, alcance y procedimiento de uso a partir
-              de la documentacion real de tus addins.
+          </Reveal>
+          <Reveal delay={200}>
+            <p className="mt-8 max-w-2xl text-lg leading-8 text-muted-foreground">
+              Consulta cada herramienta por separado para revisar funciones, alcance y
+              procedimiento de uso a partir de la documentación real de los addins.
             </p>
-          </div>
+          </Reveal>
         </div>
       </section>
 
-      <section className="container mx-auto px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-        <Accordion type="multiple" className="space-y-4">
-          {suites.map((suite) => (
-            <AccordionItem
-              key={suite.id}
-              value={suite.id}
-              className="overflow-hidden rounded-[1.5rem] border border-border/70 bg-card/60 px-6 shadow-sm"
-            >
-              <AccordionTrigger className="py-6 hover:no-underline">
-                <div className="flex min-w-0 flex-1 items-center gap-4 text-left">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                    <Layers3 className="h-5 w-5" />
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-                      <h2 className="font-headline text-2xl font-bold text-foreground">{suite.label}</h2>
-                      <span className="text-sm text-muted-foreground">{suite.manuals.length} manuales</span>
+      <section className="border-t border-border">
+        <div className="container mx-auto px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+          <Accordion type="multiple">
+            {suites.map((suite, i) => (
+              <AccordionItem
+                key={suite.id}
+                value={suite.id}
+                className="border-b-0 border-t border-border"
+              >
+                <AccordionTrigger className="py-8 hover:no-underline lg:py-10">
+                  <div className="grid min-w-0 flex-1 gap-4 text-left md:grid-cols-[90px_1fr_auto] md:items-baseline md:gap-8">
+                    <span className="font-code text-sm text-muted-foreground">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <div className="min-w-0">
+                      <h2 className="font-headline text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+                        {suite.label}
+                      </h2>
+                      <p className="mt-2 max-w-2xl text-sm leading-7 text-muted-foreground">
+                        {suite.description}
+                      </p>
                     </div>
-                    <p className="mt-2 max-w-2xl text-sm leading-7 text-muted-foreground">{suite.description}</p>
+                    <span className="hidden text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground md:block">
+                      {suite.manuals.length} manuales
+                    </span>
                   </div>
-                </div>
-              </AccordionTrigger>
+                </AccordionTrigger>
 
-              <AccordionContent className="pb-6">
-                <div className="grid gap-3">
-                  {suite.manuals.map((manual) => (
-                    <Link
-                      key={manual.slug}
-                      href={`/bimtools/manual/${manual.slug}`}
-                      className="flex items-center gap-4 rounded-xl border border-border/70 bg-background/75 px-4 py-3 transition-colors hover:border-primary/30 hover:bg-primary/5"
-                    >
-                      <AddinIcon icon={manual.icon} name={manual.addinName} size="md" />
-                      <div className="min-w-0 flex-1">
-                        <div className="flex flex-wrap items-center gap-2">
-                          <p className="truncate font-medium text-foreground">{manual.addinName}</p>
-                          <Badge variant={manual.commerce.isPremium ? "default" : "outline"} className="rounded-full">
-                            {manual.commerce.isPremium ? (
-                              <>
-                                <Star className="mr-1 h-3 w-3" />
-                                Premium
-                              </>
-                            ) : (
-                              "Gratis"
-                            )}
-                          </Badge>
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
+                <AccordionContent className="pb-10">
+                  <div className="md:ml-[122px]">
+                    {suite.manuals.map((manual) => (
+                      <Link
+                        key={manual.slug}
+                        href={`/bimtools/manual/${manual.slug}`}
+                        className="group flex items-center gap-4 border-t border-border py-4 transition-colors hover:bg-secondary/50"
+                      >
+                        <AddinIcon icon={manual.icon} name={manual.addinName} size="md" />
+                        <p className="min-w-0 flex-1 truncate text-sm font-medium text-foreground transition-colors group-hover:text-primary">
+                          {manual.addinName}
+                        </p>
+                        <span
+                          className={`text-[11px] font-medium uppercase tracking-[0.14em] ${
+                            manual.commerce.isPremium ? "text-primary" : "text-muted-foreground"
+                          }`}
+                        >
+                          {manual.commerce.isPremium ? "Premium" : "Gratis"}
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
       </section>
-    </div>
+    </>
   );
 }

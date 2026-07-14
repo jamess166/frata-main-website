@@ -61,66 +61,62 @@ export function LatestReleaseRedirect({
   }, [locale]);
 
   return (
-    <div className="bg-background">
-      <section className="border-b bg-[radial-gradient(circle_at_top,_rgba(8,145,178,0.16),_transparent_48%)]">
-        <div className="container mx-auto px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
-          <div className="mx-auto max-w-4xl rounded-2xl border border-primary/20 bg-card/80 p-8 shadow-xl backdrop-blur sm:p-10">
-            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/12 text-primary">
-              <LoaderCircle className="h-8 w-8 animate-spin" />
-            </div>
-            <div className="mt-8 text-center">
-              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">
-                {locale === "en" ? "Download in progress" : "Descarga en proceso"}
+    <section>
+      <div className="container mx-auto px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="mx-auto flex h-16 w-16 items-center justify-center text-primary">
+            <LoaderCircle className="h-8 w-8 animate-spin" />
+          </div>
+          <p className="mt-8 text-xs font-medium uppercase tracking-[0.2em] text-primary">
+            {locale === "en" ? "Download in progress" : "Descarga en proceso"}
+          </p>
+          <h1 className="mt-4 font-headline text-display-md font-bold text-foreground">
+            {locale === "en" ? "Preparing your BIMtools installer" : "Preparando tu instalador BIMtools"}
+          </h1>
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">{message}</p>
+
+          <div className="mx-auto mt-14 grid max-w-2xl gap-10 text-left sm:grid-cols-2">
+            <div className="border-t border-border pt-5">
+              <div className="flex items-center gap-2 text-primary">
+                <Download className="h-4 w-4" />
+                <p className="text-sm font-medium text-foreground">
+                  {locale === "en" ? "Latest installer" : "Ultimo instalador"}
+                </p>
+              </div>
+              <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                {locale === "en"
+                  ? "We are locating the most recent BIMtools release so you do not need to update links manually."
+                  : "Estamos ubicando la release mas reciente de BIMtools para que no tengas que actualizar enlaces manualmente."}
               </p>
-              <h1 className="mt-3 font-headline text-3xl font-bold tracking-tight sm:text-4xl">
-                {locale === "en" ? "Preparing your BIMtools installer" : "Preparando tu instalador BIMtools"}
-              </h1>
-              <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-muted-foreground">{message}</p>
             </div>
-
-            <div className="mt-10 grid gap-4 rounded-xl border border-border/70 bg-secondary/45 p-5 sm:grid-cols-2">
-              <div className="flex items-start gap-3">
-                <div className="mt-1 rounded-full bg-primary/12 p-2 text-primary">
-                  <Download className="h-4 w-4" />
-                </div>
-                <div>
-                  <p className="font-medium text-foreground">
-                    {locale === "en" ? "Latest installer" : "Ultimo instalador"}
-                  </p>
-                  <p className="mt-1 text-sm leading-6 text-muted-foreground">
-                    {locale === "en"
-                      ? "We are locating the most recent BIMtools release so you do not need to update links manually."
-                      : "Estamos ubicando la release mas reciente de BIMtools para que no tengas que actualizar enlaces manualmente."}
-                  </p>
-                </div>
+            <div className="border-t border-border pt-5">
+              <div className="flex items-center gap-2 text-primary">
+                <ArrowRight className="h-4 w-4" />
+                <p className="text-sm font-medium text-foreground">
+                  {locale === "en" ? "Automatic redirect" : "Redireccion automatica"}
+                </p>
               </div>
-              <div className="flex items-start gap-3">
-                <div className="mt-1 rounded-full bg-primary/12 p-2 text-primary">
-                  <ArrowRight className="h-4 w-4" />
-                </div>
-                <div>
-                  <p className="font-medium text-foreground">
-                    {locale === "en" ? "Automatic redirect" : "Redireccion automatica"}
-                  </p>
-                  <p className="mt-1 text-sm leading-6 text-muted-foreground">
-                    {locale === "en"
-                      ? "If the direct installer cannot be resolved, we will open the latest GitHub release page."
-                      : "Si no se puede resolver el instalador directo, abriremos la pagina de la ultima release en GitHub."}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-8 flex justify-center">
-              <Button asChild variant="outline" className="">
-                <a href={latestReleasePage} target="_blank" rel="noreferrer">
-                  {locale === "en" ? "Open latest release manually" : "Abrir ultima release manualmente"}
-                </a>
-              </Button>
+              <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                {locale === "en"
+                  ? "If the direct installer cannot be resolved, we will open the latest GitHub release page."
+                  : "Si no se puede resolver el instalador directo, abriremos la pagina de la ultima release en GitHub."}
+              </p>
             </div>
           </div>
+
+          <div className="mt-12 flex justify-center">
+            <Button
+              asChild
+              variant="outline"
+              className="rounded-none border-border text-xs font-medium uppercase tracking-[0.14em] hover:bg-secondary"
+            >
+              <a href={latestReleasePage} target="_blank" rel="noreferrer">
+                {locale === "en" ? "Open latest release manually" : "Abrir ultima release manualmente"}
+              </a>
+            </Button>
+          </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 }

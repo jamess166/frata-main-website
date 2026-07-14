@@ -10,9 +10,14 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Inter', 'sans-serif'],
-        headline: ['Space Grotesk', 'sans-serif'],
+        body: ['var(--font-sans)', 'sans-serif'],
+        headline: ['var(--font-display)', 'sans-serif'],
         code: ['monospace'],
+      },
+      fontSize: {
+        'display-xl': ['clamp(2.75rem, 6vw, 6.5rem)', { lineHeight: '0.95', letterSpacing: '-0.03em' }],
+        'display-lg': ['clamp(2.25rem, 4.5vw, 4.5rem)', { lineHeight: '1', letterSpacing: '-0.025em' }],
+        'display-md': ['clamp(1.75rem, 3vw, 3rem)', { lineHeight: '1.05', letterSpacing: '-0.02em' }],
       },
       colors: {
         background: 'hsl(var(--background))',

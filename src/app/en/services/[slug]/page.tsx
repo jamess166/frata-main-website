@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Eyebrow } from "@/components/site/eyebrow";
+import { NumberedRow } from "@/components/site/numbered-row";
+import { Reveal } from "@/components/site/reveal";
 import { serviceContentEn } from "@/lib/service-content-en";
 import type { ServiceSlug } from "@/lib/service-content";
 import { buildServiceSchema } from "@/lib/schema";
@@ -79,115 +81,156 @@ export default async function ServicePageEn({ params }: ServicePageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <div className="bg-background">
-      <section className="relative overflow-hidden border-b hero-gradient-animated">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_hsl(var(--primary)/0.16),_transparent_34%),radial-gradient(circle_at_85%_20%,_hsl(var(--accent)/0.12),_transparent_24%)] dark:opacity-0" />
-        <div className="container mx-auto px-4 pb-16 pt-14 sm:px-6 lg:px-8 lg:pb-24 lg:pt-20">
-          <Link href="/en/#services" className="relative z-10 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
-            <ArrowLeft className="h-4 w-4" />
-            Back to services
-          </Link>
 
-          <div className="relative z-10 mt-8 grid gap-12 lg:grid-cols-[1fr_0.95fr] lg:items-center">
-            <div className="max-w-3xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">BIM service</p>
-              <h1 className="mt-4 font-headline text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">{service.title}</h1>
-              <p className="mt-6 text-lg leading-8 text-muted-foreground">{service.intro}</p>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <Button asChild size="lg" className="px-7">
-                  <Link href="/en/#contact">Request proposal</Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="px-7">
-                  <Link href="/en/bimtools">
-                    View BIMtools
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </div>
+      {/* ── Hero ─────────────────────────────────────────────── */}
+      <section>
+        <div className="container mx-auto px-4 pb-16 pt-16 sm:px-6 lg:px-8 lg:pb-20 lg:pt-20">
+          <Reveal>
+            <Link
+              href="/en/services"
+              className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-primary"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              Back to services
+            </Link>
+          </Reveal>
+          <Reveal delay={100}>
+            <Eyebrow className="mt-10">BIM Service</Eyebrow>
+          </Reveal>
+          <Reveal delay={200}>
+            <h1 className="mt-6 max-w-4xl font-headline text-display-lg font-black text-foreground">
+              {service.title}
+            </h1>
+          </Reveal>
+          <Reveal delay={300}>
+            <p className="mt-8 max-w-2xl text-lg leading-8 text-muted-foreground">{service.intro}</p>
+          </Reveal>
+          <Reveal delay={400}>
+            <div className="mt-10 flex flex-wrap gap-4">
+              <Button asChild size="lg" className="rounded-none px-8 text-xs font-medium uppercase tracking-[0.14em]">
+                <Link href="/en/#contact">Request proposal</Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="rounded-none border-border px-8 text-xs font-medium uppercase tracking-[0.14em] hover:bg-secondary"
+              >
+                <Link href="/en/bimtools">
+                  View BIMtools
+                  <ArrowUpRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
             </div>
-
-            <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-slate-950 shadow-2xl shadow-slate-950/20">
-              <Image src={service.image} alt={service.imageAlt} width={1200} height={850} className="h-[360px] w-full object-cover opacity-85" />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                <p className="text-sm uppercase tracking-[0.2em] text-primary">{service.shortTitle}</p>
-                <p className="mt-2 text-lg text-slate-200">{service.description}</p>
-              </div>
+          </Reveal>
+        </div>
+        <Reveal delay={300}>
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="overflow-hidden">
+              <Image
+                src={service.image}
+                alt={service.imageAlt}
+                width={1600}
+                height={900}
+                priority
+                className="h-[300px] w-full object-cover grayscale sm:h-[400px] lg:h-[480px]"
+              />
             </div>
           </div>
-        </div>
+        </Reveal>
       </section>
 
-      <section className="container mx-auto px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
-        <div className="max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">Pillars</p>
-          <h2 className="mt-4 font-headline text-3xl font-bold tracking-tight sm:text-4xl">What this service solves</h2>
-        </div>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {service.pillars.map((pillar) => (
-            <Card key={pillar.title} className="rounded-xl border-border/70 bg-card/75">
-              <CardHeader>
-                <CardTitle className="font-headline text-2xl">{pillar.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm leading-7 text-muted-foreground">{pillar.description}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      <section className="border-y bg-secondary/45">
-        <div className="container mx-auto px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
-          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">Method</p>
-              <h2 className="mt-4 font-headline text-3xl font-bold tracking-tight sm:text-4xl">How we execute this kind of work</h2>
-            </div>
-            <div className="grid gap-5">
-              {service.process.map((item, index) => (
-                <div key={item.title} className="grid gap-4 rounded-xl border bg-background/80 p-6 sm:grid-cols-[72px_1fr]">
-                  <div className="font-headline text-3xl font-bold text-primary">{`0${index + 1}`}</div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-foreground">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-7 text-muted-foreground">{item.description}</p>
-                  </div>
+      {/* ── Pillars ──────────────────────────────────────────── */}
+      <section className="mt-24 border-t border-border lg:mt-32">
+        <div className="container mx-auto px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+          <Reveal>
+            <Eyebrow>Pillars</Eyebrow>
+          </Reveal>
+          <Reveal delay={100}>
+            <h2 className="mt-6 max-w-3xl font-headline text-display-md font-bold text-foreground">
+              What this service solves.
+            </h2>
+          </Reveal>
+          <div className="mt-14 grid gap-x-12 gap-y-10 md:grid-cols-3">
+            {service.pillars.map((pillar, i) => (
+              <Reveal key={pillar.title} delay={i * 80}>
+                <div className="border-t border-border pt-6">
+                  <h3 className="font-headline text-xl font-bold tracking-tight text-foreground">
+                    {pillar.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-7 text-muted-foreground">{pillar.description}</p>
                 </div>
-              ))}
-            </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="container mx-auto px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
-        <div className="max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">Outcomes</p>
-          <h2 className="mt-4 font-headline text-3xl font-bold tracking-tight sm:text-4xl">Impact a client should expect</h2>
-        </div>
-        <div className="mt-10 grid gap-4">
-          {service.outcomes.map((outcome) => (
-            <div key={outcome} className="flex items-start gap-3 rounded-2xl border bg-card/75 p-5">
-              <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
-              <p className="text-sm leading-7 text-muted-foreground">{outcome}</p>
-            </div>
-          ))}
+      {/* ── Method ───────────────────────────────────────────── */}
+      <section className="border-t border-border">
+        <div className="container mx-auto grid gap-14 px-4 py-24 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8 lg:py-32">
+          <div>
+            <Reveal>
+              <Eyebrow>Method</Eyebrow>
+            </Reveal>
+            <Reveal delay={100}>
+              <h2 className="mt-6 font-headline text-display-md font-bold text-foreground">
+                How we approach this kind of engagement.
+              </h2>
+            </Reveal>
+          </div>
+          <div>
+            {service.process.map((item, index) => (
+              <Reveal key={item.title} delay={index * 80}>
+                <NumberedRow
+                  index={`0${index + 1}`}
+                  title={item.title}
+                  description={item.description}
+                />
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="border-t bg-[linear-gradient(180deg,_transparent,_hsl(var(--primary)/0.06))]">
-        <div className="container mx-auto px-4 py-20 text-center sm:px-6 lg:px-8 lg:py-24">
-          <h2 className="font-headline text-3xl font-bold sm:text-4xl">
-            If your BIM operation needs stronger processes or custom software capability, this is the next step.
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-            We can support you through consulting, modeling, on-site assistance or technical development for Revit and Tekla.
-          </p>
-          <Button asChild size="lg" className="mt-8 px-7">
-            <Link href="/en/#contact">Talk to Frata</Link>
-          </Button>
+      {/* ── Outcomes ─────────────────────────────────────────── */}
+      <section className="border-t border-border">
+        <div className="container mx-auto px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+          <Reveal>
+            <Eyebrow>Outcomes</Eyebrow>
+          </Reveal>
+          <Reveal delay={100}>
+            <h2 className="mt-6 max-w-3xl font-headline text-display-md font-bold text-foreground">
+              Impact you can expect.
+            </h2>
+          </Reveal>
+          <div className="mt-12 grid gap-x-12 gap-y-8 sm:grid-cols-2">
+            {service.outcomes.map((outcome, i) => (
+              <Reveal key={outcome} delay={i * 60}>
+                <div className="border-t border-border pt-6">
+                  <p className="text-sm leading-7 text-foreground/80">{outcome}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
-    </div>
+
+      {/* ── CTA ──────────────────────────────────────────────── */}
+      <section className="border-t border-border">
+        <div className="container mx-auto px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+          <Reveal>
+            <h2 className="max-w-4xl font-headline text-display-lg font-bold text-foreground">
+              Is this the problem you need solved?
+            </h2>
+          </Reveal>
+          <Reveal delay={100}>
+            <Button asChild size="lg" className="mt-10 rounded-none px-8 text-xs font-medium uppercase tracking-[0.14em]">
+              <Link href="/en/#contact">Talk to Frata</Link>
+            </Button>
+          </Reveal>
+        </div>
+      </section>
     </>
   );
 }

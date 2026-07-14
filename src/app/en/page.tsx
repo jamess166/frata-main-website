@@ -1,28 +1,16 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowRight,
-  Blocks,
-  Bot,
-  Building2,
-  Cable,
-  CheckCircle2,
-  Code2,
-  Compass,
-  HardHat,
-  Layers3,
-  ScanSearch,
-  ShieldCheck,
-  Sparkles,
-} from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { CtaCards } from "@/components/home/cta-cards";
 import { HomeContactSection } from "@/components/home/contact-section";
 import { SocialProofSection } from "@/components/home/social-proof-section";
+import { Eyebrow } from "@/components/site/eyebrow";
+import { NumberedRow } from "@/components/site/numbered-row";
+import { Reveal } from "@/components/site/reveal";
+import { Stat } from "@/components/site/stat";
 import { buildOrganizationSchema } from "@/lib/schema";
+import { caseStudies } from "@/lib/case-studies";
 
 export const metadata: Metadata = {
   title: {
@@ -61,69 +49,74 @@ export const metadata: Metadata = {
 
 const services = [
   {
+    index: "01",
     title: "BIM consulting",
     description:
-      "Strategy, implementation, standards, coordination and support for companies that need to structure their BIM operation.",
-    icon: Compass,
+      "Strategy, standards, coordination and hands-on support for companies that need to structure their BIM operation.",
     href: "/en/services/bim-training-and-implementation",
   },
   {
+    index: "02",
     title: "BIM modeling",
     description:
-      "Coordinated architectural, structural and MEP models for design, documentation, quantity takeoff and technical control.",
-    icon: Layers3,
+      "Coordinated architecture, structure and MEP models for design, construction, quantities and document control.",
     href: "/en/services/comprehensive-bim-modeling",
   },
   {
+    index: "03",
     title: "Revit and Tekla development",
     description:
-      "Add-ins, automations and technical applications for repetitive tasks, exports, parameters and validations.",
-    icon: Code2,
+      "Addins, automation and technical applications that remove manual work from your production workflow.",
     href: "/en/services/custom-bim-software-development",
   },
   {
+    index: "04",
     title: "On-site BIM support",
     description:
-      "Direct assistance to resolve clashes, review models and connect digital information with real execution.",
-    icon: HardHat,
+      "Direct assistance to resolve clashes, review models and connect the model with real execution.",
     href: "/en/services/on-site-bim-construction-support",
   },
 ];
 
-const proofPoints = [
-  "BIM consulting focused on real operations, not only on presentation-level methodology.",
-  "Detailed structural and multidisciplinary BIM modeling for design, control and fabrication support.",
-  "BIMtools as a real product line tied to operational pain points inside Revit workflows.",
-  "The ability to build custom software on top of Revit API, IFC and technical BIM processes.",
-];
-
-const capabilities = [
-  {
-    title: "BIM standards and coordination",
-    description: "Better organized models, more consistent deliverables and less friction between disciplines.",
-    icon: ShieldCheck,
-  },
-  {
-    title: "Automation of repetitive work",
-    description: "Fewer lost hours on manual tasks, exports and parameter management.",
-    icon: Bot,
-  },
-  {
-    title: "Tools for technical teams",
-    description: "Interfaces and utilities designed for Revit, Tekla and documentation-heavy BIM workflows.",
-    icon: Blocks,
-  },
+const manifesto = [
+  "We implement BIM in real construction and technical-office processes, not in slide decks.",
+  "We model structures and fabrication detail with control and traceability.",
+  "We build our own addins because we use them in our own production.",
+  "We build on Revit API, IFC and open workflows. No black boxes.",
 ];
 
 const process = [
-  { step: "01", title: "Technical assessment", description: "We review your BIM workflow, pain points, software stack and business goals." },
-  { step: "02", title: "Scope definition", description: "We prioritize deliverables, standards, automation or custom development." },
-  { step: "03", title: "Implementation", description: "We execute modeling, consulting, support or development with clear follow-up." },
-  { step: "04", title: "Scaling and support", description: "We document, train and leave a stronger base for long-term growth." },
+  {
+    index: "01",
+    title: "Technical diagnosis",
+    description: "We review your BIM workflow, pain points, software and business goals.",
+  },
+  {
+    index: "02",
+    title: "Scope definition",
+    description: "We prioritize deliverables, standards, automation or custom development.",
+  },
+  {
+    index: "03",
+    title: "Implementation",
+    description: "We execute modeling, consulting, support or development with clear tracking.",
+  },
+  {
+    index: "04",
+    title: "Scaling and support",
+    description: "We document, train and leave a base to grow with less manual dependency.",
+  },
 ];
 
-export default function EnglishHomePage() {
+const techStack = ["Revit API", "C#", ".NET 8", "WPF", "Dynamo", "IFC", "Open BIM"];
+
+const featuredSlugs = ["estadio-chepen", "interoperabilidad-tekla-revit", "puente-beirut"];
+
+export default function HomeEn() {
   const jsonLd = buildOrganizationSchema();
+  const featured = featuredSlugs
+    .map((slug) => caseStudies.find((c) => c.slug === slug))
+    .filter((c): c is NonNullable<typeof c> => Boolean(c));
 
   return (
     <>
@@ -131,257 +124,294 @@ export default function EnglishHomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <div className="bg-background">
-      <section className="relative overflow-hidden hero-gradient-animated">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_hsl(var(--primary)/0.18),_transparent_32%),radial-gradient(circle_at_75%_18%,_hsl(var(--accent)/0.16),_transparent_24%)]" />
-        <div className="container mx-auto px-4 pb-20 pt-16 sm:px-6 lg:px-8 lg:pb-28 lg:pt-24">
-          <div className="grid gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-            <div className="relative z-10 max-w-3xl">
-              <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
-                <Sparkles className="h-4 w-4" />
-                Frata Ingenieros
-              </div>
-              <h1 className="mt-6 font-headline text-5xl font-bold tracking-tight text-foreground sm:text-6xl xl:text-7xl">
-                BIM consulting, modeling and technical development for teams that need to move faster with more control.
-              </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
-                We help AEC companies structure BIM operations, model with technical rigor and develop applications for
-                Revit or Tekla that reduce manual work and improve delivery quality.
-              </p>
-              <CtaCards locale="en" />
-              <div className="mt-10 grid gap-4 sm:grid-cols-3">
-                <div className="rounded-3xl border border-border/70 bg-card/70 p-5 shadow-sm">
-                  <p className="text-3xl font-bold text-primary">BIM</p>
-                  <p className="mt-2 text-sm text-muted-foreground">Consulting, standards and digital coordination.</p>
-                </div>
-                <div className="rounded-3xl border border-border/70 bg-card/70 p-5 shadow-sm">
-                  <p className="text-3xl font-bold text-primary">Revit</p>
-                  <p className="mt-2 text-sm text-muted-foreground">Add-ins, automation and productivity improvement.</p>
-                </div>
-                <div className="rounded-3xl border border-border/70 bg-card/70 p-5 shadow-sm">
-                  <p className="text-3xl font-bold text-primary">Tekla</p>
-                  <p className="mt-2 text-sm text-muted-foreground">Technical development for structural and fabrication workflows.</p>
-                </div>
-              </div>
-            </div>
 
-            <div className="relative lg:pl-10">
-              <div className="absolute -left-4 top-8 hidden h-40 w-40 rounded-full bg-accent/15 blur-3xl lg:block" />
-              <div className="grid gap-5">
-                <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-slate-950 shadow-2xl shadow-slate-950/25">
-                  <Image src="/images/Ingenieria_Detalle.webp" alt="Structural reinforcement BIM model in Tekla Structures" width={1200} height={900} priority className="h-[340px] w-full object-cover opacity-80" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/25 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                    <p className="text-sm uppercase tracking-[0.2em] text-primary">BIM operations</p>
-                    <p className="mt-2 text-2xl font-semibold">Coordinated models, clear workflows and traceable deliverables.</p>
-                  </div>
-                </div>
-                <div className="grid gap-5 sm:grid-cols-2">
-                  <Card className="rounded-xl border-primary/15 bg-card/85">
-                    <CardContent className="p-6">
-                      <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                        <ScanSearch className="h-5 w-5" />
-                      </div>
-                      <p className="mt-5 text-lg font-semibold">Assessment and control</p>
-                      <p className="mt-2 text-sm leading-7 text-muted-foreground">
-                        We review parameters, workflows, exports and technical bottlenecks before scaling.
-                      </p>
-                    </CardContent>
-                  </Card>
-                  <Card className="rounded-xl border-accent/15 bg-card/85">
-                    <CardContent className="p-6">
-                      <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-accent/10 text-accent">
-                        <Cable className="h-5 w-5" />
-                      </div>
-                      <p className="mt-5 text-lg font-semibold">Business-aligned development</p>
-                      <p className="mt-2 text-sm leading-7 text-muted-foreground">
-                        We do not just code. We build tools that matter to technical and production teams.
-                      </p>
-                    </CardContent>
-                  </Card>
-                </div>
-              </div>
+      {/* ── Hero ─────────────────────────────────────────────── */}
+      <section className="flex min-h-[85svh] flex-col justify-end">
+        <div className="container mx-auto px-4 pb-16 pt-24 sm:px-6 lg:px-8 lg:pb-20">
+          <Reveal>
+            <Eyebrow>BIM Consulting · Peru → LATAM</Eyebrow>
+          </Reveal>
+          <Reveal delay={100}>
+            <h1 className="mt-8 max-w-5xl font-headline text-display-xl font-black text-foreground">
+              BIM that gets built.
+              <br />
+              <span className="text-muted-foreground">Not BIM that gets presented.</span>
+            </h1>
+          </Reveal>
+          <Reveal delay={200}>
+            <p className="mt-8 max-w-2xl text-lg leading-8 text-muted-foreground">
+              Consulting, modeling and software development for Revit and Tekla.
+              We help AEC companies turn BIM into real production capacity.
+            </p>
+          </Reveal>
+          <Reveal delay={300}>
+            <div className="mt-10 flex flex-wrap gap-4">
+              <Button asChild size="lg" className="rounded-none px-8 text-xs font-medium uppercase tracking-[0.14em]">
+                <Link href="/en/#contact">Let&apos;s talk</Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="rounded-none border-border px-8 text-xs font-medium uppercase tracking-[0.14em] hover:bg-secondary"
+              >
+                <Link href="/en/services">View services</Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="rounded-none border-primary/60 px-8 text-xs font-medium uppercase tracking-[0.14em] text-primary hover:border-primary hover:bg-primary/10 hover:text-primary"
+              >
+                <Link href="/en/bimtools">
+                  BIMtools
+                  <ArrowUpRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
             </div>
+          </Reveal>
+
+          <Reveal delay={400}>
+            <div className="mt-20 grid grid-cols-1 gap-8 sm:grid-cols-3">
+              {/* TODO owner: confirm real project count */}
+              <Stat value={50} suffix="+" label="BIMtools users" />
+              <Stat value={21} label="Published addins" />
+              <Stat value={30} suffix="+" label="BIM projects delivered" />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── Manifesto ────────────────────────────────────────── */}
+      <section className="border-t border-border">
+        <div className="container mx-auto px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+          <Reveal>
+            <Eyebrow>Approach</Eyebrow>
+          </Reveal>
+          <Reveal delay={100}>
+            <h2 className="mt-6 max-w-4xl font-headline text-display-lg font-bold text-foreground">
+              We are not vendors.
+              <br />
+              <span className="text-muted-foreground">We are your technical team.</span>
+            </h2>
+          </Reveal>
+          <div className="mt-16 grid gap-x-12 gap-y-10 sm:grid-cols-2">
+            {manifesto.map((point, i) => (
+              <Reveal key={point} delay={i * 100}>
+                <div className="border-t border-border pt-6">
+                  <p className="text-sm leading-7 text-foreground/80">{point}</p>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="border-y bg-secondary/45">
-        <div className="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
-          <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+      {/* ── Services ─────────────────────────────────────────── */}
+      <section id="services" className="border-t border-border">
+        <div className="container mx-auto px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+          <Reveal>
+            <Eyebrow>Services</Eyebrow>
+          </Reveal>
+          <Reveal delay={100}>
+            <h2 className="mt-6 max-w-3xl font-headline text-display-md font-bold text-foreground">
+              The only thing we offer: what we do well.
+            </h2>
+          </Reveal>
+          <div className="mt-16">
+            {services.map((service, i) => (
+              <Reveal key={service.index} delay={i * 80}>
+                <NumberedRow
+                  index={service.index}
+                  title={service.title}
+                  description={service.description}
+                  href={service.href}
+                  cta="View service"
+                />
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Projects ─────────────────────────────────────────── */}
+      <section className="border-t border-border">
+        <div className="container mx-auto px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+          <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">Positioning</p>
-              <h2 className="mt-4 font-headline text-3xl font-bold tracking-tight sm:text-4xl">
-                Where a BIM website should demonstrate authority
-              </h2>
+              <Reveal>
+                <Eyebrow>Projects</Eyebrow>
+              </Reveal>
+              <Reveal delay={100}>
+                <h2 className="mt-6 font-headline text-display-md font-bold text-foreground">
+                  Work that is already built.
+                </h2>
+              </Reveal>
             </div>
-            <div className="grid gap-4">
-              {proofPoints.map((point) => (
-                <div key={point} className="flex items-start gap-3 rounded-2xl border bg-background/80 p-4">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
-                  <p className="text-sm leading-7 text-muted-foreground">{point}</p>
-                </div>
-              ))}
-            </div>
+            <Reveal delay={200}>
+              <Link
+                href="/en/casos"
+                className="group inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-primary"
+              >
+                View all case studies
+                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </Link>
+            </Reveal>
+          </div>
+
+          <div className="mt-16 space-y-0">
+            {featured.map((cs, i) => (
+              <Reveal key={cs.slug} delay={i * 80}>
+                <Link href="/en/casos" className="block">
+                  <article className="group grid gap-8 border-t border-border py-12 lg:grid-cols-[1fr_1fr] lg:gap-16">
+                    <div>
+                      <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
+                        {cs.client} · {cs.sectorEn ?? cs.sector}
+                      </p>
+                      <h3 className="mt-4 font-headline text-2xl font-bold tracking-tight text-foreground transition-colors group-hover:text-primary sm:text-3xl">
+                        {cs.serviceEn ?? cs.service}
+                      </h3>
+                      <p className="mt-4 max-w-xl text-sm leading-7 text-muted-foreground">
+                        {cs.resultEn ?? cs.result}
+                      </p>
+                      <div className="mt-6 flex flex-wrap gap-3">
+                        {cs.technologies.map((tech) => (
+                          <span
+                            key={tech}
+                            className="text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="flex flex-col justify-between gap-8">
+                      {cs.image ? (
+                        <div className="overflow-hidden">
+                          <Image
+                            src={cs.image}
+                            alt={cs.serviceEn ?? cs.service}
+                            width={900}
+                            height={560}
+                            className="h-56 w-full object-cover grayscale transition duration-500 group-hover:grayscale-0 lg:h-64"
+                          />
+                        </div>
+                      ) : null}
+                      {cs.metrics && cs.metrics.length > 0 && (
+                        <div className="grid grid-cols-2 gap-6">
+                          {cs.metrics.map((m) => (
+                            <div key={m.labelEn}>
+                              <p className="font-headline text-3xl font-bold text-primary sm:text-4xl">
+                                {m.value}
+                              </p>
+                              <p className="mt-2 text-xs leading-5 text-muted-foreground">
+                                {m.labelEn}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </article>
+                </Link>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
-      <section id="services" className="container mx-auto px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-        <div className="max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">Services</p>
-          <h2 className="mt-4 font-headline text-4xl font-bold tracking-tight sm:text-5xl">
-            Clear capabilities for companies that take BIM seriously
-          </h2>
-          <p className="mt-5 text-lg leading-8 text-muted-foreground">
-            Your offer should read from a business and delivery perspective. These are the lines that deserve the
-            strongest visibility across the site.
-          </p>
+      {/* ── Process ──────────────────────────────────────────── */}
+      <section className="border-t border-border">
+        <div className="container mx-auto grid gap-14 px-4 py-24 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8 lg:py-32">
+          <div>
+            <Reveal>
+              <Eyebrow>Method</Eyebrow>
+            </Reveal>
+            <Reveal delay={100}>
+              <h2 className="mt-6 font-headline text-display-md font-bold text-foreground">
+                A clear process, from diagnosis to production.
+              </h2>
+            </Reveal>
+          </div>
+          <div>
+            {process.map((step, i) => (
+              <Reveal key={step.index} delay={i * 80}>
+                <NumberedRow
+                  index={step.index}
+                  title={step.title}
+                  description={step.description}
+                />
+              </Reveal>
+            ))}
+          </div>
         </div>
+      </section>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-2">
-          {services.map((service) => (
-            <Card key={service.title} className="gradient-border group rounded-2xl border-border/70 bg-card/75 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl">
-              <CardHeader>
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                    <service.icon className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <CardTitle className="font-headline text-2xl">{service.title}</CardTitle>
-                    <CardDescription className="mt-3 text-sm leading-7 text-muted-foreground">{service.description}</CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <Button asChild variant="link" className="px-0">
-                  <Link href={service.href}>
-                    View service details
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
+      {/* ── BIMtools ─────────────────────────────────────────── */}
+      <section className="border-t border-border">
+        <div className="container mx-auto grid gap-14 px-4 py-24 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8 lg:py-32">
+          <div>
+            <Reveal>
+              <Eyebrow>Own product · BIMtools</Eyebrow>
+            </Reveal>
+            <Reveal delay={100}>
+              <h2 className="mt-6 font-headline text-display-md font-bold text-foreground">
+                We build the tools we use.
+              </h2>
+            </Reveal>
+            <Reveal delay={200}>
+              <p className="mt-6 max-w-xl text-base leading-8 text-muted-foreground">
+                BIMtools was born inside our own projects: Revit addins that remove
+                repetitive tasks, manual exports and parameter control. Today technical
+                teams across LATAM rely on them.
+              </p>
+            </Reveal>
+            <Reveal delay={300}>
+              <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2">
+                {techStack.map((tech) => (
+                  <span
+                    key={tech}
+                    className="text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </Reveal>
+            <Reveal delay={400}>
+              <div className="mt-10 flex flex-wrap gap-4">
+                <Button asChild size="lg" className="rounded-none px-8 text-xs font-medium uppercase tracking-[0.14em]">
+                  <Link href="/en/bimtools">Explore BIMtools</Link>
                 </Button>
-              </CardContent>
-            </Card>
-          ))}
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="rounded-none border-border px-8 text-xs font-medium uppercase tracking-[0.14em] hover:bg-secondary"
+                >
+                  <Link href="/en/services/custom-bim-software-development">Custom development</Link>
+                </Button>
+              </div>
+            </Reveal>
+          </div>
+          <Reveal delay={200}>
+            <div className="overflow-hidden">
+              <Image
+                src="/images/softwareDeveloper.webp"
+                alt="BIM software development for Revit and Tekla"
+                width={1200}
+                height={800}
+                loading="lazy"
+                className="h-80 w-full object-cover grayscale lg:h-[420px]"
+              />
+            </div>
+          </Reveal>
         </div>
       </section>
 
       <SocialProofSection locale="en" />
 
-      <section className="overflow-hidden border-y bg-slate-950 text-white">
-        <div className="container mx-auto grid gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8 lg:py-24">
-          <div className="max-w-xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">BIM software</p>
-            <h2 className="mt-4 font-headline text-4xl font-bold tracking-tight sm:text-5xl">
-              Application development for Revit or Tekla with real technical criteria
-            </h2>
-            <p className="mt-6 text-lg leading-8 text-slate-300">
-              This is a real competitive advantage. Not every consultancy can solve production problems with purpose-built software, and that capability should be central to your site.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Button asChild size="lg" className="bg-white text-slate-950 hover:bg-white/90">
-                <Link href="/en/services/custom-bim-software-development">Explore BIM development</Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="border-white/20 bg-transparent text-white hover:bg-white/10">
-                <Link href="/en/bimtools">View BIMtools</Link>
-              </Button>
-            </div>
-            <div className="mt-6 flex flex-wrap gap-2">
-              {["Revit API", "C#", ".NET 8", "WPF", "Dynamo", "IFC", "Open BIM"].map((tech) => (
-                <Badge key={tech} variant="outline" className="rounded-full border-white/20 text-white/60">
-                  {tech}
-                </Badge>
-              ))}
-            </div>
-          </div>
-
-          <div className="grid gap-5 sm:grid-cols-2">
-            {capabilities.map((item) => (
-              <Card key={item.title} className="rounded-xl border-white/10 bg-white/5 text-white">
-                <CardContent className="p-6">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                    <item.icon className="h-6 w-6" />
-                  </div>
-                  <h3 className="mt-5 text-xl font-semibold">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-300">{item.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-            <div className="overflow-hidden rounded-xl border border-white/10 sm:col-span-2">
-              <Image src="/images/softwareDeveloper.webp" alt="BIM development for Revit and Tekla" width={1200} height={700} loading="lazy" className="h-64 w-full object-cover opacity-80" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="container mx-auto px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-        <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">Method</p>
-            <h2 className="mt-4 font-headline text-4xl font-bold tracking-tight sm:text-5xl">
-              A working model that turns BIM into operational capability
-            </h2>
-            <p className="mt-5 text-lg leading-8 text-muted-foreground">
-              When someone lands on your site, they need to understand fast how you work and why that reduces risk.
-            </p>
-          </div>
-
-          <div className="grid gap-5">
-            {process.map((item) => (
-              <div key={item.step} className="grid gap-4 rounded-xl border bg-card/75 p-6 sm:grid-cols-[88px_1fr]">
-                <div className="font-headline text-4xl font-bold text-primary">{item.step}</div>
-                <div>
-                  <h3 className="text-xl font-semibold text-foreground">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-7 text-muted-foreground">{item.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="border-y bg-secondary/40">
-        <div className="container mx-auto grid gap-10 px-4 py-20 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:py-24">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">BIMtools</p>
-            <h2 className="mt-4 font-headline text-4xl font-bold tracking-tight sm:text-5xl">
-              Your product can reinforce the value of your services
-            </h2>
-            <p className="mt-6 text-lg leading-8 text-muted-foreground">
-              BIMtools and its manuals are now aligned with your actual add-ins. That helps you present product know-how, automation capability and technical depth inside the same commercial website.
-            </p>
-          </div>
-          <div className="space-y-4">
-            <div className="rounded-xl border bg-background/80 p-5">
-              <div className="flex items-center gap-3">
-                <Building2 className="h-5 w-5 text-primary" />
-                <p className="font-medium">Stronger commercial narrative</p>
-              </div>
-              <p className="mt-2 text-sm leading-7 text-muted-foreground">
-                Your tools stop looking like isolated extras and become part of a mature BIM offer.
-              </p>
-            </div>
-            <div className="rounded-xl border bg-background/80 p-5">
-              <div className="flex items-center gap-3">
-                <Code2 className="h-5 w-5 text-primary" />
-                <p className="font-medium">Better long-tail SEO</p>
-              </div>
-              <p className="mt-2 text-sm leading-7 text-muted-foreground">
-                Every documented add-in opens room for technical keywords related to Revit and BIM productivity.
-              </p>
-            </div>
-            <Button asChild size="lg" className="mt-2 px-7">
-              <Link href="/en/bimtools">
-                Explore BIMtools
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
       <HomeContactSection locale="en" />
-    </div>
     </>
   );
 }

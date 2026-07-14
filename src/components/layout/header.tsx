@@ -3,33 +3,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import {
-  BookOpen,
-  Briefcase,
-  ChevronDown,
-  FolderOpen,
-  Home,
-  Layers3,
-  Menu,
-  MessageSquare,
-  Users,
-  X,
-} from "lucide-react";
+import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { ThemeToggle } from "@/components/theme-toggle";
 import { LocaleSwitcher } from "@/components/layout/locale-switcher";
 
 const services = {
@@ -69,16 +51,11 @@ function NavLink({
   return (
     <Link
       href={href}
-      className={`relative font-medium transition-colors hover:text-primary ${
-        active ? "text-primary" : "text-foreground/70"
+      className={`text-xs font-medium uppercase tracking-[0.14em] transition-colors hover:text-foreground ${
+        active ? "text-primary" : "text-muted-foreground"
       }`}
     >
       {children}
-      <span
-        className={`absolute -bottom-[22px] left-1/2 h-[3px] w-[3px] -translate-x-1/2 rounded-full bg-primary transition-all duration-300 ${
-          active ? "opacity-100 scale-100" : "opacity-0 scale-0"
-        }`}
-      />
     </Link>
   );
 }
@@ -87,36 +64,34 @@ function ServicesDropdown({ locale, pathname }: { locale: "es" | "en"; pathname:
   const items = services[locale];
   const base = locale === "en" ? "/en" : "";
   const label = locale === "en" ? "Services" : "Servicios";
-  const allLabel = locale === "en" ? "All services →" : "Ver todos →";
+  const allLabel = locale === "en" ? "All services" : "Ver todos";
   const active = pathname.includes("/services");
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <button
-          className={`relative flex items-center gap-1 font-medium transition-colors hover:text-primary focus:outline-none ${
-            active ? "text-primary" : "text-foreground/70"
+          className={`flex items-center gap-1 text-xs font-medium uppercase tracking-[0.14em] transition-colors hover:text-foreground focus:outline-none ${
+            active ? "text-primary" : "text-muted-foreground"
           }`}
         >
           {label}
           <ChevronDown className="h-3 w-3 opacity-60 transition-transform duration-200 [[data-state=open]>&]:rotate-180" />
-          <span
-            className={`absolute -bottom-[22px] left-1/2 h-[3px] w-[3px] -translate-x-1/2 rounded-full bg-primary transition-all duration-300 ${
-              active ? "opacity-100 scale-100" : "opacity-0 scale-0"
-            }`}
-          />
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="start" className="w-72 rounded-2xl p-2 shadow-xl">
-        <DropdownMenuItem asChild className="rounded-xl">
-          <Link href={`${base}/services`} className="font-semibold text-primary">
+      <DropdownMenuContent align="start" className="w-80 border-border bg-popover p-0">
+        <DropdownMenuItem asChild className="rounded-none border-b border-border px-4 py-3">
+          <Link href={`${base}/services`} className="flex items-center justify-between text-xs font-medium uppercase tracking-[0.14em] text-primary">
             {allLabel}
+            <ArrowUpRight className="h-3.5 w-3.5" />
           </Link>
         </DropdownMenuItem>
-        <div className="my-1 h-px bg-border/60" />
-        {items.map((service) => (
-          <DropdownMenuItem key={service.slug} asChild className="rounded-xl">
-            <Link href={`${base}/services/${service.slug}`}>{service.title}</Link>
+        {items.map((service, i) => (
+          <DropdownMenuItem key={service.slug} asChild className="rounded-none px-4 py-3">
+            <Link href={`${base}/services/${service.slug}`} className="flex items-baseline gap-3">
+              <span className="font-code text-[10px] text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
+              <span className="text-sm">{service.title}</span>
+            </Link>
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
@@ -150,73 +125,57 @@ export function Header() {
   const labels = {
     es: {
       home: "Inicio", about: "Nosotros", bimtools: "BIMtools",
-      casos: "Casos", contact: "Contacto", ctaLabel: "Solicitar propuesta",
-      navSection: "Navegación", productsSection: "Productos",
+      casos: "Casos", contact: "Contacto", services: "Servicios",
+      manuals: "Manuales",
     },
     en: {
       home: "Home", about: "About", bimtools: "BIMtools",
-      casos: "Case Studies", contact: "Contact", ctaLabel: "Request proposal",
-      navSection: "Navigation", productsSection: "Products",
+      casos: "Case Studies", contact: "Contact", services: "Services",
+      manuals: "Manuals",
     },
   } as const;
 
   const t = labels[locale];
 
-  const mainNavItems = [
-    { href: base || "/", label: t.home, Icon: Home },
-    { href: `${base}/about`, label: t.about, Icon: Users },
-    { href: `${base}/casos`, label: t.casos, Icon: FolderOpen },
-  ];
-
-  const productNavItems = [
-    { href: `${base}/bimtools`, label: t.bimtools, Icon: Layers3 },
+  const mobileNavItems = [
+    { href: base || "/", label: t.home },
+    { href: `${base}/about`, label: t.about },
+    { href: `${base}/services`, label: t.services },
+    { href: `${base}/casos`, label: t.casos },
+    { href: `${base}/bimtools`, label: t.bimtools },
+    { href: `${base}/bimtools/manual`, label: t.manuals },
   ];
 
   return (
     <>
       <header
-        className={`sticky top-0 z-50 w-full border-b transition-all duration-300 ${
-          scrolled
-            ? "bg-background/96 shadow-sm backdrop-blur-lg"
-            : "bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60"
+        className={`sticky top-0 z-50 w-full border-b border-border transition-colors duration-300 ${
+          scrolled ? "bg-background/95 backdrop-blur-md" : "bg-background"
         }`}
       >
-        <div className="container mx-auto flex h-16 items-center px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
+          <Link href={base || "/"} className="flex items-center opacity-90 transition-opacity hover:opacity-100">
+            <Image
+              src="/images/logo-light.svg"
+              alt="Frata Ingenieros"
+              width={87}
+              height={29}
+              priority
+            />
+          </Link>
 
-          {/* desktop: logo + nav */}
-          <div className="hidden items-center md:flex flex-1">
-            <Link href={base || "/"} className="mr-8 flex items-center group">
-              <Image
-                src="/images/logo-dark.svg"
-                alt="Frata BIM Logo"
-                width={87}
-                height={29}
-                className="dark:hidden opacity-90 transition-opacity group-hover:opacity-100"
-                priority
-              />
-              <Image
-                src="/images/logo-light.svg"
-                alt="Frata BIM Logo"
-                width={87}
-                height={29}
-                className="hidden dark:block opacity-90 transition-opacity group-hover:opacity-100"
-                priority
-              />
-            </Link>
-            <nav className="flex items-center gap-6 text-sm">
-              <NavLink href={base || "/"} pathname={pathname}>{t.home}</NavLink>
-              <NavLink href={`${base}/about`} pathname={pathname}>{t.about}</NavLink>
-              <ServicesDropdown locale={locale} pathname={pathname} />
-              <NavLink href={`${base}/bimtools`} pathname={pathname}>{t.bimtools}</NavLink>
-              <NavLink href={`${base}/casos`} pathname={pathname}>{t.casos}</NavLink>
-            </nav>
-          </div>
+          {/* desktop nav */}
+          <nav className="hidden items-center gap-7 md:flex">
+            <NavLink href={base || "/"} pathname={pathname}>{t.home}</NavLink>
+            <NavLink href={`${base}/about`} pathname={pathname}>{t.about}</NavLink>
+            <ServicesDropdown locale={locale} pathname={pathname} />
+            <NavLink href={`${base}/casos`} pathname={pathname}>{t.casos}</NavLink>
+            <NavLink href={`${base}/bimtools`} pathname={pathname}>{t.bimtools}</NavLink>
+          </nav>
 
-          {/* desktop: right side */}
-          <div className="hidden md:flex items-center gap-3 ml-auto">
+          <div className="hidden items-center gap-4 md:flex">
             <LocaleSwitcher />
-            <ThemeToggle />
-            <Button asChild size="sm" className="px-5">
+            <Button asChild size="sm" className="rounded-none px-5 text-xs font-medium uppercase tracking-[0.14em]">
               <Link href={`${base}/#contact`}>{t.contact}</Link>
             </Button>
           </div>
@@ -224,206 +183,67 @@ export function Header() {
           {/* mobile: hamburger */}
           <button
             onClick={() => setMobileOpen(true)}
-            className="flex h-9 w-9 items-center justify-center rounded-xl border border-border/60 bg-card/80 text-foreground/70 transition-all hover:border-primary/40 hover:bg-primary/5 hover:text-primary md:hidden"
+            className="flex h-10 w-10 items-center justify-center text-foreground md:hidden"
             aria-label="Abrir menu"
             aria-expanded={mobileOpen}
           >
-            <Menu className="h-4 w-4" />
+            <Menu className="h-5 w-5" />
           </button>
-
-          {/* mobile: centered logo */}
-          <div className="flex flex-1 items-center justify-center md:hidden">
-            <Link href={base || "/"}>
-              <Image src="/images/logo-dark.svg" alt="Frata BIM Logo" width={80} height={27} className="dark:hidden" priority />
-              <Image src="/images/logo-light.svg" alt="Frata BIM Logo" width={80} height={27} className="hidden dark:block" priority />
-            </Link>
-          </div>
-
-          {/* mobile: right actions */}
-          <div className="flex items-center gap-2 md:hidden ml-auto">
-            <ThemeToggle />
-          </div>
         </div>
       </header>
 
-      {/* ── Mobile drawer ─────────────────────────────────────────── */}
+      {/* ── Mobile full-screen menu ─────────────────────────────── */}
       <div
-        className={`fixed inset-0 z-50 transition-all duration-300 ${
-          mobileOpen ? "pointer-events-auto" : "pointer-events-none"
+        className={`fixed inset-0 z-[60] flex flex-col bg-background transition-opacity duration-300 md:hidden ${
+          mobileOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         }`}
       >
-        {/* backdrop */}
-        <div
-          className={`absolute inset-0 bg-background/70 backdrop-blur-sm transition-opacity duration-300 ${
-            mobileOpen ? "opacity-100" : "opacity-0"
-          }`}
-          onClick={() => setMobileOpen(false)}
-          aria-hidden="true"
-        />
+        <div className="flex h-16 items-center justify-between border-b border-border px-4 sm:px-6">
+          <Link href={base || "/"} onClick={() => setMobileOpen(false)}>
+            <Image src="/images/logo-light.svg" alt="Frata Ingenieros" width={80} height={27} />
+          </Link>
+          <button
+            onClick={() => setMobileOpen(false)}
+            className="flex h-10 w-10 items-center justify-center text-foreground"
+            aria-label="Cerrar menu"
+          >
+            <X className="h-5 w-5" />
+          </button>
+        </div>
 
-        {/* drawer panel */}
-        <div
-          className={`absolute inset-y-0 left-0 flex w-[300px] flex-col bg-card shadow-2xl transition-transform duration-300 ease-in-out ${
-            mobileOpen ? "translate-x-0" : "-translate-x-full"
-          }`}
-        >
-          {/* top accent strip */}
-          <div className="h-1 w-full bg-gradient-to-r from-primary via-primary/70 to-accent/60 flex-shrink-0" />
-
-          {/* drawer header */}
-          <div className="flex items-center justify-between border-b px-5 py-4">
-            <Link href={base || "/"} onClick={() => setMobileOpen(false)}>
-              <Image src="/images/logo-dark.svg" alt="Frata BIM Logo" width={80} height={27} className="dark:hidden" />
-              <Image src="/images/logo-light.svg" alt="Frata BIM Logo" width={80} height={27} className="hidden dark:block" />
-            </Link>
-            <button
-              onClick={() => setMobileOpen(false)}
-              className="flex h-8 w-8 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
-              aria-label="Cerrar menu"
-            >
-              <X className="h-4 w-4" />
-            </button>
-          </div>
-
-          {/* nav items */}
-          <nav className="flex-1 overflow-y-auto px-3 py-4">
-
-            {/* main nav group */}
-            <p className="mb-1.5 px-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground/60">
-              {t.navSection}
-            </p>
-            <div className="space-y-0.5">
-              {mainNavItems.map(({ href, label, Icon }) => {
-                const active = isActive(href, pathname);
-                return (
-                  <Link
-                    key={href}
-                    href={href}
-                    onClick={() => setMobileOpen(false)}
-                    className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all ${
-                      active
-                        ? "bg-primary/10 text-primary"
-                        : "text-foreground/70 hover:bg-secondary hover:text-foreground"
-                    }`}
-                  >
-                    <div
-                      className={`flex h-7 w-7 items-center justify-center rounded-lg transition-colors ${
-                        active ? "bg-primary/15" : "bg-secondary"
-                      }`}
-                    >
-                      <Icon className={`h-3.5 w-3.5 ${active ? "text-primary" : "text-muted-foreground"}`} />
-                    </div>
-                    {label}
-                    {active && <span className="ml-auto h-1.5 w-1.5 rounded-full bg-primary" />}
-                  </Link>
-                );
-              })}
-
-              {/* services accordion inside main nav */}
-              <Accordion type="single" collapsible>
-                <AccordionItem value="services" className="border-0">
-                  <AccordionTrigger
-                    className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium hover:no-underline transition-all ${
-                      pathname.includes("/services")
-                        ? "text-primary [&>svg]:text-primary"
-                        : "text-foreground/70 hover:bg-secondary hover:text-foreground"
-                    }`}
-                  >
-                    <div className={`flex h-7 w-7 items-center justify-center rounded-lg transition-colors ${pathname.includes("/services") ? "bg-primary/15" : "bg-secondary"}`}>
-                      <Briefcase className={`h-3.5 w-3.5 ${pathname.includes("/services") ? "text-primary" : "text-muted-foreground"}`} />
-                    </div>
-                    {locale === "en" ? "Services" : "Servicios"}
-                  </AccordionTrigger>
-                  <AccordionContent className="pb-1 pt-0">
-                    <div className="ml-10 space-y-0.5 border-l-2 border-primary/15 pl-3">
-                      <Link
-                        href={`${base}/services`}
-                        onClick={() => setMobileOpen(false)}
-                        className="block rounded-lg px-3 py-2 text-xs font-semibold text-primary hover:bg-primary/5 transition-colors"
-                      >
-                        {locale === "en" ? "All services →" : "Ver todos →"}
-                      </Link>
-                      {services[locale].map((service) => (
-                        <Link
-                          key={service.slug}
-                          href={`${base}/services/${service.slug}`}
-                          onClick={() => setMobileOpen(false)}
-                          className={`block rounded-lg px-3 py-2 text-xs transition-colors ${
-                            pathname === `${base}/services/${service.slug}`
-                              ? "text-primary font-medium"
-                              : "text-muted-foreground hover:bg-secondary hover:text-foreground"
-                          }`}
-                        >
-                          {service.title}
-                        </Link>
-                      ))}
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
-            </div>
-
-            {/* products group */}
-            <p className="mb-1.5 mt-4 px-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground/60">
-              {t.productsSection}
-            </p>
-            <div className="space-y-0.5">
-              {productNavItems.map(({ href, label, Icon }) => {
-                const active = isActive(href, pathname);
-                return (
-                  <Link
-                    key={href}
-                    href={href}
-                    onClick={() => setMobileOpen(false)}
-                    className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all ${
-                      active
-                        ? "bg-primary/10 text-primary"
-                        : "text-foreground/70 hover:bg-secondary hover:text-foreground"
-                    }`}
-                  >
-                    <div
-                      className={`flex h-7 w-7 items-center justify-center rounded-lg transition-colors ${
-                        active ? "bg-primary/15" : "bg-secondary"
-                      }`}
-                    >
-                      <Icon className={`h-3.5 w-3.5 ${active ? "text-primary" : "text-muted-foreground"}`} />
-                    </div>
-                    {label}
-                    {active && <span className="ml-auto h-1.5 w-1.5 rounded-full bg-primary" />}
-                  </Link>
-                );
-              })}
-
+        <nav className="flex-1 overflow-y-auto px-4 py-8 sm:px-6">
+          {mobileNavItems.map(({ href, label }, i) => {
+            const active = isActive(href, pathname);
+            return (
               <Link
-                href={`${base}/bimtools/manual`}
+                key={href}
+                href={href}
                 onClick={() => setMobileOpen(false)}
-                className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all ${
-                  pathname.includes("/bimtools/manual")
-                    ? "bg-primary/10 text-primary"
-                    : "text-foreground/70 hover:bg-secondary hover:text-foreground"
-                }`}
+                className="group flex items-baseline gap-4 border-b border-border py-5"
               >
-                <div className={`flex h-7 w-7 items-center justify-center rounded-lg transition-colors ${pathname.includes("/bimtools/manual") ? "bg-primary/15" : "bg-secondary"}`}>
-                  <BookOpen className={`h-3.5 w-3.5 ${pathname.includes("/bimtools/manual") ? "text-primary" : "text-muted-foreground"}`} />
-                </div>
-                {locale === "en" ? "BIMtools manuals" : "Manuales BIMtools"}
-                {pathname.includes("/bimtools/manual") && <span className="ml-auto h-1.5 w-1.5 rounded-full bg-primary" />}
+                <span className="font-code text-xs text-muted-foreground">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span
+                  className={`font-headline text-3xl font-bold tracking-tight transition-colors ${
+                    active ? "text-primary" : "text-foreground group-hover:text-primary"
+                  }`}
+                >
+                  {label}
+                </span>
               </Link>
-            </div>
-          </nav>
+            );
+          })}
+        </nav>
 
-          {/* drawer footer */}
-          <div className="border-t bg-background/40 px-4 py-4 space-y-3">
-            <Button asChild className="w-full rounded-xl gap-2" size="sm">
-              <Link href={`${base}/#contact`} onClick={() => setMobileOpen(false)}>
-                <MessageSquare className="h-4 w-4" />
-                {t.ctaLabel}
-              </Link>
-            </Button>
-            <div className="flex items-center justify-between rounded-lg border border-border/50 bg-secondary/50 px-3 py-2">
-              <LocaleSwitcher />
-              <span className="text-xs font-medium text-muted-foreground">ES / EN</span>
-            </div>
+        <div className="border-t border-border px-4 py-6 sm:px-6">
+          <Button asChild className="w-full rounded-none text-xs font-medium uppercase tracking-[0.14em]" size="lg">
+            <Link href={`${base}/#contact`} onClick={() => setMobileOpen(false)}>
+              {t.contact}
+            </Link>
+          </Button>
+          <div className="mt-4 flex justify-center">
+            <LocaleSwitcher />
           </div>
         </div>
       </div>

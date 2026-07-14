@@ -1,9 +1,21 @@
 import type { Metadata } from "next";
+import { Archivo, Instrument_Sans } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { Toaster } from "@/components/ui/toaster";
+
+const archivo = Archivo({
+  subsets: ["latin"],
+  variable: "--font-display",
+  weight: ["500", "600", "700", "800", "900"],
+});
+
+const instrumentSans = Instrument_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  weight: ["400", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
   title: {
@@ -60,30 +72,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html lang="es" className={`${archivo.variable} ${instrumentSans.variable}`}>
       <body className="font-body antialiased bg-background text-foreground">
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-          <a
-            href="#main-content"
-            className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground"
-          >
-            Saltar al contenido principal
-          </a>
-          <div className="flex min-h-screen flex-col">
-            <Header />
-            <main id="main-content" className="flex-grow">{children}</main>
-            <Footer />
-          </div>
-          <Toaster />
-        </ThemeProvider>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground"
+        >
+          Saltar al contenido principal
+        </a>
+        <div className="flex min-h-screen flex-col">
+          <Header />
+          <main id="main-content" className="flex-grow">{children}</main>
+          <Footer />
+        </div>
+        <Toaster />
       </body>
     </html>
   );

@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, CreditCard, Download, Layers3, Star } from "lucide-react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { AddinIcon } from "@/components/bimtools/addin-icon";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Eyebrow } from "@/components/site/eyebrow";
+import { Reveal } from "@/components/site/reveal";
 import { getBimtoolsSuiteWithManuals, getBimtoolsSuitesWithManuals } from "@/lib/bimtools";
 
 interface SuitePageProps {
@@ -41,84 +42,85 @@ export default async function BimtoolsSuitePageEn({ params }: SuitePageProps) {
   if (!suite) notFound();
 
   return (
-    <div className="bg-background">
-      <section className="border-b bg-[linear-gradient(180deg,_rgba(8,145,178,0.08),_transparent_55%)]">
-        <div className="container mx-auto px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-          <Link
-            href="/en/bimtools"
-            className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Back to BIMtools
-          </Link>
-
-          <div className="mt-8 max-w-4xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
-              <Layers3 className="h-4 w-4" />
+    <>
+      <section>
+        <div className="container mx-auto px-4 pb-16 pt-16 sm:px-6 lg:px-8 lg:pb-20 lg:pt-20">
+          <Reveal>
+            <Link
+              href="/en/bimtools"
+              className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-primary"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              Back to BIMtools
+            </Link>
+          </Reveal>
+          <Reveal delay={100}>
+            <Eyebrow className="mt-10">BIMtools Suite</Eyebrow>
+          </Reveal>
+          <Reveal delay={200}>
+            <h1 className="mt-6 max-w-4xl font-headline text-display-lg font-black text-foreground">
               {suite.label}
-            </div>
-            <h1 className="mt-6 font-headline text-4xl font-bold tracking-tight sm:text-5xl">
-              Add-ins in the {suite.label} suite
             </h1>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-muted-foreground">{suite.description}</p>
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Button asChild className="">
-                  <Link href="/en/bimtools/subscription">
-                    <CreditCard className="mr-2 h-4 w-4" />
-                    Subscribe
-                  </Link>
+          </Reveal>
+          <Reveal delay={300}>
+            <p className="mt-8 max-w-2xl text-lg leading-8 text-muted-foreground">{suite.description}</p>
+          </Reveal>
+          <Reveal delay={400}>
+            <div className="mt-10 flex flex-wrap gap-4">
+              <Button asChild size="lg" className="rounded-none px-8 text-xs font-medium uppercase tracking-[0.14em]">
+                <Link href="/en/bimtools/subscription">Subscribe</Link>
               </Button>
-              <Button asChild variant="outline" className="">
-                <Link href="/en/download">
-                  <Download className="mr-2 h-4 w-4" />
-                  Download trial
-                </Link>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="rounded-none border-border px-8 text-xs font-medium uppercase tracking-[0.14em] hover:bg-secondary"
+              >
+                <Link href="/en/download">Download trial</Link>
               </Button>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
-      <section className="container mx-auto px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {suite.manuals.map((manual) => (
-            <Link key={manual.slug} href={`/en/bimtools/manual/${manual.slug}`} className="block h-full">
-              <Card className="h-full border-border/70 bg-card/75 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
-                <CardHeader className="space-y-4">
-                  <div className="flex items-start gap-4">
-                    <AddinIcon icon={manual.icon} name={manual.addinName} size="lg" />
-                    <div className="min-w-0 flex-1">
-                      <div className="flex flex-wrap items-center gap-2">
-                        <CardDescription>{manual.addinName}</CardDescription>
-                        <span
-                          className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-medium ${
-                            manual.commerce.isPremium
-                              ? "bg-primary text-primary-foreground"
-                              : "border border-border bg-background text-muted-foreground"
-                          }`}
-                        >
-                          {manual.commerce.isPremium ? (
-                            <>
-                              <Star className="mr-1 h-3 w-3" />
-                              Premium
-                            </>
-                          ) : (
-                            "Free"
-                          )}
-                        </span>
+      <section className="border-t border-border">
+        <div className="container mx-auto px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+          {suite.manuals.map((manual, i) => (
+            <Reveal key={manual.slug} delay={i * 50}>
+              <Link href={`/en/bimtools/manual/${manual.slug}`} className="block">
+                <div className="group grid gap-6 border-t border-border py-10 md:grid-cols-[90px_1fr_auto] md:items-start md:gap-8">
+                  <span className="font-code text-sm text-muted-foreground transition-colors group-hover:text-primary">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <div className="flex flex-wrap items-center gap-4">
+                      <AddinIcon icon={manual.icon} name={manual.addinName} size="lg" />
+                      <div>
+                        <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
+                          {manual.addinName} ·{" "}
+                          <span className={manual.commerce.isPremium ? "text-primary" : ""}>
+                            {manual.commerce.isPremium ? "Premium" : "Free"}
+                          </span>
+                        </p>
+                        <h3 className="mt-2 font-headline text-2xl font-bold tracking-tight text-foreground transition-colors group-hover:text-primary">
+                          {manual.title.en}
+                        </h3>
                       </div>
-                      <CardTitle className="mt-3 font-headline text-2xl leading-tight">{manual.title.en}</CardTitle>
                     </div>
+                    <p className="mt-4 max-w-2xl text-sm leading-7 text-muted-foreground">
+                      {manual.excerpt.en}
+                    </p>
                   </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm leading-7 text-muted-foreground">{manual.excerpt.en}</p>
-                </CardContent>
-              </Card>
-            </Link>
+                  <span className="hidden items-center gap-2 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground transition-all group-hover:translate-x-1 group-hover:text-primary md:flex">
+                    View manual
+                    <ArrowUpRight className="h-4 w-4" />
+                  </span>
+                </div>
+              </Link>
+            </Reveal>
           ))}
         </div>
       </section>
-    </div>
+    </>
   );
 }

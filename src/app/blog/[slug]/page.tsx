@@ -2,7 +2,6 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
 
 export async function generateStaticParams() {
@@ -27,30 +26,33 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   }
 
   return (
-    <article className="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
-      <header className="mb-12 text-center">
-        <h1 className="mb-4 font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+    <article className="container mx-auto px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+      <header className="mx-auto max-w-4xl">
+        <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
+          <time dateTime={post.date}>
+            {format(new Date(post.date), "d 'de' MMMM, yyyy", { locale: es })}
+          </time>
+          <span className="mx-3 text-primary">·</span>
+          {post.author}
+        </p>
+        <h1 className="mt-6 font-headline text-display-lg font-black text-foreground">
           {post.title}
         </h1>
-        <div className="flex items-center justify-center gap-4 text-muted-foreground">
-          <div className="flex items-center gap-2">
-            <Avatar className="h-8 w-8">
-              <AvatarImage src="https://placehold.co/40x40.png" alt={post.author} data-ai-hint="person portrait" />
-              <AvatarFallback>{post.author.charAt(0)}</AvatarFallback>
-            </Avatar>
-            <span>{post.author}</span>
-          </div>
-          <span className="hidden md:inline">•</span>
-          <time dateTime={post.date}>{format(new Date(post.date), "d 'de' MMMM, yyyy", { locale: es })}</time>
-        </div>
       </header>
 
-      <div className="relative mb-12 h-96 w-full overflow-hidden rounded-lg">
-        <Image src={post.image} alt={post.title} fill className="object-cover" data-ai-hint="technology blog" />
+      <div className="mx-auto mt-14 max-w-4xl overflow-hidden">
+        <Image
+          src={post.image}
+          alt={post.title}
+          width={1400}
+          height={700}
+          priority
+          className="h-72 w-full object-cover grayscale sm:h-96"
+        />
       </div>
 
       <div
-        className="prose prose-lg mx-auto max-w-4xl dark:prose-invert"
+        className="prose prose-lg prose-invert mx-auto mt-14 max-w-4xl prose-headings:font-headline prose-headings:tracking-tight prose-headings:text-foreground prose-p:text-muted-foreground prose-li:text-muted-foreground prose-strong:text-foreground prose-a:text-primary"
         dangerouslySetInnerHTML={{ __html: post.contentHtml }}
       />
     </article>

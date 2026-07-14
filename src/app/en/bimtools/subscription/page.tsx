@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, CreditCard, Download, Mail, ShieldCheck, Star } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { ArrowLeft, CreditCard } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Eyebrow } from "@/components/site/eyebrow";
+import { NumberedRow } from "@/components/site/numbered-row";
+import { Reveal } from "@/components/site/reveal";
 
 export const metadata: Metadata = {
   title: "BIMtools Premium Subscription | Frata",
@@ -19,223 +20,193 @@ const paypalUrl = "https://www.paypal.com/ncp/payment/Y38JM4SMMDME2";
 
 export default function BimtoolsSubscriptionPageEn() {
   return (
-    <div className="bg-background">
-      <section className="border-b bg-[linear-gradient(180deg,_rgba(8,145,178,0.08),_transparent_55%)]">
-        <div className="container mx-auto px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-          <Link
-            href="/en/bimtools"
-            className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Back to BIMtools
-          </Link>
-
-          <div className="mt-8 max-w-4xl">
-            <Badge className="rounded-full">
-              <Star className="mr-1 h-3 w-3" />
-              Premium subscription
-            </Badge>
-            <h1 className="mt-6 font-headline text-4xl font-bold tracking-tight sm:text-5xl">
-              Access every premium BIMtools add-in with one subscription
+    <>
+      {/* ── Hero ─────────────────────────────────────────────── */}
+      <section>
+        <div className="container mx-auto px-4 pb-16 pt-16 sm:px-6 lg:px-8 lg:pb-20 lg:pt-20">
+          <Reveal>
+            <Link
+              href="/en/bimtools"
+              className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-primary"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              Back to BIMtools
+            </Link>
+          </Reveal>
+          <Reveal delay={100}>
+            <Eyebrow className="mt-10">Premium subscription</Eyebrow>
+          </Reveal>
+          <Reveal delay={200}>
+            <h1 className="mt-6 max-w-4xl font-headline text-display-lg font-black text-foreground">
+              Every premium add-in.
+              <br />
+              <span className="text-muted-foreground">One subscription.</span>
             </h1>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-muted-foreground">
-              BIMtools Premium is built for professionals and teams who need real Revit automation, faster production
-              workflows, and full access to the premium ecosystem.
+          </Reveal>
+          <Reveal delay={300}>
+            <p className="mt-8 max-w-2xl text-lg leading-8 text-muted-foreground">
+              For professionals and teams who want real automation in Revit, faster
+              production and full access to the premium ecosystem.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button asChild className="">
+          </Reveal>
+          <Reveal delay={400}>
+            <div className="mt-10 flex flex-wrap gap-4">
+              <Button asChild size="lg" className="rounded-none px-8 text-xs font-medium uppercase tracking-[0.14em]">
                 <Link href={paypalUrl} target="_blank" rel="noreferrer">
-                  <CreditCard className="mr-2 h-4 w-4" />
                   Pay with PayPal
                 </Link>
               </Button>
-              <Button asChild variant="outline" className="">
-                <Link href="#payment">View full process</Link>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="rounded-none border-border px-8 text-xs font-medium uppercase tracking-[0.14em] hover:bg-secondary"
+              >
+                <Link href="#payment">See full process</Link>
               </Button>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
-      <section className="container mx-auto px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-        <div className="grid gap-6 lg:grid-cols-2">
-          <Card className="border-border/70 bg-card/70">
-            <CardHeader>
-              <CardTitle className="font-headline text-3xl">Monthly plan</CardTitle>
-              <CardDescription>Best for starting quickly and measuring time savings in real projects.</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="text-4xl font-bold text-foreground">USD 20</div>
-              <p className="mt-1 text-sm text-muted-foreground">per month</p>
-              <ul className="mt-6 space-y-3 text-sm leading-7 text-muted-foreground">
-                <li>Access to every premium add-in</li>
-                <li>Lower commitment to get started</li>
-                <li>Full premium ecosystem included</li>
-              </ul>
-              <Button asChild className="mt-6">
-                <Link href="#payment">Subscribe monthly</Link>
-              </Button>
-            </CardContent>
-          </Card>
-
-          <Card className="border-primary/30 bg-card/80 shadow-lg">
-            <CardHeader>
-              <CardTitle className="font-headline text-3xl">Yearly plan</CardTitle>
-              <CardDescription>Best value if BIMtools is already part of your daily workflow.</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="text-4xl font-bold text-foreground">USD 100</div>
-              <p className="mt-1 text-sm text-muted-foreground">per year</p>
-              <p className="mt-3 text-sm font-medium text-foreground">Best value for teams and continuous usage.</p>
-              <ul className="mt-6 space-y-3 text-sm leading-7 text-muted-foreground">
-                <li>Access to every premium add-in</li>
-                <li>Best pricing for long-term use</li>
-                <li>One subscription for the full premium stack</li>
-              </ul>
-              <Button asChild className="mt-6">
-                <Link href="#payment">Subscribe yearly</Link>
-              </Button>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      <section className="border-y bg-secondary/40">
-        <div className="container mx-auto px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">Process</p>
-            <h2 className="mt-3 font-headline text-3xl font-bold tracking-tight sm:text-4xl">
-              How purchase and activation work
-            </h2>
-          </div>
-
-          <div className="mt-10 grid gap-6 lg:grid-cols-3">
-            <Card className="border-border/70 bg-card/70">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 font-headline text-2xl">
-                  <Download className="h-5 w-5 text-primary" />
-                  1. Try the installer
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm leading-7 text-muted-foreground">
-                  If you want to review the BIMtools environment first, download and install the trial version.
-                </p>
-                <Button asChild variant="outline" size="sm" className="mt-5">
-                  <Link href="/en/download">Download trial</Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            <Card className="border-border/70 bg-card/70">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 font-headline text-2xl">
-                  <CreditCard className="h-5 w-5 text-primary" />
-                  2. Pay with PayPal
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm leading-7 text-muted-foreground">
-                  In your payment, specify whether you want the <strong>USD 20 monthly</strong> access or the{" "}
-                  <strong>USD 100 yearly</strong> access.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-border/70 bg-card/70">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 font-headline text-2xl">
-                  <ShieldCheck className="h-5 w-5 text-primary" />
-                  3. Request activation
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm leading-7 text-muted-foreground">
-                  After payment, email {activationEmail} to request activation for your premium access.
-                </p>
+      {/* ── Plans ────────────────────────────────────────────── */}
+      <section className="border-t border-border">
+        <div className="container mx-auto px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+          <div className="grid gap-px border border-border bg-border lg:grid-cols-2">
+            <Reveal className="h-full">
+              <div className="flex h-full flex-col bg-background p-8 lg:p-12">
+                <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">Monthly plan</p>
+                <p className="mt-6 font-headline text-5xl font-black text-foreground">USD 20</p>
+                <p className="mt-2 text-sm text-muted-foreground">per month</p>
+                <ul className="mt-8 flex-1 space-y-4 text-sm leading-7 text-muted-foreground">
+                  <li className="border-t border-border pt-4">Access to every premium add-in</li>
+                  <li className="border-t border-border pt-4">Great for starting without a yearly commitment</li>
+                  <li className="border-t border-border pt-4">Same full premium ecosystem</li>
+                </ul>
                 <Button
                   asChild
-                  variant="ghost"
-                  size="sm"
-                  className="mt-5 rounded-full px-0 text-primary hover:text-primary"
+                  variant="outline"
+                  className="mt-10 w-full rounded-none border-border text-xs font-medium uppercase tracking-[0.14em] hover:bg-secondary sm:w-auto"
                 >
-                  <Link href={`mailto:${activationEmail}?subject=BIMtools%20Premium%20Activation`}>
-                    <Mail className="mr-2 h-4 w-4" />
-                    Send activation email
-                  </Link>
+                  <Link href="#payment">Subscribe monthly</Link>
                 </Button>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      <section id="payment" className="container mx-auto scroll-mt-24 px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-        <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">Payment</p>
-            <h2 className="mt-3 font-headline text-3xl font-bold tracking-tight sm:text-4xl">
-              Buy your premium access
-            </h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Before you complete the payment, make sure your plan is clear:
-            </p>
-            <ul className="mt-6 space-y-3 text-sm leading-7 text-muted-foreground">
-              <li>
-                <strong>Monthly:</strong> USD 20
-              </li>
-              <li>
-                <strong>Yearly:</strong> USD 100
-              </li>
-              <li>After payment, send your activation email to {activationEmail}</li>
-            </ul>
-          </div>
-
-          <Card className="border-primary/30 bg-card/85 shadow-xl lg:min-h-[32rem]">
-            <CardHeader>
-              <CardTitle className="font-headline text-3xl">Pay with PayPal</CardTitle>
-              <CardDescription>
-                Open PayPal, complete the purchase, then email {activationEmail} and indicate whether your payment
-                corresponds to the monthly or yearly plan.
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="flex h-full flex-col justify-between space-y-6">
-              <div className="rounded-xl border border-primary/20 bg-primary/10 p-6">
-                <p className="text-sm font-semibold text-foreground">Before paying</p>
-                <ul className="mt-4 space-y-3 text-sm leading-7 text-muted-foreground">
-                  <li>If you want monthly access, choose the USD 20 plan</li>
-                  <li>If you want yearly access, choose the USD 100 plan</li>
-                  <li>Then request activation by email</li>
-                </ul>
               </div>
+            </Reveal>
 
-              <div className="space-y-4">
-                <Button asChild className="w-full py-6 text-base">
-                  <Link href={paypalUrl} target="_blank" rel="noreferrer">
-                    <CreditCard className="mr-2 h-5 w-5" />
-                    Open PayPal payment
-                  </Link>
-                </Button>
-                <p className="text-xs leading-6 text-muted-foreground">
-                  If the payment does not clearly state the plan, include it in your activation email together with
-                  your payment receipt.
+            <Reveal delay={100} className="h-full">
+              <div className="flex h-full flex-col bg-secondary p-8 lg:p-12">
+                <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
+                  Yearly plan · Best value
                 </p>
+                <p className="mt-6 font-headline text-5xl font-black text-foreground">USD 100</p>
+                <p className="mt-2 text-sm text-muted-foreground">per year</p>
+                <ul className="mt-8 flex-1 space-y-4 text-sm leading-7 text-muted-foreground">
+                  <li className="border-t border-border pt-4">Access to every premium add-in</li>
+                  <li className="border-t border-border pt-4">Best value for continuous use</li>
+                  <li className="border-t border-border pt-4">One access for the whole premium stack</li>
+                </ul>
+                <Button asChild className="mt-10 w-full rounded-none text-xs font-medium uppercase tracking-[0.14em] sm:w-auto">
+                  <Link href="#payment">Subscribe yearly</Link>
+                </Button>
               </div>
-            </CardContent>
-          </Card>
+            </Reveal>
+          </div>
         </div>
       </section>
 
-      <div className="pointer-events-none fixed inset-x-0 bottom-4 z-40 px-4">
-        <div className="container mx-auto flex justify-end">
-          <Button asChild className="pointer-events-auto px-6 shadow-xl">
-            <Link href={paypalUrl} target="_blank" rel="noreferrer">
-              <CreditCard className="mr-2 h-4 w-4" />
-              Pay with PayPal
-            </Link>
-          </Button>
+      {/* ── Process ──────────────────────────────────────────── */}
+      <section className="border-t border-border">
+        <div className="container mx-auto grid gap-14 px-4 py-24 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8 lg:py-32">
+          <div>
+            <Reveal>
+              <Eyebrow>Process</Eyebrow>
+            </Reveal>
+            <Reveal delay={100}>
+              <h2 className="mt-6 font-headline text-display-md font-bold text-foreground">
+                How purchase and activation work.
+              </h2>
+            </Reveal>
+          </div>
+          <div>
+            <Reveal>
+              <NumberedRow
+                index="01"
+                title="Try the installer"
+                description="If you want to review the BIMtools environment first, download and install the trial version."
+              />
+            </Reveal>
+            <Reveal delay={80}>
+              <NumberedRow
+                index="02"
+                title="Pay with PayPal"
+                description="During payment, indicate whether you want monthly access at USD 20 or yearly access at USD 100."
+              />
+            </Reveal>
+            <Reveal delay={160}>
+              <NumberedRow
+                index="03"
+                title="Request activation"
+                description={`After payment, send an email to ${activationEmail} requesting activation of your premium access.`}
+              />
+            </Reveal>
+          </div>
         </div>
-      </div>
-    </div>
+      </section>
+
+      {/* ── Payment ──────────────────────────────────────────── */}
+      <section id="payment" className="scroll-mt-24 border-t border-border">
+        <div className="container mx-auto grid gap-14 px-4 py-24 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:px-8 lg:py-32">
+          <div>
+            <Reveal>
+              <Eyebrow>Payment</Eyebrow>
+            </Reveal>
+            <Reveal delay={100}>
+              <h2 className="mt-6 font-headline text-display-md font-bold text-foreground">
+                Buy your premium access.
+              </h2>
+            </Reveal>
+            <Reveal delay={200}>
+              <ul className="mt-8 space-y-4 text-sm leading-7 text-muted-foreground">
+                <li className="border-t border-border pt-4">
+                  <strong className="text-foreground">Monthly:</strong> USD 20
+                </li>
+                <li className="border-t border-border pt-4">
+                  <strong className="text-foreground">Yearly:</strong> USD 100
+                </li>
+                <li className="border-t border-border pt-4">
+                  After payment, send the activation email to {activationEmail}
+                </li>
+              </ul>
+            </Reveal>
+          </div>
+
+          <Reveal delay={200}>
+            <div className="border border-border bg-secondary p-8 lg:p-12">
+              <h3 className="font-headline text-2xl font-bold text-foreground sm:text-3xl">
+                Pay with PayPal
+              </h3>
+              <p className="mt-4 text-sm leading-7 text-muted-foreground">
+                Open PayPal, complete your purchase, then write to {activationEmail}{" "}
+                indicating whether your payment corresponds to the monthly or yearly plan.
+              </p>
+              <ul className="mt-8 space-y-4 text-sm leading-7 text-muted-foreground">
+                <li className="border-t border-border pt-4">For monthly access, choose the USD 20 plan</li>
+                <li className="border-t border-border pt-4">For yearly access, choose the USD 100 plan</li>
+                <li className="border-t border-border pt-4">Then request activation by email</li>
+              </ul>
+              <Button asChild size="lg" className="mt-10 w-full rounded-none text-xs font-medium uppercase tracking-[0.14em]">
+                <Link href={paypalUrl} target="_blank" rel="noreferrer">
+                  <CreditCard className="mr-2 h-4 w-4" />
+                  Open PayPal payment
+                </Link>
+              </Button>
+              <p className="mt-4 text-xs leading-6 text-muted-foreground">
+                If the payment doesn&apos;t make the plan clear, mention it in the activation email along with your receipt.
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+    </>
   );
 }
