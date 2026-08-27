@@ -7,6 +7,7 @@ export interface CaseMetric {
 export interface CaseStudy {
   slug: string;
   client: string;
+  clientEn?: string;
   sector: string;
   sectorEn?: string;
   service: string;
@@ -78,6 +79,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "puente-beirut",
     client: "Consultor Independiente",
+    clientEn: "Independent Consultant",
     sector: "Puentes e infraestructura vial",
     sectorEn: "Bridges and road infrastructure",
     service: "Desarrollo de documentación técnica desde modelos BIM",
@@ -103,6 +105,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "interoperabilidad-tekla-revit",
     client: "Diseñador Independiente",
+    clientEn: "Independent Designer",
     sector: "Infraestructura",
     sectorEn: "Infrastructure",
     service: "Automatización BIM e interoperabilidad entre plataformas",

@@ -24,7 +24,10 @@ export function CaseStudyCard({ caseStudy, index, locale = "es" }: CaseStudyCard
   const cs = caseStudy;
 
   // Per-case-study detail text only ever has Spanish/English content; every
-  // other locale falls back to English.
+  // other locale falls back to English. Client is only translated when it's
+  // a generic role name ("Consultor Independiente") rather than an actual
+  // company/consortium name, which stays as-is in every language.
+  const client = resolveBilingual(locale, cs.client, cs.clientEn);
   const sector = resolveBilingual(locale, cs.sector, cs.sectorEn);
   const service = resolveBilingual(locale, cs.service, cs.serviceEn);
   const challenge = resolveBilingual(locale, cs.challenge, cs.challengeEn);
@@ -39,7 +42,7 @@ export function CaseStudyCard({ caseStudy, index, locale = "es" }: CaseStudyCard
         <div>
           {/* header */}
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
-            {cs.client} · {sector}
+            {client} · {sector}
           </p>
           <h3 className="mt-4 max-w-3xl font-headline text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
             {service}
@@ -62,7 +65,7 @@ export function CaseStudyCard({ caseStudy, index, locale = "es" }: CaseStudyCard
             <div className="mt-10 overflow-hidden">
               <Image
                 src={cs.image}
-                alt={`${cs.client} — ${sector}`}
+                alt={`${client} — ${sector}`}
                 width={1400}
                 height={700}
                 loading="lazy"

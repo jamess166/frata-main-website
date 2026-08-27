@@ -9,18 +9,20 @@ import { NumberedRow } from "@/components/site/numbered-row";
 import { Reveal } from "@/components/site/reveal";
 import { Stat } from "@/components/site/stat";
 import { caseStudies, type CaseStudy } from "@/lib/case-studies";
-import { withLocale, type Locale } from "@/lib/locale";
+import { withLocale, resolveBilingual, type Locale } from "@/lib/locale";
 import { homeContent, techStack, featuredCaseSlugs, type HomePageContent } from "@/content/home";
 
+// Per-case-study detail text only ever has Spanish/English content; every
+// other locale falls back to English (see resolveBilingual).
 function localizedCase(cs: CaseStudy, locale: Locale) {
-  const isEn = locale === "en";
   return {
-    sector: isEn ? cs.sectorEn ?? cs.sector : cs.sector,
-    service: isEn ? cs.serviceEn ?? cs.service : cs.service,
-    result: isEn ? cs.resultEn ?? cs.result : cs.result,
+    client: resolveBilingual(locale, cs.client, cs.clientEn),
+    sector: resolveBilingual(locale, cs.sector, cs.sectorEn),
+    service: resolveBilingual(locale, cs.service, cs.serviceEn),
+    result: resolveBilingual(locale, cs.result, cs.resultEn),
     metrics: (cs.metrics ?? []).map((m) => ({
       value: m.value,
-      label: isEn ? m.labelEn ?? m.label : m.label,
+      label: resolveBilingual(locale, m.label, m.labelEn),
     })),
   };
 }
@@ -172,7 +174,7 @@ export function HomeView({ locale, content }: { locale: Locale; content: HomePag
                     <article className="group grid gap-8 border-t border-border py-12 lg:grid-cols-[1fr_1fr] lg:gap-16">
                       <div>
                         <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
-                          {cs.client} · {loc.sector}
+                          {loc.client} · {loc.sector}
                         </p>
                         <h3 className="mt-4 font-headline text-2xl font-bold tracking-tight text-foreground transition-colors group-hover:text-primary sm:text-3xl">
                           {loc.service}
