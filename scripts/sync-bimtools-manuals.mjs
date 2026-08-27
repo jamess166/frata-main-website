@@ -12,41 +12,99 @@ const supportedImageExtensions = new Set([".png", ".jpg", ".jpeg", ".webp", ".gi
 const defaultActivationEmail = "info@frataingenieros.com";
 const defaultPremiumTrialDays = 30;
 
+// Suite descriptions are translated into all 8 site locales (src/lib/locale.ts) so every
+// BIMtools page (hub, manual index, suite detail) can show the real language instead of
+// falling back to Spanish.
 const suiteMeta = {
   Architecture: {
     id: "architecture",
     label: "Architecture",
-    description:
-      "Automatizacion para convertir datos arquitectonicos del modelo en elementos constructivos con menos trabajo manual.",
+    description: {
+      es: "Automatizacion para convertir datos arquitectonicos del modelo en elementos constructivos con menos trabajo manual.",
+      en: "Automation to turn architectural room data into modeled floor elements with less manual setup.",
+      de: "Automatisierung, um architektonische Raumdaten aus dem Modell mit weniger manuellem Aufwand in modellierte Geschosselemente umzuwandeln.",
+      fr: "Automatisation pour transformer les données de pièces architecturales du modèle en éléments de plancher modélisés avec moins de configuration manuelle.",
+      it: "Automazione per trasformare i dati dei vani architettonici del modello in elementi di piano modellati con meno configurazione manuale.",
+      pt: "Automação para transformar dados de ambientes arquitetônicos do modelo em elementos de piso modelados com menos configuração manual.",
+      ru: "Автоматизация преобразования архитектурных данных помещений модели в смоделированные элементы перекрытий с меньшим объёмом ручной настройки.",
+      zh: "将模型中的建筑房间数据自动转换为已建模的楼板构件，减少手动设置。",
+    },
     order: 1,
   },
   Manage: {
     id: "manage",
     label: "Manage",
-    description:
-      "Automatiza exportacion, parametros y configuracion centralizada para mantener tus modelos consistentes.",
+    description: {
+      es: "Automatiza exportacion, parametros y configuracion centralizada para mantener tus modelos consistentes.",
+      en: "Automation for exports, parameters and centralized settings.",
+      de: "Automatisierung für Export, Parameter und zentrale Einstellungen.",
+      fr: "Automatisation pour l'export, les paramètres et les réglages centralisés.",
+      it: "Automazione per esportazione, parametri e impostazioni centralizzate.",
+      pt: "Automação para exportação, parâmetros e configurações centralizadas.",
+      ru: "Автоматизация экспорта, параметров и централизованных настроек.",
+      zh: "实现导出、参数与集中设置的自动化。",
+    },
     order: 2,
   },
   Navigate: {
     id: "navigate",
     label: "Navigate",
-    description:
-      "Herramientas para encontrar, abrir y seleccionar informacion del modelo con menos friccion.",
+    description: {
+      es: "Herramientas para encontrar, abrir y seleccionar informacion del modelo con menos friccion.",
+      en: "Tools to find, open and select model information faster.",
+      de: "Werkzeuge, um Modellinformationen schneller zu finden, zu öffnen und auszuwählen.",
+      fr: "Outils pour trouver, ouvrir et sélectionner plus rapidement les informations du modèle.",
+      it: "Strumenti per trovare, aprire e selezionare più velocemente le informazioni del modello.",
+      pt: "Ferramentas para encontrar, abrir e selecionar informações do modelo com mais rapidez.",
+      ru: "Инструменты для более быстрого поиска, открытия и выбора информации модели.",
+      zh: "更快查找、打开并选择模型信息的工具。",
+    },
     order: 3,
   },
   Structure: {
     id: "structure",
     label: "Structure",
-    description:
-      "Automatizacion para crear, editar y sincronizar armaduras y componentes estructurales con mayor velocidad y precision.",
+    description: {
+      es: "Automatizacion para crear, editar y sincronizar armaduras y componentes estructurales con mayor velocidad y precision.",
+      en: "Automation to create, edit and synchronize reinforcement and structural components faster.",
+      de: "Automatisierung zum schnelleren Erstellen, Bearbeiten und Synchronisieren von Bewehrung und Tragwerkskomponenten.",
+      fr: "Automatisation pour créer, modifier et synchroniser plus rapidement les armatures et les composants structurels.",
+      it: "Automazione per creare, modificare e sincronizzare più velocemente armature e componenti strutturali.",
+      pt: "Automação para criar, editar e sincronizar armaduras e componentes estruturais com mais rapidez.",
+      ru: "Автоматизация для более быстрого создания, редактирования и синхронизации арматуры и конструктивных элементов.",
+      zh: "更快创建、编辑并同步钢筋与结构构件的自动化工具。",
+    },
     order: 4,
   },
   Drawing2D: {
     id: "drawing2d",
     label: "Drawing 2D",
-    description:
-      "Herramientas para anotacion y produccion de planos 2D con menos trabajo manual.",
+    description: {
+      es: "Herramientas para anotacion y produccion de planos 2D con menos trabajo manual.",
+      en: "Tools for 2D annotation and drawing production with less manual work.",
+      de: "Werkzeuge für 2D-Beschriftung und Planerstellung mit weniger manuellem Aufwand.",
+      fr: "Outils pour l'annotation 2D et la production de plans avec moins de travail manuel.",
+      it: "Strumenti per l'annotazione 2D e la produzione di elaborati con meno lavoro manuale.",
+      pt: "Ferramentas para anotação 2D e produção de pranchas com menos trabalho manual.",
+      ru: "Инструменты для 2D-аннотирования и оформления чертежей с меньшим объёмом ручной работы.",
+      zh: "用于二维标注与图纸制作的工具，减少手动操作。",
+    },
     order: 5,
+  },
+  MEP: {
+    id: "mep",
+    label: "MEP",
+    description: {
+      es: "Automatizacion para crear, ajustar y limpiar redes de tuberia en proyectos MEP con menos trabajo manual.",
+      en: "Automation to create, adjust and clean up piping systems in MEP projects with less manual work.",
+      de: "Automatisierung zum Erstellen, Anpassen und Bereinigen von Rohrleitungssystemen in MEP-Projekten mit weniger manuellem Aufwand.",
+      fr: "Automatisation pour créer, ajuster et nettoyer les réseaux de tuyauterie dans les projets MEP avec moins de travail manuel.",
+      it: "Automazione per creare, regolare e ripulire le reti di tubazioni nei progetti MEP con meno lavoro manuale.",
+      pt: "Automação para criar, ajustar e organizar redes de tubulação em projetos MEP com menos trabalho manual.",
+      ru: "Автоматизация создания, настройки и очистки трубопроводных систем в MEP-проектах с меньшим объёмом ручной работы.",
+      zh: "用于创建、调整与整理机电（MEP）项目管道系统的自动化工具，减少手动操作。",
+    },
+    order: 6,
   },
 };
 
@@ -120,11 +178,11 @@ function readOptionalJson(filePath) {
   }
 }
 
-function findMediaFolder(addinDir) {
+function findMediaFolder(manualDir) {
   const candidates = ["manual-assets", "media", "images"];
 
   for (const candidate of candidates) {
-    const mediaDir = path.join(addinDir, candidate);
+    const mediaDir = path.join(manualDir, candidate);
     if (fs.existsSync(mediaDir) && fs.statSync(mediaDir).isDirectory()) {
       return mediaDir;
     }
@@ -270,9 +328,9 @@ function collectIcon(addinDir, suiteName, suiteId, slug, addinName) {
   };
 }
 
-function collectMedia(addinDir, suiteId, slug) {
-  const meta = readOptionalJson(path.join(addinDir, "manual.meta.json")) || {};
-  const mediaDir = findMediaFolder(addinDir);
+function collectMedia(manualDir, suiteId, slug) {
+  const meta = readOptionalJson(path.join(manualDir, "manual.meta.json")) || {};
+  const mediaDir = findMediaFolder(manualDir);
   const images = [];
 
   if (mediaDir) {
@@ -408,6 +466,25 @@ function resolveCommerce(esData, enData, addinDir) {
   };
 }
 
+// Extra locales beyond the original es/en pair. Keys match the site-wide Locale type
+// (src/lib/locale.ts) exactly — short codes, not full BCP-47 — so the generated
+// ManualLocale union can be indexed directly with a site Locale value everywhere.
+const extraLocales = ["de", "fr", "it", "pt", "ru", "zh"];
+
+// Manual files live in a per-addin Manual/ subfolder, one file per locale, named by the
+// full culture code (e.g. Manual/de-DE.md). The dictionary keys used throughout this
+// script and the website stay short ("de", not "de-DE") to match src/lib/locale.ts.
+const LOCALE_FILENAMES = {
+  es: "es-ES.md",
+  en: "en-US.md",
+  de: "de-DE.md",
+  fr: "fr-FR.md",
+  it: "it-IT.md",
+  pt: "pt-BR.md",
+  ru: "ru-RU.md",
+  zh: "zh-CN.md",
+};
+
 function discoverEntries(root) {
   const entries = [];
 
@@ -419,39 +496,58 @@ function discoverEntries(root) {
       if (!addinName.isDirectory()) continue;
 
       const addinDir = path.join(addinsRoot, addinName.name);
-      const files = fs.readdirSync(addinDir);
-      const esFile = files.find((file) => file.toLowerCase().endsWith("-es.md"));
-      const enFile = files.find((file) => file.toLowerCase().endsWith("-en.md"));
-      const genericFile = files.find((file) => file.toLowerCase().endsWith(".md"));
-      if (!esFile && !genericFile) continue;
+      const manualDir = path.join(addinDir, "Manual");
+      if (!fs.existsSync(manualDir) || !fs.statSync(manualDir).isDirectory()) continue;
 
-      const esSourceFile = esFile || genericFile;
-      const enSourceFile = enFile || esSourceFile;
-      const esDocument = readMarkdownDocument(path.join(addinDir, esSourceFile));
-      const enDocument = readMarkdownDocument(path.join(addinDir, enSourceFile));
+      const esPath = path.join(manualDir, LOCALE_FILENAMES.es);
+      const enPath = path.join(manualDir, LOCALE_FILENAMES.en);
+      const esExists = fs.existsSync(esPath);
+      const enExists = fs.existsSync(enPath);
+      if (!esExists && !enExists) continue;
+
+      // Each locale falls back to whichever of es/en actually exists when its own file is
+      // missing, so a partially translated addin still renders instead of breaking.
+      const esDocument = readMarkdownDocument(esExists ? esPath : enPath);
+      const enDocument = readMarkdownDocument(enExists ? enPath : esPath);
       const esMarkdown = esDocument.content;
       const enMarkdown = enDocument.content;
       const slug = createSlugFromDirectory(addinName.name);
-      const media = collectMedia(addinDir, suiteMeta[suiteName].id, slug);
+      const media = collectMedia(manualDir, suiteMeta[suiteName].id, slug);
       const icon = collectIcon(addinDir, suiteName, suiteMeta[suiteName].id, slug, addinName.name);
       const commerce = resolveCommerce(esDocument.data, enDocument.data, addinDir);
+
+      const title = {
+        es: extractTitle(esMarkdown, addinName.name),
+        en: extractTitle(enMarkdown, addinName.name),
+      };
+      const excerpt = {
+        es: extractExcerpt(esMarkdown),
+        en: extractExcerpt(enMarkdown),
+      };
+      const markdown = {
+        es: esMarkdown,
+        en: enMarkdown,
+      };
+
+      // Extra locales fall back to the English document when their own file is missing,
+      // so an addin that hasn't been translated yet still renders instead of breaking.
+      for (const locale of extraLocales) {
+        const localePath = path.join(manualDir, LOCALE_FILENAMES[locale]);
+        const document = fs.existsSync(localePath) ? readMarkdownDocument(localePath) : enDocument;
+        const localeMarkdown = document.content;
+
+        title[locale] = extractTitle(localeMarkdown, addinName.name);
+        excerpt[locale] = extractExcerpt(localeMarkdown);
+        markdown[locale] = localeMarkdown;
+      }
 
       entries.push({
         slug,
         addinName: addinName.name,
         suite: suiteMeta[suiteName],
-        title: {
-          es: extractTitle(esMarkdown, addinName.name),
-          en: extractTitle(enMarkdown, addinName.name),
-        },
-        excerpt: {
-          es: extractExcerpt(esMarkdown),
-          en: extractExcerpt(enMarkdown),
-        },
-        markdown: {
-          es: esMarkdown,
-          en: enMarkdown,
-        },
+        title,
+        excerpt,
+        markdown,
         icon,
         media,
         commerce,
@@ -476,7 +572,7 @@ function toTsModule(entries) {
     }));
 
   return `/* eslint-disable */
-export type ManualLocale = "es" | "en";
+export type ManualLocale = "es" | "en" | "de" | "fr" | "it" | "pt" | "ru" | "zh";
 
 export interface BimtoolsManualEntry {
   slug: string;
@@ -511,7 +607,7 @@ export interface BimtoolsManualEntry {
 export interface BimtoolsSuite {
   id: string;
   label: string;
-  description: string;
+  description: Record<ManualLocale, string>;
   addins: string[];
 }
 

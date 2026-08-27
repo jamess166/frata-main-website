@@ -13,28 +13,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { LocaleSwitcher } from "@/components/layout/locale-switcher";
+import { headerContent } from "@/content/header";
+import { serviceContent } from "@/lib/service-content";
+import { detectLocale, withLocale, type Locale } from "@/lib/locale";
 
-const services = {
-  es: [
-    { slug: "global-remote-bim-teams", title: "Equipos BIM remotos" },
-    { slug: "custom-bim-software-development", title: "Desarrollo BIM para Revit y Tekla" },
-    { slug: "on-site-bim-construction-support", title: "Soporte BIM en obra" },
-    { slug: "bim-for-manufacturing", title: "BIM para fabricacion" },
-    { slug: "bim-training-and-implementation", title: "Implementacion BIM" },
-    { slug: "comprehensive-bim-modeling", title: "Modelado BIM integral" },
-  ],
-  en: [
-    { slug: "global-remote-bim-teams", title: "Remote BIM teams" },
-    { slug: "custom-bim-software-development", title: "BIM development for Revit and Tekla" },
-    { slug: "on-site-bim-construction-support", title: "On-site BIM support" },
-    { slug: "bim-for-manufacturing", title: "BIM for fabrication" },
-    { slug: "bim-training-and-implementation", title: "BIM implementation" },
-    { slug: "comprehensive-bim-modeling", title: "Comprehensive BIM modeling" },
-  ],
-} as const;
-
-function isActive(href: string, pathname: string): boolean {
-  if (href === "/" || href === "/en") return pathname === href;
+function isActive(href: string, pathname: string, isHome: boolean): boolean {
+  if (isHome) return pathname === href;
   return pathname.startsWith(href);
 }
 
@@ -42,12 +26,14 @@ function NavLink({
   href,
   children,
   pathname,
+  isHome = false,
 }: {
   href: string;
   children: React.ReactNode;
   pathname: string;
+  isHome?: boolean;
 }) {
-  const active = isActive(href, pathname);
+  const active = isActive(href, pathname, isHome);
   return (
     <Link
       href={href}
@@ -60,11 +46,9 @@ function NavLink({
   );
 }
 
-function ServicesDropdown({ locale, pathname }: { locale: "es" | "en"; pathname: string }) {
-  const items = services[locale];
-  const base = locale === "en" ? "/en" : "";
-  const label = locale === "en" ? "Services" : "Servicios";
-  const allLabel = locale === "en" ? "All services" : "Ver todos";
+function ServicesDropdown({ locale, pathname }: { locale: Locale; pathname: string }) {
+  const items = Object.values(serviceContent).map((entry) => entry[locale]);
+  const t = headerContent[locale];
   const active = pathname.includes("/services");
 
   return (
@@ -75,22 +59,25 @@ function ServicesDropdown({ locale, pathname }: { locale: "es" | "en"; pathname:
             active ? "text-primary" : "text-muted-foreground"
           }`}
         >
-          {label}
+          {t.services}
           <ChevronDown className="h-3 w-3 opacity-60 transition-transform duration-200 [[data-state=open]>&]:rotate-180" />
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="start" className="w-80 border-border bg-popover p-0">
         <DropdownMenuItem asChild className="rounded-none border-b border-border px-4 py-3">
-          <Link href={`${base}/services`} className="flex items-center justify-between text-xs font-medium uppercase tracking-[0.14em] text-primary">
-            {allLabel}
+          <Link
+            href={withLocale(locale, "/services")}
+            className="flex items-center justify-between text-xs font-medium uppercase tracking-[0.14em] text-primary"
+          >
+            {t.allServices}
             <ArrowUpRight className="h-3.5 w-3.5" />
           </Link>
         </DropdownMenuItem>
         {items.map((service, i) => (
           <DropdownMenuItem key={service.slug} asChild className="rounded-none px-4 py-3">
-            <Link href={`${base}/services/${service.slug}`} className="flex items-baseline gap-3">
+            <Link href={withLocale(locale, `/services/${service.slug}`)} className="flex items-baseline gap-3">
               <span className="font-code text-[10px] text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
-              <span className="text-sm">{service.title}</span>
+              <span className="text-sm">{service.shortTitle}</span>
             </Link>
           </DropdownMenuItem>
         ))}
@@ -101,8 +88,7 @@ function ServicesDropdown({ locale, pathname }: { locale: "es" | "en"; pathname:
 
 export function Header() {
   const pathname = usePathname() || "/";
-  const locale = pathname === "/en" || pathname.startsWith("/en/") ? "en" : "es";
-  const base = locale === "en" ? "/en" : "";
+  const { locale } = detectLocale(pathname);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -122,28 +108,22 @@ export function Header() {
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
-  const labels = {
-    es: {
-      home: "Inicio", about: "Nosotros", bimtools: "BIMtools",
-      casos: "Casos", contact: "Contacto", services: "Servicios",
-      manuals: "Manuales",
-    },
-    en: {
-      home: "Home", about: "About", bimtools: "BIMtools",
-      casos: "Case Studies", contact: "Contact", services: "Services",
-      manuals: "Manuals",
-    },
-  } as const;
-
-  const t = labels[locale];
+  const t = headerContent[locale];
+  const homeHref = withLocale(locale, "/");
+  const aboutHref = withLocale(locale, "/about");
+  const servicesHref = withLocale(locale, "/services");
+  const casosHref = withLocale(locale, "/casos");
+  const bimtoolsHref = withLocale(locale, "/bimtools");
+  const manualsHref = withLocale(locale, "/bimtools/manual");
+  const contactHref = withLocale(locale, "/#contact");
 
   const mobileNavItems = [
-    { href: base || "/", label: t.home },
-    { href: `${base}/about`, label: t.about },
-    { href: `${base}/services`, label: t.services },
-    { href: `${base}/casos`, label: t.casos },
-    { href: `${base}/bimtools`, label: t.bimtools },
-    { href: `${base}/bimtools/manual`, label: t.manuals },
+    { href: homeHref, label: t.home, isHome: true },
+    { href: aboutHref, label: t.about, isHome: false },
+    { href: servicesHref, label: t.services, isHome: false },
+    { href: casosHref, label: t.casos, isHome: false },
+    { href: bimtoolsHref, label: t.bimtools, isHome: false },
+    { href: manualsHref, label: t.manuals, isHome: false },
   ];
 
   return (
@@ -154,7 +134,7 @@ export function Header() {
         }`}
       >
         <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
-          <Link href={base || "/"} className="flex items-center opacity-90 transition-opacity hover:opacity-100">
+          <Link href={homeHref} className="flex items-center opacity-90 transition-opacity hover:opacity-100">
             <Image
               src="/images/logo-light.svg"
               alt="Frata Ingenieros"
@@ -166,17 +146,17 @@ export function Header() {
 
           {/* desktop nav */}
           <nav className="hidden items-center gap-7 md:flex">
-            <NavLink href={base || "/"} pathname={pathname}>{t.home}</NavLink>
-            <NavLink href={`${base}/about`} pathname={pathname}>{t.about}</NavLink>
+            <NavLink href={homeHref} pathname={pathname} isHome>{t.home}</NavLink>
+            <NavLink href={aboutHref} pathname={pathname}>{t.about}</NavLink>
             <ServicesDropdown locale={locale} pathname={pathname} />
-            <NavLink href={`${base}/casos`} pathname={pathname}>{t.casos}</NavLink>
-            <NavLink href={`${base}/bimtools`} pathname={pathname}>{t.bimtools}</NavLink>
+            <NavLink href={casosHref} pathname={pathname}>{t.casos}</NavLink>
+            <NavLink href={bimtoolsHref} pathname={pathname}>{t.bimtools}</NavLink>
           </nav>
 
           <div className="hidden items-center gap-4 md:flex">
             <LocaleSwitcher />
             <Button asChild size="sm" className="rounded-none px-5 text-xs font-medium uppercase tracking-[0.14em]">
-              <Link href={`${base}/#contact`}>{t.contact}</Link>
+              <Link href={contactHref}>{t.contact}</Link>
             </Button>
           </div>
 
@@ -184,7 +164,7 @@ export function Header() {
           <button
             onClick={() => setMobileOpen(true)}
             className="flex h-10 w-10 items-center justify-center text-foreground md:hidden"
-            aria-label="Abrir menu"
+            aria-label={t.openMenuAria}
             aria-expanded={mobileOpen}
           >
             <Menu className="h-5 w-5" />
@@ -199,21 +179,21 @@ export function Header() {
         }`}
       >
         <div className="flex h-16 items-center justify-between border-b border-border px-4 sm:px-6">
-          <Link href={base || "/"} onClick={() => setMobileOpen(false)}>
+          <Link href={homeHref} onClick={() => setMobileOpen(false)}>
             <Image src="/images/logo-light.svg" alt="Frata Ingenieros" width={80} height={27} />
           </Link>
           <button
             onClick={() => setMobileOpen(false)}
             className="flex h-10 w-10 items-center justify-center text-foreground"
-            aria-label="Cerrar menu"
+            aria-label={t.closeMenuAria}
           >
             <X className="h-5 w-5" />
           </button>
         </div>
 
         <nav className="flex-1 overflow-y-auto px-4 py-8 sm:px-6">
-          {mobileNavItems.map(({ href, label }, i) => {
-            const active = isActive(href, pathname);
+          {mobileNavItems.map(({ href, label, isHome }, i) => {
+            const active = isActive(href, pathname, isHome);
             return (
               <Link
                 key={href}
@@ -237,14 +217,14 @@ export function Header() {
         </nav>
 
         <div className="border-t border-border px-4 py-6 sm:px-6">
+          <div className="mb-4">
+            <LocaleSwitcher variant="full" />
+          </div>
           <Button asChild className="w-full rounded-none text-xs font-medium uppercase tracking-[0.14em]" size="lg">
-            <Link href={`${base}/#contact`} onClick={() => setMobileOpen(false)}>
+            <Link href={contactHref} onClick={() => setMobileOpen(false)}>
               {t.contact}
             </Link>
           </Button>
-          <div className="mt-4 flex justify-center">
-            <LocaleSwitcher />
-          </div>
         </div>
       </div>
     </>

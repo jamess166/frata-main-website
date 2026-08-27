@@ -42,7 +42,7 @@ export function buildSoftwareApplicationSchema(totalAddins: number, premiumAddin
     name: "BIMtools",
     applicationCategory: "BusinessApplication",
     operatingSystem: "Windows",
-    description: `Suite de ${totalAddins} addins para Revit con herramientas para exportación, navegación, estructuras, parámetros y automatización BIM. ${premiumAddins} addins premium disponibles.`,
+    description: `Suite de ${totalAddins} addins para Revit con herramientas para exportación, navegación, estructuras, parámetros, MEP y automatización BIM. ${premiumAddins} addins premium disponibles.`,
     url: `${BASE_URL}/bimtools`,
     offers: {
       "@type": "Offer",

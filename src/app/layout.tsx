@@ -4,15 +4,22 @@ import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { Toaster } from "@/components/ui/toaster";
+import { LocaleHtmlLang } from "@/components/layout/locale-html-lang";
+import { SkipToContentLink } from "@/components/layout/skip-to-content-link";
+import { localeAlternates } from "@/lib/locale";
 
+// Neither font ships a Cyrillic or CJK subset — Russian and Chinese text
+// fall back to the browser's system font stack, which is standard practice
+// for brand-Latin-font sites (see the i18n expansion plan for details).
+// latin-ext covers German/French/Italian/Portuguese diacritics.
 const archivo = Archivo({
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   variable: "--font-display",
   weight: ["500", "600", "700", "800", "900"],
 });
 
 const instrumentSans = Instrument_Sans({
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   variable: "--font-sans",
   weight: ["400", "500", "600", "700"],
 });
@@ -37,10 +44,15 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.frataingenieros.com"),
   alternates: {
     canonical: "/",
-    languages: {
-      es: "/",
-      en: "/en",
-    },
+    languages: localeAlternates("/"),
+  },
+  // The site already ships native, human-translated content in 8 languages
+  // (see src/lib/locale.ts) — opt out of the browser's own machine
+  // translation so it doesn't re-translate an already-translated page (which
+  // also breaks the language switcher's own labels and re-locks the visible
+  // language regardless of which locale link is actually clicked).
+  other: {
+    google: "notranslate",
   },
   openGraph: {
     title: "Frata Ingenieros",
@@ -72,14 +84,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${archivo.variable} ${instrumentSans.variable}`}>
+    <html lang="es" translate="no" className={`notranslate ${archivo.variable} ${instrumentSans.variable}`}>
       <body className="font-body antialiased bg-background text-foreground">
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground"
-        >
-          Saltar al contenido principal
-        </a>
+        <LocaleHtmlLang />
+        <SkipToContentLink />
         <div className="flex min-h-screen flex-col">
           <Header />
           <main id="main-content" className="flex-grow">{children}</main>

@@ -1,35 +1,35 @@
 import Image from "next/image";
 import type { CaseStudy } from "@/lib/case-studies";
+import { resolveBilingual, type Locale } from "@/lib/locale";
 
 interface CaseStudyCardProps {
   caseStudy: CaseStudy;
   index?: string;
-  locale?: "es" | "en";
+  locale?: Locale;
 }
 
-const LABELS = {
-  es: {
-    challenge: "Desafío",
-    solution: "Solución",
-    result: "Resultado",
-  },
-  en: {
-    challenge: "Challenge",
-    solution: "Solution",
-    result: "Result",
-  },
-} as const;
+const LABELS: Record<Locale, { challenge: string; solution: string; result: string }> = {
+  es: { challenge: "Desafío", solution: "Solución", result: "Resultado" },
+  en: { challenge: "Challenge", solution: "Solution", result: "Result" },
+  de: { challenge: "Herausforderung", solution: "Lösung", result: "Ergebnis" },
+  fr: { challenge: "Défi", solution: "Solution", result: "Résultat" },
+  it: { challenge: "Sfida", solution: "Soluzione", result: "Risultato" },
+  pt: { challenge: "Desafio", solution: "Solução", result: "Resultado" },
+  ru: { challenge: "Задача", solution: "Решение", result: "Результат" },
+  zh: { challenge: "挑战", solution: "解决方案", result: "成果" },
+};
 
 export function CaseStudyCard({ caseStudy, index, locale = "es" }: CaseStudyCardProps) {
   const labels = LABELS[locale];
-  const isEn = locale === "en";
   const cs = caseStudy;
 
-  const sector = isEn ? cs.sectorEn ?? cs.sector : cs.sector;
-  const service = isEn ? cs.serviceEn ?? cs.service : cs.service;
-  const challenge = isEn ? cs.challengeEn ?? cs.challenge : cs.challenge;
-  const solution = isEn ? cs.solutionEn ?? cs.solution : cs.solution;
-  const result = isEn ? cs.resultEn ?? cs.result : cs.result;
+  // Per-case-study detail text only ever has Spanish/English content; every
+  // other locale falls back to English.
+  const sector = resolveBilingual(locale, cs.sector, cs.sectorEn);
+  const service = resolveBilingual(locale, cs.service, cs.serviceEn);
+  const challenge = resolveBilingual(locale, cs.challenge, cs.challengeEn);
+  const solution = resolveBilingual(locale, cs.solution, cs.solutionEn);
+  const result = resolveBilingual(locale, cs.result, cs.resultEn);
 
   return (
     <article className="border-t border-border py-14 lg:py-20">
@@ -74,14 +74,15 @@ export function CaseStudyCard({ caseStudy, index, locale = "es" }: CaseStudyCard
           {/* metrics */}
           {cs.metrics && cs.metrics.length > 0 && (
             <div className="mt-10 grid grid-cols-2 gap-8 sm:grid-cols-3">
-              {cs.metrics.map((m) => (
-                <div key={isEn ? m.labelEn : m.label} className="border-t border-border pt-4">
-                  <p className="font-headline text-3xl font-bold text-primary sm:text-4xl">{m.value}</p>
-                  <p className="mt-2 text-xs leading-5 text-muted-foreground">
-                    {isEn ? m.labelEn : m.label}
-                  </p>
-                </div>
-              ))}
+              {cs.metrics.map((m) => {
+                const label = resolveBilingual(locale, m.label, m.labelEn);
+                return (
+                  <div key={label} className="border-t border-border pt-4">
+                    <p className="font-headline text-3xl font-bold text-primary sm:text-4xl">{m.value}</p>
+                    <p className="mt-2 text-xs leading-5 text-muted-foreground">{label}</p>
+                  </div>
+                );
+              })}
             </div>
           )}
 

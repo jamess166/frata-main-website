@@ -3,30 +3,35 @@
 import { useMemo, useState } from "react";
 import { ChevronLeft, ChevronRight, Expand } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import type { Locale } from "@/lib/locale";
 
 interface ManualGalleryImage {
   src: string;
   alt: string;
 }
 
+const GALLERY_LABELS: Record<Locale, { expand: string; previous: string; next: string; viewImage: string }> = {
+  es: { expand: "Ampliar", previous: "Imagen anterior", next: "Imagen siguiente", viewImage: "Ver imagen" },
+  en: { expand: "Expand", previous: "Previous image", next: "Next image", viewImage: "View image" },
+  de: { expand: "Vergrößern", previous: "Vorheriges Bild", next: "Nächstes Bild", viewImage: "Bild ansehen" },
+  fr: { expand: "Agrandir", previous: "Image précédente", next: "Image suivante", viewImage: "Voir l'image" },
+  it: { expand: "Espandi", previous: "Immagine precedente", next: "Immagine successiva", viewImage: "Visualizza immagine" },
+  pt: { expand: "Ampliar", previous: "Imagem anterior", next: "Próxima imagem", viewImage: "Ver imagem" },
+  ru: { expand: "Развернуть", previous: "Предыдущее изображение", next: "Следующее изображение", viewImage: "Просмотреть изображение" },
+  zh: { expand: "放大", previous: "上一张图片", next: "下一张图片", viewImage: "查看图片" },
+};
+
 export function ManualImageGallery({
   images,
   locale = "es",
 }: {
   images: ManualGalleryImage[];
-  locale?: "es" | "en";
+  locale?: Locale;
 }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
 
-  const labels = useMemo(
-    () => ({
-      expand: locale === "en" ? "Expand" : "Ampliar",
-      previous: locale === "en" ? "Previous image" : "Imagen anterior",
-      next: locale === "en" ? "Next image" : "Imagen siguiente",
-    }),
-    [locale]
-  );
+  const labels = useMemo(() => GALLERY_LABELS[locale], [locale]);
 
   const activeImage = images[activeIndex];
 
@@ -112,7 +117,7 @@ export function ManualImageGallery({
                     ? "border-primary shadow-sm ring-1 ring-primary/30"
                     : "border-border/70 opacity-80 hover:border-primary/30 hover:opacity-100"
                 }`}
-                aria-label={`${locale === "en" ? "View image" : "Ver imagen"} ${index + 1}`}
+                aria-label={`${labels.viewImage} ${index + 1}`}
               >
                 <img src={image.src} alt={image.alt} className="h-20 w-full object-cover" loading="lazy" />
               </button>

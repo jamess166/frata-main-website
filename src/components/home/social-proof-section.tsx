@@ -1,10 +1,22 @@
 import Image from "next/image";
 import { Eyebrow } from "@/components/site/eyebrow";
 import { Reveal } from "@/components/site/reveal";
+import { resolveBilingual, type Locale } from "@/lib/locale";
 
 interface SocialProofSectionProps {
-  locale?: "es" | "en";
+  locale?: Locale;
 }
+
+const HEADINGS: Record<Locale, { testimonials: string; usedAt: string }> = {
+  es: { testimonials: "Lo que dicen nuestros clientes", usedAt: "Usado en proyectos de" },
+  en: { testimonials: "What our clients say", usedAt: "Used in projects at" },
+  de: { testimonials: "Was unsere Kunden sagen", usedAt: "Im Einsatz bei Projekten von" },
+  fr: { testimonials: "Ce que disent nos clients", usedAt: "Utilisé dans des projets de" },
+  it: { testimonials: "Cosa dicono i nostri clienti", usedAt: "Utilizzato nei progetti di" },
+  pt: { testimonials: "O que dizem nossos clientes", usedAt: "Usado em projetos de" },
+  ru: { testimonials: "Что говорят наши клиенты", usedAt: "Используется в проектах" },
+  zh: { testimonials: "客户评价", usedAt: "已应用于以下项目" },
+};
 
 const TESTIMONIALS = [
   {
@@ -46,38 +58,40 @@ const CLIENT_LOGOS: { src: string; alt: string }[] = [
 ];
 
 export function SocialProofSection({ locale = "es" }: SocialProofSectionProps) {
-  const isEn = locale === "en";
+  const headings = HEADINGS[locale];
 
   return (
     <section className="border-t border-border">
       <div className="container mx-auto px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
         <Reveal>
-          <Eyebrow>{isEn ? "What our clients say" : "Lo que dicen nuestros clientes"}</Eyebrow>
+          <Eyebrow>{headings.testimonials}</Eyebrow>
         </Reveal>
 
         <div className="mt-14 grid gap-12 md:grid-cols-3 md:gap-10">
-          {TESTIMONIALS.map((t, i) => (
-            <Reveal key={t.name} delay={i * 100}>
-              <blockquote className="border-l border-primary/60 pl-6">
-                <p className="text-sm leading-7 text-foreground/80">
-                  “{isEn ? t.textEn : t.text}”
-                </p>
-                <footer className="mt-6">
-                  <p className="text-sm font-semibold text-foreground">{t.name}</p>
-                  <p className="mt-1 text-xs uppercase tracking-[0.14em] text-muted-foreground">
-                    {(isEn ? t.roleEn : t.role) ? `${isEn ? t.roleEn : t.role} · ` : ""}
-                    {t.company}, {t.country}
-                  </p>
-                </footer>
-              </blockquote>
-            </Reveal>
-          ))}
+          {TESTIMONIALS.map((t, i) => {
+            const text = resolveBilingual(locale, t.text, t.textEn);
+            const role = resolveBilingual(locale, t.role, t.roleEn);
+            return (
+              <Reveal key={t.name} delay={i * 100}>
+                <blockquote className="border-l border-primary/60 pl-6">
+                  <p className="text-sm leading-7 text-foreground/80">“{text}”</p>
+                  <footer className="mt-6">
+                    <p className="text-sm font-semibold text-foreground">{t.name}</p>
+                    <p className="mt-1 text-xs uppercase tracking-[0.14em] text-muted-foreground">
+                      {role ? `${role} · ` : ""}
+                      {t.company}, {t.country}
+                    </p>
+                  </footer>
+                </blockquote>
+              </Reveal>
+            );
+          })}
         </div>
 
         {CLIENT_LOGOS.length > 0 && (
           <div className="mt-20 border-t border-border pt-12">
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
-              {isEn ? "Used in projects at" : "Usado en proyectos de"}
+              {headings.usedAt}
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-10">
               {CLIENT_LOGOS.map((logo) => (
