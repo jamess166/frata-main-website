@@ -24,10 +24,9 @@ export function CaseStudyCard({ caseStudy, index, locale = "es" }: CaseStudyCard
   const cs = caseStudy;
 
   // Per-case-study detail text only ever has Spanish/English content; every
-  // other locale falls back to English. Client is only translated when it's
-  // a generic role name ("Consultor Independiente") rather than an actual
-  // company/consortium name, which stays as-is in every language.
-  const client = resolveBilingual(locale, cs.client, cs.clientEn);
+  // other locale falls back to English. Client names stay in Spanish in
+  // every locale — they're not translated.
+  const client = cs.client;
   const sector = resolveBilingual(locale, cs.sector, cs.sectorEn);
   const service = resolveBilingual(locale, cs.service, cs.serviceEn);
   const challenge = resolveBilingual(locale, cs.challenge, cs.challengeEn);

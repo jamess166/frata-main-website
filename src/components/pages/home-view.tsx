@@ -13,10 +13,11 @@ import { withLocale, resolveBilingual, type Locale } from "@/lib/locale";
 import { homeContent, techStack, featuredCaseSlugs, type HomePageContent } from "@/content/home";
 
 // Per-case-study detail text only ever has Spanish/English content; every
-// other locale falls back to English (see resolveBilingual).
+// other locale falls back to English (see resolveBilingual). Client names
+// stay in Spanish in every locale — they're not translated.
 function localizedCase(cs: CaseStudy, locale: Locale) {
   return {
-    client: resolveBilingual(locale, cs.client, cs.clientEn),
+    client: cs.client,
     sector: resolveBilingual(locale, cs.sector, cs.sectorEn),
     service: resolveBilingual(locale, cs.service, cs.serviceEn),
     result: resolveBilingual(locale, cs.result, cs.resultEn),
