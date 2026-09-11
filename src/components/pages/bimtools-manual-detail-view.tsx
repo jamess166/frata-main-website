@@ -4,7 +4,7 @@ import html from "remark-html";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { AddinIcon } from "@/components/bimtools/addin-icon";
 import { ManualImageGallery } from "@/components/bimtools/manual-image-gallery";
-import { getYoutubeEmbedUrl } from "@/lib/youtube";
+import { FRATA_YOUTUBE_CHANNEL_URL, getYoutubeEmbedUrl } from "@/lib/youtube";
 import { withLocale, type Locale } from "@/lib/locale";
 import type { BimtoolsManualEntry } from "@/lib/generated/bimtools-manuals";
 import type { BimtoolsSuiteWithManuals } from "@/lib/bimtools";
@@ -66,7 +66,8 @@ export async function BimtoolsManualDetailView({
                 <strong className="text-foreground">{content.pricingLine.monthly}</strong>,{" "}
                 <strong className="text-foreground">{content.pricingLine.quarterly}</strong>{" "}
                 {content.pricingLine.connector2}{" "}
-                <strong className="text-foreground">{content.pricingLine.yearly}</strong>.
+                <strong className="text-foreground">{content.pricingLine.yearly}</strong>{" "}
+                {content.pricingLine.introNote}.
               </p>
             ) : null}
             {manual.commerce.isPremium && manual.commerce.purchaseUrl ? (
@@ -140,6 +141,15 @@ export async function BimtoolsManualDetailView({
                   />
                 </div>
               </div>
+              <a
+                href={FRATA_YOUTUBE_CHANNEL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.14em] text-primary hover:underline"
+              >
+                {content.watchChannelCta}
+                <ArrowUpRight className="h-4 w-4" />
+              </a>
             </section>
           ) : null}
 

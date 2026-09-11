@@ -97,8 +97,12 @@ export function HomeView({ locale, content }: { locale: Locale; content: HomePag
           <Reveal delay={100}>
             <h2 className="mt-6 max-w-4xl font-headline text-display-lg font-bold text-foreground">
               {content.manifesto.heading.line1}
-              <br />
-              <span className="text-muted-foreground">{content.manifesto.heading.line2}</span>
+              {content.manifesto.heading.line2 && (
+                <>
+                  <br />
+                  <span className="text-muted-foreground">{content.manifesto.heading.line2}</span>
+                </>
+              )}
             </h2>
           </Reveal>
           <div className="mt-16 grid gap-x-12 gap-y-10 sm:grid-cols-2">

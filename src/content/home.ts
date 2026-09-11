@@ -30,7 +30,7 @@ export interface HomePageContent {
     servicesCta: string;
     stats: { bimtoolsUsers: string; publishedAddins: string; deliveredProjects: string };
   };
-  manifesto: { eyebrow: string; heading: { line1: string; line2: string }; points: string[] };
+  manifesto: { eyebrow: string; heading: { line1: string; line2?: string }; points: string[] };
   services: { eyebrow: string; heading: string; cta: string; items: HomeServiceCard[] };
   projects: { eyebrow: string; heading: string; viewAllCta: string };
   process: { eyebrow: string; heading: string; steps: HomeProcessStep[] };
@@ -58,7 +58,7 @@ export const homeContent: Record<Locale, HomePageContent> = {
     },
     hero: {
       eyebrow: "Consultoría BIM · Perú → LATAM",
-      heading: { line1: "BIM que se construye.", line2: "No BIM que se presenta." },
+      heading: { line1: "BIM que se construye.", line2: "Para cada etapa de tu proyecto." },
       intro:
         "Consultoría, modelado y desarrollo de software para Revit y Tekla. Ayudamos a empresas AEC a convertir BIM en capacidad real de producción.",
       talkCta: "Hablemos",
@@ -71,7 +71,7 @@ export const homeContent: Record<Locale, HomePageContent> = {
     },
     manifesto: {
       eyebrow: "Enfoque",
-      heading: { line1: "No somos proveedores.", line2: "Somos tu equipo técnico." },
+      heading: { line1: "Somos tu equipo técnico." },
       points: [
         "Implementamos BIM en procesos reales de obra y oficina técnica, no en presentaciones.",
         "Modelamos estructuras y detalle de fabricación con control y trazabilidad.",
@@ -81,7 +81,7 @@ export const homeContent: Record<Locale, HomePageContent> = {
     },
     services: {
       eyebrow: "Servicios",
-      heading: "Lo único que ofrecemos: lo que sabemos hacer bien.",
+      heading: "Ofrecemos lo que sabemos hacer bien.",
       cta: "Ver servicio",
       items: [
         {
@@ -168,7 +168,7 @@ export const homeContent: Record<Locale, HomePageContent> = {
     },
     hero: {
       eyebrow: "BIM Consulting · Peru → LATAM",
-      heading: { line1: "BIM that gets built.", line2: "Not BIM that gets presented." },
+      heading: { line1: "BIM that gets built.", line2: "For every stage of your project." },
       intro:
         "Consulting, modeling and software development for Revit and Tekla. We help AEC companies turn BIM into real production capacity.",
       talkCta: "Let's talk",
@@ -181,7 +181,7 @@ export const homeContent: Record<Locale, HomePageContent> = {
     },
     manifesto: {
       eyebrow: "Approach",
-      heading: { line1: "We are not vendors.", line2: "We are your technical team." },
+      heading: { line1: "We are your technical team." },
       points: [
         "We implement BIM in real construction and technical-office processes, not in slide decks.",
         "We model structures and fabrication detail with control and traceability.",
@@ -191,7 +191,7 @@ export const homeContent: Record<Locale, HomePageContent> = {
     },
     services: {
       eyebrow: "Services",
-      heading: "The only thing we offer: what we do well.",
+      heading: "We offer what we do well.",
       cta: "View service",
       items: [
         {
@@ -278,7 +278,7 @@ export const homeContent: Record<Locale, HomePageContent> = {
     },
     hero: {
       eyebrow: "BIM-Beratung · Peru → LATAM",
-      heading: { line1: "BIM, das gebaut wird.", line2: "Nicht BIM, das nur präsentiert wird." },
+      heading: { line1: "BIM, das gebaut wird.", line2: "Für jede Phase Ihres Projekts." },
       intro:
         "Beratung, Modellierung und Softwareentwicklung für Revit und Tekla. Wir helfen AEC-Unternehmen, BIM in echte Produktionskapazität zu verwandeln.",
       talkCta: "Kontakt aufnehmen",
@@ -291,7 +291,7 @@ export const homeContent: Record<Locale, HomePageContent> = {
     },
     manifesto: {
       eyebrow: "Ansatz",
-      heading: { line1: "Wir sind keine Zulieferer.", line2: "Wir sind Ihr technisches Team." },
+      heading: { line1: "Wir sind Ihr technisches Team." },
       points: [
         "Wir setzen BIM in echten Bau- und Planungsprozessen um, nicht in Präsentationen.",
         "Wir modellieren Tragwerke und Fertigungsdetails mit Kontrolle und Nachverfolgbarkeit.",
@@ -301,7 +301,7 @@ export const homeContent: Record<Locale, HomePageContent> = {
     },
     services: {
       eyebrow: "Leistungen",
-      heading: "Das Einzige, was wir anbieten: das, was wir gut können.",
+      heading: "Wir bieten das, was wir gut können.",
       cta: "Leistung ansehen",
       items: [
         {
@@ -389,7 +389,7 @@ export const homeContent: Record<Locale, HomePageContent> = {
     },
     hero: {
       eyebrow: "Conseil BIM · Pérou → LATAM",
-      heading: { line1: "Du BIM qui se construit.", line2: "Pas du BIM qui se présente." },
+      heading: { line1: "Du BIM qui se construit.", line2: "Pour chaque étape de votre projet." },
       intro:
         "Conseil, modélisation et développement logiciel pour Revit et Tekla. Nous aidons les entreprises AEC à transformer le BIM en réelle capacité de production.",
       talkCta: "Discutons-en",
@@ -402,7 +402,7 @@ export const homeContent: Record<Locale, HomePageContent> = {
     },
     manifesto: {
       eyebrow: "Approche",
-      heading: { line1: "Nous ne sommes pas des prestataires.", line2: "Nous sommes votre équipe technique." },
+      heading: { line1: "Nous sommes votre équipe technique." },
       points: [
         "Nous déployons le BIM dans de vrais processus de chantier et de bureau technique, pas dans des présentations.",
         "Nous modélisons les structures et les détails de fabrication avec contrôle et traçabilité.",
@@ -412,7 +412,7 @@ export const homeContent: Record<Locale, HomePageContent> = {
     },
     services: {
       eyebrow: "Services",
-      heading: "La seule chose que nous proposons : ce que nous savons bien faire.",
+      heading: "Nous proposons ce que nous savons bien faire.",
       cta: "Voir le service",
       items: [
         {
@@ -499,7 +499,7 @@ export const homeContent: Record<Locale, HomePageContent> = {
     },
     hero: {
       eyebrow: "Consulenza BIM · Perù → LATAM",
-      heading: { line1: "BIM che si costruisce.", line2: "Non BIM che si presenta." },
+      heading: { line1: "BIM che si costruisce.", line2: "Per ogni fase del tuo progetto." },
       intro:
         "Consulenza, modellazione e sviluppo software per Revit e Tekla. Aiutiamo le aziende AEC a trasformare il BIM in una reale capacità produttiva.",
       talkCta: "Parliamone",
@@ -512,7 +512,7 @@ export const homeContent: Record<Locale, HomePageContent> = {
     },
     manifesto: {
       eyebrow: "Approccio",
-      heading: { line1: "Non siamo fornitori.", line2: "Siamo il vostro team tecnico." },
+      heading: { line1: "Siamo il vostro team tecnico." },
       points: [
         "Applichiamo il BIM in processi reali di cantiere e ufficio tecnico, non nelle presentazioni.",
         "Modelliamo strutture e dettagli di fabbricazione con controllo e tracciabilità.",
@@ -522,7 +522,7 @@ export const homeContent: Record<Locale, HomePageContent> = {
     },
     services: {
       eyebrow: "Servizi",
-      heading: "L'unica cosa che offriamo: ciò che sappiamo fare bene.",
+      heading: "Offriamo ciò che sappiamo fare bene.",
       cta: "Vedi il servizio",
       items: [
         {
@@ -609,7 +609,7 @@ export const homeContent: Record<Locale, HomePageContent> = {
     },
     hero: {
       eyebrow: "Consultoria BIM · Peru → LATAM",
-      heading: { line1: "BIM que se constrói.", line2: "Não BIM que se apresenta." },
+      heading: { line1: "BIM que se constrói.", line2: "Para cada etapa do seu projeto." },
       intro:
         "Consultoria, modelagem e desenvolvimento de software para Revit e Tekla. Ajudamos empresas AEC a transformar BIM em capacidade real de produção.",
       talkCta: "Vamos conversar",
@@ -622,7 +622,7 @@ export const homeContent: Record<Locale, HomePageContent> = {
     },
     manifesto: {
       eyebrow: "Abordagem",
-      heading: { line1: "Não somos fornecedores.", line2: "Somos sua equipe técnica." },
+      heading: { line1: "Somos sua equipe técnica." },
       points: [
         "Implementamos BIM em processos reais de obra e escritório técnico, não em apresentações.",
         "Modelamos estruturas e detalhamento de fabricação com controle e rastreabilidade.",
@@ -632,7 +632,7 @@ export const homeContent: Record<Locale, HomePageContent> = {
     },
     services: {
       eyebrow: "Serviços",
-      heading: "A única coisa que oferecemos: o que sabemos fazer bem.",
+      heading: "Oferecemos o que sabemos fazer bem.",
       cta: "Ver serviço",
       items: [
         {
@@ -719,7 +719,7 @@ export const homeContent: Record<Locale, HomePageContent> = {
     },
     hero: {
       eyebrow: "BIM-консалтинг · Перу → Латинская Америка",
-      heading: { line1: "BIM, который строится.", line2: "А не BIM, который презентуют." },
+      heading: { line1: "BIM, который строится.", line2: "Для каждого этапа вашего проекта." },
       intro:
         "Консалтинг, моделирование и разработка ПО для Revit и Tekla. Мы помогаем AEC-компаниям превращать BIM в реальную производственную мощность.",
       talkCta: "Обсудим проект",
@@ -732,7 +732,7 @@ export const homeContent: Record<Locale, HomePageContent> = {
     },
     manifesto: {
       eyebrow: "Подход",
-      heading: { line1: "Мы не поставщики.", line2: "Мы ваша техническая команда." },
+      heading: { line1: "Мы ваша техническая команда." },
       points: [
         "Мы внедряем BIM в реальных процессах на стройплощадке и в техническом отделе, а не в презентациях.",
         "Мы моделируем конструкции и детали изготовления с контролем и прослеживаемостью.",
@@ -742,7 +742,7 @@ export const homeContent: Record<Locale, HomePageContent> = {
     },
     services: {
       eyebrow: "Услуги",
-      heading: "Единственное, что мы предлагаем: то, что мы умеем делать хорошо.",
+      heading: "Мы предлагаем то, что умеем делать хорошо.",
       cta: "Смотреть услугу",
       items: [
         {
@@ -830,7 +830,7 @@ export const homeContent: Record<Locale, HomePageContent> = {
     },
     hero: {
       eyebrow: "BIM 咨询 · 秘鲁 → 拉丁美洲",
-      heading: { line1: "真正建造出来的 BIM。", line2: "而不只是用来展示的 BIM。" },
+      heading: { line1: "真正建造出来的 BIM。", line2: "覆盖项目的每一个阶段。" },
       intro: "为 Revit 和 Tekla 提供咨询、建模与软件开发服务。我们帮助 AEC 企业将 BIM 转化为真正的生产能力。",
       talkCta: "联系我们",
       servicesCta: "查看服务",
@@ -842,7 +842,7 @@ export const homeContent: Record<Locale, HomePageContent> = {
     },
     manifesto: {
       eyebrow: "理念",
-      heading: { line1: "我们不是供应商。", line2: "我们是您的技术团队。" },
+      heading: { line1: "我们是您的技术团队。" },
       points: [
         "我们将 BIM 落实到真实的施工现场与技术办公流程中，而不是停留在演示文稿里。",
         "我们以可控与可追溯的方式对结构与加工细节进行建模。",
@@ -852,7 +852,7 @@ export const homeContent: Record<Locale, HomePageContent> = {
     },
     services: {
       eyebrow: "服务",
-      heading: "我们只提供一件事：我们真正擅长的事。",
+      heading: "我们提供我们真正擅长的事。",
       cta: "查看服务",
       items: [
         {

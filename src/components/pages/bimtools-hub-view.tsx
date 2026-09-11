@@ -9,10 +9,12 @@ import { Stat } from "@/components/site/stat";
 import { getBimtoolsOverview, getBimtoolsSuitesWithManuals } from "@/lib/bimtools";
 import { withLocale, type Locale } from "@/lib/locale";
 import type { BimtoolsHubContent } from "@/content/bimtools-hub";
+import { bimtoolsManualDetailContent } from "@/content/bimtools-manual-detail";
 
 export function BimtoolsHubView({ locale, content }: { locale: Locale; content: BimtoolsHubContent }) {
   const suites = getBimtoolsSuitesWithManuals();
   const overview = getBimtoolsOverview();
+  const freeLabel = bimtoolsManualDetailContent[locale].freeLabel;
 
   return (
     <>
@@ -23,6 +25,11 @@ export function BimtoolsHubView({ locale, content }: { locale: Locale; content: 
         <div className="container mx-auto px-4 pb-16 pt-20 sm:px-6 lg:px-8 lg:pb-20 lg:pt-28">
           <Reveal>
             <Eyebrow>BIMtools by Frata</Eyebrow>
+          </Reveal>
+          <Reveal delay={50}>
+            <p className="mt-6 inline-flex items-center border border-primary/40 px-3 py-1.5 text-xs font-medium uppercase tracking-[0.14em] text-primary">
+              {content.hero.offerBadge}
+            </p>
           </Reveal>
           <Reveal delay={100}>
             <h1 className="mt-8 max-w-4xl font-headline text-display-lg font-black text-foreground">
@@ -89,7 +96,14 @@ export function BimtoolsHubView({ locale, content }: { locale: Locale; content: 
                             key={manual.slug}
                             className="inline-flex items-center gap-2 text-xs text-muted-foreground"
                           >
-                            <AddinIcon icon={manual.icon} name={manual.addinName} size="sm" />
+                            <span className="relative inline-flex shrink-0">
+                              <AddinIcon icon={manual.icon} name={manual.addinName} size="sm" />
+                              {manual.commerce.isFree ? (
+                                <span className="absolute -bottom-1 -right-1 rounded-sm bg-background px-[3px] text-[7px] font-medium uppercase leading-tight tracking-[0.06em] text-muted-foreground/70">
+                                  {freeLabel}
+                                </span>
+                              ) : null}
+                            </span>
                             {manual.title[locale].split(" - ")[0]}
                           </span>
                         ))}
@@ -160,6 +174,9 @@ export function BimtoolsHubView({ locale, content }: { locale: Locale; content: 
                     </li>
                   ))}
                 </ul>
+                <p className="mt-6 border-t border-border pt-4 text-sm leading-7 text-muted-foreground">
+                  {content.tiers.premium.customizationNote}
+                </p>
                 <div className="mt-10 flex flex-wrap gap-4">
                   <Button asChild className="rounded-none px-8 text-xs font-medium uppercase tracking-[0.14em]">
                     <Link href={withLocale(locale, "/bimtools/suscripcion")}>

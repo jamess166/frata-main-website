@@ -79,6 +79,11 @@ export function BimtoolsSubscriptionView({
           <Reveal delay={300}>
             <p className="mt-8 max-w-2xl text-lg leading-8 text-muted-foreground">{content.intro}</p>
           </Reveal>
+          <Reveal delay={350}>
+            <p className="mt-3 max-w-2xl text-sm font-medium uppercase tracking-[0.14em] text-primary">
+              {content.introPriceNote}
+            </p>
+          </Reveal>
           <Reveal delay={400}>
             <div className="mt-10 flex flex-wrap gap-4">
               <Button asChild size="lg" className="rounded-none px-8 text-xs font-medium uppercase tracking-[0.14em]">
@@ -113,6 +118,17 @@ export function BimtoolsSubscriptionView({
               <PlanCard plan={content.plans.yearly} anchor={anchor} />
             </Reveal>
           </div>
+          <Reveal delay={300}>
+            <p className="mt-10 max-w-2xl text-sm leading-7 text-muted-foreground">
+              {content.customization.text}{" "}
+              <Link
+                href={withLocale(locale, "/#contact")}
+                className="font-medium text-primary underline underline-offset-4 hover:opacity-80"
+              >
+                {content.customization.ctaLabel}
+              </Link>
+            </p>
+          </Reveal>
         </div>
       </section>
 
