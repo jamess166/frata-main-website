@@ -343,12 +343,12 @@ export const bimtoolsManuals: BimtoolsManualEntry[] = [
       "youtubeId": ""
     },
     "commerce": {
-      "tier": "free",
-      "purchaseUrl": "",
-      "trialDays": 0,
+      "tier": "premium",
+      "purchaseUrl": "https://www.frataingenieros.com/bimtools/suscripcion",
+      "trialDays": 30,
       "activationEmail": "info@frataingenieros.com",
-      "isPremium": false,
-      "isFree": true
+      "isPremium": true,
+      "isFree": false
     }
   },
   {
@@ -1222,7 +1222,7 @@ export const bimtoolsManuals: BimtoolsManualEntry[] = [
       "trialDays": 30,
       "activationEmail": "info@frataingenieros.com",
       "isPremium": true,
-      "isFree": true
+      "isFree": false
     }
   },
   {
@@ -1270,12 +1270,12 @@ export const bimtoolsManuals: BimtoolsManualEntry[] = [
       "youtubeId": ""
     },
     "commerce": {
-      "tier": "free",
-      "purchaseUrl": "",
+      "tier": "premium",
+      "purchaseUrl": "https://www.frataingenieros.com/bimtools/suscripcion",
       "trialDays": 30,
       "activationEmail": "info@frataingenieros.com",
-      "isPremium": false,
-      "isFree": true
+      "isPremium": true,
+      "isFree": false
     }
   },
   {
@@ -1328,7 +1328,7 @@ export const bimtoolsManuals: BimtoolsManualEntry[] = [
       "trialDays": 30,
       "activationEmail": "info@frataingenieros.com",
       "isPremium": true,
-      "isFree": true
+      "isFree": false
     }
   },
   {
@@ -1439,7 +1439,7 @@ export const bimtoolsManuals: BimtoolsManualEntry[] = [
       "trialDays": 30,
       "activationEmail": "info@frataingenieros.com",
       "isPremium": true,
-      "isFree": true
+      "isFree": false
     }
   },
   {
@@ -1487,12 +1487,12 @@ export const bimtoolsManuals: BimtoolsManualEntry[] = [
       "youtubeId": ""
     },
     "commerce": {
-      "tier": "free",
-      "purchaseUrl": "",
+      "tier": "premium",
+      "purchaseUrl": "https://www.frataingenieros.com/bimtools/suscripcion",
       "trialDays": 30,
       "activationEmail": "info@frataingenieros.com",
-      "isPremium": false,
-      "isFree": true
+      "isPremium": true,
+      "isFree": false
     }
   },
   {
@@ -1545,7 +1545,7 @@ export const bimtoolsManuals: BimtoolsManualEntry[] = [
       "trialDays": 30,
       "activationEmail": "info@frataingenieros.com",
       "isPremium": true,
-      "isFree": true
+      "isFree": false
     }
   },
   {
@@ -1820,12 +1820,12 @@ export const bimtoolsManuals: BimtoolsManualEntry[] = [
       "youtubeId": ""
     },
     "commerce": {
-      "tier": "free",
-      "purchaseUrl": "",
+      "tier": "premium",
+      "purchaseUrl": "https://www.frataingenieros.com/bimtools/suscripcion",
       "trialDays": 30,
       "activationEmail": "info@frataingenieros.com",
-      "isPremium": false,
-      "isFree": true
+      "isPremium": true,
+      "isFree": false
     }
   },
   {
@@ -1878,7 +1878,7 @@ export const bimtoolsManuals: BimtoolsManualEntry[] = [
       "trialDays": 30,
       "activationEmail": "info@frataingenieros.com",
       "isPremium": true,
-      "isFree": true
+      "isFree": false
     }
   },
   {
@@ -1931,7 +1931,7 @@ export const bimtoolsManuals: BimtoolsManualEntry[] = [
       "trialDays": 30,
       "activationEmail": "info@frataingenieros.com",
       "isPremium": true,
-      "isFree": true
+      "isFree": false
     }
   },
   {
