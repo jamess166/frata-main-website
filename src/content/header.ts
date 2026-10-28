@@ -5,6 +5,7 @@ export interface HeaderContent {
   about: string;
   bimtools: string;
   casos: string;
+  blog: string;
   contact: string;
   services: string;
   manuals: string;
@@ -19,6 +20,7 @@ export const headerContent: Record<Locale, HeaderContent> = {
     about: "Nosotros",
     bimtools: "BIMtools",
     casos: "Casos",
+    blog: "Blog",
     contact: "Contacto",
     services: "Servicios",
     manuals: "Manuales",
@@ -31,6 +33,7 @@ export const headerContent: Record<Locale, HeaderContent> = {
     about: "About",
     bimtools: "BIMtools",
     casos: "Case Studies",
+    blog: "Blog",
     contact: "Contact",
     services: "Services",
     manuals: "Manuals",
@@ -43,6 +46,7 @@ export const headerContent: Record<Locale, HeaderContent> = {
     about: "Über uns",
     bimtools: "BIMtools",
     casos: "Referenzen",
+    blog: "Blog",
     contact: "Kontakt",
     services: "Leistungen",
     manuals: "Handbücher",
@@ -55,6 +59,7 @@ export const headerContent: Record<Locale, HeaderContent> = {
     about: "À propos",
     bimtools: "BIMtools",
     casos: "Études de cas",
+    blog: "Blog",
     contact: "Contact",
     services: "Services",
     manuals: "Manuels",
@@ -67,6 +72,7 @@ export const headerContent: Record<Locale, HeaderContent> = {
     about: "Chi siamo",
     bimtools: "BIMtools",
     casos: "Casi studio",
+    blog: "Blog",
     contact: "Contatti",
     services: "Servizi",
     manuals: "Manuali",
@@ -79,6 +85,7 @@ export const headerContent: Record<Locale, HeaderContent> = {
     about: "Sobre nós",
     bimtools: "BIMtools",
     casos: "Casos de sucesso",
+    blog: "Blog",
     contact: "Contato",
     services: "Serviços",
     manuals: "Manuais",
@@ -91,6 +98,7 @@ export const headerContent: Record<Locale, HeaderContent> = {
     about: "О нас",
     bimtools: "BIMtools",
     casos: "Кейсы",
+    blog: "Блог",
     contact: "Контакты",
     services: "Услуги",
     manuals: "Руководства",
@@ -103,6 +111,7 @@ export const headerContent: Record<Locale, HeaderContent> = {
     about: "关于我们",
     bimtools: "BIMtools",
     casos: "案例",
+    blog: "博客",
     contact: "联系方式",
     services: "服务",
     manuals: "手册",

@@ -113,6 +113,8 @@ export function Header() {
   const aboutHref = withLocale(locale, "/about");
   const servicesHref = withLocale(locale, "/services");
   const casosHref = withLocale(locale, "/casos");
+  // The blog is Spanish-only, so every locale links to the same /blog.
+  const blogHref = "/blog";
   const bimtoolsHref = withLocale(locale, "/bimtools");
   const manualsHref = withLocale(locale, "/bimtools/manual");
   const contactHref = withLocale(locale, "/#contact");
@@ -122,6 +124,7 @@ export function Header() {
     { href: aboutHref, label: t.about, isHome: false },
     { href: servicesHref, label: t.services, isHome: false },
     { href: casosHref, label: t.casos, isHome: false },
+    { href: blogHref, label: t.blog, isHome: false },
     { href: bimtoolsHref, label: t.bimtools, isHome: false },
     { href: manualsHref, label: t.manuals, isHome: false },
   ];
@@ -150,6 +153,7 @@ export function Header() {
             <NavLink href={aboutHref} pathname={pathname}>{t.about}</NavLink>
             <ServicesDropdown locale={locale} pathname={pathname} />
             <NavLink href={casosHref} pathname={pathname}>{t.casos}</NavLink>
+            <NavLink href={blogHref} pathname={pathname}>{t.blog}</NavLink>
             <NavLink href={bimtoolsHref} pathname={pathname}>{t.bimtools}</NavLink>
           </nav>
 

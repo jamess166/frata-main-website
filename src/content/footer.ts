@@ -11,6 +11,7 @@ export interface FooterContent {
     about: string;
     services: string;
     caseStudies: string;
+    blog: string;
     contact: string;
   };
   bimtools: {
@@ -35,6 +36,7 @@ export const footerContent: Record<Locale, FooterContent> = {
       about: "Nosotros",
       services: "Servicios",
       caseStudies: "Casos",
+      blog: "Blog",
       contact: "Contacto",
     },
     bimtools: { label: "BIMtools", allAddins: "Ver todos los addins", privacy: "Política de privacidad" },
@@ -53,6 +55,7 @@ export const footerContent: Record<Locale, FooterContent> = {
       about: "About",
       services: "Services",
       caseStudies: "Case Studies",
+      blog: "Blog",
       contact: "Contact",
     },
     bimtools: { label: "BIMtools", allAddins: "All addins", privacy: "Privacy policy" },
@@ -71,6 +74,7 @@ export const footerContent: Record<Locale, FooterContent> = {
       about: "Über uns",
       services: "Leistungen",
       caseStudies: "Referenzen",
+      blog: "Blog",
       contact: "Kontakt",
     },
     bimtools: { label: "BIMtools", allAddins: "Alle Addins ansehen", privacy: "Datenschutzerklärung" },
@@ -89,6 +93,7 @@ export const footerContent: Record<Locale, FooterContent> = {
       about: "À propos",
       services: "Services",
       caseStudies: "Études de cas",
+      blog: "Blog",
       contact: "Contact",
     },
     bimtools: { label: "BIMtools", allAddins: "Voir tous les addins", privacy: "Politique de confidentialité" },
@@ -107,6 +112,7 @@ export const footerContent: Record<Locale, FooterContent> = {
       about: "Chi siamo",
       services: "Servizi",
       caseStudies: "Casi studio",
+      blog: "Blog",
       contact: "Contatti",
     },
     bimtools: { label: "BIMtools", allAddins: "Vedi tutti gli addin", privacy: "Informativa sulla privacy" },
@@ -125,6 +131,7 @@ export const footerContent: Record<Locale, FooterContent> = {
       about: "Sobre nós",
       services: "Serviços",
       caseStudies: "Casos de sucesso",
+      blog: "Blog",
       contact: "Contato",
     },
     bimtools: { label: "BIMtools", allAddins: "Ver todos os addins", privacy: "Política de privacidade" },
@@ -143,6 +150,7 @@ export const footerContent: Record<Locale, FooterContent> = {
       about: "О нас",
       services: "Услуги",
       caseStudies: "Кейсы",
+      blog: "Блог",
       contact: "Контакты",
     },
     bimtools: { label: "BIMtools", allAddins: "Все аддины", privacy: "Политика конфиденциальности" },
@@ -161,6 +169,7 @@ export const footerContent: Record<Locale, FooterContent> = {
       about: "关于我们",
       services: "服务",
       caseStudies: "案例",
+      blog: "博客",
       contact: "联系方式",
     },
     bimtools: { label: "BIMtools", allAddins: "查看所有插件", privacy: "隐私政策" },

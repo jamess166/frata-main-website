@@ -51,6 +51,7 @@ export function Footer() {
               <li><Link href={to("/about")} className="transition-colors hover:text-primary">{t.nav.about}</Link></li>
               <li><Link href={to("/services")} className="transition-colors hover:text-primary">{t.nav.services}</Link></li>
               <li><Link href={to("/casos")} className="transition-colors hover:text-primary">{t.nav.caseStudies}</Link></li>
+              <li><Link href="/blog" className="transition-colors hover:text-primary">{t.nav.blog}</Link></li>
               <li><Link href={to("/#contact")} className="transition-colors hover:text-primary">{t.nav.contact}</Link></li>
             </ul>
           </div>
