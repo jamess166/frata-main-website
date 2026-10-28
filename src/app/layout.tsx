@@ -6,7 +6,6 @@ import { Footer } from "@/components/layout/footer";
 import { Toaster } from "@/components/ui/toaster";
 import { LocaleHtmlLang } from "@/components/layout/locale-html-lang";
 import { SkipToContentLink } from "@/components/layout/skip-to-content-link";
-import { localeAlternates } from "@/lib/locale";
 
 // Neither font ships a Cyrillic or CJK subset — Russian and Chinese text
 // fall back to the browser's system font stack, which is standard practice
@@ -41,11 +40,10 @@ export const metadata: Metadata = {
     "addins Revit",
     "servicios BIM Peru",
   ],
+  // No site-wide canonical here: a layout-level canonical is inherited by any
+  // page that doesn't declare its own, telling Google that page is a
+  // duplicate of the homepage. Each page sets its own alternates.canonical.
   metadataBase: new URL("https://www.frataingenieros.com"),
-  alternates: {
-    canonical: "/",
-    languages: localeAlternates("/"),
-  },
   // The site already ships native, human-translated content in 8 languages
   // (see src/lib/locale.ts) — opt out of the browser's own machine
   // translation so it doesn't re-translate an already-translated page (which

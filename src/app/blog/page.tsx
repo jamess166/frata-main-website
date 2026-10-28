@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
@@ -12,6 +13,14 @@ const copy = {
     "Artículos, ideas y noticias del mundo BIM y la construcción digital.",
   by: "Por",
 } as const;
+
+export const metadata: Metadata = {
+  title: copy.blogTitle,
+  description: copy.blogDescription,
+  alternates: {
+    canonical: "https://www.frataingenieros.com/blog",
+  },
+};
 
 export default async function BlogPage() {
   const posts = await getAllPosts();
