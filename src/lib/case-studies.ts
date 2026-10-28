@@ -29,27 +29,28 @@ export interface CaseStudy {
 export const caseStudies: CaseStudy[] = [
   {
     slug: "estadio-chepen",
-    client: "Consorcio Olímpico",
-    sector: "Estadios e infraestructura deportiva",
-    sectorEn: "Stadiums and sports infrastructure",
-    service: "Desarrollo de expediente técnico con metodología BIM",
-    serviceEn: "Technical documentation package developed with BIM methodology",
-    technologies: ["Revit", "FrataTools"],
+    client: "Estadio Municipal de Chepén",
+    clientEn: "Chepén Municipal Stadium",
+    sector: "Infraestructura deportiva · inversión pública",
+    sectorEn: "Sports infrastructure · public investment",
+    service: "Consultoría BIM para un expediente técnico de inversión pública",
+    serviceEn: "BIM consulting for a public-investment technical package",
+    technologies: ["Revit", "Navisworks", "Dynamo", "FrataTools"],
     challenge:
-      "El proyecto requería elaborar la documentación técnica del expediente a partir de modelos BIM, asegurando coordinación entre especialidades, precisión en los planos y reducción de reprocesos durante la etapa de diseño.",
+      "El expediente técnico debe elaborarse a partir de modelos BIM, con coordinación entre especialidades, planos consistentes y metrados que puedan verificarse durante la revisión.",
     challengeEn:
-      "The project required producing the technical documentation package directly from BIM models, ensuring coordination between disciplines, drawing accuracy and fewer reworks during the design stage.",
+      "The technical package has to be produced from BIM models, with coordination between disciplines, consistent drawings and quantity take-offs that can be checked during review.",
     solution:
-      "FRATA INGENIEROS conformó un equipo remoto especializado, dedicado exclusivamente al desarrollo BIM del proyecto. Este equipo trabajó de forma coordinada con los especialistas diseñadores, transformando sus bosquejos, criterios técnicos y esquemas iniciales en modelos BIM disciplinarios y documentación técnica lista para expediente. Este flujo permitió evitar el proceso tradicional de elaborar primero planos en CAD y luego modelarlos en BIM, reduciendo tiempos, duplicidad de trabajo y riesgos de incompatibilidades.",
+      "Como consultores BIM, asumimos el modelado BIM de las especialidades, la extracción de metrados y la generación de planos durante la elaboración del expediente. Trabajamos junto a los especialistas diseñadores, convirtiendo sus criterios técnicos en modelos LOD 3 hasta el acero de refuerzo, con add-ins propios para llenar la información del modelo y exportar los metrados.",
     solutionEn:
-      "FRATA INGENIEROS assembled a dedicated remote team focused exclusively on the project's BIM development. The team worked side by side with the design specialists, turning their sketches, technical criteria and early schematics into discipline BIM models and documentation ready for the package. This flow skipped the traditional CAD-first process, cutting time, duplicated work and incompatibility risks.",
+      "As BIM consultants, we took on the BIM modeling of the disciplines, the quantity take-offs and the drawing production while the package is being developed. We work alongside the design specialists, turning their technical criteria into LOD 3 models down to the reinforcing steel, with our own add-ins to fill in model data and export quantities.",
     result:
-      "Se desarrolló el expediente técnico bajo metodología BIM, logrando una documentación más ordenada, coordinada y trazable. El entregable final fue compatibilizado entre especialidades, reduciendo interferencias de diseño y fortaleciendo la calidad técnica del proyecto.",
+      "El servicio se encuentra en ejecución. Los planos y metrados se generan desde los modelos, con trazabilidad por elemento, lo que facilita mantener la documentación coordinada a medida que el diseño evoluciona.",
     resultEn:
-      "The technical package was delivered under BIM methodology, with cleaner, coordinated and traceable documentation. The final deliverable was reconciled across disciplines, reducing design clashes and strengthening the project's technical quality.",
+      "The engagement is ongoing. Drawings and quantities are generated from the models with element-level traceability, which keeps the documentation coordinated as the design evolves.",
     metrics: [
-      { value: "100%", label: "del expediente generado desde el modelo", labelEn: "of the package generated from the model" },
-      { value: "0", label: "planos CAD previos al modelo", labelEn: "CAD drawings before the model" },
+      { value: "LOD 3", label: "modelado hasta el acero de refuerzo", labelEn: "modeling down to reinforcing steel" },
+      { value: "3", label: "frentes a cargo: modelado, metrados y planos", labelEn: "workstreams we own: modeling, quantities and drawings" },
     ],
     image: "/images/blog/estadio-chepen/render-cabina-prensa.webp",
     articleHref: "/blog/expediente-tecnico-obra-publica-bim",

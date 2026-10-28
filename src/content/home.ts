@@ -115,7 +115,7 @@ export const homeContent: Record<Locale, HomePageContent> = {
     },
     projects: {
       eyebrow: "Proyectos",
-      heading: "Trabajo que ya está construido.",
+      heading: "Proyectos en los que trabajamos.",
       viewAllCta: "Ver todos los casos",
     },
     process: {
@@ -224,7 +224,7 @@ export const homeContent: Record<Locale, HomePageContent> = {
     },
     projects: {
       eyebrow: "Projects",
-      heading: "Work that is already built.",
+      heading: "Projects we work on.",
       viewAllCta: "View all case studies",
     },
     process: {
@@ -333,7 +333,7 @@ export const homeContent: Record<Locale, HomePageContent> = {
     },
     projects: {
       eyebrow: "Projekte",
-      heading: "Arbeit, die bereits gebaut ist.",
+      heading: "Projekte, an denen wir arbeiten.",
       viewAllCta: "Alle Referenzen ansehen",
     },
     process: {
@@ -443,7 +443,7 @@ export const homeContent: Record<Locale, HomePageContent> = {
     },
     projects: {
       eyebrow: "Projets",
-      heading: "Un travail déjà construit.",
+      heading: "Les projets sur lesquels nous travaillons.",
       viewAllCta: "Voir toutes les études de cas",
     },
     process: {
@@ -552,7 +552,7 @@ export const homeContent: Record<Locale, HomePageContent> = {
     },
     projects: {
       eyebrow: "Progetti",
-      heading: "Lavoro già costruito.",
+      heading: "Progetti su cui lavoriamo.",
       viewAllCta: "Vedi tutti i casi studio",
     },
     process: {
@@ -661,7 +661,7 @@ export const homeContent: Record<Locale, HomePageContent> = {
     },
     projects: {
       eyebrow: "Projetos",
-      heading: "Trabalho que já está construído.",
+      heading: "Projetos em que trabalhamos.",
       viewAllCta: "Ver todos os casos",
     },
     process: {
@@ -770,7 +770,7 @@ export const homeContent: Record<Locale, HomePageContent> = {
     },
     projects: {
       eyebrow: "Проекты",
-      heading: "Работа, которая уже построена.",
+      heading: "Проекты, над которыми мы работаем.",
       viewAllCta: "Смотреть все кейсы",
     },
     process: {
@@ -875,7 +875,7 @@ export const homeContent: Record<Locale, HomePageContent> = {
     },
     projects: {
       eyebrow: "项目",
-      heading: "已经落地的实际项目。",
+      heading: "我们参与的项目。",
       viewAllCta: "查看全部案例",
     },
     process: {

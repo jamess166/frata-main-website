@@ -31,14 +31,14 @@ function localizedCase(cs: CaseStudy, locale: Locale) {
 
 // Caption under the hero render, linking to the write-up of that project.
 const HERO_CAPTION: Record<Locale, string> = {
-  es: "Estadio Municipal de Chepén · expediente técnico desarrollado en BIM",
-  en: "Chepén Municipal Stadium · technical package developed in BIM",
-  de: "Stadion von Chepén · Ausführungsplanung in BIM",
-  fr: "Stade municipal de Chepén · dossier technique réalisé en BIM",
-  it: "Stadio municipale di Chepén · progetto esecutivo sviluppato in BIM",
-  pt: "Estádio Municipal de Chepén · projeto executivo desenvolvido em BIM",
-  ru: "Муниципальный стадион Чепен · рабочая документация в BIM",
-  zh: "Chepén 市立体育场 · 采用 BIM 完成的施工图设计",
+  es: "Estadio Municipal de Chepén · expediente técnico en desarrollo con BIM",
+  en: "Chepén Municipal Stadium · technical package in development with BIM",
+  de: "Stadion von Chepén · Ausführungsplanung in Arbeit mit BIM",
+  fr: "Stade municipal de Chepén · dossier technique en cours avec le BIM",
+  it: "Stadio municipale di Chepén · progetto esecutivo in corso con il BIM",
+  pt: "Estádio Municipal de Chepén · projeto executivo em desenvolvimento com BIM",
+  ru: "Муниципальный стадион Чепен · рабочая документация в разработке в BIM",
+  zh: "Chepén 市立体育场 · 正在采用 BIM 编制施工图设计",
 };
 
 const TEAM_PHOTO_ALT: Record<Locale, string> = {

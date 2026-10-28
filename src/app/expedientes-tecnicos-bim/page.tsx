@@ -89,8 +89,8 @@ const FAQ = [
     a: "Modelos nativos de Revit e IFC, planos en PDF y DWG, planillas de metrados en Excel y el resto de documentos del expediente en los formatos que pidan los Términos de Referencia.",
   },
   {
-    q: "¿Pueden trabajar con entregables parciales o Fast Track?",
-    a: "Sí. En el Estadio de Chepén el expediente se organizó en informes parciales ejecutables, cada uno con su modelo, planos, metrados y presupuesto, para que la obra pudiera empezar por tramos.",
+    q: "¿Pueden trabajar por entregables parciales?",
+    a: "Sí. Organizamos los modelos, planos y metrados por entregable, de modo que cada parte del expediente pueda revisarse y aprobarse por separado según lo que pidan los Términos de Referencia.",
   },
 ];
 
@@ -128,7 +128,7 @@ export default function ExpedientesTecnicosBimPage() {
               <Link href="/#contact">Cotizar un expediente</Link>
             </Button>
             <Link href="/blog/expediente-tecnico-obra-publica-bim" className="link-more text-lg">
-              Ver el caso del Estadio de Chepén
+              Ver cómo trabajamos en el Estadio de Chepén
               <ChevronRight className="h-4 w-4" />
             </Link>
           </div>
@@ -224,14 +224,14 @@ export default function ExpedientesTecnicosBimPage() {
             </div>
           </Reveal>
           <Reveal>
-            <Eyebrow>Caso real</Eyebrow>
+            <Eyebrow>Proyecto en curso</Eyebrow>
             <h2 className="mt-3 font-headline text-display-md text-foreground">
               Estadio Municipal de Chepén, La Libertad
             </h2>
             <p className="mt-5 text-[1.0625rem] leading-relaxed text-muted-foreground">
-              Expediente técnico de inversión pública para el Gobierno Regional La Libertad, contratado llave en mano
-              con enfoque Fast Track y uso obligatorio de BIM. Lo organizamos en informes parciales ejecutables, con
-              modelado LOD 3 hasta el acero de refuerzo, planos y metrados generados desde Revit.
+              En este expediente técnico de inversión pública participamos como consultores BIM: asumimos el modelado
+              BIM de las especialidades, la extracción de metrados y la generación de planos durante la elaboración
+              del expediente. El servicio se encuentra en ejecución.
             </p>
             <ul className="mt-6 space-y-3">
               {[
@@ -246,7 +246,7 @@ export default function ExpedientesTecnicosBimPage() {
               ))}
             </ul>
             <Link href="/blog/expediente-tecnico-obra-publica-bim" className="link-more mt-7 text-[1.0625rem]">
-              Leer el caso completo
+              Ver cómo trabajamos
               <ChevronRight className="h-4 w-4" />
             </Link>
           </Reveal>
