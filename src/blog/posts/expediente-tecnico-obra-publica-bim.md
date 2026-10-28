@@ -6,7 +6,7 @@ image: "/images/blog/estadio-chepen/render-tribuna.webp"
 summary: "Cómo elaboramos el expediente técnico de un estadio con BIM: modelado LOD 3 hasta el acero de refuerzo, planos generados desde Revit, metrados automatizados entre Revit, Excel y Delphin, auditoría de modelos y nuestro propio entorno común de datos."
 ---
 
-En un [artículo anterior](/blog/expediente-tecnico-con-bim) explicamos qué es un expediente técnico con BIM y por qué conviene elaborarlo así. En este contamos **cómo lo hacemos en la práctica**, con un proyecto real de inversión pública: el expediente técnico del **"Mejoramiento del servicio deportivo de competencia en el Estadio Municipal Juan Noriega Salazar"**, en el distrito de Chepén, La Libertad (CUI 2657134), para el Gobierno Regional La Libertad.
+Elaborar un **expediente técnico con BIM** significa construir primero un modelo digital coordinado de todas las especialidades y obtener de él los planos, los metrados y el presupuesto, en lugar de dibujar y metrar cada especialidad por separado. El resultado son planos compatibles, metrados trazables y menos adicionales en obra. En este artículo contamos **cómo lo hacemos en la práctica**, con un proyecto real de inversión pública: el expediente técnico del **"Mejoramiento del servicio deportivo de competencia en el Estadio Municipal Juan Noriega Salazar"**, en el distrito de Chepén, La Libertad (CUI 2657134), para el Gobierno Regional La Libertad.
 
 ![Render del modelo BIM de la tribuna del Estadio de Chepén](/images/blog/estadio-chepen/render-tribuna.webp)
 

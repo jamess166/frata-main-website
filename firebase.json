@@ -7,6 +7,23 @@
       "**/.*",
       "**/node_modules/**"
     ],
-    "trailingSlash": false
+    "trailingSlash": false,
+    "redirects": [
+      {
+        "source": "/blog/expediente-tecnico-con-bim",
+        "destination": "/blog/expediente-tecnico-obra-publica-bim",
+        "type": 301
+      },
+      {
+        "source": "/blog/primer-post",
+        "destination": "/blog",
+        "type": 301
+      },
+      {
+        "source": "/blog/segundo-post",
+        "destination": "/blog",
+        "type": 301
+      }
+    ]
   }
 }
