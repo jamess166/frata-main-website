@@ -15,6 +15,8 @@ export interface ServiceContent {
   description: string;
   intro: string;
   image: string;
+  /** Optional variant of `image` shown when the visitor uses dark mode. */
+  imageDark?: string;
   imageAlt: string;
   /** Optional sample drawings shown full-size (uncropped) on the detail page. */
   drawings?: Array<{ src: string; alt: string; width: number; height: number }>;
@@ -527,8 +529,9 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "Soporte BIM en obra",
       "description": "Llevamos criterio BIM al frente de obra para resolver interferencias, validar información y acelerar decisiones.",
       "intro": "El modelo vale poco si no conversa con lo que sucede en campo. Nuestro acompañamiento BIM en obra ayuda a traducir información digital en acciones útiles para supervisión, producción y control.",
-      "image": "/images/Ingenieria_Detalle.webp",
-      "imageAlt": "Acompañamiento BIM en obra",
+      "image": "/images/obra/bimhill-coordinate-claro.webp",
+      "imageDark": "/images/obra/bimhill-coordinate-oscuro.webp",
+      "imageAlt": "Coordinación del modelo BIM en BIMHILL, el entorno común de datos de Frata",
       "pillars": [
         {
           "title": "Respuesta inmediata",
@@ -573,8 +576,9 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "On-site BIM support",
       "description": "We bring BIM criteria to the jobsite to solve clashes, validate information and accelerate technical decisions.",
       "intro": "A model has limited value if it does not connect with what happens on site. Our on-site BIM support translates digital information into practical action for supervision, production and control teams.",
-      "image": "/images/Ingenieria_Detalle.webp",
-      "imageAlt": "On-site BIM support",
+      "image": "/images/obra/bimhill-coordinate-claro.webp",
+      "imageDark": "/images/obra/bimhill-coordinate-oscuro.webp",
+      "imageAlt": "BIM model coordination in BIMHILL, Frata's common data environment",
       "pillars": [
         {
           "title": "Immediate response",
@@ -619,8 +623,9 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "BIM-Support auf der Baustelle",
       "description": "Wir bringen BIM-Kriterien direkt auf die Baustelle, um Kollisionen zu lösen, Informationen zu validieren und Entscheidungen zu beschleunigen.",
       "intro": "Ein Modell hat wenig Wert, wenn es nicht mit dem übereinstimmt, was vor Ort passiert. Unsere BIM-Begleitung auf der Baustelle hilft, digitale Informationen in nützliche Maßnahmen für Bauleitung, Produktion und Kontrolle zu übersetzen.",
-      "image": "/images/Ingenieria_Detalle.webp",
-      "imageAlt": "BIM-Begleitung auf der Baustelle",
+      "image": "/images/obra/bimhill-coordinate-claro.webp",
+      "imageDark": "/images/obra/bimhill-coordinate-oscuro.webp",
+      "imageAlt": "BIM-Modellkoordination in BIMHILL, der gemeinsamen Datenumgebung von Frata",
       "pillars": [
         { "title": "Sofortige Reaktion", "description": "Schnellere technische Lösung bei auftretenden Fragen, Abweichungen oder Kollisionen." },
         { "title": "Koordination zwischen den Bereichen", "description": "Das Modell wird als echtes Kommunikationswerkzeug zwischen Planung, Planungsbüro und Baustelle genutzt." },
@@ -644,8 +649,9 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "Support BIM sur chantier",
       "description": "Nous apportons une expertise BIM directement sur le chantier pour résoudre les interférences, valider les informations et accélérer les décisions.",
       "intro": "Un modèle a peu de valeur s'il ne dialogue pas avec ce qui se passe sur le terrain. Notre accompagnement BIM sur chantier aide à traduire l'information numérique en actions utiles pour la supervision, la production et le contrôle.",
-      "image": "/images/Ingenieria_Detalle.webp",
-      "imageAlt": "Accompagnement BIM sur chantier",
+      "image": "/images/obra/bimhill-coordinate-claro.webp",
+      "imageDark": "/images/obra/bimhill-coordinate-oscuro.webp",
+      "imageAlt": "Coordination de la maquette BIM dans BIMHILL, l'environnement commun de données de Frata",
       "pillars": [
         { "title": "Réponse immédiate", "description": "Résolution technique plus rapide lorsque des doutes, écarts ou interférences apparaissent." },
         { "title": "Coordination entre les fronts", "description": "Le modèle devient un véritable outil de communication entre conception, bureau technique et chantier." },
@@ -669,8 +675,9 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "Supporto BIM in cantiere",
       "description": "Portiamo il criterio BIM in prima linea di cantiere per risolvere interferenze, validare le informazioni e accelerare le decisioni.",
       "intro": "Il modello vale poco se non dialoga con ciò che accade sul campo. Il nostro affiancamento BIM in cantiere aiuta a tradurre l'informazione digitale in azioni utili per supervisione, produzione e controllo.",
-      "image": "/images/Ingenieria_Detalle.webp",
-      "imageAlt": "Affiancamento BIM in cantiere",
+      "image": "/images/obra/bimhill-coordinate-claro.webp",
+      "imageDark": "/images/obra/bimhill-coordinate-oscuro.webp",
+      "imageAlt": "Coordinamento del modello BIM in BIMHILL, l'ambiente di condivisione dati di Frata",
       "pillars": [
         { "title": "Risposta immediata", "description": "Risoluzione tecnica più rapida quando emergono dubbi, disallineamenti o interferenze." },
         { "title": "Coordinamento tra i fronti", "description": "Il modello viene usato come strumento di comunicazione reale tra progettazione, ufficio tecnico e cantiere." },
@@ -694,8 +701,9 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "Suporte BIM em obra",
       "description": "Levamos critério BIM para a frente de obra para resolver interferências, validar informações e acelerar decisões.",
       "intro": "O modelo vale pouco se não dialoga com o que acontece em campo. Nosso acompanhamento BIM em obra ajuda a traduzir informação digital em ações úteis para supervisão, produção e controle.",
-      "image": "/images/Ingenieria_Detalle.webp",
-      "imageAlt": "Acompanhamento BIM em obra",
+      "image": "/images/obra/bimhill-coordinate-claro.webp",
+      "imageDark": "/images/obra/bimhill-coordinate-oscuro.webp",
+      "imageAlt": "Coordenação do modelo BIM no BIMHILL, o ambiente comum de dados da Frata",
       "pillars": [
         { "title": "Resposta imediata", "description": "Resolução técnica mais rápida quando surgem dúvidas, desajustes ou interferências." },
         { "title": "Coordenação entre frentes", "description": "O modelo é usado como ferramenta real de comunicação entre projeto, escritório técnico e obra." },
@@ -719,8 +727,9 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "BIM-поддержка на стройплощадке",
       "description": "Мы применяем BIM-подход непосредственно на объекте, чтобы устранять коллизии, проверять информацию и ускорять принятие решений.",
       "intro": "Модель мало полезна, если она не соотносится с тем, что происходит на площадке. Наше сопровождение BIM на стройке помогает превращать цифровую информацию в полезные действия для контроля, производства и надзора.",
-      "image": "/images/Ingenieria_Detalle.webp",
-      "imageAlt": "Сопровождение BIM на стройплощадке",
+      "image": "/images/obra/bimhill-coordinate-claro.webp",
+      "imageDark": "/images/obra/bimhill-coordinate-oscuro.webp",
+      "imageAlt": "Координация BIM-модели в BIMHILL — среде общих данных Frata",
       "pillars": [
         { "title": "Мгновенная реакция", "description": "Более быстрое техническое решение при возникновении вопросов, несоответствий или коллизий." },
         { "title": "Координация между направлениями", "description": "Модель используется как реальный инструмент коммуникации между проектированием, техотделом и стройкой." },
@@ -744,8 +753,9 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "现场 BIM 支持",
       "description": "我们将 BIM 理念带到施工一线，用于解决碰撞问题、核实信息并加快决策速度。",
       "intro": "如果模型无法与现场实际情况相印证，其价值就十分有限。我们的现场 BIM 支持服务，帮助将数字信息转化为对监理、生产与管控有实际帮助的行动。",
-      "image": "/images/Ingenieria_Detalle.webp",
-      "imageAlt": "现场 BIM 支持",
+      "image": "/images/obra/bimhill-coordinate-claro.webp",
+      "imageDark": "/images/obra/bimhill-coordinate-oscuro.webp",
+      "imageAlt": "在 Frata 的通用数据环境 BIMHILL 中协调 BIM 模型",
       "pillars": [
         { "title": "即时响应", "description": "在出现疑问、偏差或碰撞时提供更快速的技术解决方案。" },
         { "title": "多方协同", "description": "模型成为设计、技术办公室与施工现场之间真正的沟通工具。" },

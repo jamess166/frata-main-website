@@ -6,6 +6,7 @@ import { HomeContactSection } from "@/components/home/contact-section";
 import { SocialProofSection } from "@/components/home/social-proof-section";
 import { Eyebrow } from "@/components/site/eyebrow";
 import { Reveal } from "@/components/site/reveal";
+import { ThemedImage } from "@/components/site/themed-image";
 import { Stat } from "@/components/site/stat";
 import { caseStudies, type CaseStudy } from "@/lib/case-studies";
 import { serviceContent, type ServiceSlug } from "@/lib/service-content";
@@ -178,8 +179,9 @@ export function HomeView({ locale, content }: { locale: Locale; content: HomePag
                     </div>
                     {detail?.image && (
                       <div className="mt-auto overflow-hidden px-8 lg:px-10">
-                        <Image
+                        <ThemedImage
                           src={detail.image}
+                          darkSrc={detail.imageDark}
                           alt={detail.imageAlt}
                           width={1200}
                           height={700}

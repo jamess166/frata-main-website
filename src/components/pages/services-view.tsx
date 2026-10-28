@@ -4,6 +4,7 @@ import { Check, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/site/eyebrow";
 import { Reveal } from "@/components/site/reveal";
+import { ThemedImage } from "@/components/site/themed-image";
 import { serviceContent } from "@/lib/service-content";
 import { withLocale, type Locale } from "@/lib/locale";
 import type { ServicesPageContent } from "@/content/services";
@@ -70,8 +71,9 @@ export function ServicesView({ locale, content }: { locale: Locale; content: Ser
                 className="group flex h-full flex-col overflow-hidden rounded-tile bg-surface transition-transform duration-200 ease-out active:scale-[0.99]"
               >
                 <div className="overflow-hidden">
-                  <Image
+                  <ThemedImage
                     src={service.image}
+                    darkSrc={service.imageDark}
                     alt={service.imageAlt}
                     width={1200}
                     height={750}

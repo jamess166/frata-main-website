@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/site/eyebrow";
 import { NumberedRow } from "@/components/site/numbered-row";
 import { Reveal } from "@/components/site/reveal";
+import { ThemedImage } from "@/components/site/themed-image";
 import { withLocale, type Locale } from "@/lib/locale";
 import type { ServiceContent } from "@/lib/service-content";
 import type { ServiceDetailPageContent } from "@/content/services";
@@ -46,8 +47,9 @@ export function ServiceDetailView({
         </div>
         <div className="container mx-auto px-5 sm:px-6 lg:px-8">
           <div className="overflow-hidden rounded-tile bg-surface">
-            <Image
+            <ThemedImage
               src={service.image}
+              darkSrc={service.imageDark}
               alt={service.imageAlt}
               width={1920}
               height={1080}
