@@ -211,7 +211,7 @@ export const servicesContent: Record<Locale, ServicesPageContent> = {
         },
         {
           name: "Addin a medida",
-          price: "desde USD 1,500",
+          price: "desde USD 500",
           description:
             "Desarrollo de herramientas personalizadas para Revit o Tekla que automatizan flujos técnicos y reducen trabajo manual.",
           cta: "Solicitar propuesta",
@@ -276,7 +276,7 @@ export const servicesContent: Record<Locale, ServicesPageContent> = {
         },
         {
           name: "Custom Addin",
-          price: "from USD 1,500",
+          price: "from USD 500",
           description:
             "Purpose-built tools for Revit or Tekla that automate technical workflows and reduce manual work.",
           cta: "Request proposal",
@@ -341,7 +341,7 @@ export const servicesContent: Record<Locale, ServicesPageContent> = {
         },
         {
           name: "Individuelles Addin",
-          price: "ab USD 1.500",
+          price: "ab USD 500",
           description:
             "Entwicklung individueller Werkzeuge für Revit oder Tekla, die technische Abläufe automatisieren und manuelle Arbeit reduzieren.",
           cta: "Angebot anfordern",
@@ -406,7 +406,7 @@ export const servicesContent: Record<Locale, ServicesPageContent> = {
         },
         {
           name: "Addin sur mesure",
-          price: "à partir de 1 500 USD",
+          price: "à partir de 500 USD",
           description:
             "Développement d'outils personnalisés pour Revit ou Tekla qui automatisent les flux techniques et réduisent le travail manuel.",
           cta: "Demander une proposition",
@@ -471,7 +471,7 @@ export const servicesContent: Record<Locale, ServicesPageContent> = {
         },
         {
           name: "Addin su misura",
-          price: "a partire da USD 1.500",
+          price: "a partire da USD 500",
           description:
             "Sviluppo di strumenti personalizzati per Revit o Tekla che automatizzano i flussi tecnici e riducono il lavoro manuale.",
           cta: "Richiedi una proposta",
@@ -536,7 +536,7 @@ export const servicesContent: Record<Locale, ServicesPageContent> = {
         },
         {
           name: "Addin sob medida",
-          price: "a partir de USD 1.500",
+          price: "a partir de USD 500",
           description:
             "Desenvolvimento de ferramentas personalizadas para Revit ou Tekla que automatizam fluxos técnicos e reduzem o trabalho manual.",
           cta: "Solicitar proposta",
@@ -601,7 +601,7 @@ export const servicesContent: Record<Locale, ServicesPageContent> = {
         },
         {
           name: "Индивидуальный аддин",
-          price: "от 1500 USD",
+          price: "от 500 USD",
           description:
             "Разработка индивидуальных инструментов для Revit или Tekla, автоматизирующих технические процессы и снижающих объём ручного труда.",
           cta: "Запросить предложение",
@@ -661,7 +661,7 @@ export const servicesContent: Record<Locale, ServicesPageContent> = {
         },
         {
           name: "定制插件",
-          price: "起价 1,500 美元",
+          price: "起价 500 美元",
           description: "为 Revit 或 Tekla 开发定制工具，实现技术流程自动化并减少人工操作。",
           cta: "申请方案",
           href: "/#contact",
