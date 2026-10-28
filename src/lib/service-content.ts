@@ -16,6 +16,8 @@ export interface ServiceContent {
   intro: string;
   image: string;
   imageAlt: string;
+  /** Optional sample drawings shown full-size (uncropped) on the detail page. */
+  drawings?: Array<{ src: string; alt: string; width: number; height: number }>;
   pillars: Array<{
     title: string;
     description: string;
@@ -771,6 +773,10 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "intro": "En fabricación el error cuesta mucho más. Por eso trabajamos modelos y entregables orientados a precisión, secuencia y aprovechamiento real en taller y montaje.",
       "image": "/images/Ingenieria_Detalle.webp",
       "imageAlt": "Detallado BIM para fabricación",
+      "drawings": [
+        { "src": "/images/fabricacion/lamina-acero-codo.webp", "alt": "Lámina de acero de refuerzo de un codo: planta, corte de losa, detalle de cercos, vista 3D y planilla de despiece", "width": 1218, "height": 780 },
+        { "src": "/images/fabricacion/lamina-acero-muros-losas.webp", "alt": "Lámina de muros y losas: armado en elevación y planta, modelo 3D y planillas de despiece", "width": 1393, "height": 917 }
+      ],
       "pillars": [
         {
           "title": "Precisión de modelado",
@@ -817,6 +823,10 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "intro": "In fabrication, errors are far more expensive. That is why we develop models and deliverables oriented to precision, sequence and real usefulness in workshop and assembly environments.",
       "image": "/images/Ingenieria_Detalle.webp",
       "imageAlt": "BIM detailing for fabrication",
+      "drawings": [
+        { "src": "/images/fabricacion/lamina-acero-codo.webp", "alt": "Rebar sheet for a bend: plan, slab section, hoop detail, 3D view and bar schedule", "width": 1218, "height": 780 },
+        { "src": "/images/fabricacion/lamina-acero-muros-losas.webp", "alt": "Walls and slabs sheet: reinforcement in elevation and plan, 3D model and bar schedules", "width": 1393, "height": 917 }
+      ],
       "pillars": [
         {
           "title": "Modeling precision",
@@ -863,6 +873,10 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "intro": "In der Fertigung kostet ein Fehler deutlich mehr. Deshalb arbeiten wir mit Modellen und Leistungen, die auf Präzision, Ablaufplanung und echten Nutzen in Werkstatt und Montage ausgerichtet sind.",
       "image": "/images/Ingenieria_Detalle.webp",
       "imageAlt": "BIM-Detaillierung für die Fertigung",
+      "drawings": [
+        { "src": "/images/fabricacion/lamina-acero-codo.webp", "alt": "Bewehrungsplan eines Krümmers: Grundriss, Plattenschnitt, Bügeldetail, 3D-Ansicht und Biegeliste", "width": 1218, "height": 780 },
+        { "src": "/images/fabricacion/lamina-acero-muros-losas.webp", "alt": "Plan für Wände und Platten: Bewehrung in Ansicht und Grundriss, 3D-Modell und Biegelisten", "width": 1393, "height": 917 }
+      ],
       "pillars": [
         { "title": "Modellierungspräzision", "description": "Wir entwickeln Modelle mit baulichem Verständnis und dem für die Produktion notwendigen Detaillierungsgrad." },
         { "title": "Rückverfolgbare Dokumentation", "description": "Pläne, Listen und Ausgaben, die Fertigung und Montage mit weniger Unklarheit steuerbar machen." },
@@ -888,6 +902,10 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "intro": "Dans la fabrication, une erreur coûte bien plus cher. C'est pourquoi nous concevons des modèles et des livrables orientés vers la précision, la séquence et une réelle utilité en atelier et au montage.",
       "image": "/images/Ingenieria_Detalle.webp",
       "imageAlt": "Détail BIM pour la fabrication",
+      "drawings": [
+        { "src": "/images/fabricacion/lamina-acero-codo.webp", "alt": "Plan de ferraillage d'un coude : vue en plan, coupe de dalle, détail des cadres, vue 3D et nomenclature", "width": 1218, "height": 780 },
+        { "src": "/images/fabricacion/lamina-acero-muros-losas.webp", "alt": "Plan des voiles et dalles : ferraillage en élévation et en plan, maquette 3D et nomenclatures", "width": 1393, "height": 917 }
+      ],
       "pillars": [
         { "title": "Précision de modélisation", "description": "Nous développons des modèles avec une logique de constructibilité et le niveau de détail utile à la production." },
         { "title": "Documentation traçable", "description": "Plans, listes et sorties qui permettent de contrôler la fabrication et le montage avec moins d'ambiguïté." },
@@ -913,6 +931,10 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "intro": "Nella fabbricazione l'errore costa molto di più. Per questo lavoriamo con modelli ed elaborati orientati a precisione, sequenza e reale utilità in officina e montaggio.",
       "image": "/images/Ingenieria_Detalle.webp",
       "imageAlt": "Dettaglio BIM per la fabbricazione",
+      "drawings": [
+        { "src": "/images/fabricacion/lamina-acero-codo.webp", "alt": "Tavola delle armature di una curva: pianta, sezione della soletta, dettaglio staffe, vista 3D e distinta", "width": 1218, "height": 780 },
+        { "src": "/images/fabricacion/lamina-acero-muros-losas.webp", "alt": "Tavola di muri e solette: armature in prospetto e pianta, modello 3D e distinte", "width": 1393, "height": 917 }
+      ],
       "pillars": [
         { "title": "Precisione di modellazione", "description": "Sviluppiamo modelli con criterio costruttivo e il livello di dettaglio utile alla produzione." },
         { "title": "Documentazione tracciabile", "description": "Elaborati, elenchi e output che consentono di controllare fabbricazione e montaggio con minore ambiguità." },
@@ -938,6 +960,10 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "intro": "Na fabricação, o erro custa muito mais caro. Por isso trabalhamos com modelos e entregáveis voltados à precisão, sequência e real aproveitamento em oficina e montagem.",
       "image": "/images/Ingenieria_Detalle.webp",
       "imageAlt": "Detalhamento BIM para fabricação",
+      "drawings": [
+        { "src": "/images/fabricacion/lamina-acero-codo.webp", "alt": "Prancha de armação de uma curva: planta, corte da laje, detalhe dos estribos, vista 3D e tabela de dobra", "width": 1218, "height": 780 },
+        { "src": "/images/fabricacion/lamina-acero-muros-losas.webp", "alt": "Prancha de paredes e lajes: armação em elevação e planta, modelo 3D e tabelas de dobra", "width": 1393, "height": 917 }
+      ],
       "pillars": [
         { "title": "Precisão de modelagem", "description": "Desenvolvemos modelos com critério construtivo e o nível de detalhe útil para a produção." },
         { "title": "Documentação rastreável", "description": "Plantas, listagens e saídas que permitem controlar fabricação e montagem com menos ambiguidade." },
@@ -963,6 +989,10 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "intro": "В производстве ошибка обходится значительно дороже. Поэтому мы создаём модели и результаты, ориентированные на точность, последовательность и реальную пользу в цехе и при монтаже.",
       "image": "/images/Ingenieria_Detalle.webp",
       "imageAlt": "BIM-детализация для производства",
+      "drawings": [
+        { "src": "/images/fabricacion/lamina-acero-codo.webp", "alt": "Лист армирования отвода: план, разрез плиты, деталь хомутов, 3D-вид и спецификация", "width": 1218, "height": 780 },
+        { "src": "/images/fabricacion/lamina-acero-muros-losas.webp", "alt": "Лист стен и плит: армирование на фасаде и в плане, 3D-модель и спецификации", "width": 1393, "height": 917 }
+      ],
       "pillars": [
         { "title": "Точность моделирования", "description": "Мы создаём модели с учётом технологичности и уровня детализации, необходимого для производства." },
         { "title": "Прослеживаемая документация", "description": "Чертежи, спецификации и результаты, обеспечивающие контроль производства и монтажа с меньшей неопределённостью." },
@@ -988,6 +1018,10 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "intro": "在加工制造环节，错误的代价要高得多。因此我们所打造的模型与交付物，专注于精度、工序与在车间及安装环节的实际可用性。",
       "image": "/images/Ingenieria_Detalle.webp",
       "imageAlt": "面向加工制造的 BIM 详图",
+      "drawings": [
+        { "src": "/images/fabricacion/lamina-acero-codo.webp", "alt": "弯头钢筋图：平面、板剖面、箍筋详图、三维视图和钢筋表", "width": 1218, "height": 780 },
+        { "src": "/images/fabricacion/lamina-acero-muros-losas.webp", "alt": "墙板钢筋图：立面与平面配筋、三维模型和钢筋表", "width": 1393, "height": 917 }
+      ],
       "pillars": [
         { "title": "建模精度", "description": "我们以可施工性为原则进行建模，并达到生产所需的详细程度。" },
         { "title": "可追溯的文档", "description": "图纸、清单与输出成果可降低歧义，便于管控加工与安装。" },

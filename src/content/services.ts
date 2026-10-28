@@ -32,6 +32,7 @@ export interface ServiceDetailPageContent {
   proposalCta: string;
   bimtoolsCta: string;
   pillars: { eyebrow: string; heading: string };
+  drawings: { eyebrow: string; heading: string };
   method: { eyebrow: string; heading: string };
   outcomes: { eyebrow: string; heading: string };
   cta: { heading: string; label: string };
@@ -50,6 +51,7 @@ export const serviceDetailContent: Record<Locale, ServiceDetailPageContent> = {
     proposalCta: "Solicitar propuesta",
     bimtoolsCta: "Ver BIMtools",
     pillars: { eyebrow: "Pilares", heading: "Qué resuelve este servicio." },
+    drawings: { eyebrow: "Entregables", heading: "Así se ven nuestras láminas de acero." },
     method: { eyebrow: "Método", heading: "Cómo trabajamos este tipo de encargo." },
     outcomes: { eyebrow: "Resultados", heading: "Impacto que puedes esperar." },
     cta: { heading: "¿Este es el problema que necesitas resolver?", label: "Hablar con Frata" },
@@ -66,6 +68,7 @@ export const serviceDetailContent: Record<Locale, ServiceDetailPageContent> = {
     proposalCta: "Request proposal",
     bimtoolsCta: "View BIMtools",
     pillars: { eyebrow: "Pillars", heading: "What this service solves." },
+    drawings: { eyebrow: "Deliverables", heading: "What our rebar sheets look like." },
     method: { eyebrow: "Method", heading: "How we approach this kind of engagement." },
     outcomes: { eyebrow: "Outcomes", heading: "Impact you can expect." },
     cta: { heading: "Is this the problem you need solved?", label: "Talk to Frata" },
@@ -82,6 +85,7 @@ export const serviceDetailContent: Record<Locale, ServiceDetailPageContent> = {
     proposalCta: "Angebot anfordern",
     bimtoolsCta: "BIMtools ansehen",
     pillars: { eyebrow: "Säulen", heading: "Was diese Leistung löst." },
+    drawings: { eyebrow: "Ergebnisse", heading: "So sehen unsere Bewehrungspläne aus." },
     method: { eyebrow: "Methode", heading: "Wie wir diese Art von Auftrag angehen." },
     outcomes: { eyebrow: "Ergebnisse", heading: "Wirkung, die Sie erwarten können." },
     cta: { heading: "Ist das das Problem, das Sie lösen müssen?", label: "Mit Frata sprechen" },
@@ -98,6 +102,7 @@ export const serviceDetailContent: Record<Locale, ServiceDetailPageContent> = {
     proposalCta: "Demander une proposition",
     bimtoolsCta: "Voir BIMtools",
     pillars: { eyebrow: "Piliers", heading: "Ce que résout ce service." },
+    drawings: { eyebrow: "Livrables", heading: "À quoi ressemblent nos plans de ferraillage." },
     method: { eyebrow: "Méthode", heading: "Comment nous abordons ce type de mission." },
     outcomes: { eyebrow: "Résultats", heading: "L'impact que vous pouvez attendre." },
     cta: { heading: "Est-ce le problème que vous devez résoudre ?", label: "Parler à Frata" },
@@ -114,6 +119,7 @@ export const serviceDetailContent: Record<Locale, ServiceDetailPageContent> = {
     proposalCta: "Richiedi una proposta",
     bimtoolsCta: "Vedi BIMtools",
     pillars: { eyebrow: "Pilastri", heading: "Cosa risolve questo servizio." },
+    drawings: { eyebrow: "Elaborati", heading: "Ecco come sono le nostre tavole delle armature." },
     method: { eyebrow: "Metodo", heading: "Come affrontiamo questo tipo di incarico." },
     outcomes: { eyebrow: "Risultati", heading: "L'impatto che puoi aspettarti." },
     cta: { heading: "È questo il problema che devi risolvere?", label: "Parla con Frata" },
@@ -130,6 +136,7 @@ export const serviceDetailContent: Record<Locale, ServiceDetailPageContent> = {
     proposalCta: "Solicitar proposta",
     bimtoolsCta: "Ver BIMtools",
     pillars: { eyebrow: "Pilares", heading: "O que este serviço resolve." },
+    drawings: { eyebrow: "Entregáveis", heading: "Assim são nossas pranchas de armação." },
     method: { eyebrow: "Método", heading: "Como trabalhamos esse tipo de projeto." },
     outcomes: { eyebrow: "Resultados", heading: "Impacto que você pode esperar." },
     cta: { heading: "Esse é o problema que você precisa resolver?", label: "Falar com a Frata" },
@@ -146,6 +153,7 @@ export const serviceDetailContent: Record<Locale, ServiceDetailPageContent> = {
     proposalCta: "Запросить предложение",
     bimtoolsCta: "Смотреть BIMtools",
     pillars: { eyebrow: "Основы", heading: "Что решает эта услуга." },
+    drawings: { eyebrow: "Результаты", heading: "Так выглядят наши листы армирования." },
     method: { eyebrow: "Метод", heading: "Как мы подходим к такого рода задачам." },
     outcomes: { eyebrow: "Результаты", heading: "Эффект, которого можно ожидать." },
     cta: { heading: "Это та проблема, которую вам нужно решить?", label: "Связаться с Frata" },
@@ -162,6 +170,7 @@ export const serviceDetailContent: Record<Locale, ServiceDetailPageContent> = {
     proposalCta: "申请方案",
     bimtoolsCta: "查看 BIMtools",
     pillars: { eyebrow: "核心要素", heading: "该服务解决的问题。" },
+    drawings: { eyebrow: "交付成果", heading: "我们的钢筋图纸示例。" },
     method: { eyebrow: "方法", heading: "我们如何处理此类项目。" },
     outcomes: { eyebrow: "成果", heading: "您可以期待的成效。" },
     cta: { heading: "这是您需要解决的问题吗？", label: "联系 Frata" },

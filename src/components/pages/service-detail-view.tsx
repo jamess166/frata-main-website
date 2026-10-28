@@ -77,8 +77,37 @@ export function ServiceDetailView({
         </div>
       </section>
 
+      {/* ── Láminas de ejemplo ───────────────────────────────── */}
+      {service.drawings && service.drawings.length > 0 && (
+        <section className="bg-surface">
+          <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+            <Reveal className="max-w-3xl">
+              <Eyebrow>{content.drawings.eyebrow}</Eyebrow>
+              <h2 className="mt-3 font-headline text-display-lg text-foreground">{content.drawings.heading}</h2>
+            </Reveal>
+            <div className="mt-10 space-y-5">
+              {service.drawings.map((drawing) => (
+                <Reveal key={drawing.src}>
+                  <figure className="overflow-hidden rounded-tile bg-white p-3 ring-1 ring-foreground/10 sm:p-6">
+                    <Image
+                      src={drawing.src}
+                      alt={drawing.alt}
+                      width={drawing.width}
+                      height={drawing.height}
+                      sizes="(min-width: 1400px) 1340px, 100vw"
+                      className="w-full"
+                    />
+                    <figcaption className="mt-3 text-sm text-neutral-500">{drawing.alt}</figcaption>
+                  </figure>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ── Método ───────────────────────────────────────────── */}
-      <section className="bg-surface">
+      <section className={service.drawings?.length ? undefined : "bg-surface"}>
         <div className="container mx-auto grid gap-12 px-5 py-20 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8 lg:py-28">
           <Reveal>
             <Eyebrow>{content.method.eyebrow}</Eyebrow>
