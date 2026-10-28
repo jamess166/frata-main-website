@@ -35,46 +35,46 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "slug": "global-remote-bim-teams",
       "title": "Equipos BIM remotos para operaciones que necesitan capacidad inmediata",
       "shortTitle": "Equipos BIM remotos",
-      "description": "Integramos modeladores, coordinadores y soporte BIM remoto para ampliar capacidad sin frenar la operacion.",
-      "intro": "Cuando una empresa necesita escalar produccion BIM sin perder control tecnico, el problema no es solo contratar mas gente. Hace falta integrar un equipo que entienda tus estandares, tus plazos y tu forma de coordinar.",
+      "description": "Integramos modeladores, coordinadores y soporte BIM remoto para ampliar capacidad sin frenar la operación.",
+      "intro": "Cuando una empresa necesita escalar producción BIM sin perder control técnico, el problema no es solo contratar más gente. Hace falta integrar un equipo que entienda tus estándares, tus plazos y tu forma de coordinar.",
       "image": "/images/blog/estadio-chepen/planos-revit-arquitectura.webp",
       "imageAlt": "Láminas de arquitectura generadas en Revit por el equipo BIM",
       "pillars": [
         {
-          "title": "Integracion operativa",
-          "description": "Nos acoplamos a tus procesos, software, BEP, plantillas y forma de coordinacion."
+          "title": "Integración operativa",
+          "description": "Nos acoplamos a tus procesos, software, BEP, plantillas y forma de coordinación."
         },
         {
           "title": "Escalado flexible",
-          "description": "Puedes sumar capacidad puntual o establecer una celula BIM estable segun tu cartera de proyectos."
+          "description": "Puedes sumar capacidad puntual o establecer una célula BIM estable según tu cartera de proyectos."
         },
         {
           "title": "Control de calidad",
-          "description": "La produccion no se entrega como caja negra; se gestiona con seguimiento y criterios medibles."
+          "description": "La producción no se entrega como caja negra; se gestiona con seguimiento y criterios medibles."
         }
       ],
       "process": [
         {
-          "title": "Diagnostico",
+          "title": "Diagnóstico",
           "description": "Revisamos alcance, entregables, carga de trabajo y brechas del equipo actual."
         },
         {
           "title": "Armado del equipo",
-          "description": "Definimos perfiles, responsabilidades y canales de coordinacion."
+          "description": "Definimos perfiles, responsabilidades y canales de coordinación."
         },
         {
           "title": "Onboarding",
-          "description": "Alineamos nomenclaturas, plantillas, estandares y entorno comun de datos."
+          "description": "Alineamos nomenclaturas, plantillas, estándares y entorno común de datos."
         },
         {
-          "title": "Operacion continua",
-          "description": "Ejecutamos con seguimiento tecnico, reportes y mejora de flujo."
+          "title": "Operación continua",
+          "description": "Ejecutamos con seguimiento técnico, reportes y mejora de flujo."
         }
       ],
       "outcomes": [
-        "Mayor capacidad de produccion BIM sin ampliar estructura fija al mismo ritmo.",
-        "Mejor continuidad entre modelado, coordinacion y documentacion.",
-        "Menor friccion al incorporar recursos externos a proyectos exigentes."
+        "Mayor capacidad de producción BIM sin ampliar estructura fija al mismo ritmo.",
+        "Mejor continuidad entre modelado, coordinación y documentación.",
+        "Menor fricción al incorporar recursos externos a proyectos exigentes."
       ]
     },
     "en": {
@@ -277,20 +277,20 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
   "custom-bim-software-development": {
     "es": {
       "slug": "custom-bim-software-development",
-      "title": "Desarrollo BIM para Revit, Tekla y procesos tecnicos a medida",
+      "title": "Desarrollo BIM para Revit, Tekla y procesos técnicos a medida",
       "shortTitle": "Desarrollo BIM",
-      "description": "Creamos addins, automatizaciones y aplicaciones tecnicas para reducir trabajo manual y elevar productividad BIM.",
+      "description": "Creamos addins, automatizaciones y aplicaciones técnicas para reducir trabajo manual y elevar productividad BIM.",
       "intro": "La diferencia entre una consultora tradicional y una consultora con software propio es enorme. En Frata convertimos problemas operativos en herramientas concretas para Revit, Tekla y flujos conectados.",
       "image": "/images/blog/estadio-chepen/bim-5d-metrados.webp",
       "imageAlt": "Desarrollo de software BIM para Revit o Tekla",
       "pillars": [
         {
-          "title": "Ingenieria y software",
-          "description": "No programamos a ciegas; entendemos lo que ocurre en modelado, coordinacion, obra y fabricacion."
+          "title": "Ingeniería y software",
+          "description": "No programamos a ciegas; entendemos lo que ocurre en modelado, coordinación, obra y fabricación."
         },
         {
-          "title": "Automatizacion con sentido",
-          "description": "Atacamos tareas repetitivas, validaciones, exportaciones y control de parametros que consumen horas."
+          "title": "Automatización con sentido",
+          "description": "Atacamos tareas repetitivas, validaciones, exportaciones y control de parámetros que consumen horas."
         },
         {
           "title": "Soluciones escalables",
@@ -300,10 +300,10 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "process": [
         {
           "title": "Descubrimiento",
-          "description": "Mapeamos el problema tecnico y el impacto real en el flujo del cliente."
+          "description": "Mapeamos el problema técnico y el impacto real en el flujo del cliente."
         },
         {
-          "title": "Diseno funcional",
+          "title": "Diseño funcional",
           "description": "Definimos experiencia, reglas, casos limite y alcance del producto."
         },
         {
@@ -312,7 +312,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
         },
         {
           "title": "Despliegue y soporte",
-          "description": "Entregamos version operativa, documentacion y mejora evolutiva."
+          "description": "Entregamos versión operativa, documentación y mejora evolutiva."
         }
       ],
       "outcomes": [
@@ -521,48 +521,48 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
   "on-site-bim-construction-support": {
     "es": {
       "slug": "on-site-bim-construction-support",
-      "title": "Acompanamiento BIM en obra para conectar modelo y ejecucion",
+      "title": "Acompañamiento BIM en obra para conectar modelo y ejecución",
       "shortTitle": "Soporte BIM en obra",
-      "description": "Llevamos criterio BIM al frente de obra para resolver interferencias, validar informacion y acelerar decisiones.",
-      "intro": "El modelo vale poco si no conversa con lo que sucede en campo. Nuestro acompanamiento BIM en obra ayuda a traducir informacion digital en acciones utiles para supervision, produccion y control.",
+      "description": "Llevamos criterio BIM al frente de obra para resolver interferencias, validar información y acelerar decisiones.",
+      "intro": "El modelo vale poco si no conversa con lo que sucede en campo. Nuestro acompañamiento BIM en obra ayuda a traducir información digital en acciones útiles para supervisión, producción y control.",
       "image": "/images/Ingenieria_Detalle.webp",
-      "imageAlt": "Acompanamiento BIM en obra",
+      "imageAlt": "Acompañamiento BIM en obra",
       "pillars": [
         {
           "title": "Respuesta inmediata",
-          "description": "Resolucion tecnica mas rapida cuando aparecen dudas, desajustes o interferencias."
+          "description": "Resolución técnica más rápida cuando aparecen dudas, desajustes o interferencias."
         },
         {
-          "title": "Coordinacion entre frentes",
-          "description": "El modelo se usa como herramienta de comunicacion real entre diseno, oficina tecnica y obra."
+          "title": "Coordinación entre frentes",
+          "description": "El modelo se usa como herramienta de comunicación real entre diseño, oficina técnica y obra."
         },
         {
-          "title": "Validacion continua",
+          "title": "Validación continua",
           "description": "Detectamos inconsistencias antes de que se conviertan en retrabajo o demora."
         }
       ],
       "process": [
         {
-          "title": "Revision de contexto",
+          "title": "Revisión de contexto",
           "description": "Analizamos hitos, equipos, modelo disponible y riesgos principales."
         },
         {
           "title": "Despliegue",
-          "description": "Definimos presencia, responsables y dinamica de soporte con el cliente."
+          "description": "Definimos presencia, responsables y dinámica de soporte con el cliente."
         },
         {
           "title": "Acompañamiento",
           "description": "Resolvemos incidencias y coordinamos sobre el avance real del proyecto."
         },
         {
-          "title": "Retroalimentacion",
+          "title": "Retroalimentación",
           "description": "Documentamos ajustes para fortalecer procesos futuros."
         }
       ],
       "outcomes": [
         "Menos fricciones entre lo modelado y lo ejecutado.",
-        "Mejor capacidad de decision tecnica en momentos criticos.",
-        "Mayor aprovechamiento del modelo durante la construccion."
+        "Mejor capacidad de decisión técnica en momentos críticos.",
+        "Mayor aprovechamiento del modelo durante la construcción."
       ]
     },
     "en": {
@@ -765,48 +765,48 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
   "bim-for-manufacturing": {
     "es": {
       "slug": "bim-for-manufacturing",
-      "title": "Detallado BIM para fabricacion y rebar con alto control tecnico",
-      "shortTitle": "BIM para fabricacion",
-      "description": "Modelado detallado y documentacion lista para fabricacion, con foco en acero de refuerzo, trazabilidad y prefabricacion.",
-      "intro": "En fabricacion el error cuesta mucho mas. Por eso trabajamos modelos y entregables orientados a precision, secuencia y aprovechamiento real en taller y montaje.",
+      "title": "Detallado BIM para fabricación y rebar con alto control técnico",
+      "shortTitle": "BIM para fabricación",
+      "description": "Modelado detallado y documentación lista para fabricación, con foco en acero de refuerzo, trazabilidad y prefabricación.",
+      "intro": "En fabricación el error cuesta mucho más. Por eso trabajamos modelos y entregables orientados a precisión, secuencia y aprovechamiento real en taller y montaje.",
       "image": "/images/Ingenieria_Detalle.webp",
-      "imageAlt": "Detallado BIM para fabricacion",
+      "imageAlt": "Detallado BIM para fabricación",
       "pillars": [
         {
-          "title": "Precision de modelado",
-          "description": "Desarrollamos modelos con criterio constructivo y nivel de detalle util para produccion."
+          "title": "Precisión de modelado",
+          "description": "Desarrollamos modelos con criterio constructivo y nivel de detalle útil para producción."
         },
         {
-          "title": "Documentacion trazable",
-          "description": "Planos, listados y salidas que permiten controlar fabricacion y montaje con menos ambiguedad."
+          "title": "Documentación trazable",
+          "description": "Planos, listados y salidas que permiten controlar fabricación y montaje con menos ambigüedad."
         },
         {
           "title": "Compatibilidad operativa",
-          "description": "Preparamos informacion para requerimientos del cliente, taller o maquinaria asociada."
+          "description": "Preparamos información para requerimientos del cliente, taller o maquinaria asociada."
         }
       ],
       "process": [
         {
-          "title": "Analisis tecnico",
-          "description": "Estudiamos planos, restricciones y objetivos de fabricacion."
+          "title": "Análisis técnico",
+          "description": "Estudiamos planos, restricciones y objetivos de fabricación."
         },
         {
           "title": "Modelado y detallado",
-          "description": "Construimos geometria, refuerzo y logica de documentacion."
+          "description": "Construimos geometría, refuerzo y lógica de documentación."
         },
         {
-          "title": "Coordinacion",
+          "title": "Coordinación",
           "description": "Revisamos interferencias y consistencia con otras disciplinas."
         },
         {
           "title": "Entrega productiva",
-          "description": "Emitimos salidas listas para fabricacion, control o montaje."
+          "description": "Emitimos salidas listas para fabricación, control o montaje."
         }
       ],
       "outcomes": [
-        "Reduccion de incertidumbre antes de taller o montaje.",
-        "Mejor control de cantidades, piezas y documentacion.",
-        "Mayor valor del modelo en fases de produccion real."
+        "Reducción de incertidumbre antes de taller o montaje.",
+        "Mejor control de cantidades, piezas y documentación.",
+        "Mayor valor del modelo en fases de producción real."
       ]
     },
     "en": {
@@ -1009,48 +1009,48 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
   "bim-training-and-implementation": {
     "es": {
       "slug": "bim-training-and-implementation",
-      "title": "Implementacion BIM y capacitacion para consolidar una operacion sostenible",
-      "shortTitle": "Implementacion BIM",
-      "description": "Ayudamos a empresas y entidades a adoptar BIM con metodo, estandares y formacion aplicada a su realidad.",
-      "intro": "Implementar BIM no es dar un curso y listo. Se necesita diagnostico, definicion de procesos, acompasamiento de equipos y una ruta clara para que la adopcion se sostenga en el tiempo.",
+      "title": "Implementación BIM y capacitación para consolidar una operación sostenible",
+      "shortTitle": "Implementación BIM",
+      "description": "Ayudamos a empresas y entidades a adoptar BIM con método, estándares y formación aplicada a su realidad.",
+      "intro": "Implementar BIM no es dar un curso y listo. Se necesita diagnóstico, definición de procesos, acompañamiento de equipos y una ruta clara para que la adopción se sostenga en el tiempo.",
       "image": "/images/Capacitacion.webp",
-      "imageAlt": "Capacitacion e implementacion BIM",
+      "imageAlt": "Capacitación e implementación BIM",
       "pillars": [
         {
-          "title": "Diagnostico de madurez",
-          "description": "Identificamos en que punto esta la organizacion y donde conviene priorizar cambios."
+          "title": "Diagnóstico de madurez",
+          "description": "Identificamos en qué punto está la organización y dónde conviene priorizar cambios."
         },
         {
-          "title": "Formacion aplicada",
+          "title": "Formación aplicada",
           "description": "Capacitamos con casos, procesos y herramientas vinculadas a proyectos reales."
         },
         {
-          "title": "Implementacion gradual",
-          "description": "Aterrizamos BIM con decisiones operativas, no solo teoricas."
+          "title": "Implementación gradual",
+          "description": "Aterrizamos BIM con decisiones operativas, no solo teóricas."
         }
       ],
       "process": [
         {
-          "title": "Diagnostico",
-          "description": "Revisamos capacidades, brechas y objetivos de la organizacion."
+          "title": "Diagnóstico",
+          "description": "Revisamos capacidades, brechas y objetivos de la organización."
         },
         {
-          "title": "Diseno del plan",
-          "description": "Definimos estandares, prioridades y estructura de adopcion."
+          "title": "Diseño del plan",
+          "description": "Definimos estándares, prioridades y estructura de adopción."
         },
         {
-          "title": "Capacitacion",
-          "description": "Entrenamos perfiles tecnicos y de gestion con enfoque practico."
+          "title": "Capacitación",
+          "description": "Entrenamos perfiles técnicos y de gestión con enfoque práctico."
         },
         {
-          "title": "Acompanamiento",
-          "description": "Seguimos la implementacion hasta convertirla en rutina operativa."
+          "title": "Acompañamiento",
+          "description": "Seguimos la implementación hasta convertirla en rutina operativa."
         }
       ],
       "outcomes": [
-        "Mayor claridad en roles, flujos y estandares BIM.",
-        "Capacidad interna mas fuerte para sostener la metodologia.",
-        "Adopcion menos caotica y mas alineada a negocio."
+        "Mayor claridad en roles, flujos y estándares BIM.",
+        "Capacidad interna más fuerte para sostener la metodología.",
+        "Adopción menos caótica y más alineada a negocio."
       ]
     },
     "en": {
@@ -1255,18 +1255,18 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "slug": "comprehensive-bim-modeling",
       "title": "Modelado BIM integral para arquitectura, estructuras y MEP",
       "shortTitle": "Modelado BIM integral",
-      "description": "Desarrollamos modelos coordinados y utiles para diseno, documentacion, control y coordinacion multidisciplinaria.",
-      "intro": "Un buen modelo BIM no solo se ve bien: ordena informacion, ayuda a detectar conflictos y sirve como base para decisiones tecnicas. Nuestro enfoque busca que el modelo sea realmente operativo.",
+      "description": "Desarrollamos modelos coordinados y útiles para diseño, documentación, control y coordinación multidisciplinaria.",
+      "intro": "Un buen modelo BIM no solo se ve bien: ordena información, ayuda a detectar conflictos y sirve como base para decisiones técnicas. Nuestro enfoque busca que el modelo sea realmente operativo.",
       "image": "/images/blog/estadio-chepen/modelo-acero-refuerzo.webp",
       "imageAlt": "Modelado BIM integral",
       "pillars": [
         {
-          "title": "Coordinacion entre disciplinas",
-          "description": "Integramos arquitectura, estructura y MEP para detectar conflictos con anticipacion."
+          "title": "Coordinación entre disciplinas",
+          "description": "Integramos arquitectura, estructura y MEP para detectar conflictos con anticipación."
         },
         {
-          "title": "Modelos ricos en informacion",
-          "description": "No trabajamos solo geometria; estructuramos datos utiles para documentar y controlar."
+          "title": "Modelos ricos en información",
+          "description": "No trabajamos solo geometría; estructuramos datos útiles para documentar y controlar."
         },
         {
           "title": "Base para decisiones",
@@ -1276,24 +1276,24 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "process": [
         {
           "title": "Levantamiento",
-          "description": "Recibimos informacion base, criterios de modelado y objetivos del proyecto."
+          "description": "Recibimos información base, criterios de modelado y objetivos del proyecto."
         },
         {
           "title": "Desarrollo",
           "description": "Construimos modelos por disciplina con orden y consistencia."
         },
         {
-          "title": "Coordinacion",
+          "title": "Coordinación",
           "description": "Revisamos interferencias y ajustamos el modelo federado."
         },
         {
           "title": "Entrega",
-          "description": "Entregamos un modelo util para documentacion, control y fases siguientes."
+          "description": "Entregamos un modelo útil para documentación, control y fases siguientes."
         }
       ],
       "outcomes": [
         "Menor riesgo de interferencias descubiertas tarde.",
-        "Mejor calidad de informacion para coordinar y documentar.",
+        "Mejor calidad de información para coordinar y documentar.",
         "Mayor valor del modelo para clientes, proyectistas y obra."
       ]
     },

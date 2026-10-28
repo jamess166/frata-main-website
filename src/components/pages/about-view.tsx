@@ -77,12 +77,12 @@ export function AboutView({ content }: { locale: Locale; content: AboutPageConte
           <Reveal>
             <div className="overflow-hidden rounded-tile bg-surface">
               <Image
-                src={`${WORK}/modelo-acero-refuerzo.webp`}
+                src="/images/frata-desarrollo.webp"
                 alt={content.strengths.imageAlt}
-                width={1920}
-                height={1028}
+                width={1280}
+                height={813}
                 sizes="(min-width: 1024px) 50vw, 100vw"
-                className="aspect-[4/3] w-full object-cover"
+                className="aspect-[1280/813] w-full object-cover"
               />
             </div>
           </Reveal>

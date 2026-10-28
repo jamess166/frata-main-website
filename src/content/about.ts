@@ -26,7 +26,7 @@ export const aboutContent: Record<Locale, AboutPageContent> = {
     meta: {
       title: "Nosotros",
       description:
-        "Conoce a Frata Ingenieros, una firma orientada a consultoria BIM, modelado BIM y desarrollo tecnico para Revit o Tekla.",
+        "Conoce a Frata Ingenieros, una firma orientada a consultoría BIM, modelado BIM y desarrollo técnico para Revit o Tekla.",
     },
     hero: {
       eyebrow: "Nosotros",

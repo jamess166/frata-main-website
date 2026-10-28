@@ -16,18 +16,18 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "Consultoria BIM, Modelado BIM y Desarrollo Revit | Frata Ingenieros",
+    default: "Consultoría BIM, Modelado BIM y Desarrollo Revit | Frata Ingenieros",
     template: "%s | Frata Ingenieros",
   },
   description:
-    "Consultoria BIM, modelado BIM, coordinacion digital y desarrollo de aplicaciones para Revit o Tekla. Frata Ingenieros impulsa proyectos AEC con automatizacion y tecnologia BIM.",
+    "Consultoría BIM, modelado BIM, coordinación digital y desarrollo de aplicaciones para Revit o Tekla. Frata Ingenieros impulsa proyectos AEC con automatización y tecnologia BIM.",
   keywords: [
-    "consultoria BIM",
+    "consultoría BIM",
     "modelado BIM",
-    "coordinacion BIM",
+    "coordinación BIM",
     "desarrollo Revit",
     "desarrollo Tekla",
-    "automatizacion BIM",
+    "automatización BIM",
     "addins Revit",
     "servicios BIM Peru",
   ],
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Frata Ingenieros",
-    description: "Consultoria BIM, modelado BIM y desarrollo de aplicaciones para Revit o Tekla.",
+    description: "Consultoría BIM, modelado BIM y desarrollo de aplicaciones para Revit o Tekla.",
     url: "https://www.frataingenieros.com/",
     siteName: "Frata Ingenieros",
     images: [
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
         url: "https://www.frataingenieros.com/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Frata Ingenieros - Consultoria BIM",
+        alt: "Frata Ingenieros - Consultoría BIM",
       },
     ],
     locale: "es_ES",
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Frata Ingenieros",
-    description: "Consultoria BIM, modelado BIM y desarrollo de aplicaciones para Revit o Tekla.",
+    description: "Consultoría BIM, modelado BIM y desarrollo de aplicaciones para Revit o Tekla.",
     images: ["https://www.frataingenieros.com/images/og-image.jpg"],
   },
 };

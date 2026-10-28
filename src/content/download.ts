@@ -16,16 +16,16 @@ export interface DownloadPageContent {
 export const downloadContent: Record<Locale, DownloadPageContent> = {
   es: {
     metaTitle: "Descarga BIMtools",
-    searching: "Buscando la ultima version disponible del instalador...",
-    errorFallback: "No pudimos resolver automaticamente el ultimo instalador. Redirigiendo a la ultima release...",
+    searching: "Buscando la última versión disponible del instalador...",
+    errorFallback: "No pudimos resolver automáticamente el último instalador. Redirigiendo a la última release...",
     badge: "Descarga en proceso",
     heading: "Preparando tu instalador BIMtools",
-    latestInstallerTitle: "Ultimo instalador",
+    latestInstallerTitle: "Último instalador",
     latestInstallerBody:
-      "Estamos ubicando la release mas reciente de BIMtools para que no tengas que actualizar enlaces manualmente.",
-    autoRedirectTitle: "Redireccion automatica",
-    autoRedirectBody: "Si no se puede resolver el instalador directo, abriremos la pagina de la ultima release en GitHub.",
-    openManuallyCta: "Abrir ultima release manualmente",
+      "Estamos ubicando la release más reciente de BIMtools para que no tengas que actualizar enlaces manualmente.",
+    autoRedirectTitle: "Redirección automática",
+    autoRedirectBody: "Si no se puede resolver el instalador directo, abriremos la página de la última release en GitHub.",
+    openManuallyCta: "Abrir última release manualmente",
   },
   en: {
     metaTitle: "BIMtools Download",

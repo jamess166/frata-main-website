@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
+import { Check, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { HomeContactSection } from "@/components/home/contact-section";
 import { SocialProofSection } from "@/components/home/social-proof-section";
@@ -39,6 +39,17 @@ const HERO_CAPTION: Record<Locale, string> = {
   pt: "Estádio Municipal de Chepén · projeto executivo desenvolvido em BIM",
   ru: "Муниципальный стадион Чепен · рабочая документация в BIM",
   zh: "Chepén 市立体育场 · 采用 BIM 完成的施工图设计",
+};
+
+const TEAM_PHOTO_ALT: Record<Locale, string> = {
+  es: "Desarrollo de herramientas BIM en Frata Ingenieros",
+  en: "Building BIM tools at Frata Ingenieros",
+  de: "Entwicklung von BIM-Werkzeugen bei Frata Ingenieros",
+  fr: "Développement d'outils BIM chez Frata Ingenieros",
+  it: "Sviluppo di strumenti BIM in Frata Ingenieros",
+  pt: "Desenvolvimento de ferramentas BIM na Frata Ingenieros",
+  ru: "Разработка BIM-инструментов в Frata Ingenieros",
+  zh: "Frata Ingenieros 正在开发 BIM 工具",
 };
 
 function serviceImage(href: string, locale: Locale) {
@@ -96,19 +107,29 @@ export function HomeView({ locale, content }: { locale: Locale; content: HomePag
         </div>
 
         <div className="container mx-auto px-5 py-16 sm:px-6 lg:px-8 lg:py-20">
-          <div className="mx-auto grid max-w-4xl grid-cols-1 gap-10 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-border">
-            {/* TODO owner: confirm real project count */}
+          <div className="mx-auto grid max-w-2xl grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-0 sm:divide-x sm:divide-border">
             <Stat value={50} suffix="+" label={content.hero.stats.bimtoolsUsers} />
             <Stat value={21} label={content.hero.stats.publishedAddins} />
-            <Stat value={30} suffix="+" label={content.hero.stats.deliveredProjects} />
           </div>
         </div>
       </section>
 
       {/* ── Manifesto ────────────────────────────────────────── */}
       <section className="bg-surface">
-        <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
-          <Reveal className="mx-auto max-w-3xl text-center">
+        <div className="container mx-auto grid gap-12 px-5 py-20 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-8 lg:py-28">
+          <Reveal>
+            <div className="overflow-hidden rounded-tile bg-card">
+              <Image
+                src="/images/frata-desarrollo.webp"
+                alt={TEAM_PHOTO_ALT[locale]}
+                width={1280}
+                height={813}
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="aspect-[1280/813] w-full object-cover"
+              />
+            </div>
+          </Reveal>
+          <Reveal>
             <Eyebrow>{content.manifesto.eyebrow}</Eyebrow>
             <h2 className="mt-3 font-headline text-display-lg text-foreground">
               {content.manifesto.heading.line1}
@@ -119,14 +140,15 @@ export function HomeView({ locale, content }: { locale: Locale; content: HomePag
                 </>
               )}
             </h2>
+            <ul className="mt-8 space-y-4">
+              {content.manifesto.points.map((point) => (
+                <li key={point} className="flex gap-3 text-[1.0625rem] leading-relaxed text-foreground">
+                  <Check className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden />
+                  {point}
+                </li>
+              ))}
+            </ul>
           </Reveal>
-          <div className="mx-auto mt-12 grid max-w-5xl gap-4 sm:grid-cols-2">
-            {content.manifesto.points.map((point) => (
-              <Reveal key={point} className="rounded-2xl bg-card p-7">
-                <p className="text-[1.0625rem] leading-relaxed text-foreground">{point}</p>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 
