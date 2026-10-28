@@ -39,19 +39,27 @@ Todas las especialidades se modelaron en **Autodesk Revit** con un nivel de deta
 
 En concreto armado llevamos el modelo **hasta el acero de refuerzo**. Eso permite revisar en 3D la congestión de armaduras en nudos y graderías, y obtener del modelo las cantidades de acero que de otra forma se calculan a mano en planillas de corte y doblado.
 
+![Modelo de acero de refuerzo de cimentaciones, muros y vigas en Revit](/images/blog/estadio-chepen/modelo-acero-refuerzo.webp)
+
+Modelar el refuerzo a mano en Revit es muy lento, así que lo automatizamos con nuestras herramientas del panel **Frata**: *Footing Rebar*, *Column Rebar*, *Beam Rebar* y *WallRebar* generan el armado de zapatas, columnas, vigas y muros, y *Auto Stirrups* coloca los estribos. El modelo de acero se revisa en vistas 3D por elemento antes de pasar a los planos y metrados de estructuras.
+
 ![Interior de la cabina de prensa en el modelo BIM](/images/blog/estadio-chepen/render-cabina-prensa.webp)
 
 ## Toda la información 2D sale del modelo
 
 En este proyecto **no se dibujan planos aparte**. Plantas, cortes, elevaciones, detalles, cuadros y láminas de todas las especialidades se generan desde los modelos de Revit, con plantillas de vista, filtros por especialidad y membretes estandarizados. Si el modelo cambia, los planos cambian con él, y la compatibilidad entre especialidades viene del modelo federado y no de la revisión manual de láminas.
 
+![Lámina de planta de arquitectura generada desde el modelo de Revit](/images/blog/estadio-chepen/planos-revit-arquitectura.webp)
+
+Cada lámina se codifica según la nomenclatura del Plan de Ejecución BIM. Por ejemplo, *2657134-COL-003-N01-PLA-ARQ-0003* identifica el proyecto, el autor, el volumen, el nivel, el tipo de documento, la especialidad y el número correlativo. Además, cada lámina lleva su control de revisiones (P01, P02, P03…) dentro del mismo modelo. Así, el juego de planos de cada informe parcial queda ordenado y es fácil de rastrear en el entorno común de datos.
+
 ## Add-ins propios para llenar la información del modelo
 
 Un modelo útil para el expediente no solo necesita geometría: cada elemento debe llevar los datos que luego piden los metrados y el presupuesto. Llenar eso a mano en miles de elementos es lento y propenso a errores, así que usamos **add-ins desarrollados por nosotros** para automatizarlo. Por ejemplo:
 
-- Asignar a cada muro los **ejes** entre los que se ubica, para que el metrado se pueda ordenar y verificar como en una planilla tradicional (por ejemplo, "Eje A, entre 1 y 3").
+- Asignar a cada muro los **ejes** entre los que se ubica (*Grid Assigner*), para que el metrado se pueda ordenar y verificar como en una planilla tradicional (por ejemplo, "Eje A, entre 1 y 3").
 - Asignar el **ambiente** al que pertenece cada elemento, lo que permite metrar acabados, pisos y tarrajeos por ambiente.
-- Asignar **bloque, nivel, sector, partida y código** a los elementos mediante parámetros compartidos.
+- Asignar **bloque, nivel, sector, partida y código** a los elementos mediante parámetros compartidos (*Parameter Filler*).
 - Calcular el **área neta de los muros** de albañilería descontando columnetas, viguetas de confinamiento y sobrecimientos del modelo de estructuras vinculado (nuestro complemento *Measure Wall*).
 - Descontar de las **graderías** el volumen de intersección con vigas y columnas mediante una rutina de Dynamo con Python, para que el concreto no se cuente dos veces.
 
@@ -67,6 +75,12 @@ El flujo funciona así:
 2. **Configuración del *take-off***: para cada partida se indica qué elementos y parámetros alimentan el metrado y cómo se agrupan.
 3. **Exportación a Excel**: la aplicación escribe el metrado directamente en el libro de metrados, **en el formato estándar de planilla de metrados de obra pública**: ítem, descripción, unidad, número de veces, largo, ancho, alto, parcial y total, con el detalle por ubicación.
 4. **Presupuesto en Delphin**: los metrados se trasladan a **Delphin**, donde se arman el presupuesto, los análisis de precios unitarios y las fórmulas polinómicas del expediente.
+
+Este es un ejemplo real de la planilla exportada desde Revit:
+
+![Planilla de metrados exportada desde Revit, con el ID de cada elemento](/images/blog/estadio-chepen/metrado-excel-ids.webp)
+
+La partida *03.02.03.02.01 Concreto premezclado en muro de contención f'c = 280 kg/cm²* suma **106.65 m³**. El detalle se organiza por componente (cimentación), sector, tipo de elemento (muro de contención, zapata) y código de cada muro (M-01, M-03, M-04…). Cada línea es un elemento del modelo, con su volumen, y en la columna de la derecha va su **ID de Revit**. Con ese número, cualquiera puede ubicar el elemento exacto en el modelo con *Select by ID* y verificar la cantidad.
 
 Como cada cantidad sale de un elemento del modelo, el metrado es **trazable**. El supervisor puede preguntar de dónde sale un número y la respuesta está en el modelo, no en una hoja de cálculo hecha a mano. Cuando el diseño cambia, se actualiza el modelo y se vuelve a exportar, sin rehacer planillas. Las partidas que no se pueden obtener del modelo se metran de forma manual, y el BEP deja definido cuáles son.
 
