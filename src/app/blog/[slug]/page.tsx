@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
+import { buildBlogPostingSchema } from "@/lib/schema";
 
 export async function generateStaticParams() {
   const posts = await getAllPosts();
@@ -31,8 +32,19 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   return {
     title: post.title,
     description: post.summary,
+    keywords: post.keywords,
     alternates: {
       canonical: `https://www.frataingenieros.com/blog/${post.slug}`,
+    },
+    openGraph: {
+      type: "article",
+      title: post.title,
+      description: post.summary,
+      url: `https://www.frataingenieros.com/blog/${post.slug}`,
+      siteName: "Frata Ingenieros",
+      locale: "es_PE",
+      publishedTime: post.date,
+      images: [{ url: `https://www.frataingenieros.com${post.image}` }],
     },
   };
 }
@@ -45,8 +57,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
+  const jsonLd = buildBlogPostingSchema(post);
+
   return (
     <article className="pb-8 pt-12 lg:pt-16">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <header className="container mx-auto max-w-3xl px-5 sm:px-6">
         <Link
           href="/blog"

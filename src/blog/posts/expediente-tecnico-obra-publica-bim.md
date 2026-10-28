@@ -4,6 +4,12 @@ date: "2026-10-28"
 author: "Frata Ingenieros"
 image: "/images/blog/estadio-chepen/render-tribuna.webp"
 summary: "Cómo elaboramos el expediente técnico de un estadio con BIM: modelado LOD 3 hasta el acero de refuerzo, planos generados desde Revit, metrados automatizados entre Revit, Excel y Delphin, auditoría de modelos y nuestro propio entorno común de datos."
+keywords:
+  - expedientes técnicos de inversión pública con BIM
+  - expedientes técnicos públicos con BIM
+  - metrados BIM para expedientes técnicos de obra pública
+  - expediente técnico BIM
+  - Guía Nacional BIM
 ---
 
 Elaborar un **expediente técnico con BIM** significa construir primero un modelo digital coordinado de todas las especialidades y obtener de él los planos, los metrados y el presupuesto, en lugar de dibujar y metrar cada especialidad por separado. El resultado son planos compatibles, metrados trazables y menos adicionales en obra. En este artículo contamos **cómo lo hacemos en la práctica**, con un proyecto real de inversión pública: el expediente técnico del **"Mejoramiento del servicio deportivo de competencia en el Estadio Municipal Juan Noriega Salazar"**, en el distrito de Chepén, La Libertad (CUI 2657134), para el Gobierno Regional La Libertad.
@@ -61,7 +67,7 @@ Un modelo útil para el expediente no solo necesita geometría: cada elemento de
 - Calcular el **área neta de los muros** de albañilería descontando columnetas, viguetas de confinamiento y sobrecimientos del modelo de estructuras vinculado (nuestro complemento *Measure Wall*).
 - Descontar de las **graderías** el volumen de intersección con vigas y columnas mediante una rutina de Dynamo con Python, para que el concreto no se cuente dos veces.
 
-## Metrados automatizados: Revit, Excel y Delphin
+## Metrados BIM para expedientes técnicos de obra pública: Revit, Excel y Delphin
 
 Esta es la parte donde más tiempo se ahorra. Con nuestra aplicación **BIM 5D** para Revit, cada partida del presupuesto se vincula a los elementos del modelo que le corresponden y se define cómo se mide: qué parámetros se usan, cómo se agrupan (por bloque, nivel, eje o ambiente) y qué columnas de la planilla se llenan.
 
@@ -114,4 +120,4 @@ BIMHILL organiza la información del proyecto según los estados de la ISO 19650
 
 ## ¿Tienes un expediente técnico de obra pública con requisitos BIM?
 
-Si tu entidad o tu consorcio necesita cumplir los requisitos BIM de unos Términos de Referencia, podemos ayudarte con el Plan de Ejecución BIM, el [modelado BIM integral](/services/comprehensive-bim-modeling), la coordinación de especialidades y la automatización de metrados con nuestras [herramientas para Revit](/bimtools). [Contáctanos](/#contact) y conversemos sobre tu proyecto.
+Si tu entidad o tu consorcio necesita cumplir los requisitos BIM de unos Términos de Referencia, podemos ayudarte con [expedientes técnicos de inversión pública con BIM](/expedientes-tecnicos-bim): el Plan de Ejecución BIM, el [modelado BIM integral](/services/comprehensive-bim-modeling), la coordinación de especialidades y la automatización de metrados con nuestras [herramientas para Revit](/bimtools). [Contáctanos](/#contact) y conversemos sobre tu proyecto.

@@ -64,6 +64,14 @@ export function Footer() {
                   {t.nav.services}
                 </Link>
               </li>
+              {/* Spanish-only page: Peruvian public-works packages */}
+              {locale === "es" && (
+                <li>
+                  <Link href="/expedientes-tecnicos-bim" className={linkClass}>
+                    Expedientes técnicos con BIM
+                  </Link>
+                </li>
+              )}
               <li>
                 <Link href={to("/casos")} className={linkClass}>
                   {t.nav.caseStudies}

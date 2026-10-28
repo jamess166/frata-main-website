@@ -14,6 +14,7 @@ export interface PostData {
   image: string;
   summary: string;
   contentHtml: string;
+  keywords?: string[];
   [key: string]: any;
 }
 

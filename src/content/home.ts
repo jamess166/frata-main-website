@@ -49,7 +49,7 @@ export const homeContent: Record<Locale, HomePageContent> = {
     meta: {
       titleAbsolute: "Frata Ingenieros · Consultoría BIM y Addins para Revit | Perú LATAM",
       description:
-        "Frata Ingenieros desarrolla consultoría BIM, modelado BIM, coordinación digital y aplicaciones para Revit o Tekla con foco en productividad y control técnico.",
+        "Consultoría BIM, expedientes técnicos de inversión pública con BIM, metrados BIM y addins para Revit y Tekla. Empresa peruana con alcance en LATAM.",
       ogTitle: "Frata Ingenieros · Consultoría BIM y Addins para Revit | Perú LATAM",
       ogDescription:
         "Consultoría BIM, modelado BIM y desarrollo de addins para Revit y Tekla. Empresa peruana con alcance LATAM.",

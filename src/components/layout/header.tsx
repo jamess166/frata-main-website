@@ -82,6 +82,14 @@ function ServicesDropdown({ locale, pathname }: { locale: Locale; pathname: stri
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="start" sideOffset={14} className="w-72">
+        {/* Spanish-only page: Peruvian public-works packages */}
+        {locale === "es" && (
+          <DropdownMenuItem asChild>
+            <Link href="/expedientes-tecnicos-bim" className="text-[0.875rem]">
+              Expedientes técnicos de obra pública
+            </Link>
+          </DropdownMenuItem>
+        )}
         {items.map((service) => (
           <DropdownMenuItem key={service.slug} asChild>
             <Link href={withLocale(locale, `/services/${service.slug}`)} className="text-[0.875rem]">

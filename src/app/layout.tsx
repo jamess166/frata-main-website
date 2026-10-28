@@ -23,6 +23,9 @@ export const metadata: Metadata = {
     "Consultoría BIM, modelado BIM, coordinación digital y desarrollo de aplicaciones para Revit o Tekla. Frata Ingenieros impulsa proyectos AEC con automatización y tecnologia BIM.",
   keywords: [
     "consultoría BIM",
+    "expedientes técnicos de inversión pública con BIM",
+    "expedientes técnicos públicos con BIM",
+    "metrados BIM para expedientes técnicos de obra pública",
     "modelado BIM",
     "coordinación BIM",
     "desarrollo Revit",
