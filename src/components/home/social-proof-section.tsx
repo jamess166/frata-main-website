@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Eyebrow } from "@/components/site/eyebrow";
 import { Reveal } from "@/components/site/reveal";
 import { resolveBilingual, type Locale } from "@/lib/locale";
 
@@ -61,23 +60,23 @@ export function SocialProofSection({ locale = "es" }: SocialProofSectionProps) {
   const headings = HEADINGS[locale];
 
   return (
-    <section className="border-t border-border">
-      <div className="container mx-auto px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
-        <Reveal>
-          <Eyebrow>{headings.testimonials}</Eyebrow>
+    <section className="py-20 lg:py-28">
+      <div className="container mx-auto px-5 sm:px-6 lg:px-8">
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <h2 className="font-headline text-display-lg text-foreground">{headings.testimonials}</h2>
         </Reveal>
 
-        <div className="mt-14 grid gap-12 md:grid-cols-3 md:gap-10">
-          {TESTIMONIALS.map((t, i) => {
+        <div className="mt-12 grid gap-5 md:grid-cols-3">
+          {TESTIMONIALS.map((t) => {
             const text = resolveBilingual(locale, t.text, t.textEn);
             const role = resolveBilingual(locale, t.role, t.roleEn);
             return (
-              <Reveal key={t.name} delay={i * 100}>
-                <blockquote className="border-l border-primary/60 pl-6">
-                  <p className="text-sm leading-7 text-foreground/80">“{text}”</p>
-                  <footer className="mt-6">
-                    <p className="text-sm font-semibold text-foreground">{t.name}</p>
-                    <p className="mt-1 text-xs uppercase tracking-[0.14em] text-muted-foreground">
+              <Reveal key={t.name} className="h-full">
+                <blockquote className="flex h-full flex-col rounded-tile bg-surface p-8">
+                  <p className="text-[1.0625rem] leading-relaxed text-foreground">“{text}”</p>
+                  <footer className="mt-auto pt-8">
+                    <p className="text-[0.9375rem] font-semibold text-foreground">{t.name}</p>
+                    <p className="mt-0.5 text-sm text-muted-foreground">
                       {role ? `${role} · ` : ""}
                       {t.company}, {t.country}
                     </p>
@@ -89,11 +88,9 @@ export function SocialProofSection({ locale = "es" }: SocialProofSectionProps) {
         </div>
 
         {CLIENT_LOGOS.length > 0 && (
-          <div className="mt-20 border-t border-border pt-12">
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
-              {headings.usedAt}
-            </p>
-            <div className="mt-8 flex flex-wrap items-center gap-10">
+          <div className="mt-16 text-center">
+            <p className="text-sm text-muted-foreground">{headings.usedAt}</p>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
               {CLIENT_LOGOS.map((logo) => (
                 <Image
                   key={logo.src}
@@ -101,7 +98,7 @@ export function SocialProofSection({ locale = "es" }: SocialProofSectionProps) {
                   alt={logo.alt}
                   width={120}
                   height={40}
-                  className="h-8 w-auto object-contain opacity-50 grayscale invert transition hover:opacity-90"
+                  className="h-8 w-auto object-contain opacity-60 grayscale transition-opacity hover:opacity-100 dark:invert"
                 />
               ))}
             </div>

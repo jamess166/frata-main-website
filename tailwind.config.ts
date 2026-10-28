@@ -1,7 +1,7 @@
 import type {Config} from 'tailwindcss';
 
 export default {
-  darkMode: ['class'],
+  darkMode: 'media',
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -10,17 +10,20 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['var(--font-sans)', 'sans-serif'],
-        headline: ['var(--font-display)', 'sans-serif'],
-        code: ['monospace'],
+        body: ['var(--font-sans)'],
+        headline: ['var(--font-display)'],
+        code: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Consolas', 'monospace'],
       },
       fontSize: {
-        'display-xl': ['clamp(2.75rem, 6vw, 6.5rem)', { lineHeight: '0.95', letterSpacing: '-0.03em' }],
-        'display-lg': ['clamp(2.25rem, 4.5vw, 4.5rem)', { lineHeight: '1', letterSpacing: '-0.025em' }],
-        'display-md': ['clamp(1.75rem, 3vw, 3rem)', { lineHeight: '1.05', letterSpacing: '-0.02em' }],
+        // Tracking tightens and leading closes up as the size grows.
+        'display-xl': ['clamp(2.5rem, 5.6vw, 5rem)', { lineHeight: '1.05', letterSpacing: '-0.028em', fontWeight: '600' }],
+        'display-lg': ['clamp(2.125rem, 4.2vw, 3.5rem)', { lineHeight: '1.08', letterSpacing: '-0.022em', fontWeight: '600' }],
+        'display-md': ['clamp(1.75rem, 3vw, 2.5rem)', { lineHeight: '1.12', letterSpacing: '-0.016em', fontWeight: '600' }],
+        'title': ['1.5rem', { lineHeight: '1.2', letterSpacing: '-0.01em', fontWeight: '600' }],
       },
       colors: {
         background: 'hsl(var(--background))',
+        surface: 'hsl(var(--surface))',
         foreground: 'hsl(var(--foreground))',
         card: {
           DEFAULT: 'hsl(var(--card))',
@@ -75,6 +78,10 @@ export default {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
+        tile: '1.75rem',
+      },
+      transitionTimingFunction: {
+        out: 'var(--ease-out)',
       },
       keyframes: {
         'accordion-down': {

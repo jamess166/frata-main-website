@@ -8,10 +8,11 @@ interface AddinIconProps {
     alt: string;
   } | null;
   name: string;
-  size?: "sm" | "md" | "lg";
+  size?: "xs" | "sm" | "md" | "lg";
 }
 
 const sizeClasses = {
+  xs: "h-5 w-5",
   sm: "h-8 w-8",
   md: "h-10 w-10",
   lg: "h-14 w-14",

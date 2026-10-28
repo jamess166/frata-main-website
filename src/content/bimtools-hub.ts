@@ -44,8 +44,8 @@ export const bimtoolsHubContent: Record<Locale, BimtoolsHubContent> = {
       keywords: [
         "addins revit",
         "plugins revit",
-        "automatizacion bim",
-        "consultoria bim",
+        "automatización bim",
+        "consultoría bim",
         "desarrollo revit api",
         "manuales revit",
         "herramientas bim",

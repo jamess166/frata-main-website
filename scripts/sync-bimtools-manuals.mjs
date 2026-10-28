@@ -20,7 +20,7 @@ const suiteMeta = {
     id: "architecture",
     label: "Architecture",
     description: {
-      es: "Automatizacion para convertir datos arquitectonicos del modelo en elementos constructivos con menos trabajo manual.",
+      es: "Automatización para convertir datos arquitectónicos del modelo en elementos constructivos con menos trabajo manual.",
       en: "Automation to turn architectural room data into modeled floor elements with less manual setup.",
       de: "Automatisierung, um architektonische Raumdaten aus dem Modell mit weniger manuellem Aufwand in modellierte Geschosselemente umzuwandeln.",
       fr: "Automatisation pour transformer les données de pièces architecturales du modèle en éléments de plancher modélisés avec moins de configuration manuelle.",
@@ -35,7 +35,7 @@ const suiteMeta = {
     id: "manage",
     label: "Manage",
     description: {
-      es: "Automatiza exportacion, parametros y configuracion centralizada para mantener tus modelos consistentes.",
+      es: "Automatiza exportación, parámetros y configuración centralizada para mantener tus modelos consistentes.",
       en: "Automation for exports, parameters and centralized settings.",
       de: "Automatisierung für Export, Parameter und zentrale Einstellungen.",
       fr: "Automatisation pour l'export, les paramètres et les réglages centralisés.",
@@ -50,7 +50,7 @@ const suiteMeta = {
     id: "navigate",
     label: "Navigate",
     description: {
-      es: "Herramientas para encontrar, abrir y seleccionar informacion del modelo con menos friccion.",
+      es: "Herramientas para encontrar, abrir y seleccionar información del modelo con menos fricción.",
       en: "Tools to find, open and select model information faster.",
       de: "Werkzeuge, um Modellinformationen schneller zu finden, zu öffnen und auszuwählen.",
       fr: "Outils pour trouver, ouvrir et sélectionner plus rapidement les informations du modèle.",
@@ -65,7 +65,7 @@ const suiteMeta = {
     id: "structure",
     label: "Structure",
     description: {
-      es: "Automatizacion para crear, editar y sincronizar armaduras y componentes estructurales con mayor velocidad y precision.",
+      es: "Automatización para crear, editar y sincronizar armaduras y componentes estructurales con mayor velocidad y precisión.",
       en: "Automation to create, edit and synchronize reinforcement and structural components faster.",
       de: "Automatisierung zum schnelleren Erstellen, Bearbeiten und Synchronisieren von Bewehrung und Tragwerkskomponenten.",
       fr: "Automatisation pour créer, modifier et synchroniser plus rapidement les armatures et les composants structurels.",
@@ -80,7 +80,7 @@ const suiteMeta = {
     id: "drawing2d",
     label: "Drawing 2D",
     description: {
-      es: "Herramientas para anotacion y produccion de planos 2D con menos trabajo manual.",
+      es: "Herramientas para anotación y producción de planos 2D con menos trabajo manual.",
       en: "Tools for 2D annotation and drawing production with less manual work.",
       de: "Werkzeuge für 2D-Beschriftung und Planerstellung mit weniger manuellem Aufwand.",
       fr: "Outils pour l'annotation 2D et la production de plans avec moins de travail manuel.",
@@ -95,7 +95,7 @@ const suiteMeta = {
     id: "mep",
     label: "MEP",
     description: {
-      es: "Automatizacion para crear, ajustar y limpiar redes de tuberia en proyectos MEP con menos trabajo manual.",
+      es: "Automatización para crear, ajustar y limpiar redes de tubería en proyectos MEP con menos trabajo manual.",
       en: "Automation to create, adjust and clean up piping systems in MEP projects with less manual work.",
       de: "Automatisierung zum Erstellen, Anpassen und Bereinigen von Rohrleitungssystemen in MEP-Projekten mit weniger manuellem Aufwand.",
       fr: "Automatisation pour créer, ajuster et nettoyer les réseaux de tuyauterie dans les projets MEP avec moins de travail manuel.",

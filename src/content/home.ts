@@ -28,7 +28,7 @@ export interface HomePageContent {
     intro: string;
     talkCta: string;
     servicesCta: string;
-    stats: { bimtoolsUsers: string; publishedAddins: string; deliveredProjects: string };
+    stats: { bimtoolsUsers: string; publishedAddins: string };
   };
   manifesto: { eyebrow: string; heading: { line1: string; line2?: string }; points: string[] };
   services: { eyebrow: string; heading: string; cta: string; items: HomeServiceCard[] };
@@ -49,7 +49,7 @@ export const homeContent: Record<Locale, HomePageContent> = {
     meta: {
       titleAbsolute: "Frata Ingenieros · Consultoría BIM y Addins para Revit | Perú LATAM",
       description:
-        "Frata Ingenieros desarrolla consultoría BIM, modelado BIM, coordinación digital y aplicaciones para Revit o Tekla con foco en productividad y control técnico.",
+        "Consultoría BIM, expedientes técnicos de inversión pública con BIM, metrados BIM y addins para Revit y Tekla. Empresa peruana con alcance en LATAM.",
       ogTitle: "Frata Ingenieros · Consultoría BIM y Addins para Revit | Perú LATAM",
       ogDescription:
         "Consultoría BIM, modelado BIM y desarrollo de addins para Revit y Tekla. Empresa peruana con alcance LATAM.",
@@ -66,7 +66,6 @@ export const homeContent: Record<Locale, HomePageContent> = {
       stats: {
         bimtoolsUsers: "Usuarios de BIMtools",
         publishedAddins: "Addins publicados",
-        deliveredProjects: "Proyectos BIM entregados",
       },
     },
     manifesto: {
@@ -176,7 +175,6 @@ export const homeContent: Record<Locale, HomePageContent> = {
       stats: {
         bimtoolsUsers: "BIMtools users",
         publishedAddins: "Published addins",
-        deliveredProjects: "BIM projects delivered",
       },
     },
     manifesto: {
@@ -286,7 +284,6 @@ export const homeContent: Record<Locale, HomePageContent> = {
       stats: {
         bimtoolsUsers: "BIMtools-Nutzer",
         publishedAddins: "Veröffentlichte Addins",
-        deliveredProjects: "Abgeschlossene BIM-Projekte",
       },
     },
     manifesto: {
@@ -397,7 +394,6 @@ export const homeContent: Record<Locale, HomePageContent> = {
       stats: {
         bimtoolsUsers: "Utilisateurs de BIMtools",
         publishedAddins: "Addins publiés",
-        deliveredProjects: "Projets BIM livrés",
       },
     },
     manifesto: {
@@ -507,7 +503,6 @@ export const homeContent: Record<Locale, HomePageContent> = {
       stats: {
         bimtoolsUsers: "Utenti di BIMtools",
         publishedAddins: "Addin pubblicati",
-        deliveredProjects: "Progetti BIM consegnati",
       },
     },
     manifesto: {
@@ -617,7 +612,6 @@ export const homeContent: Record<Locale, HomePageContent> = {
       stats: {
         bimtoolsUsers: "Usuários do BIMtools",
         publishedAddins: "Addins publicados",
-        deliveredProjects: "Projetos BIM entregues",
       },
     },
     manifesto: {
@@ -727,7 +721,6 @@ export const homeContent: Record<Locale, HomePageContent> = {
       stats: {
         bimtoolsUsers: "Пользователи BIMtools",
         publishedAddins: "Опубликованные аддины",
-        deliveredProjects: "Реализованные BIM-проекты",
       },
     },
     manifesto: {
@@ -837,7 +830,6 @@ export const homeContent: Record<Locale, HomePageContent> = {
       stats: {
         bimtoolsUsers: "BIMtools 用户数",
         publishedAddins: "已发布插件数",
-        deliveredProjects: "已交付 BIM 项目数",
       },
     },
     manifesto: {

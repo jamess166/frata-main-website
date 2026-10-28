@@ -47,9 +47,9 @@ export interface SubscriptionPageContent {
 export const subscriptionContent: Record<Locale, SubscriptionPageContent> = {
   es: {
     meta: {
-      title: "Suscripcion Premium BIMtools | Frata",
+      title: "Suscripción Premium BIMtools | Frata",
       description:
-        "Suscripcion premium BIMtools para Revit. Accede a todos los addins premium por USD 30 al mes, USD 75 al trimestre o USD 250 al año.",
+        "Suscripción premium BIMtools para Revit. Accede a todos los addins premium por USD 30 al mes, USD 75 al trimestre o USD 250 al año.",
     },
     backToBimtools: "Volver a BIMtools",
     eyebrow: "Suscripción premium",

@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import { ChevronLeft } from "lucide-react";
 import { notFound } from "next/navigation";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
+import { buildBlogPostingSchema } from "@/lib/schema";
 
 export async function generateStaticParams() {
   const posts = await getAllPosts();
@@ -29,8 +32,19 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   return {
     title: post.title,
     description: post.summary,
+    keywords: post.keywords,
     alternates: {
       canonical: `https://www.frataingenieros.com/blog/${post.slug}`,
+    },
+    openGraph: {
+      type: "article",
+      title: post.title,
+      description: post.summary,
+      url: `https://www.frataingenieros.com/blog/${post.slug}`,
+      siteName: "Frata Ingenieros",
+      locale: "es_PE",
+      publishedTime: post.date,
+      images: [{ url: `https://www.frataingenieros.com${post.image}` }],
     },
   };
 }
@@ -43,34 +57,42 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
+  const jsonLd = buildBlogPostingSchema(post);
+
   return (
-    <article className="container mx-auto px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-      <header className="mx-auto max-w-4xl">
-        <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
-          <time dateTime={post.date}>
-            {format(new Date(post.date), "d 'de' MMMM, yyyy", { locale: es })}
-          </time>
-          <span className="mx-3 text-primary">·</span>
+    <article className="pb-8 pt-12 lg:pt-16">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <header className="container mx-auto max-w-3xl px-5 sm:px-6">
+        <Link
+          href="/blog"
+          className="-ml-1 inline-flex items-center gap-0.5 text-[0.9375rem] text-primary hover:underline underline-offset-4"
+        >
+          <ChevronLeft className="h-4 w-4" />
+          Blog
+        </Link>
+        <p className="mt-8 text-sm text-muted-foreground">
+          <time dateTime={post.date}>{format(new Date(post.date), "d 'de' MMMM, yyyy", { locale: es })}</time>
+          {" · "}
           {post.author}
         </p>
-        <h1 className="mt-6 font-headline text-display-lg font-black text-foreground">
-          {post.title}
-        </h1>
+        <h1 className="mt-3 font-headline text-display-lg text-foreground">{post.title}</h1>
+        <p className="mt-5 text-xl leading-relaxed text-muted-foreground">{post.summary}</p>
       </header>
 
-      <div className="mx-auto mt-14 max-w-4xl overflow-hidden">
+      <div className="container mx-auto mt-12 max-w-6xl px-5 sm:px-6">
         <Image
           src={post.image}
           alt={post.title}
-          width={1400}
-          height={700}
+          width={2000}
+          height={1125}
           priority
-          className="h-72 w-full object-cover grayscale sm:h-96"
+          sizes="(min-width: 1200px) 1100px, 100vw"
+          className="w-full rounded-tile object-cover"
         />
       </div>
 
       <div
-        className="prose prose-lg prose-invert mx-auto mt-14 max-w-4xl prose-headings:font-headline prose-headings:tracking-tight prose-headings:text-foreground prose-p:text-muted-foreground prose-li:text-muted-foreground prose-strong:text-foreground prose-a:text-primary"
+        className="prose prose-lg dark:prose-invert container mx-auto mt-12 max-w-3xl px-5 sm:px-6 prose-headings:font-headline prose-headings:font-semibold prose-headings:tracking-[-0.015em] prose-headings:text-foreground prose-p:text-foreground/85 prose-li:text-foreground/85 prose-strong:text-foreground prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-img:rounded-2xl"
         dangerouslySetInnerHTML={{ __html: post.contentHtml }}
       />
     </article>

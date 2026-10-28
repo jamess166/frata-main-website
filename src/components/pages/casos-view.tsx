@@ -9,28 +9,22 @@ export function CasosView({ locale, content }: { locale: Locale; content: CasosP
   return (
     <>
       <section>
-        <div className="container mx-auto px-4 pb-16 pt-20 sm:px-6 lg:px-8 lg:pb-24 lg:pt-28">
-          <Reveal>
-            <Eyebrow>{content.eyebrow}</Eyebrow>
-          </Reveal>
-          <Reveal delay={100}>
-            <h1 className="mt-8 max-w-4xl font-headline text-display-lg font-black text-foreground">
-              {content.heading.line1}
-              <br />
-              <span className="text-muted-foreground">{content.heading.line2}</span>
-            </h1>
-          </Reveal>
-          <Reveal delay={200}>
-            <p className="mt-8 max-w-2xl text-lg leading-8 text-muted-foreground">{content.intro}</p>
-          </Reveal>
+        <div className="container mx-auto px-5 pb-12 pt-16 sm:px-6 lg:px-8 lg:pb-16 lg:pt-24">
+          <Eyebrow>{content.eyebrow}</Eyebrow>
+          <h1 className="mt-3 max-w-4xl font-headline text-display-lg text-foreground">
+            {content.heading.line1}
+            <br />
+            {content.heading.line2}
+          </h1>
+          <p className="mt-6 max-w-2xl text-xl leading-relaxed text-muted-foreground">{content.intro}</p>
         </div>
       </section>
 
       <section>
-        <div className="container mx-auto px-4 pb-24 sm:px-6 lg:px-8 lg:pb-32">
-          {caseStudies.map((cs, i) => (
-            <Reveal key={cs.slug} delay={i * 60}>
-              <CaseStudyCard caseStudy={cs} index={String(i + 1).padStart(2, "0")} locale={locale} />
+        <div className="container mx-auto space-y-5 px-5 pb-8 sm:px-6 lg:px-8">
+          {caseStudies.map((cs) => (
+            <Reveal key={cs.slug}>
+              <CaseStudyCard caseStudy={cs} locale={locale} />
             </Reveal>
           ))}
         </div>

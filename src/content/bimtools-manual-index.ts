@@ -13,9 +13,9 @@ export interface BimtoolsManualIndexContent {
 export const bimtoolsManualIndexContent: Record<Locale, BimtoolsManualIndexContent> = {
   es: {
     meta: {
-      title: "Manuales BIMtools | Documentacion de addins Revit",
+      title: "Manuales BIMtools | Documentación de addins Revit",
       description:
-        "Manuales de uso para los addins BIMtools de Frata en Revit. Documentacion real de exportacion, parametros, navegacion y herramientas estructurales.",
+        "Manuales de uso para los addins BIMtools de Frata en Revit. Documentación real de exportación, parámetros, navegación y herramientas estructurales.",
     },
     eyebrow: "Manuales BIMtools",
     heading: "Documentación por addin.",

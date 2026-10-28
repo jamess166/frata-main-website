@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
-import { ArrowUpRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { Eyebrow } from "@/components/site/eyebrow";
 import { Reveal } from "@/components/site/reveal";
 import { getAllPosts } from "@/lib/blog";
@@ -28,49 +29,42 @@ export default async function BlogPage() {
   return (
     <>
       <section>
-        <div className="container mx-auto px-4 pb-16 pt-20 sm:px-6 lg:px-8 lg:pb-20 lg:pt-28">
-          <Reveal>
-            <Eyebrow>Blog</Eyebrow>
-          </Reveal>
-          <Reveal delay={100}>
-            <h1 className="mt-8 max-w-4xl font-headline text-display-lg font-black text-foreground">
-              {copy.blogTitle}
-            </h1>
-          </Reveal>
-          <Reveal delay={200}>
-            <p className="mt-8 max-w-2xl text-lg leading-8 text-muted-foreground">
-              {copy.blogDescription}
-            </p>
-          </Reveal>
+        <div className="container mx-auto px-5 pb-12 pt-16 sm:px-6 lg:px-8 lg:pb-16 lg:pt-24">
+          <Eyebrow>Blog</Eyebrow>
+          <h1 className="mt-3 max-w-4xl font-headline text-display-lg text-foreground">{copy.blogTitle}</h1>
+          <p className="mt-6 max-w-2xl text-xl leading-relaxed text-muted-foreground">{copy.blogDescription}</p>
         </div>
       </section>
 
-      <section className="border-t border-border">
-        <div className="container mx-auto px-4 pb-24 sm:px-6 lg:px-8 lg:pb-32">
+      <section>
+        <div className="container mx-auto grid gap-5 px-5 pb-8 sm:px-6 md:grid-cols-2 lg:px-8">
           {posts.map((post, i) => (
-            <Reveal key={post.slug} delay={i * 60}>
-              <Link href={`/blog/${post.slug}`} className="block">
-                <article className="group grid gap-4 border-b border-border py-10 md:grid-cols-[200px_1fr_auto] md:items-baseline md:gap-8 lg:py-14">
-                  <time
-                    dateTime={post.date}
-                    className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground"
-                  >
-                    {format(new Date(post.date), "d MMM yyyy", { locale: es })}
+            <Reveal key={post.slug} className={i === 0 ? "md:col-span-2" : undefined}>
+              <Link
+                href={`/blog/${post.slug}`}
+                className={`group grid h-full overflow-hidden rounded-tile bg-surface transition-transform duration-200 ease-out active:scale-[0.99] ${
+                  i === 0 ? "md:grid-cols-[1.4fr_1fr]" : ""
+                }`}
+              >
+                <div className="overflow-hidden">
+                  <Image
+                    src={post.image}
+                    alt=""
+                    width={1400}
+                    height={800}
+                    sizes={i === 0 ? "(min-width: 768px) 60vw, 100vw" : "(min-width: 768px) 50vw, 100vw"}
+                    className="aspect-[16/10] h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                  />
+                </div>
+                <article className="flex flex-col p-8 lg:p-10">
+                  <time dateTime={post.date} className="text-sm text-muted-foreground">
+                    {format(new Date(post.date), "d 'de' MMMM, yyyy", { locale: es })}
                   </time>
-                  <div>
-                    <h2 className="font-headline text-2xl font-bold tracking-tight text-foreground transition-colors group-hover:text-primary sm:text-3xl">
-                      {post.title}
-                    </h2>
-                    <p className="mt-3 max-w-2xl text-sm leading-7 text-muted-foreground">
-                      {post.summary}
-                    </p>
-                    <p className="mt-4 text-xs uppercase tracking-[0.14em] text-muted-foreground">
-                      {copy.by} {post.author}
-                    </p>
-                  </div>
-                  <span className="hidden items-center gap-2 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground transition-all group-hover:translate-x-1 group-hover:text-primary md:flex">
-                    Leer
-                    <ArrowUpRight className="h-4 w-4" />
+                  <h2 className="mt-2 font-headline text-title text-foreground">{post.title}</h2>
+                  <p className="mt-3 text-[1.0625rem] leading-relaxed text-muted-foreground">{post.summary}</p>
+                  <span className="link-more mt-auto pt-6 text-[1.0625rem]">
+                    Leer artículo
+                    <ChevronRight className="h-4 w-4" />
                   </span>
                 </article>
               </Link>

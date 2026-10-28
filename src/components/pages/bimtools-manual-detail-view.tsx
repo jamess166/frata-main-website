@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { remark } from "remark";
 import html from "remark-html";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { ChevronLeft, ArrowUpRight, ChevronRight } from "lucide-react";
 import { AddinIcon } from "@/components/bimtools/addin-icon";
 import { ManualImageGallery } from "@/components/bimtools/manual-image-gallery";
 import { FRATA_YOUTUBE_CHANNEL_URL, getYoutubeEmbedUrl } from "@/lib/youtube";
@@ -26,26 +26,26 @@ export async function BimtoolsManualDetailView({
 
   return (
     <>
-      <div className="container mx-auto px-4 pt-12 sm:px-6 lg:px-8 lg:pt-16">
+      <div className="container mx-auto px-5 pt-12 sm:px-6 lg:px-8 lg:pt-16">
         <a
           href={withLocale(locale, "/bimtools#suites")}
-          className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-primary"
+          className="-ml-1 inline-flex items-center gap-0.5 text-[0.9375rem] text-primary hover:underline underline-offset-4"
         >
-          <ArrowLeft className="h-4 w-4" />
+          <ChevronLeft className="h-4 w-4" />
           {content.backToBimtools}
         </a>
       </div>
 
-      <div className="container mx-auto grid gap-14 px-4 py-14 sm:px-6 lg:grid-cols-[320px_minmax(0,1fr)] lg:px-8 lg:py-20">
-        <aside className="h-fit lg:sticky lg:top-24">
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">{manual.suiteLabel}</p>
+      <div className="container mx-auto grid gap-14 px-5 py-14 sm:px-6 lg:grid-cols-[320px_minmax(0,1fr)] lg:px-8 lg:py-20">
+        <aside className="h-fit rounded-tile bg-surface p-6 lg:sticky lg:top-20">
+          <p className="text-sm font-medium text-primary">{manual.suiteLabel}</p>
           <div className="mt-5 flex items-start gap-4">
             <AddinIcon icon={manual.icon} name={manual.addinName} size="lg" />
-            <h1 className="min-w-0 font-headline text-3xl font-bold leading-tight tracking-tight text-foreground">
+            <h1 className="min-w-0 font-headline text-3xl font-semibold leading-tight tracking-tight text-foreground">
               {manual.title[locale]}
             </h1>
           </div>
-          <p className="mt-4 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
+          <p className="mt-4 text-sm font-medium text-muted-foreground">
             {manual.commerce.isPremium ? (
               <>
                 <span className="text-primary">{content.premiumLabel}</span>
@@ -73,14 +73,14 @@ export async function BimtoolsManualDetailView({
             {manual.commerce.isPremium && manual.commerce.purchaseUrl ? (
               <Link
                 href={withLocale(locale, "/bimtools/suscripcion")}
-                className="inline-flex w-full items-center justify-center bg-primary px-5 py-3 text-xs font-medium uppercase tracking-[0.14em] text-primary-foreground transition-opacity hover:opacity-90"
+                className="inline-flex h-11 w-full items-center justify-center bg-primary px-5 text-primary-foreground hover:bg-primary/90 rounded-full text-[0.9375rem] font-medium transition-[background-color,transform] duration-200 active:scale-[0.97]"
               >
                 {content.buySubscriptionCta}
               </Link>
             ) : null}
             <Link
               href={withLocale(locale, "/download")}
-              className="inline-flex w-full items-center justify-center border border-border px-5 py-3 text-xs font-medium uppercase tracking-[0.14em] text-foreground transition-colors hover:border-primary hover:text-primary"
+              className="inline-flex h-11 w-full items-center justify-center bg-secondary px-5 text-foreground hover:bg-accent rounded-full text-[0.9375rem] font-medium transition-[background-color,transform] duration-200 active:scale-[0.97]"
             >
               {content.downloadTrialCta}
             </Link>
@@ -88,7 +88,7 @@ export async function BimtoolsManualDetailView({
 
           {currentSuite ? (
             <div className="mt-10 border-t border-border pt-6">
-              <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
+              <p className="text-sm font-medium text-muted-foreground">
                 {content.moreToolsLabel}
               </p>
               <div className="mt-4">
@@ -96,9 +96,7 @@ export async function BimtoolsManualDetailView({
                   <Link
                     key={entry.slug}
                     href={withLocale(locale, `/bimtools/manual/${entry.slug}`)}
-                    className={`flex items-center gap-3 border-t border-border py-3 text-sm transition-colors ${
-                      entry.slug === manual.slug ? "text-primary" : "text-muted-foreground hover:text-foreground"
-                    }`}
+                    className={`flex items-center gap-3 border-t border-border py-3 text-sm transition-colors ${ entry.slug === manual.slug ? "text-primary" : "text-muted-foreground hover:text-foreground" }`}
                   >
                     <AddinIcon icon={entry.icon} name={entry.addinName} size="sm" />
                     <span className="truncate">{entry.addinName}</span>
@@ -111,13 +109,13 @@ export async function BimtoolsManualDetailView({
 
         <article className="min-w-0">
           <div
-            className="prose prose-invert max-w-none prose-headings:font-headline prose-headings:tracking-tight prose-headings:text-foreground prose-p:text-muted-foreground prose-li:text-muted-foreground prose-strong:text-foreground prose-a:text-primary"
+            className="prose dark:prose-invert max-w-none prose-headings:font-headline prose-headings:tracking-tight prose-headings:text-foreground prose-p:text-muted-foreground prose-li:text-muted-foreground prose-strong:text-foreground prose-a:text-primary prose-img:rounded-2xl"
             dangerouslySetInnerHTML={{ __html: renderedMarkdown.toString() }}
           />
 
           {manual.media.images.length > 0 ? (
             <section className="mt-14 border-t border-border pt-10">
-              <h2 className="font-headline text-2xl font-bold tracking-tight text-foreground">
+              <h2 className="font-headline text-2xl font-semibold tracking-tight text-foreground">
                 {content.galleryHeading}
               </h2>
               <ManualImageGallery images={manual.media.images} locale={locale} />
@@ -126,10 +124,10 @@ export async function BimtoolsManualDetailView({
 
           {youtubeEmbedUrl ? (
             <section className="mt-14 border-t border-border pt-10">
-              <h2 className="font-headline text-2xl font-bold tracking-tight text-foreground">
+              <h2 className="font-headline text-2xl font-semibold tracking-tight text-foreground">
                 {content.videoHeading}
               </h2>
-              <div className="mt-6 overflow-hidden border border-border">
+              <div className="mt-6 overflow-hidden rounded-2xl bg-surface">
                 <div className="aspect-video">
                   <iframe
                     src={youtubeEmbedUrl}
@@ -145,7 +143,7 @@ export async function BimtoolsManualDetailView({
                 href={FRATA_YOUTUBE_CHANNEL_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.14em] text-primary hover:underline"
+                className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
               >
                 {content.watchChannelCta}
                 <ArrowUpRight className="h-4 w-4" />
@@ -156,21 +154,21 @@ export async function BimtoolsManualDetailView({
           <div className="mt-14 flex flex-wrap gap-4 border-t border-border pt-10">
             <Link
               href={withLocale(locale, "/bimtools")}
-              className="inline-flex items-center gap-2 border border-border px-5 py-3 text-xs font-medium uppercase tracking-[0.14em] text-foreground transition-colors hover:border-primary hover:text-primary"
+              className="inline-flex h-11 items-center gap-1 bg-secondary px-5 text-foreground hover:bg-accent rounded-full text-[0.9375rem] font-medium transition-[background-color,transform] duration-200 active:scale-[0.97]"
             >
               {content.viewBimtoolsCta}
-              <ArrowUpRight className="h-4 w-4" />
+              <ChevronRight className="h-4 w-4" />
             </Link>
             <Link
               href={withLocale(locale, "/download")}
-              className="inline-flex items-center gap-2 border border-border px-5 py-3 text-xs font-medium uppercase tracking-[0.14em] text-foreground transition-colors hover:border-primary hover:text-primary"
+              className="inline-flex h-11 items-center gap-1 bg-secondary px-5 text-foreground hover:bg-accent rounded-full text-[0.9375rem] font-medium transition-[background-color,transform] duration-200 active:scale-[0.97]"
             >
               {content.downloadTrialShortCta}
             </Link>
             {manual.commerce.isPremium && manual.commerce.purchaseUrl ? (
               <Link
                 href={withLocale(locale, "/bimtools/suscripcion")}
-                className="inline-flex items-center gap-2 bg-primary px-5 py-3 text-xs font-medium uppercase tracking-[0.14em] text-primary-foreground transition-opacity hover:opacity-90"
+                className="inline-flex h-11 items-center gap-1 bg-primary px-5 text-primary-foreground hover:bg-primary/90 rounded-full text-[0.9375rem] font-medium transition-[background-color,transform] duration-200 active:scale-[0.97]"
               >
                 {content.buySubscriptionCta}
               </Link>

@@ -3,36 +3,88 @@
 @tailwind utilities;
 
 @layer base {
+  /* Light is the default; dark follows the operating system setting. */
   :root {
-    --background: 0 0% 4%;
-    --foreground: 40 8% 93%;
-    --card: 0 0% 7%;
-    --card-foreground: 40 8% 93%;
-    --popover: 0 0% 6%;
-    --popover-foreground: 40 8% 93%;
-    --primary: 217 91% 60%;
+    --background: 0 0% 100%;
+    --foreground: 240 3% 12%;
+    --surface: 240 7% 97%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 3% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 3% 12%;
+    --primary: 212 88% 44%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 9%;
-    --secondary-foreground: 40 8% 93%;
-    --muted: 0 0% 11%;
-    --muted-foreground: 0 0% 62%;
-    --accent: 0 0% 12%;
-    --accent-foreground: 40 8% 93%;
-    --destructive: 0 72% 51%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
-    --ring: 217 91% 60%;
-    --chart-1: 217 91% 60%;
-    --chart-2: 40 8% 93%;
-    --chart-3: 0 0% 62%;
-    --chart-4: 217 80% 40%;
-    --chart-5: 0 0% 35%;
-    --radius: 0.25rem;
+    --secondary: 240 7% 95%;
+    --secondary-foreground: 240 3% 12%;
+    --muted: 240 7% 95%;
+    --muted-foreground: 240 2% 42%;
+    --accent: 240 7% 93%;
+    --accent-foreground: 240 3% 12%;
+    --destructive: 0 72% 48%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 6% 86%;
+    --input: 240 6% 82%;
+    --ring: 212 88% 44%;
+    --chart-1: 212 88% 44%;
+    --chart-2: 240 3% 12%;
+    --chart-3: 240 2% 42%;
+    --chart-4: 212 70% 30%;
+    --chart-5: 240 4% 70%;
+    --radius: 0.75rem;
+
+    /* Header material */
+    --material: 0 0% 100% / 0.72;
+    --material-solid: 0 0% 100%;
+
+    /* System type: SF Pro on Apple devices, Segoe UI Variable on Windows. */
+    --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI Variable Text", "Segoe UI",
+      Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI Variable Display", "Segoe UI",
+      Roboto, "Helvetica Neue", Arial, sans-serif;
+
+    /* Critically damped curve used for every UI transition (no overshoot). */
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: 0 0% 0%;
+      --foreground: 240 7% 96%;
+      --surface: 240 3% 7%;
+      --card: 240 3% 11%;
+      --card-foreground: 240 7% 96%;
+      --popover: 240 3% 11%;
+      --popover-foreground: 240 7% 96%;
+      --primary: 210 100% 62%;
+      --primary-foreground: 0 0% 100%;
+      --secondary: 240 3% 15%;
+      --secondary-foreground: 240 7% 96%;
+      --muted: 240 3% 15%;
+      --muted-foreground: 240 3% 64%;
+      --accent: 240 3% 18%;
+      --accent-foreground: 240 7% 96%;
+      --border: 240 3% 22%;
+      --input: 240 3% 28%;
+      --ring: 210 100% 62%;
+      --chart-1: 210 100% 62%;
+      --chart-2: 240 7% 96%;
+      --chart-3: 240 3% 64%;
+      --chart-4: 210 80% 40%;
+      --chart-5: 240 3% 35%;
+      --material: 0 0% 0% / 0.7;
+      --material-solid: 0 0% 0%;
+    }
   }
 
   * {
     @apply border-border;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -43,44 +95,122 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-sans), sans-serif;
+    font-family: var(--font-sans);
+    font-size: 1.0625rem; /* 17px body, as on Apple platforms */
+    line-height: 1.5;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
   }
 
   ::selection {
-    background: hsl(var(--primary) / 0.3);
+    background: hsl(var(--primary) / 0.22);
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 3px;
+    border-radius: 6px;
   }
 }
 
-/* ─── Scroll reveal (used by <Reveal />) ─────────────────────── */
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+@layer components {
+  /* Translucent chrome: content scrolls underneath the header. */
+  .material {
+    background-color: hsl(var(--material));
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+  }
+
+  /* Larger floating surfaces (menus) read as thicker material. */
+  .material-thick {
+    background-color: hsl(var(--popover) / 0.86);
+    -webkit-backdrop-filter: saturate(180%) blur(30px);
+    backdrop-filter: saturate(180%) blur(30px);
+  }
+
+  @media (prefers-reduced-transparency: reduce) {
+    .material-thick {
+      background-color: hsl(var(--popover));
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+    }
+    .material {
+      background-color: hsl(var(--material-solid));
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+    }
+  }
+
+  @media (prefers-contrast: more) {
+    .material {
+      background-color: hsl(var(--material-solid));
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+      box-shadow: 0 1px 0 hsl(var(--foreground) / 0.5);
+    }
+  }
+
+  /* Inline "Learn more ›" style link. */
+  .link-more {
+    @apply inline-flex items-center gap-0.5 font-normal text-primary;
+  }
+  .link-more:hover {
+    @apply underline underline-offset-4;
+  }
+  .link-more svg {
+    transition: transform 200ms var(--ease-out);
+  }
+  .link-more:hover svg {
+    transform: translateX(2px);
+  }
 }
-.reveal.is-visible {
-  opacity: 1;
-  transform: none;
+
+/* ─── Scroll reveal (used by <Reveal />) ─────────────────────────
+   Driven by the scroll position itself (scroll-driven animations), so it
+   follows the user's scroll 1:1, reverses when they scroll back, and
+   never leaves content hidden: browsers without support simply show the
+   content in place. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 40%;
+    }
+  }
 }
-@media (prefers-reduced-motion: reduce) {
-  .reveal {
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
     opacity: 1;
     transform: none;
-    transition: none;
   }
 }
 
 /* ─── Scrollbar ──────────────────────────────────────────────── */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: hsl(var(--background));
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--border));
-  border-radius: 3px;
+  background: hsl(var(--foreground) / 0.2);
+  border-radius: 8px;
+  border: 2px solid hsl(var(--background));
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--primary) / 0.6);
+  background: hsl(var(--foreground) / 0.35);
 }

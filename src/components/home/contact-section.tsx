@@ -160,53 +160,38 @@ export function HomeContactSection({ locale = "es" }: { locale?: Locale }) {
     formRef.current?.reset();
   }, [copy.successDescription, copy.successTitle, state.succeeded, toast]);
 
+  const field =
+    "h-12 rounded-xl border-input bg-background px-4 text-[1.0625rem] shadow-none transition-[border-color,box-shadow] duration-200 focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/15 focus-visible:ring-offset-0";
+
   return (
-    <section id="contact" className="border-t border-border">
-      <div className="container mx-auto grid gap-14 px-4 py-24 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:py-32">
+    <section id="contact" className="scroll-mt-16 bg-surface">
+      <div className="container mx-auto grid gap-12 px-5 py-20 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8 lg:py-28">
         <div className="max-w-xl">
           <Eyebrow>{copy.eyebrow}</Eyebrow>
-          <h2 className="mt-6 font-headline text-display-md font-bold text-foreground">
-            {copy.title}
-          </h2>
-          <p className="mt-6 text-base leading-8 text-muted-foreground">
-            {copy.description}
-          </p>
+          <h2 className="mt-3 font-headline text-display-lg text-foreground">{copy.title}</h2>
+          <p className="mt-5 text-[1.0625rem] leading-relaxed text-muted-foreground">{copy.description}</p>
         </div>
 
-        <form ref={formRef} onSubmit={handleSubmit} className="space-y-8 lg:pt-2">
-          <div className="grid gap-8 sm:grid-cols-2">
-            <div className="space-y-3">
-              <Label htmlFor="name" className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
+        <form ref={formRef} onSubmit={handleSubmit} className="space-y-5 rounded-tile bg-card p-6 sm:p-8">
+          <div className="grid gap-5 sm:grid-cols-2">
+            <div className="space-y-2">
+              <Label htmlFor="name" className="text-sm font-medium text-foreground">
                 {copy.name}
               </Label>
-              <Input
-                id="name"
-                name="name"
-                type="text"
-                autoComplete="name"
-                required
-                className="rounded-none border-0 border-b border-border bg-transparent px-0 focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-primary"
-              />
+              <Input id="name" name="name" type="text" autoComplete="name" required className={field} />
               <ValidationError prefix="Name" field="name" errors={state.errors} className="text-sm text-destructive" />
             </div>
-            <div className="space-y-3">
-              <Label htmlFor="email" className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
+            <div className="space-y-2">
+              <Label htmlFor="email" className="text-sm font-medium text-foreground">
                 {copy.email}
               </Label>
-              <Input
-                id="email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                required
-                className="rounded-none border-0 border-b border-border bg-transparent px-0 focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-primary"
-              />
+              <Input id="email" name="email" type="email" autoComplete="email" required className={field} />
               <ValidationError prefix="Email" field="email" errors={state.errors} className="text-sm text-destructive" />
             </div>
           </div>
 
-          <div className="space-y-3">
-            <Label htmlFor="message" className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
+          <div className="space-y-2">
+            <Label htmlFor="message" className="text-sm font-medium text-foreground">
               {copy.message}
             </Label>
             <Textarea
@@ -215,17 +200,12 @@ export function HomeContactSection({ locale = "es" }: { locale?: Locale }) {
               rows={5}
               required
               placeholder={copy.placeholder}
-              className="rounded-none border-0 border-b border-border bg-transparent px-0 focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-primary"
+              className={`${field} h-auto min-h-[140px] py-3 leading-relaxed`}
             />
             <ValidationError prefix="Message" field="message" errors={state.errors} className="text-sm text-destructive" />
           </div>
 
-          <Button
-            type="submit"
-            size="lg"
-            className="rounded-none px-10 text-xs font-medium uppercase tracking-[0.14em]"
-            disabled={state.submitting}
-          >
+          <Button type="submit" size="lg" className="w-full sm:w-auto" disabled={state.submitting}>
             {state.submitting ? copy.submitting : copy.submit}
           </Button>
         </form>

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { Check, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/site/eyebrow";
 import { NumberedRow } from "@/components/site/numbered-row";
@@ -9,6 +9,7 @@ import { withLocale, type Locale } from "@/lib/locale";
 import type { ServiceContent } from "@/lib/service-content";
 import type { ServiceDetailPageContent } from "@/content/services";
 
+// The page closes on the footer's call to action, so it has no CTA of its own.
 export function ServiceDetailView({
   locale,
   service,
@@ -22,82 +23,54 @@ export function ServiceDetailView({
     <>
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section>
-        <div className="container mx-auto px-4 pb-16 pt-16 sm:px-6 lg:px-8 lg:pb-20 lg:pt-20">
-          <Reveal>
-            <Link
-              href={withLocale(locale, "/services")}
-              className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-primary"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              {content.backToServices}
+        <div className="container mx-auto px-5 pb-12 pt-10 sm:px-6 lg:px-8 lg:pb-16 lg:pt-14">
+          <Link
+            href={withLocale(locale, "/services")}
+            className="-ml-1 inline-flex items-center gap-0.5 text-[0.9375rem] text-primary hover:underline underline-offset-4"
+          >
+            <ChevronLeft className="h-4 w-4" />
+            {content.backToServices}
+          </Link>
+          <Eyebrow className="mt-10">{content.eyebrow}</Eyebrow>
+          <h1 className="mt-3 max-w-4xl font-headline text-display-lg text-foreground">{service.title}</h1>
+          <p className="mt-6 max-w-2xl text-xl leading-relaxed text-muted-foreground">{service.intro}</p>
+          <div className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-4">
+            <Button asChild size="lg">
+              <Link href={withLocale(locale, "/#contact")}>{content.proposalCta}</Link>
+            </Button>
+            <Link href={withLocale(locale, "/bimtools")} className="link-more text-lg">
+              {content.bimtoolsCta}
+              <ChevronRight className="h-4 w-4" />
             </Link>
-          </Reveal>
-          <Reveal delay={100}>
-            <Eyebrow className="mt-10">{content.eyebrow}</Eyebrow>
-          </Reveal>
-          <Reveal delay={200}>
-            <h1 className="mt-6 max-w-4xl font-headline text-display-lg font-black text-foreground">
-              {service.title}
-            </h1>
-          </Reveal>
-          <Reveal delay={300}>
-            <p className="mt-8 max-w-2xl text-lg leading-8 text-muted-foreground">{service.intro}</p>
-          </Reveal>
-          <Reveal delay={400}>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Button asChild size="lg" className="rounded-none px-8 text-xs font-medium uppercase tracking-[0.14em]">
-                <Link href={withLocale(locale, "/#contact")}>{content.proposalCta}</Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="rounded-none border-border px-8 text-xs font-medium uppercase tracking-[0.14em] hover:bg-secondary"
-              >
-                <Link href={withLocale(locale, "/bimtools")}>
-                  {content.bimtoolsCta}
-                  <ArrowUpRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-            </div>
-          </Reveal>
-        </div>
-        <Reveal delay={300}>
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="overflow-hidden">
-              <Image
-                src={service.image}
-                alt={service.imageAlt}
-                width={1600}
-                height={900}
-                priority
-                className="h-[300px] w-full object-cover grayscale sm:h-[400px] lg:h-[480px]"
-              />
-            </div>
           </div>
-        </Reveal>
+        </div>
+        <div className="container mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="overflow-hidden rounded-tile bg-surface">
+            <Image
+              src={service.image}
+              alt={service.imageAlt}
+              width={1920}
+              height={1080}
+              priority
+              sizes="(min-width: 1400px) 1340px, 100vw"
+              className="aspect-[16/10] w-full object-cover sm:aspect-[16/8]"
+            />
+          </div>
+        </div>
       </section>
 
       {/* ── Pilares ──────────────────────────────────────────── */}
-      <section className="mt-24 border-t border-border lg:mt-32">
-        <div className="container mx-auto px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
-          <Reveal>
+      <section>
+        <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+          <Reveal className="max-w-3xl">
             <Eyebrow>{content.pillars.eyebrow}</Eyebrow>
+            <h2 className="mt-3 font-headline text-display-lg text-foreground">{content.pillars.heading}</h2>
           </Reveal>
-          <Reveal delay={100}>
-            <h2 className="mt-6 max-w-3xl font-headline text-display-md font-bold text-foreground">
-              {content.pillars.heading}
-            </h2>
-          </Reveal>
-          <div className="mt-14 grid gap-x-12 gap-y-10 md:grid-cols-3">
-            {service.pillars.map((pillar, i) => (
-              <Reveal key={pillar.title} delay={i * 80}>
-                <div className="border-t border-border pt-6">
-                  <h3 className="font-headline text-xl font-bold tracking-tight text-foreground">
-                    {pillar.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-7 text-muted-foreground">{pillar.description}</p>
-                </div>
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {service.pillars.map((pillar) => (
+              <Reveal key={pillar.title} className="rounded-tile bg-surface p-8">
+                <h3 className="font-headline text-title text-foreground">{pillar.title}</h3>
+                <p className="mt-3 text-[1.0625rem] leading-relaxed text-muted-foreground">{pillar.description}</p>
               </Reveal>
             ))}
           </div>
@@ -105,22 +78,16 @@ export function ServiceDetailView({
       </section>
 
       {/* ── Método ───────────────────────────────────────────── */}
-      <section className="border-t border-border">
-        <div className="container mx-auto grid gap-14 px-4 py-24 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8 lg:py-32">
-          <div>
-            <Reveal>
-              <Eyebrow>{content.method.eyebrow}</Eyebrow>
-            </Reveal>
-            <Reveal delay={100}>
-              <h2 className="mt-6 font-headline text-display-md font-bold text-foreground">
-                {content.method.heading}
-              </h2>
-            </Reveal>
-          </div>
+      <section className="bg-surface">
+        <div className="container mx-auto grid gap-12 px-5 py-20 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8 lg:py-28">
+          <Reveal>
+            <Eyebrow>{content.method.eyebrow}</Eyebrow>
+            <h2 className="mt-3 font-headline text-display-lg text-foreground">{content.method.heading}</h2>
+          </Reveal>
           <div>
             {service.process.map((item, index) => (
-              <Reveal key={item.title} delay={index * 80}>
-                <NumberedRow index={`0${index + 1}`} title={item.title} description={item.description} />
+              <Reveal key={item.title}>
+                <NumberedRow index={String(index + 1)} title={item.title} description={item.description} />
               </Reveal>
             ))}
           </div>
@@ -128,41 +95,20 @@ export function ServiceDetailView({
       </section>
 
       {/* ── Resultados ───────────────────────────────────────── */}
-      <section className="border-t border-border">
-        <div className="container mx-auto px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
-          <Reveal>
+      <section>
+        <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+          <Reveal className="max-w-3xl">
             <Eyebrow>{content.outcomes.eyebrow}</Eyebrow>
+            <h2 className="mt-3 font-headline text-display-lg text-foreground">{content.outcomes.heading}</h2>
           </Reveal>
-          <Reveal delay={100}>
-            <h2 className="mt-6 max-w-3xl font-headline text-display-md font-bold text-foreground">
-              {content.outcomes.heading}
-            </h2>
-          </Reveal>
-          <div className="mt-12 grid gap-x-12 gap-y-8 sm:grid-cols-2">
-            {service.outcomes.map((outcome, i) => (
-              <Reveal key={outcome} delay={i * 60}>
-                <div className="border-t border-border pt-6">
-                  <p className="text-sm leading-7 text-foreground/80">{outcome}</p>
-                </div>
+          <ul className="mt-10 grid gap-x-10 gap-y-6 sm:grid-cols-2">
+            {service.outcomes.map((outcome) => (
+              <Reveal as="li" key={outcome} className="flex gap-3 text-[1.0625rem] leading-relaxed text-foreground">
+                <Check className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden />
+                {outcome}
               </Reveal>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── CTA ──────────────────────────────────────────────── */}
-      <section className="border-t border-border">
-        <div className="container mx-auto px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
-          <Reveal>
-            <h2 className="max-w-4xl font-headline text-display-lg font-bold text-foreground">
-              {content.cta.heading}
-            </h2>
-          </Reveal>
-          <Reveal delay={100}>
-            <Button asChild size="lg" className="mt-10 rounded-none px-8 text-xs font-medium uppercase tracking-[0.14em]">
-              <Link href={withLocale(locale, "/#contact")}>{content.cta.label}</Link>
-            </Button>
-          </Reveal>
+          </ul>
         </div>
       </section>
     </>

@@ -53,13 +53,13 @@ export function LatestReleaseRedirect({ locale = "es" }: { locale?: Locale }) {
 
   return (
     <section>
-      <div className="container mx-auto px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+      <div className="container mx-auto px-5 py-24 sm:px-6 lg:px-8 lg:py-32">
         <div className="mx-auto max-w-3xl text-center">
           <div className="mx-auto flex h-16 w-16 items-center justify-center text-primary">
             <LoaderCircle className="h-8 w-8 animate-spin" />
           </div>
-          <p className="mt-8 text-xs font-medium uppercase tracking-[0.2em] text-primary">{t.badge}</p>
-          <h1 className="mt-4 font-headline text-display-md font-bold text-foreground">{t.heading}</h1>
+          <p className="mt-8 text-sm font-medium text-primary">{t.badge}</p>
+          <h1 className="mt-4 font-headline text-display-md font-semibold text-foreground">{t.heading}</h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">{message}</p>
 
           <div className="mx-auto mt-14 grid max-w-2xl gap-10 text-left sm:grid-cols-2">
@@ -83,7 +83,7 @@ export function LatestReleaseRedirect({ locale = "es" }: { locale?: Locale }) {
             <Button
               asChild
               variant="outline"
-              className="rounded-none border-border text-xs font-medium uppercase tracking-[0.14em] hover:bg-secondary"
+              className="border-border text-sm font-medium hover:bg-secondary"
             >
               <a href={latestReleasePage} target="_blank" rel="noreferrer">
                 {t.openManuallyCta}

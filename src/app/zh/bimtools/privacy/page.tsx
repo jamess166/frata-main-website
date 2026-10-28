@@ -71,7 +71,7 @@ export default function BimtoolsPrivacyPageZh() {
         </PrivacySection>
       </Reveal>
 
-      <Reveal delay={80}>
+      <Reveal>
         <PrivacySection index="02" title="我们共享数据的第三方">
           <p>Frata 不会出售您的个人数据。参与 BIMtools 运行的第三方仅包括：</p>
           <ul className="space-y-3">
@@ -95,7 +95,7 @@ export default function BimtoolsPrivacyPageZh() {
         </PrivacySection>
       </Reveal>
 
-      <Reveal delay={160}>
+      <Reveal>
         <PrivacySection index="03" title="数据的保留与删除">
           <p>
             只要您的订阅处于有效状态，我们就会保留您的激活邮箱和许可证记录，此外还会额外保留一段合理时间（最长
@@ -108,7 +108,7 @@ export default function BimtoolsPrivacyPageZh() {
         </PrivacySection>
       </Reveal>
 
-      <Reveal delay={240}>
+      <Reveal>
         <PrivacySection index="04" title="如何撤回同意或申请删除您的数据">
           <p>
             您可以随时通过发送邮件至{" "}

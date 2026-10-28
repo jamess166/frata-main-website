@@ -34,12 +34,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }));
   });
 
-  // The blog is Spanish-only.
+  // Spanish-only pages: the public-works landing page and the blog.
+  const spanishOnly = [{ url: `${SITE_URL}/expedientes-tecnicos-bim` }];
   const posts = await getAllPosts();
   const blogEntries = [
     { url: `${SITE_URL}/blog` },
     ...posts.map((post) => ({ url: `${SITE_URL}/blog/${post.slug}`, lastModified: post.date })),
   ];
 
-  return [...localizedEntries, ...blogEntries];
+  return [...localizedEntries, ...spanishOnly, ...blogEntries];
 }
