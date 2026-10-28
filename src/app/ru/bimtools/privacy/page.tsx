@@ -88,7 +88,7 @@ export default function BimtoolsPrivacyPageRu() {
         </PrivacySection>
       </Reveal>
 
-      <Reveal delay={80}>
+      <Reveal>
         <PrivacySection index="02" title="Третьи стороны, с которыми мы делимся данными">
           <p>
             Frata не продаёт ваши персональные данные. Единственные третьи стороны,
@@ -124,7 +124,7 @@ export default function BimtoolsPrivacyPageRu() {
         </PrivacySection>
       </Reveal>
 
-      <Reveal delay={160}>
+      <Reveal>
         <PrivacySection index="03" title="Хранение и удаление данных">
           <p>
             Мы храним ваш адрес электронной почты для активации и данные о лицензии в
@@ -146,7 +146,7 @@ export default function BimtoolsPrivacyPageRu() {
         </PrivacySection>
       </Reveal>
 
-      <Reveal delay={240}>
+      <Reveal>
         <PrivacySection
           index="04"
           title="Как отозвать согласие или запросить удаление ваших данных"

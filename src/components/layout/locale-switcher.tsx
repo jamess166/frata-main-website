@@ -33,8 +33,8 @@ export function LocaleSwitcher({ variant = "compact" }: LocaleSwitcherProps) {
           type="button"
           className={
             isFull
-              ? "flex w-full items-center justify-between gap-2 rounded-none border border-border px-4 py-3 text-sm text-foreground transition-colors hover:border-primary hover:text-primary"
-              : "inline-flex items-center gap-1.5 rounded-full border bg-background/70 px-3 py-1.5 text-sm text-foreground transition-colors hover:text-primary"
+              ? "flex w-full items-center justify-between gap-2 rounded-xl bg-secondary px-4 py-3 text-[0.9375rem] text-foreground transition-colors hover:bg-accent"
+              : "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[0.8125rem] text-foreground/80 transition-colors hover:bg-foreground/[0.06] hover:text-foreground"
           }
         >
           <span className="inline-flex items-center gap-2">

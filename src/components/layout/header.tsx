@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -22,6 +22,23 @@ function isActive(href: string, pathname: string, isHome: boolean): boolean {
   return pathname.startsWith(href);
 }
 
+function Logo({ width = 84 }: { width?: number }) {
+  const height = Math.round(width * 0.315);
+  return (
+    <>
+      <Image src="/images/logo-dark.svg" alt="Frata Ingenieros" width={width} height={height} priority className="dark:hidden" />
+      <Image
+        src="/images/logo-light.svg"
+        alt="Frata Ingenieros"
+        width={width}
+        height={height}
+        priority
+        className="hidden dark:block"
+      />
+    </>
+  );
+}
+
 function NavLink({
   href,
   children,
@@ -37,8 +54,9 @@ function NavLink({
   return (
     <Link
       href={href}
-      className={`text-xs font-medium uppercase tracking-[0.14em] transition-colors hover:text-foreground ${
-        active ? "text-primary" : "text-muted-foreground"
+      aria-current={active ? "page" : undefined}
+      className={`text-[0.8125rem] transition-colors duration-200 hover:text-foreground ${
+        active ? "text-foreground" : "text-foreground/70"
       }`}
     >
       {children}
@@ -55,32 +73,29 @@ function ServicesDropdown({ locale, pathname }: { locale: Locale; pathname: stri
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <button
-          className={`flex items-center gap-1 text-xs font-medium uppercase tracking-[0.14em] transition-colors hover:text-foreground focus:outline-none ${
-            active ? "text-primary" : "text-muted-foreground"
+          className={`flex items-center gap-1 text-[0.8125rem] transition-colors duration-200 hover:text-foreground focus:outline-none ${
+            active ? "text-foreground" : "text-foreground/70"
           }`}
         >
           {t.services}
           <ChevronDown className="h-3 w-3 opacity-60 transition-transform duration-200 [[data-state=open]>&]:rotate-180" />
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="start" className="w-80 border-border bg-popover p-0">
-        <DropdownMenuItem asChild className="rounded-none border-b border-border px-4 py-3">
-          <Link
-            href={withLocale(locale, "/services")}
-            className="flex items-center justify-between text-xs font-medium uppercase tracking-[0.14em] text-primary"
-          >
-            {t.allServices}
-            <ArrowUpRight className="h-3.5 w-3.5" />
-          </Link>
-        </DropdownMenuItem>
-        {items.map((service, i) => (
-          <DropdownMenuItem key={service.slug} asChild className="rounded-none px-4 py-3">
-            <Link href={withLocale(locale, `/services/${service.slug}`)} className="flex items-baseline gap-3">
-              <span className="font-code text-[10px] text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
-              <span className="text-sm">{service.shortTitle}</span>
+      <DropdownMenuContent align="start" sideOffset={14} className="w-72">
+        {items.map((service) => (
+          <DropdownMenuItem key={service.slug} asChild>
+            <Link href={withLocale(locale, `/services/${service.slug}`)} className="text-[0.875rem]">
+              {service.shortTitle}
             </Link>
           </DropdownMenuItem>
         ))}
+        <div className="my-1 h-px bg-border/70" />
+        <DropdownMenuItem asChild>
+          <Link href={withLocale(locale, "/services")} className="text-[0.875rem] text-primary focus:text-primary">
+            {t.allServices}
+            <ChevronRight className="ml-auto h-3.5 w-3.5" />
+          </Link>
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
@@ -93,7 +108,7 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16);
+    const onScroll = () => setScrolled(window.scrollY > 4);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -105,7 +120,13 @@ export function Header() {
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    if (!mobileOpen) return () => { document.body.style.overflow = ""; };
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setMobileOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
+    };
   }, [mobileOpen]);
 
   const t = headerContent[locale];
@@ -132,19 +153,13 @@ export function Header() {
   return (
     <>
       <header
-        className={`sticky top-0 z-50 w-full border-b border-border transition-colors duration-300 ${
-          scrolled ? "bg-background/95 backdrop-blur-md" : "bg-background"
+        className={`material sticky top-0 z-50 w-full transition-shadow duration-300 ${
+          scrolled ? "shadow-[0_1px_0_hsl(var(--border)/0.8)]" : ""
         }`}
       >
-        <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
-          <Link href={homeHref} className="flex items-center opacity-90 transition-opacity hover:opacity-100">
-            <Image
-              src="/images/logo-light.svg"
-              alt="Frata Ingenieros"
-              width={87}
-              height={29}
-              priority
-            />
+        <div className="container mx-auto flex h-[52px] items-center justify-between px-5 sm:px-6 lg:px-8">
+          <Link href={homeHref} className="flex items-center" aria-label="Frata Ingenieros">
+            <Logo />
           </Link>
 
           {/* desktop nav */}
@@ -157,45 +172,44 @@ export function Header() {
             <NavLink href={bimtoolsHref} pathname={pathname}>{t.bimtools}</NavLink>
           </nav>
 
-          <div className="hidden items-center gap-4 md:flex">
+          <div className="hidden items-center gap-3 md:flex">
             <LocaleSwitcher />
-            <Button asChild size="sm" className="rounded-none px-5 text-xs font-medium uppercase tracking-[0.14em]">
+            <Button asChild size="sm">
               <Link href={contactHref}>{t.contact}</Link>
             </Button>
           </div>
 
-          {/* mobile: hamburger */}
+          {/* mobile: two-line menu toggle that morphs into a close mark */}
           <button
-            onClick={() => setMobileOpen(true)}
-            className="flex h-10 w-10 items-center justify-center text-foreground md:hidden"
-            aria-label={t.openMenuAria}
+            onClick={() => setMobileOpen((open) => !open)}
+            className="relative -mr-2 flex h-11 w-11 items-center justify-center text-foreground md:hidden"
+            aria-label={mobileOpen ? t.closeMenuAria : t.openMenuAria}
             aria-expanded={mobileOpen}
+            aria-controls="mobile-menu"
           >
-            <Menu className="h-5 w-5" />
+            <span
+              className={`absolute h-[1.5px] w-[18px] rounded-full bg-current transition-transform duration-300 ease-out ${
+                mobileOpen ? "rotate-45" : "-translate-y-[3.5px]"
+              }`}
+            />
+            <span
+              className={`absolute h-[1.5px] w-[18px] rounded-full bg-current transition-transform duration-300 ease-out ${
+                mobileOpen ? "-rotate-45" : "translate-y-[3.5px]"
+              }`}
+            />
           </button>
         </div>
       </header>
 
-      {/* ── Mobile full-screen menu ─────────────────────────────── */}
+      {/* ── Mobile menu: grows down out of the header it was opened from ── */}
       <div
-        className={`fixed inset-0 z-[60] flex flex-col bg-background transition-opacity duration-300 md:hidden ${
-          mobileOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+        id="mobile-menu"
+        aria-hidden={!mobileOpen}
+        className={`fixed inset-x-0 bottom-0 top-[52px] z-40 overflow-y-auto bg-background transition-[opacity,visibility] duration-300 ease-out md:hidden ${
+          mobileOpen ? "visible opacity-100" : "invisible opacity-0"
         }`}
       >
-        <div className="flex h-16 items-center justify-between border-b border-border px-4 sm:px-6">
-          <Link href={homeHref} onClick={() => setMobileOpen(false)}>
-            <Image src="/images/logo-light.svg" alt="Frata Ingenieros" width={80} height={27} />
-          </Link>
-          <button
-            onClick={() => setMobileOpen(false)}
-            className="flex h-10 w-10 items-center justify-center text-foreground"
-            aria-label={t.closeMenuAria}
-          >
-            <X className="h-5 w-5" />
-          </button>
-        </div>
-
-        <nav className="flex-1 overflow-y-auto px-4 py-8 sm:px-6">
+        <nav className="px-8 pb-8 pt-4">
           {mobileNavItems.map(({ href, label, isHome }, i) => {
             const active = isActive(href, pathname, isHome);
             return (
@@ -203,28 +217,21 @@ export function Header() {
                 key={href}
                 href={href}
                 onClick={() => setMobileOpen(false)}
-                className="group flex items-baseline gap-4 border-b border-border py-5"
+                tabIndex={mobileOpen ? undefined : -1}
+                style={{ transitionDelay: mobileOpen ? `${40 + i * 25}ms` : "0ms" }}
+                className={`block py-2.5 font-headline text-[1.75rem] font-semibold tracking-[-0.015em] transition-[opacity,transform,color] duration-300 ease-out motion-reduce:transform-none ${
+                  mobileOpen ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0"
+                } ${active ? "text-foreground" : "text-foreground/75 active:text-foreground"}`}
               >
-                <span className="font-code text-xs text-muted-foreground">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span
-                  className={`font-headline text-3xl font-bold tracking-tight transition-colors ${
-                    active ? "text-primary" : "text-foreground group-hover:text-primary"
-                  }`}
-                >
-                  {label}
-                </span>
+                {label}
               </Link>
             );
           })}
         </nav>
 
-        <div className="border-t border-border px-4 py-6 sm:px-6">
-          <div className="mb-4">
-            <LocaleSwitcher variant="full" />
-          </div>
-          <Button asChild className="w-full rounded-none text-xs font-medium uppercase tracking-[0.14em]" size="lg">
+        <div className="space-y-3 px-8 pb-10">
+          <LocaleSwitcher variant="full" />
+          <Button asChild className="w-full" size="lg" tabIndex={mobileOpen ? undefined : -1}>
             <Link href={contactHref} onClick={() => setMobileOpen(false)}>
               {t.contact}
             </Link>

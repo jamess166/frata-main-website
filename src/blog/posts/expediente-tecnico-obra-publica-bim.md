@@ -8,8 +8,6 @@ summary: "Cómo elaboramos el expediente técnico de un estadio con BIM: modelad
 
 Elaborar un **expediente técnico con BIM** significa construir primero un modelo digital coordinado de todas las especialidades y obtener de él los planos, los metrados y el presupuesto, en lugar de dibujar y metrar cada especialidad por separado. El resultado son planos compatibles, metrados trazables y menos adicionales en obra. En este artículo contamos **cómo lo hacemos en la práctica**, con un proyecto real de inversión pública: el expediente técnico del **"Mejoramiento del servicio deportivo de competencia en el Estadio Municipal Juan Noriega Salazar"**, en el distrito de Chepén, La Libertad (CUI 2657134), para el Gobierno Regional La Libertad.
 
-![Render del modelo BIM de la tribuna del Estadio de Chepén](/images/blog/estadio-chepen/render-tribuna.webp)
-
 ## El reto: diseñar y construir en paralelo
 
 El proyecto se contrató bajo la modalidad **llave en mano con enfoque Fast Track**, es decir, el diseño y la obra avanzan superpuestos. Los Términos de Referencia exigieron el uso obligatorio de **BIM** en el expediente técnico y **Last Planner System** durante la construcción, con plazos de 180 días calendario para el expediente técnico y 360 días para la obra.

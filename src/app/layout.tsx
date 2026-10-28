@@ -1,5 +1,4 @@
-import type { Metadata } from "next";
-import { Archivo, Instrument_Sans } from "next/font/google";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
@@ -7,21 +6,13 @@ import { Toaster } from "@/components/ui/toaster";
 import { LocaleHtmlLang } from "@/components/layout/locale-html-lang";
 import { SkipToContentLink } from "@/components/layout/skip-to-content-link";
 
-// Neither font ships a Cyrillic or CJK subset — Russian and Chinese text
-// fall back to the browser's system font stack, which is standard practice
-// for brand-Latin-font sites (see the i18n expansion plan for details).
-// latin-ext covers German/French/Italian/Portuguese diacritics.
-const archivo = Archivo({
-  subsets: ["latin", "latin-ext"],
-  variable: "--font-display",
-  weight: ["500", "600", "700", "800", "900"],
-});
-
-const instrumentSans = Instrument_Sans({
-  subsets: ["latin", "latin-ext"],
-  variable: "--font-sans",
-  weight: ["400", "500", "600", "700"],
-});
+export const viewport: Viewport = {
+  colorScheme: "light dark",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#000000" },
+  ],
+};
 
 export const metadata: Metadata = {
   title: {
@@ -82,8 +73,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" translate="no" className={`notranslate ${archivo.variable} ${instrumentSans.variable}`}>
-      <body className="font-body antialiased bg-background text-foreground">
+    <html lang="es" translate="no" className="notranslate">
+      <body className="bg-background text-foreground">
         <LocaleHtmlLang />
         <SkipToContentLink />
         <div className="flex min-h-screen flex-col">

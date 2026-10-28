@@ -21,6 +21,8 @@ export interface CaseStudy {
   resultEn?: string;
   metrics?: CaseMetric[];
   image: string | null;
+  /** Optional blog write-up with the full story of the project. */
+  articleHref?: string;
 }
 
 // TODO owner: confirm metric figures before publishing campaigns around them.
@@ -49,7 +51,8 @@ export const caseStudies: CaseStudy[] = [
       { value: "100%", label: "del expediente generado desde el modelo", labelEn: "of the package generated from the model" },
       { value: "0", label: "planos CAD previos al modelo", labelEn: "CAD drawings before the model" },
     ],
-    image: "/images/cases/estadio-chepen-01.webp",
+    image: "/images/blog/estadio-chepen/render-cabina-prensa.webp",
+    articleHref: "/blog/expediente-tecnico-obra-publica-bim",
   },
   {
     slug: "oficinas-publicas",

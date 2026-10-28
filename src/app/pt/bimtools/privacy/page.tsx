@@ -85,7 +85,7 @@ export default function BimtoolsPrivacyPagePt() {
         </PrivacySection>
       </Reveal>
 
-      <Reveal delay={80}>
+      <Reveal>
         <PrivacySection index="02" title="Terceiros com quem compartilhamos dados">
           <p>
             A Frata não vende seus dados pessoais. Os únicos terceiros envolvidos no
@@ -120,7 +120,7 @@ export default function BimtoolsPrivacyPagePt() {
         </PrivacySection>
       </Reveal>
 
-      <Reveal delay={160}>
+      <Reveal>
         <PrivacySection index="03" title="Retenção e exclusão de dados">
           <p>
             Mantemos seu e-mail de ativação e o registro da sua licença enquanto sua
@@ -142,7 +142,7 @@ export default function BimtoolsPrivacyPagePt() {
         </PrivacySection>
       </Reveal>
 
-      <Reveal delay={240}>
+      <Reveal>
         <PrivacySection
           index="04"
           title="Como revogar seu consentimento ou solicitar a exclusão dos seus dados"

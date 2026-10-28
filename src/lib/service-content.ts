@@ -37,8 +37,8 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "Equipos BIM remotos",
       "description": "Integramos modeladores, coordinadores y soporte BIM remoto para ampliar capacidad sin frenar la operacion.",
       "intro": "Cuando una empresa necesita escalar produccion BIM sin perder control tecnico, el problema no es solo contratar mas gente. Hace falta integrar un equipo que entienda tus estandares, tus plazos y tu forma de coordinar.",
-      "image": "/images/equipoBIM.webp",
-      "imageAlt": "Equipo BIM remoto colaborando",
+      "image": "/images/blog/estadio-chepen/planos-revit-arquitectura.webp",
+      "imageAlt": "Láminas de arquitectura generadas en Revit por el equipo BIM",
       "pillars": [
         {
           "title": "Integracion operativa",
@@ -83,8 +83,8 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "Remote BIM teams",
       "description": "We integrate remote BIM modelers, coordinators and support profiles to expand production capacity without disrupting operations.",
       "intro": "When a company needs to scale BIM production without losing technical control, the problem is not only hiring more people. It requires an integrated team that understands your standards, deadlines and coordination workflow.",
-      "image": "/images/equipoBIM.webp",
-      "imageAlt": "Remote BIM team collaborating",
+      "image": "/images/blog/estadio-chepen/planos-revit-arquitectura.webp",
+      "imageAlt": "Architecture sheets produced in Revit by the BIM team",
       "pillars": [
         {
           "title": "Operational integration",
@@ -129,8 +129,8 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "Remote-BIM-Teams",
       "description": "Wir integrieren Remote-BIM-Modellierer, Koordinatoren und Support-Profile, um die Produktionskapazität zu erweitern, ohne den Betrieb zu stören.",
       "intro": "Wenn ein Unternehmen BIM-Produktion skalieren muss, ohne die technische Kontrolle zu verlieren, geht es nicht nur darum, mehr Personal einzustellen. Es braucht ein integriertes Team, das Ihre Standards, Termine und Koordinationsabläufe versteht.",
-      "image": "/images/equipoBIM.webp",
-      "imageAlt": "Remote-BIM-Team bei der Zusammenarbeit",
+      "image": "/images/blog/estadio-chepen/planos-revit-arquitectura.webp",
+      "imageAlt": "In Revit erstellte Architekturpläne des BIM-Teams",
       "pillars": [
         { "title": "Operative Integration", "description": "Wir passen uns Ihren Prozessen, Ihrer Software, BEP, Vorlagen und Ihrer Koordinationsweise an." },
         { "title": "Flexible Skalierung", "description": "Sie können gezielt zusätzliche Kapazität hinzufügen oder je nach Projektportfolio eine stabile BIM-Zelle aufbauen." },
@@ -154,8 +154,8 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "Équipes BIM à distance",
       "description": "Nous intégrons des modélisateurs, coordinateurs et profils de support BIM à distance pour développer votre capacité sans freiner l'activité.",
       "intro": "Lorsqu'une entreprise doit accroître sa production BIM sans perdre le contrôle technique, le problème ne se résume pas à embaucher plus de monde. Il faut une équipe intégrée qui comprend vos standards, vos délais et votre façon de coordonner.",
-      "image": "/images/equipoBIM.webp",
-      "imageAlt": "Équipe BIM à distance en pleine collaboration",
+      "image": "/images/blog/estadio-chepen/planos-revit-arquitectura.webp",
+      "imageAlt": "Plans d'architecture produits dans Revit par l'équipe BIM",
       "pillars": [
         { "title": "Intégration opérationnelle", "description": "Nous nous adaptons à vos processus, logiciels, BEP, modèles et mode de coordination." },
         { "title": "Montée en puissance flexible", "description": "Vous pouvez ajouter une capacité ponctuelle ou constituer une cellule BIM stable selon votre portefeuille de projets." },
@@ -179,8 +179,8 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "Team BIM da remoto",
       "description": "Integriamo modellatori, coordinatori e profili di supporto BIM da remoto per ampliare la capacità produttiva senza rallentare l'operatività.",
       "intro": "Quando un'azienda ha bisogno di scalare la produzione BIM senza perdere il controllo tecnico, il problema non è solo assumere più personale. Serve un team integrato che comprenda i tuoi standard, le tue scadenze e il tuo modo di coordinare.",
-      "image": "/images/equipoBIM.webp",
-      "imageAlt": "Team BIM da remoto al lavoro insieme",
+      "image": "/images/blog/estadio-chepen/planos-revit-arquitectura.webp",
+      "imageAlt": "Tavole architettoniche prodotte in Revit dal team BIM",
       "pillars": [
         { "title": "Integrazione operativa", "description": "Ci adattiamo ai tuoi processi, software, BEP, template e modalità di coordinamento." },
         { "title": "Scalabilità flessibile", "description": "Puoi aggiungere capacità puntuale o costituire una cellula BIM stabile in base al tuo portafoglio progetti." },
@@ -204,8 +204,8 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "Equipes BIM remotas",
       "description": "Integramos modeladores, coordenadores e suporte BIM remoto para ampliar a capacidade sem travar a operação.",
       "intro": "Quando uma empresa precisa escalar a produção BIM sem perder controle técnico, o problema não é apenas contratar mais gente. É preciso integrar uma equipe que entenda seus padrões, prazos e forma de coordenação.",
-      "image": "/images/equipoBIM.webp",
-      "imageAlt": "Equipe BIM remota colaborando",
+      "image": "/images/blog/estadio-chepen/planos-revit-arquitectura.webp",
+      "imageAlt": "Pranchas de arquitetura produzidas no Revit pela equipe BIM",
       "pillars": [
         { "title": "Integração operacional", "description": "Nos adaptamos aos seus processos, software, BEP, modelos e forma de coordenação." },
         { "title": "Escalonamento flexível", "description": "Você pode somar capacidade pontual ou montar uma célula BIM estável conforme sua carteira de projetos." },
@@ -229,8 +229,8 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "Удалённые BIM-команды",
       "description": "Мы подключаем удалённых BIM-моделлеров, координаторов и специалистов поддержки, чтобы расширить производственную мощность без остановки операций.",
       "intro": "Когда компании нужно масштабировать BIM-производство, не теряя технического контроля, дело не только в найме большего числа людей. Нужна интегрированная команда, понимающая ваши стандарты, сроки и порядок координации.",
-      "image": "/images/equipoBIM.webp",
-      "imageAlt": "Совместная работа удалённой BIM-команды",
+      "image": "/images/blog/estadio-chepen/planos-revit-arquitectura.webp",
+      "imageAlt": "Архитектурные листы, подготовленные BIM-командой в Revit",
       "pillars": [
         { "title": "Операционная интеграция", "description": "Мы адаптируемся к вашим процессам, ПО, BEP, шаблонам и способу координации." },
         { "title": "Гибкое масштабирование", "description": "Вы можете добавить точечную мощность или сформировать стабильную BIM-ячейку в зависимости от портфеля проектов." },
@@ -254,8 +254,8 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "远程 BIM 团队",
       "description": "我们整合远程 BIM 建模师、协调员与支持人员，在不影响运营的情况下扩大产能。",
       "intro": "当企业需要在不失去技术管控的前提下扩大 BIM 产能时，问题并不仅仅是招聘更多人员，而是需要一支了解您的标准、进度与协同方式的一体化团队。",
-      "image": "/images/equipoBIM.webp",
-      "imageAlt": "远程 BIM 团队协同工作",
+      "image": "/images/blog/estadio-chepen/planos-revit-arquitectura.webp",
+      "imageAlt": "BIM 团队在 Revit 中出图的建筑图纸",
       "pillars": [
         { "title": "运营整合", "description": "我们主动适配您的流程、软件、BEP、模板与协同方式。" },
         { "title": "灵活扩展", "description": "您可以按需增加临时产能，也可以根据项目组合建立稳定的 BIM 团队。" },
@@ -281,7 +281,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "Desarrollo BIM",
       "description": "Creamos addins, automatizaciones y aplicaciones tecnicas para reducir trabajo manual y elevar productividad BIM.",
       "intro": "La diferencia entre una consultora tradicional y una consultora con software propio es enorme. En Frata convertimos problemas operativos en herramientas concretas para Revit, Tekla y flujos conectados.",
-      "image": "/images/softwareDeveloper.webp",
+      "image": "/images/blog/estadio-chepen/bim-5d-metrados.webp",
       "imageAlt": "Desarrollo de software BIM para Revit o Tekla",
       "pillars": [
         {
@@ -327,7 +327,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "BIM software development",
       "description": "We create add-ins, automations and technical applications that reduce manual work and improve BIM productivity.",
       "intro": "The difference between a traditional consultancy and one with its own software capability is significant. At Frata, we turn operational problems into practical tools for Revit, Tekla and connected technical workflows.",
-      "image": "/images/softwareDeveloper.webp",
+      "image": "/images/blog/estadio-chepen/bim-5d-metrados.webp",
       "imageAlt": "BIM software development for Revit and Tekla",
       "pillars": [
         {
@@ -373,7 +373,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "BIM-Softwareentwicklung",
       "description": "Wir entwickeln Addins, Automatisierungen und technische Anwendungen, die manuelle Arbeit reduzieren und die BIM-Produktivität steigern.",
       "intro": "Der Unterschied zwischen einer klassischen Beratung und einer mit eigener Softwarekompetenz ist enorm. Bei Frata verwandeln wir operative Probleme in konkrete Werkzeuge für Revit, Tekla und verbundene Abläufe.",
-      "image": "/images/softwareDeveloper.webp",
+      "image": "/images/blog/estadio-chepen/bim-5d-metrados.webp",
       "imageAlt": "Entwicklung von BIM-Software für Revit oder Tekla",
       "pillars": [
         { "title": "Engineering und Software", "description": "Wir programmieren nicht blind; wir verstehen, was in Modellierung, Koordination, Bau und Fertigung geschieht." },
@@ -398,7 +398,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "Développement BIM",
       "description": "Nous créons des addins, des automatisations et des applications techniques pour réduire le travail manuel et améliorer la productivité BIM.",
       "intro": "La différence entre un cabinet de conseil traditionnel et un cabinet doté de sa propre capacité logicielle est considérable. Chez Frata, nous transformons les problèmes opérationnels en outils concrets pour Revit, Tekla et les flux connectés.",
-      "image": "/images/softwareDeveloper.webp",
+      "image": "/images/blog/estadio-chepen/bim-5d-metrados.webp",
       "imageAlt": "Développement de logiciels BIM pour Revit ou Tekla",
       "pillars": [
         { "title": "Ingénierie et logiciel", "description": "Nous ne codons pas à l'aveugle ; nous comprenons ce qui se passe en modélisation, coordination, chantier et fabrication." },
@@ -423,7 +423,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "Sviluppo BIM",
       "description": "Creiamo addin, automazioni e applicazioni tecniche per ridurre il lavoro manuale e aumentare la produttività BIM.",
       "intro": "La differenza tra una società di consulenza tradizionale e una con software proprio è enorme. In Frata trasformiamo problemi operativi in strumenti concreti per Revit, Tekla e flussi connessi.",
-      "image": "/images/softwareDeveloper.webp",
+      "image": "/images/blog/estadio-chepen/bim-5d-metrados.webp",
       "imageAlt": "Sviluppo di software BIM per Revit o Tekla",
       "pillars": [
         { "title": "Ingegneria e software", "description": "Non programmiamo alla cieca; comprendiamo ciò che accade in modellazione, coordinamento, cantiere e produzione." },
@@ -448,7 +448,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "Desenvolvimento BIM",
       "description": "Criamos addins, automações e aplicações técnicas para reduzir o trabalho manual e elevar a produtividade BIM.",
       "intro": "A diferença entre uma consultoria tradicional e uma consultoria com software próprio é enorme. Na Frata, transformamos problemas operacionais em ferramentas concretas para Revit, Tekla e fluxos conectados.",
-      "image": "/images/softwareDeveloper.webp",
+      "image": "/images/blog/estadio-chepen/bim-5d-metrados.webp",
       "imageAlt": "Desenvolvimento de software BIM para Revit ou Tekla",
       "pillars": [
         { "title": "Engenharia e software", "description": "Não programamos às cegas; entendemos o que acontece na modelagem, coordenação, obra e fabricação." },
@@ -473,7 +473,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "Разработка BIM-решений",
       "description": "Мы создаём аддины, автоматизацию и технические приложения, снижающие объём ручного труда и повышающие продуктивность BIM.",
       "intro": "Разница между традиционной консалтинговой компанией и компанией с собственной разработкой огромна. В Frata мы превращаем операционные проблемы в конкретные инструменты для Revit, Tekla и связанных процессов.",
-      "image": "/images/softwareDeveloper.webp",
+      "image": "/images/blog/estadio-chepen/bim-5d-metrados.webp",
       "imageAlt": "Разработка BIM-программного обеспечения для Revit или Tekla",
       "pillars": [
         { "title": "Инженерия и разработка", "description": "Мы не пишем код вслепую — мы понимаем, что происходит в моделировании, координации, на стройке и в производстве." },
@@ -498,7 +498,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "BIM 软件开发",
       "description": "我们开发插件、自动化方案与技术应用，减少人工操作并提升 BIM 生产效率。",
       "intro": "传统咨询公司与拥有自研软件能力的咨询公司之间差异巨大。在 Frata，我们将运营问题转化为面向 Revit、Tekla 及关联流程的实用工具。",
-      "image": "/images/softwareDeveloper.webp",
+      "image": "/images/blog/estadio-chepen/bim-5d-metrados.webp",
       "imageAlt": "面向 Revit 或 Tekla 的 BIM 软件开发",
       "pillars": [
         { "title": "工程与软件并重", "description": "我们不会盲目编写代码，而是深刻理解建模、协同、施工与加工中的实际情况。" },
@@ -525,7 +525,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "Soporte BIM en obra",
       "description": "Llevamos criterio BIM al frente de obra para resolver interferencias, validar informacion y acelerar decisiones.",
       "intro": "El modelo vale poco si no conversa con lo que sucede en campo. Nuestro acompanamiento BIM en obra ayuda a traducir informacion digital en acciones utiles para supervision, produccion y control.",
-      "image": "/images/BIMObra.webp",
+      "image": "/images/Ingenieria_Detalle.webp",
       "imageAlt": "Acompanamiento BIM en obra",
       "pillars": [
         {
@@ -571,7 +571,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "On-site BIM support",
       "description": "We bring BIM criteria to the jobsite to solve clashes, validate information and accelerate technical decisions.",
       "intro": "A model has limited value if it does not connect with what happens on site. Our on-site BIM support translates digital information into practical action for supervision, production and control teams.",
-      "image": "/images/BIMObra.webp",
+      "image": "/images/Ingenieria_Detalle.webp",
       "imageAlt": "On-site BIM support",
       "pillars": [
         {
@@ -617,7 +617,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "BIM-Support auf der Baustelle",
       "description": "Wir bringen BIM-Kriterien direkt auf die Baustelle, um Kollisionen zu lösen, Informationen zu validieren und Entscheidungen zu beschleunigen.",
       "intro": "Ein Modell hat wenig Wert, wenn es nicht mit dem übereinstimmt, was vor Ort passiert. Unsere BIM-Begleitung auf der Baustelle hilft, digitale Informationen in nützliche Maßnahmen für Bauleitung, Produktion und Kontrolle zu übersetzen.",
-      "image": "/images/BIMObra.webp",
+      "image": "/images/Ingenieria_Detalle.webp",
       "imageAlt": "BIM-Begleitung auf der Baustelle",
       "pillars": [
         { "title": "Sofortige Reaktion", "description": "Schnellere technische Lösung bei auftretenden Fragen, Abweichungen oder Kollisionen." },
@@ -642,7 +642,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "Support BIM sur chantier",
       "description": "Nous apportons une expertise BIM directement sur le chantier pour résoudre les interférences, valider les informations et accélérer les décisions.",
       "intro": "Un modèle a peu de valeur s'il ne dialogue pas avec ce qui se passe sur le terrain. Notre accompagnement BIM sur chantier aide à traduire l'information numérique en actions utiles pour la supervision, la production et le contrôle.",
-      "image": "/images/BIMObra.webp",
+      "image": "/images/Ingenieria_Detalle.webp",
       "imageAlt": "Accompagnement BIM sur chantier",
       "pillars": [
         { "title": "Réponse immédiate", "description": "Résolution technique plus rapide lorsque des doutes, écarts ou interférences apparaissent." },
@@ -667,7 +667,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "Supporto BIM in cantiere",
       "description": "Portiamo il criterio BIM in prima linea di cantiere per risolvere interferenze, validare le informazioni e accelerare le decisioni.",
       "intro": "Il modello vale poco se non dialoga con ciò che accade sul campo. Il nostro affiancamento BIM in cantiere aiuta a tradurre l'informazione digitale in azioni utili per supervisione, produzione e controllo.",
-      "image": "/images/BIMObra.webp",
+      "image": "/images/Ingenieria_Detalle.webp",
       "imageAlt": "Affiancamento BIM in cantiere",
       "pillars": [
         { "title": "Risposta immediata", "description": "Risoluzione tecnica più rapida quando emergono dubbi, disallineamenti o interferenze." },
@@ -692,7 +692,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "Suporte BIM em obra",
       "description": "Levamos critério BIM para a frente de obra para resolver interferências, validar informações e acelerar decisões.",
       "intro": "O modelo vale pouco se não dialoga com o que acontece em campo. Nosso acompanhamento BIM em obra ajuda a traduzir informação digital em ações úteis para supervisão, produção e controle.",
-      "image": "/images/BIMObra.webp",
+      "image": "/images/Ingenieria_Detalle.webp",
       "imageAlt": "Acompanhamento BIM em obra",
       "pillars": [
         { "title": "Resposta imediata", "description": "Resolução técnica mais rápida quando surgem dúvidas, desajustes ou interferências." },
@@ -717,7 +717,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "BIM-поддержка на стройплощадке",
       "description": "Мы применяем BIM-подход непосредственно на объекте, чтобы устранять коллизии, проверять информацию и ускорять принятие решений.",
       "intro": "Модель мало полезна, если она не соотносится с тем, что происходит на площадке. Наше сопровождение BIM на стройке помогает превращать цифровую информацию в полезные действия для контроля, производства и надзора.",
-      "image": "/images/BIMObra.webp",
+      "image": "/images/Ingenieria_Detalle.webp",
       "imageAlt": "Сопровождение BIM на стройплощадке",
       "pillars": [
         { "title": "Мгновенная реакция", "description": "Более быстрое техническое решение при возникновении вопросов, несоответствий или коллизий." },
@@ -742,7 +742,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "现场 BIM 支持",
       "description": "我们将 BIM 理念带到施工一线，用于解决碰撞问题、核实信息并加快决策速度。",
       "intro": "如果模型无法与现场实际情况相印证，其价值就十分有限。我们的现场 BIM 支持服务，帮助将数字信息转化为对监理、生产与管控有实际帮助的行动。",
-      "image": "/images/BIMObra.webp",
+      "image": "/images/Ingenieria_Detalle.webp",
       "imageAlt": "现场 BIM 支持",
       "pillars": [
         { "title": "即时响应", "description": "在出现疑问、偏差或碰撞时提供更快速的技术解决方案。" },
@@ -1257,7 +1257,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "Modelado BIM integral",
       "description": "Desarrollamos modelos coordinados y utiles para diseno, documentacion, control y coordinacion multidisciplinaria.",
       "intro": "Un buen modelo BIM no solo se ve bien: ordena informacion, ayuda a detectar conflictos y sirve como base para decisiones tecnicas. Nuestro enfoque busca que el modelo sea realmente operativo.",
-      "image": "/images/Ingenieria_Detalle.webp",
+      "image": "/images/blog/estadio-chepen/modelo-acero-refuerzo.webp",
       "imageAlt": "Modelado BIM integral",
       "pillars": [
         {
@@ -1303,7 +1303,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "Comprehensive BIM modeling",
       "description": "We develop coordinated models that support design, documentation, control and multidisciplinary collaboration.",
       "intro": "A good BIM model should do more than look correct: it should organize information, support clash detection and help teams make better technical decisions. Our approach focuses on operational value.",
-      "image": "/images/Ingenieria_Detalle.webp",
+      "image": "/images/blog/estadio-chepen/modelo-acero-refuerzo.webp",
       "imageAlt": "Comprehensive BIM modeling",
       "pillars": [
         {
@@ -1349,7 +1349,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "Integrale BIM-Modellierung",
       "description": "Wir entwickeln koordinierte Modelle, die Planung, Dokumentation, Kontrolle und interdisziplinäre Koordination unterstützen.",
       "intro": "Ein gutes BIM-Modell sieht nicht nur gut aus: Es ordnet Informationen, hilft bei der Konflikterkennung und dient als Grundlage für technische Entscheidungen. Unser Ansatz zielt darauf ab, dass das Modell wirklich operativ nutzbar ist.",
-      "image": "/images/Ingenieria_Detalle.webp",
+      "image": "/images/blog/estadio-chepen/modelo-acero-refuerzo.webp",
       "imageAlt": "Integrale BIM-Modellierung",
       "pillars": [
         { "title": "Koordination zwischen Fachbereichen", "description": "Wir integrieren Architektur, Tragwerk und TGA, um Konflikte frühzeitig zu erkennen." },
@@ -1374,7 +1374,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "Modélisation BIM globale",
       "description": "Nous développons des modèles coordonnés utiles à la conception, la documentation, le contrôle et la coordination pluridisciplinaire.",
       "intro": "Un bon modèle BIM ne se contente pas d'être esthétique : il organise l'information, aide à détecter les conflits et sert de base aux décisions techniques. Notre approche vise à rendre le modèle réellement opérationnel.",
-      "image": "/images/Ingenieria_Detalle.webp",
+      "image": "/images/blog/estadio-chepen/modelo-acero-refuerzo.webp",
       "imageAlt": "Modélisation BIM globale",
       "pillars": [
         { "title": "Coordination entre disciplines", "description": "Nous intégrons architecture, structure et MEP pour détecter les conflits en amont." },
@@ -1399,7 +1399,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "Modellazione BIM integrale",
       "description": "Sviluppiamo modelli coordinati e utili per progettazione, documentazione, controllo e coordinamento multidisciplinare.",
       "intro": "Un buon modello BIM non si limita ad avere un bell'aspetto: organizza le informazioni, aiuta a individuare i conflitti e funge da base per le decisioni tecniche. Il nostro approccio mira a rendere il modello realmente operativo.",
-      "image": "/images/Ingenieria_Detalle.webp",
+      "image": "/images/blog/estadio-chepen/modelo-acero-refuerzo.webp",
       "imageAlt": "Modellazione BIM integrale",
       "pillars": [
         { "title": "Coordinamento tra discipline", "description": "Integriamo architettura, strutture e impianti MEP per individuare i conflitti in anticipo." },
@@ -1424,7 +1424,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "Modelagem BIM integral",
       "description": "Desenvolvemos modelos coordenados e úteis para projeto, documentação, controle e coordenação multidisciplinar.",
       "intro": "Um bom modelo BIM não é só esteticamente correto: ele organiza informações, ajuda a detectar conflitos e serve como base para decisões técnicas. Nossa abordagem busca tornar o modelo realmente operacional.",
-      "image": "/images/Ingenieria_Detalle.webp",
+      "image": "/images/blog/estadio-chepen/modelo-acero-refuerzo.webp",
       "imageAlt": "Modelagem BIM integral",
       "pillars": [
         { "title": "Coordenação entre disciplinas", "description": "Integramos arquitetura, estrutura e MEP para detectar conflitos antecipadamente." },
@@ -1449,7 +1449,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "Комплексное BIM-моделирование",
       "description": "Мы создаём скоординированные модели, полезные для проектирования, документирования, контроля и междисциплинарной координации.",
       "intro": "Хорошая BIM-модель — это не просто внешне корректный результат: она упорядочивает информацию, помогает выявлять коллизии и служит основой для технических решений. Наш подход направлен на то, чтобы модель действительно работала на практике.",
-      "image": "/images/Ingenieria_Detalle.webp",
+      "image": "/images/blog/estadio-chepen/modelo-acero-refuerzo.webp",
       "imageAlt": "Комплексное BIM-моделирование",
       "pillars": [
         { "title": "Координация между разделами", "description": "Мы объединяем архитектуру, конструкции и инженерные системы, чтобы заранее выявлять конфликты." },
@@ -1474,7 +1474,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
       "shortTitle": "综合 BIM 建模",
       "description": "我们打造协同一致、真正实用的模型，支持设计、文档编制、管控与多专业协同。",
       "intro": "优秀的 BIM 模型不仅仅是外观正确：它能有效组织信息、帮助发现冲突，并为技术决策提供依据。我们的方法致力于让模型真正具备可运营价值。",
-      "image": "/images/Ingenieria_Detalle.webp",
+      "image": "/images/blog/estadio-chepen/modelo-acero-refuerzo.webp",
       "imageAlt": "综合 BIM 建模",
       "pillars": [
         { "title": "多专业协同", "description": "整合建筑、结构与机电专业，提前发现潜在冲突。" },

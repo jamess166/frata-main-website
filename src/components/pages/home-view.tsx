@@ -1,16 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { HomeContactSection } from "@/components/home/contact-section";
 import { SocialProofSection } from "@/components/home/social-proof-section";
 import { Eyebrow } from "@/components/site/eyebrow";
-import { NumberedRow } from "@/components/site/numbered-row";
 import { Reveal } from "@/components/site/reveal";
 import { Stat } from "@/components/site/stat";
 import { caseStudies, type CaseStudy } from "@/lib/case-studies";
+import { serviceContent, type ServiceSlug } from "@/lib/service-content";
 import { withLocale, resolveBilingual, type Locale } from "@/lib/locale";
-import { homeContent, techStack, featuredCaseSlugs, type HomePageContent } from "@/content/home";
+import { techStack, featuredCaseSlugs, type HomePageContent } from "@/content/home";
+
+const WORK = "/images/blog/estadio-chepen";
 
 // Per-case-study detail text only ever has Spanish/English content; every
 // other locale falls back to English (see resolveBilingual).
@@ -27,6 +29,23 @@ function localizedCase(cs: CaseStudy, locale: Locale) {
   };
 }
 
+// Caption under the hero render, linking to the write-up of that project.
+const HERO_CAPTION: Record<Locale, string> = {
+  es: "Estadio Municipal de Chepén · expediente técnico desarrollado en BIM",
+  en: "Chepén Municipal Stadium · technical package developed in BIM",
+  de: "Stadion von Chepén · Ausführungsplanung in BIM",
+  fr: "Stade municipal de Chepén · dossier technique réalisé en BIM",
+  it: "Stadio municipale di Chepén · progetto esecutivo sviluppato in BIM",
+  pt: "Estádio Municipal de Chepén · projeto executivo desenvolvido em BIM",
+  ru: "Муниципальный стадион Чепен · рабочая документация в BIM",
+  zh: "Chepén 市立体育场 · 采用 BIM 完成的施工图设计",
+};
+
+function serviceImage(href: string, locale: Locale) {
+  const slug = href.split("/").pop() as ServiceSlug;
+  return serviceContent[slug]?.[locale] ?? serviceContent[slug]?.es;
+}
+
 export function HomeView({ locale, content }: { locale: Locale; content: HomePageContent }) {
   const featured = featuredCaseSlugs
     .map((slug) => caseStudies.find((c) => c.slug === slug))
@@ -35,82 +54,76 @@ export function HomeView({ locale, content }: { locale: Locale; content: HomePag
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="flex min-h-[85svh] flex-col justify-end">
-        <div className="container mx-auto px-4 pb-16 pt-24 sm:px-6 lg:px-8 lg:pb-20">
-          <Reveal>
-            <Eyebrow>{content.hero.eyebrow}</Eyebrow>
-          </Reveal>
-          <Reveal delay={100}>
-            <h1 className="mt-8 max-w-5xl font-headline text-display-xl font-black text-foreground">
-              {content.hero.heading.line1}
-              <br />
-              <span className="text-muted-foreground">{content.hero.heading.line2}</span>
-            </h1>
-          </Reveal>
-          <Reveal delay={200}>
-            <p className="mt-8 max-w-2xl text-lg leading-8 text-muted-foreground">{content.hero.intro}</p>
-          </Reveal>
-          <Reveal delay={300}>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Button asChild size="lg" className="rounded-none px-8 text-xs font-medium uppercase tracking-[0.14em]">
-                <Link href={withLocale(locale, "/#contact")}>{content.hero.talkCta}</Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="rounded-none border-border px-8 text-xs font-medium uppercase tracking-[0.14em] hover:bg-secondary"
-              >
-                <Link href={withLocale(locale, "/services")}>{content.hero.servicesCta}</Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="rounded-none border-primary/60 px-8 text-xs font-medium uppercase tracking-[0.14em] text-primary hover:border-primary hover:bg-primary/10 hover:text-primary"
-              >
-                <Link href={withLocale(locale, "/bimtools")}>
-                  BIMtools
-                  <ArrowUpRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-            </div>
-          </Reveal>
+      <section className="overflow-hidden">
+        <div className="container mx-auto px-5 pt-16 text-center sm:px-6 lg:px-8 lg:pt-24">
+          <Eyebrow>{content.hero.eyebrow}</Eyebrow>
+          <h1 className="mx-auto mt-4 max-w-4xl font-headline text-display-xl text-foreground">
+            {content.hero.heading.line1}
+            <br />
+            {content.hero.heading.line2}
+          </h1>
+          <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-muted-foreground">{content.hero.intro}</p>
+          <div className="mt-9 flex flex-wrap items-center justify-center gap-x-7 gap-y-4">
+            <Button asChild size="lg">
+              <Link href={withLocale(locale, "/#contact")}>{content.hero.talkCta}</Link>
+            </Button>
+            <Link href={withLocale(locale, "/services")} className="link-more text-lg">
+              {content.hero.servicesCta}
+              <ChevronRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
 
-          <Reveal delay={400}>
-            <div className="mt-20 grid grid-cols-1 gap-8 sm:grid-cols-3">
-              {/* TODO owner: confirm real project count */}
-              <Stat value={50} suffix="+" label={content.hero.stats.bimtoolsUsers} />
-              <Stat value={21} label={content.hero.stats.publishedAddins} />
-              <Stat value={30} suffix="+" label={content.hero.stats.deliveredProjects} />
+        <div className="container mx-auto mt-14 px-5 sm:px-6 lg:mt-20 lg:px-8">
+          <figure>
+            <div className="overflow-hidden rounded-tile bg-surface">
+              <Image
+                src={`${WORK}/render-tribuna.webp`}
+                alt={HERO_CAPTION[locale]}
+                width={2000}
+                height={1125}
+                priority
+                sizes="(min-width: 1400px) 1340px, 100vw"
+                className="aspect-[16/10] w-full object-cover sm:aspect-[16/8]"
+              />
             </div>
-          </Reveal>
+            <figcaption className="mt-4 text-center text-sm text-muted-foreground">
+              <Link href="/blog/expediente-tecnico-obra-publica-bim" className="hover:text-foreground hover:underline underline-offset-4">
+                {HERO_CAPTION[locale]}
+              </Link>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div className="container mx-auto px-5 py-16 sm:px-6 lg:px-8 lg:py-20">
+          <div className="mx-auto grid max-w-4xl grid-cols-1 gap-10 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-border">
+            {/* TODO owner: confirm real project count */}
+            <Stat value={50} suffix="+" label={content.hero.stats.bimtoolsUsers} />
+            <Stat value={21} label={content.hero.stats.publishedAddins} />
+            <Stat value={30} suffix="+" label={content.hero.stats.deliveredProjects} />
+          </div>
         </div>
       </section>
 
       {/* ── Manifesto ────────────────────────────────────────── */}
-      <section className="border-t border-border">
-        <div className="container mx-auto px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
-          <Reveal>
+      <section className="bg-surface">
+        <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+          <Reveal className="mx-auto max-w-3xl text-center">
             <Eyebrow>{content.manifesto.eyebrow}</Eyebrow>
-          </Reveal>
-          <Reveal delay={100}>
-            <h2 className="mt-6 max-w-4xl font-headline text-display-lg font-bold text-foreground">
+            <h2 className="mt-3 font-headline text-display-lg text-foreground">
               {content.manifesto.heading.line1}
               {content.manifesto.heading.line2 && (
                 <>
                   <br />
-                  <span className="text-muted-foreground">{content.manifesto.heading.line2}</span>
+                  {content.manifesto.heading.line2}
                 </>
               )}
             </h2>
           </Reveal>
-          <div className="mt-16 grid gap-x-12 gap-y-10 sm:grid-cols-2">
-            {content.manifesto.points.map((point, i) => (
-              <Reveal key={point} delay={i * 100}>
-                <div className="border-t border-border pt-6">
-                  <p className="text-sm leading-7 text-foreground/80">{point}</p>
-                </div>
+          <div className="mx-auto mt-12 grid max-w-5xl gap-4 sm:grid-cols-2">
+            {content.manifesto.points.map((point) => (
+              <Reveal key={point} className="rounded-2xl bg-card p-7">
+                <p className="text-[1.0625rem] leading-relaxed text-foreground">{point}</p>
               </Reveal>
             ))}
           </div>
@@ -118,107 +131,110 @@ export function HomeView({ locale, content }: { locale: Locale; content: HomePag
       </section>
 
       {/* ── Servicios ────────────────────────────────────────── */}
-      <section id="services" className="border-t border-border">
-        <div className="container mx-auto px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
-          <Reveal>
+      <section id="services">
+        <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+          <Reveal className="max-w-3xl">
             <Eyebrow>{content.services.eyebrow}</Eyebrow>
+            <h2 className="mt-3 font-headline text-display-lg text-foreground">{content.services.heading}</h2>
           </Reveal>
-          <Reveal delay={100}>
-            <h2 className="mt-6 max-w-3xl font-headline text-display-md font-bold text-foreground">
-              {content.services.heading}
-            </h2>
-          </Reveal>
-          <div className="mt-16">
-            {content.services.items.map((service, i) => (
-              <Reveal key={service.index} delay={i * 80}>
-                <NumberedRow
-                  index={service.index}
-                  title={service.title}
-                  description={service.description}
-                  href={withLocale(locale, service.href)}
-                  cta={content.services.cta}
-                />
-              </Reveal>
-            ))}
+          <div className="mt-12 grid gap-5 md:grid-cols-2">
+            {content.services.items.map((service) => {
+              const detail = serviceImage(service.href, locale);
+              return (
+                <Reveal key={service.index}>
+                  <Link
+                    href={withLocale(locale, service.href)}
+                    className="group flex h-full flex-col overflow-hidden rounded-tile bg-surface transition-transform duration-200 ease-out active:scale-[0.99]"
+                  >
+                    <div className="p-8 pb-6 lg:p-10 lg:pb-7">
+                      <h3 className="font-headline text-title text-foreground">{service.title}</h3>
+                      <p className="mt-3 text-[1.0625rem] leading-relaxed text-muted-foreground">{service.description}</p>
+                      <span className="link-more mt-4 text-[1.0625rem]">
+                        {content.services.cta}
+                        <ChevronRight className="h-4 w-4" />
+                      </span>
+                    </div>
+                    {detail?.image && (
+                      <div className="mt-auto overflow-hidden px-8 lg:px-10">
+                        <Image
+                          src={detail.image}
+                          alt={detail.imageAlt}
+                          width={1200}
+                          height={700}
+                          sizes="(min-width: 768px) 50vw, 100vw"
+                          className="aspect-[16/9] w-full rounded-t-xl object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                        />
+                      </div>
+                    )}
+                  </Link>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* ── Proyectos ────────────────────────────────────────── */}
-      <section className="border-t border-border">
-        <div className="container mx-auto px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <div>
-              <Reveal>
-                <Eyebrow>{content.projects.eyebrow}</Eyebrow>
-              </Reveal>
-              <Reveal delay={100}>
-                <h2 className="mt-6 font-headline text-display-md font-bold text-foreground">
-                  {content.projects.heading}
-                </h2>
-              </Reveal>
+      <section className="bg-surface">
+        <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+          <Reveal className="flex flex-wrap items-end justify-between gap-6">
+            <div className="max-w-3xl">
+              <Eyebrow>{content.projects.eyebrow}</Eyebrow>
+              <h2 className="mt-3 font-headline text-display-lg text-foreground">{content.projects.heading}</h2>
             </div>
-            <Reveal delay={200}>
-              <Link
-                href={withLocale(locale, "/casos")}
-                className="group inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-primary"
-              >
-                {content.projects.viewAllCta}
-                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </Link>
-            </Reveal>
-          </div>
+            <Link href={withLocale(locale, "/casos")} className="link-more text-[1.0625rem]">
+              {content.projects.viewAllCta}
+              <ChevronRight className="h-4 w-4" />
+            </Link>
+          </Reveal>
 
-          <div className="mt-16 space-y-0">
+          <div className="mt-12 grid gap-5 lg:grid-cols-2">
             {featured.map((cs, i) => {
               const loc = localizedCase(cs, locale);
+              const wide = i === 0 && cs.image;
               return (
-                <Reveal key={cs.slug} delay={i * 80}>
-                  <Link href={withLocale(locale, "/casos")} className="block">
-                    <article className="group grid gap-8 border-t border-border py-12 lg:grid-cols-[1fr_1fr] lg:gap-16">
-                      <div>
-                        <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
-                          {loc.client} · {loc.sector}
-                        </p>
-                        <h3 className="mt-4 font-headline text-2xl font-bold tracking-tight text-foreground transition-colors group-hover:text-primary sm:text-3xl">
-                          {loc.service}
-                        </h3>
-                        <p className="mt-4 max-w-xl text-sm leading-7 text-muted-foreground">{loc.result}</p>
-                        <div className="mt-6 flex flex-wrap gap-3">
-                          {cs.technologies.map((tech) => (
-                            <span
-                              key={tech}
-                              className="text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground"
-                            >
-                              {tech}
-                            </span>
+                <Reveal key={cs.slug} className={wide ? "lg:col-span-2" : undefined}>
+                  <Link
+                    href={withLocale(locale, "/casos")}
+                    className={`group grid h-full overflow-hidden rounded-tile bg-card transition-transform duration-200 ease-out active:scale-[0.99] ${
+                      wide ? "lg:grid-cols-2" : ""
+                    }`}
+                  >
+                    <div className="flex flex-col p-8 lg:p-10">
+                      <p className="text-sm text-muted-foreground">
+                        {loc.client} · {loc.sector}
+                      </p>
+                      <h3 className="mt-2 font-headline text-title text-foreground">{loc.service}</h3>
+                      <p className="mt-3 text-[1.0625rem] leading-relaxed text-muted-foreground">{loc.result}</p>
+                      {loc.metrics.length > 0 && (
+                        <div className="mt-8 grid grid-cols-2 gap-6">
+                          {loc.metrics.map((m) => (
+                            <div key={m.label}>
+                              <p className="font-headline text-4xl font-semibold tracking-[-0.03em] text-foreground">{m.value}</p>
+                              <p className="mt-1 text-sm leading-snug text-muted-foreground">{m.label}</p>
+                            </div>
                           ))}
                         </div>
+                      )}
+                      <div className="mt-auto flex flex-wrap gap-2 pt-8">
+                        {cs.technologies.map((tech) => (
+                          <span key={tech} className="rounded-full bg-secondary px-3 py-1 text-xs text-muted-foreground">
+                            {tech}
+                          </span>
+                        ))}
                       </div>
-                      <div className="flex flex-col justify-between gap-8">
-                        {cs.image ? (
-                          <div className="overflow-hidden">
-                            <Image
-                              src={cs.image}
-                              alt={loc.service}
-                              width={900}
-                              height={560}
-                              className="h-56 w-full object-cover grayscale transition duration-500 group-hover:grayscale-0 lg:h-64"
-                            />
-                          </div>
-                        ) : null}
-                        {loc.metrics.length > 0 && (
-                          <div className="grid grid-cols-2 gap-6">
-                            {loc.metrics.map((m) => (
-                              <div key={m.label}>
-                                <p className="font-headline text-3xl font-bold text-primary sm:text-4xl">{m.value}</p>
-                                <p className="mt-2 text-xs leading-5 text-muted-foreground">{m.label}</p>
-                              </div>
-                            ))}
-                          </div>
-                        )}
+                    </div>
+                    {wide && (
+                      <div className="relative min-h-[260px] overflow-hidden">
+                        <Image
+                          src={cs.image!}
+                          alt={loc.service}
+                          fill
+                          sizes="(min-width: 1024px) 50vw, 100vw"
+                          className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                        />
                       </div>
-                    </article>
+                    )}
                   </Link>
                 </Reveal>
               );
@@ -228,82 +244,63 @@ export function HomeView({ locale, content }: { locale: Locale; content: HomePag
       </section>
 
       {/* ── Proceso ──────────────────────────────────────────── */}
-      <section className="border-t border-border">
-        <div className="container mx-auto grid gap-14 px-4 py-24 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8 lg:py-32">
-          <div>
-            <Reveal>
-              <Eyebrow>{content.process.eyebrow}</Eyebrow>
-            </Reveal>
-            <Reveal delay={100}>
-              <h2 className="mt-6 font-headline text-display-md font-bold text-foreground">
-                {content.process.heading}
-              </h2>
-            </Reveal>
-          </div>
-          <div>
+      <section>
+        <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+          <Reveal className="max-w-3xl">
+            <Eyebrow>{content.process.eyebrow}</Eyebrow>
+            <h2 className="mt-3 font-headline text-display-lg text-foreground">{content.process.heading}</h2>
+          </Reveal>
+          <ol className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
             {content.process.steps.map((step, i) => (
-              <Reveal key={step.index} delay={i * 80}>
-                <NumberedRow index={step.index} title={step.title} description={step.description} />
+              <Reveal as="li" key={step.index} className="border-t border-foreground/15 pt-5">
+                <span className="font-headline text-title text-primary">{i + 1}</span>
+                <h3 className="mt-3 font-headline text-xl font-semibold tracking-[-0.01em] text-foreground">{step.title}</h3>
+                <p className="mt-2 text-[1.0625rem] leading-relaxed text-muted-foreground">{step.description}</p>
               </Reveal>
             ))}
-          </div>
+          </ol>
         </div>
       </section>
 
       {/* ── BIMtools ─────────────────────────────────────────── */}
-      <section className="border-t border-border">
-        <div className="container mx-auto grid gap-14 px-4 py-24 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8 lg:py-32">
-          <div>
+      <section className="px-3 sm:px-4">
+        <div className="mx-auto max-w-[1440px] overflow-hidden rounded-tile bg-neutral-950 text-white dark:bg-card">
+          <div className="container mx-auto grid gap-12 px-5 py-16 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:px-12 lg:py-24">
             <Reveal>
-              <Eyebrow>{content.bimtools.eyebrow}</Eyebrow>
-            </Reveal>
-            <Reveal delay={100}>
-              <h2 className="mt-6 font-headline text-display-md font-bold text-foreground">
-                {content.bimtools.heading}
-              </h2>
-            </Reveal>
-            <Reveal delay={200}>
-              <p className="mt-6 max-w-xl text-base leading-8 text-muted-foreground">{content.bimtools.intro}</p>
-            </Reveal>
-            <Reveal delay={300}>
-              <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2">
+              <p className="text-[0.9375rem] font-semibold text-sky-400">{content.bimtools.eyebrow}</p>
+              <h2 className="mt-3 font-headline text-display-lg text-white">{content.bimtools.heading}</h2>
+              <p className="mt-5 max-w-xl text-[1.0625rem] leading-relaxed text-white/70">{content.bimtools.intro}</p>
+              <ul className="mt-7 flex flex-wrap gap-2">
                 {techStack.map((tech) => (
-                  <span key={tech} className="text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">
+                  <li key={tech} className="rounded-full bg-white/10 px-3 py-1 text-xs text-white/80">
                     {tech}
-                  </span>
+                  </li>
                 ))}
-              </div>
-            </Reveal>
-            <Reveal delay={400}>
-              <div className="mt-10 flex flex-wrap gap-4">
-                <Button asChild size="lg" className="rounded-none px-8 text-xs font-medium uppercase tracking-[0.14em]">
+              </ul>
+              <div className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-4">
+                <Button asChild size="lg">
                   <Link href={withLocale(locale, "/bimtools")}>{content.bimtools.exploreCta}</Link>
                 </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="rounded-none border-border px-8 text-xs font-medium uppercase tracking-[0.14em] hover:bg-secondary"
+                <Link
+                  href={withLocale(locale, "/services/custom-bim-software-development")}
+                  className="link-more text-[1.0625rem] text-sky-400"
                 >
-                  <Link href={withLocale(locale, "/services/custom-bim-software-development")}>
-                    {content.bimtools.customDevCta}
-                  </Link>
-                </Button>
+                  {content.bimtools.customDevCta}
+                  <ChevronRight className="h-4 w-4" />
+                </Link>
               </div>
             </Reveal>
-          </div>
-          <Reveal delay={200}>
-            <div className="overflow-hidden">
+            <Reveal>
               <Image
-                src="/images/softwareDeveloper.webp"
+                src={`${WORK}/planos-revit-arquitectura.webp`}
                 alt={content.bimtools.imageAlt}
-                width={1200}
-                height={800}
-                loading="lazy"
-                className="h-80 w-full object-cover grayscale lg:h-[420px]"
+                width={1920}
+                height={1028}
+                sizes="(min-width: 1024px) 55vw, 100vw"
+                className="w-full rounded-xl shadow-[0_30px_80px_-20px_rgba(0,0,0,0.8)] ring-1 ring-white/10"
               />
-            </div>
-          </Reveal>
+            </Reveal>
+          </div>
         </div>
       </section>
 

@@ -46,14 +46,14 @@ export function ManualImageGallery({
     <div className="mt-6 space-y-4">
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <div className="overflow-hidden rounded-[1.5rem] border border-border/80 bg-background/85 shadow-sm">
-          <div className="flex items-center justify-between border-b border-border/70 bg-secondary/35 px-4 py-3">
+          <div className="flex items-center justify-between border-b border-border/70 bg-secondary/35 px-5 py-3">
             <div className="text-sm font-medium text-foreground">
               {String(activeIndex + 1).padStart(2, "0")} / {String(images.length).padStart(2, "0")}
             </div>
             <DialogTrigger asChild>
               <button
                 type="button"
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-background/90 px-3 py-1.5 text-xs font-medium text-foreground transition-colors hover:border-primary/30 hover:text-primary"
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-background/90 px-3 py-1.5 text-sm font-medium text-foreground transition-colors hover:border-primary/30 hover:text-primary"
               >
                 <Expand className="h-3.5 w-3.5" />
                 {labels.expand}
@@ -61,7 +61,7 @@ export function ManualImageGallery({
             </DialogTrigger>
           </div>
 
-          <div className="relative bg-[linear-gradient(180deg,_rgba(15,23,42,0.02),_transparent)] px-4 py-4 sm:px-6 sm:py-6">
+          <div className="relative bg-[linear-gradient(180deg,_rgba(15,23,42,0.02),_transparent)] px-5 py-4 sm:px-6 sm:py-6">
             {images.length > 1 ? (
               <>
                 <button
@@ -112,11 +112,7 @@ export function ManualImageGallery({
                 key={image.src}
                 type="button"
                 onClick={() => setActiveIndex(index)}
-                className={`overflow-hidden rounded-xl border bg-background/85 transition-all ${
-                  isActive
-                    ? "border-primary shadow-sm ring-1 ring-primary/30"
-                    : "border-border/70 opacity-80 hover:border-primary/30 hover:opacity-100"
-                }`}
+                className={`overflow-hidden rounded-xl border bg-background/85 transition-all ${ isActive ? "border-primary shadow-sm ring-1 ring-primary/30" : "border-border/70 opacity-80 hover:border-primary/30 hover:opacity-100" }`}
                 aria-label={`${labels.viewImage} ${index + 1}`}
               >
                 <img src={image.src} alt={image.alt} className="h-20 w-full object-cover" loading="lazy" />

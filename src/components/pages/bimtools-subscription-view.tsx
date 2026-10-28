@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft, CreditCard } from "lucide-react";
+import { Check, ChevronLeft, CreditCard } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/site/eyebrow";
 import { NumberedRow } from "@/components/site/numbered-row";
@@ -13,30 +13,19 @@ import {
 
 function PlanCard({ plan, anchor }: { plan: SubscriptionPlanCard; anchor: string }) {
   return (
-    <div className={`flex h-full flex-col p-8 lg:p-12 ${plan.highlight ? "bg-secondary" : "bg-background"}`}>
-      <p
-        className={`text-xs font-medium uppercase tracking-[0.2em] ${
-          plan.highlight ? "text-primary" : "text-muted-foreground"
-        }`}
-      >
-        {plan.badge}
-      </p>
-      <p className="mt-6 font-headline text-5xl font-black text-foreground">{plan.price}</p>
-      <p className="mt-2 text-sm text-muted-foreground">{plan.period}</p>
-      <ul className="mt-8 flex-1 space-y-4 text-sm leading-7 text-muted-foreground">
+    <div className={`flex h-full flex-col rounded-tile bg-surface p-8 ${plan.highlight ? "ring-2 ring-primary" : ""}`}>
+      <p className={`text-[0.9375rem] font-semibold ${plan.highlight ? "text-primary" : "text-foreground"}`}>{plan.badge}</p>
+      <p className="mt-4 font-headline text-5xl font-semibold tracking-[-0.03em] text-foreground">{plan.price}</p>
+      <p className="mt-1 text-[0.9375rem] text-muted-foreground">{plan.period}</p>
+      <ul className="mt-7 flex-1 space-y-3">
         {plan.items.map((item) => (
-          <li key={item} className="border-t border-border pt-4">
+          <li key={item} className="flex gap-3 text-[0.9375rem] leading-relaxed text-foreground">
+            <Check className={`mt-0.5 h-5 w-5 shrink-0 ${plan.highlight ? "text-primary" : "text-muted-foreground"}`} aria-hidden />
             {item}
           </li>
         ))}
       </ul>
-      <Button
-        asChild
-        variant={plan.highlight ? "default" : "outline"}
-        className={`mt-10 w-full rounded-none text-xs font-medium uppercase tracking-[0.14em] sm:w-auto ${
-          plan.highlight ? "" : "border-border hover:bg-secondary"
-        }`}
-      >
+      <Button asChild size="lg" variant={plan.highlight ? "default" : "secondary"} className={`mt-9 w-full ${plan.highlight ? "" : "bg-card"}`}>
         <Link href={`#${anchor}`}>{plan.cta}</Link>
       </Button>
     </div>
@@ -56,37 +45,37 @@ export function BimtoolsSubscriptionView({
     <>
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section>
-        <div className="container mx-auto px-4 pb-16 pt-16 sm:px-6 lg:px-8 lg:pb-20 lg:pt-20">
+        <div className="container mx-auto px-5 pb-16 pt-16 sm:px-6 lg:px-8 lg:pb-20 lg:pt-20">
           <Reveal>
             <Link
               href={withLocale(locale, "/bimtools")}
-              className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-primary"
+              className="-ml-1 inline-flex items-center gap-0.5 text-[0.9375rem] text-primary hover:underline underline-offset-4"
             >
-              <ArrowLeft className="h-4 w-4" />
+              <ChevronLeft className="h-4 w-4" />
               {content.backToBimtools}
             </Link>
           </Reveal>
-          <Reveal delay={100}>
+          <Reveal>
             <Eyebrow className="mt-10">{content.eyebrow}</Eyebrow>
           </Reveal>
-          <Reveal delay={200}>
-            <h1 className="mt-6 max-w-4xl font-headline text-display-lg font-black text-foreground">
+          <Reveal>
+            <h1 className="mt-3 max-w-4xl font-headline text-display-lg text-foreground">
               {content.heading.line1}
               <br />
-              <span className="text-muted-foreground">{content.heading.line2}</span>
+              {content.heading.line2}
             </h1>
           </Reveal>
-          <Reveal delay={300}>
-            <p className="mt-8 max-w-2xl text-lg leading-8 text-muted-foreground">{content.intro}</p>
+          <Reveal>
+            <p className="mt-6 max-w-2xl text-xl leading-relaxed text-muted-foreground">{content.intro}</p>
           </Reveal>
-          <Reveal delay={350}>
-            <p className="mt-3 max-w-2xl text-sm font-medium uppercase tracking-[0.14em] text-primary">
+          <Reveal>
+            <p className="mt-3 max-w-2xl text-sm font-medium text-primary">
               {content.introPriceNote}
             </p>
           </Reveal>
-          <Reveal delay={400}>
+          <Reveal>
             <div className="mt-10 flex flex-wrap gap-4">
-              <Button asChild size="lg" className="rounded-none px-8 text-xs font-medium uppercase tracking-[0.14em]">
+              <Button asChild size="lg">
                 <Link href={paypalUrl} target="_blank" rel="noreferrer">
                   {content.payWithPaypalCta}
                 </Link>
@@ -95,7 +84,7 @@ export function BimtoolsSubscriptionView({
                 asChild
                 size="lg"
                 variant="outline"
-                className="rounded-none border-border px-8 text-xs font-medium uppercase tracking-[0.14em] hover:bg-secondary"
+               
               >
                 <Link href={`#${anchor}`}>{content.seeProcessCta}</Link>
               </Button>
@@ -105,20 +94,20 @@ export function BimtoolsSubscriptionView({
       </section>
 
       {/* ── Planes ───────────────────────────────────────────── */}
-      <section className="border-t border-border">
-        <div className="container mx-auto px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
-          <div className="grid gap-px border border-border bg-border lg:grid-cols-3">
+      <section>
+        <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+          <div className="grid gap-5 lg:grid-cols-3">
             <Reveal className="h-full">
               <PlanCard plan={content.plans.monthly} anchor={anchor} />
             </Reveal>
-            <Reveal delay={100} className="h-full">
+            <Reveal className="h-full">
               <PlanCard plan={content.plans.quarterly} anchor={anchor} />
             </Reveal>
-            <Reveal delay={200} className="h-full">
+            <Reveal className="h-full">
               <PlanCard plan={content.plans.yearly} anchor={anchor} />
             </Reveal>
           </div>
-          <Reveal delay={300}>
+          <Reveal>
             <p className="mt-10 max-w-2xl text-sm leading-7 text-muted-foreground">
               {content.customization.text}{" "}
               <Link
@@ -133,22 +122,22 @@ export function BimtoolsSubscriptionView({
       </section>
 
       {/* ── Proceso ──────────────────────────────────────────── */}
-      <section className="border-t border-border">
-        <div className="container mx-auto grid gap-14 px-4 py-24 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8 lg:py-32">
+      <section>
+        <div className="container mx-auto grid gap-14 px-5 py-20 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8 lg:py-28">
           <div>
             <Reveal>
               <Eyebrow>{content.process.eyebrow}</Eyebrow>
             </Reveal>
-            <Reveal delay={100}>
-              <h2 className="mt-6 font-headline text-display-md font-bold text-foreground">
+            <Reveal>
+              <h2 className="mt-3 font-headline text-display-lg text-foreground">
                 {content.process.heading}
               </h2>
             </Reveal>
           </div>
           <div>
             {content.process.steps.map((step, i) => (
-              <Reveal key={step.title} delay={i * 80}>
-                <NumberedRow index={String(i + 1).padStart(2, "0")} title={step.title} description={step.description} />
+              <Reveal key={step.title}>
+                <NumberedRow index={String(i + 1)} title={step.title} description={step.description} />
               </Reveal>
             ))}
           </div>
@@ -156,18 +145,18 @@ export function BimtoolsSubscriptionView({
       </section>
 
       {/* ── Pago ─────────────────────────────────────────────── */}
-      <section id={anchor} className="scroll-mt-24 border-t border-border">
-        <div className="container mx-auto grid gap-14 px-4 py-24 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:px-8 lg:py-32">
+      <section id={anchor} className="scroll-mt-16">
+        <div className="container mx-auto grid gap-14 px-5 py-20 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:px-8 lg:py-28">
           <div>
             <Reveal>
               <Eyebrow>{content.payment.eyebrow}</Eyebrow>
             </Reveal>
-            <Reveal delay={100}>
-              <h2 className="mt-6 font-headline text-display-md font-bold text-foreground">
+            <Reveal>
+              <h2 className="mt-3 font-headline text-display-lg text-foreground">
                 {content.payment.heading}
               </h2>
             </Reveal>
-            <Reveal delay={200}>
+            <Reveal>
               <ul className="mt-8 space-y-4 text-sm leading-7 text-muted-foreground">
                 <li className="border-t border-border pt-4">
                   <strong className="text-foreground">{content.payment.summary.monthlyLabel}</strong>{" "}
@@ -186,9 +175,9 @@ export function BimtoolsSubscriptionView({
             </Reveal>
           </div>
 
-          <Reveal delay={200}>
-            <div className="border border-border bg-secondary p-8 lg:p-12">
-              <h3 className="font-headline text-2xl font-bold text-foreground sm:text-3xl">
+          <Reveal>
+            <div className="rounded-tile bg-surface p-8 lg:p-10">
+              <h3 className="font-headline text-2xl font-semibold text-foreground sm:text-3xl">
                 {content.payment.card.heading}
               </h3>
               <p className="mt-4 text-sm leading-7 text-muted-foreground">{content.payment.card.intro}</p>
@@ -199,7 +188,7 @@ export function BimtoolsSubscriptionView({
                   </li>
                 ))}
               </ul>
-              <Button asChild size="lg" className="mt-10 w-full rounded-none text-xs font-medium uppercase tracking-[0.14em]">
+              <Button asChild size="lg" className="mt-10 w-full text-sm font-medium">
                 <Link href={paypalUrl} target="_blank" rel="noreferrer">
                   <CreditCard className="mr-2 h-4 w-4" />
                   {content.payment.card.cta}

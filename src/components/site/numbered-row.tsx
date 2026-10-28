@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function NumberedRow({
@@ -17,37 +17,36 @@ export function NumberedRow({
   cta?: string;
   className?: string;
 }) {
+  const step = Number.parseInt(index, 10);
   const body = (
     <div
       className={cn(
-        "group grid gap-4 border-t border-border py-8 md:grid-cols-[90px_1fr_auto] md:items-baseline md:gap-8 lg:py-10",
+        "group grid gap-3 border-t border-border py-7 first:border-t-0 md:grid-cols-[3rem_1fr] md:gap-6",
         className
       )}
     >
-      <span className="font-code text-sm text-muted-foreground transition-colors group-hover:text-primary">
-        {index}
-      </span>
+      <span className="font-headline text-title text-primary">{Number.isNaN(step) ? index : step}</span>
       <div>
-        <h3 className="font-headline text-2xl font-bold tracking-tight text-foreground transition-colors group-hover:text-primary sm:text-3xl">
-          {title}
-        </h3>
+        <h3 className="font-headline text-title text-foreground">{title}</h3>
         {description && (
-          <p className="mt-3 max-w-2xl text-sm leading-7 text-muted-foreground">
-            {description}
-          </p>
+          <p className="mt-2 max-w-2xl text-[1.0625rem] leading-relaxed text-muted-foreground">{description}</p>
+        )}
+        {href && cta && (
+          <span className="link-more mt-3 text-[1.0625rem]">
+            {cta}
+            <ChevronRight className="h-4 w-4" />
+          </span>
         )}
       </div>
-      {href && (
-        <span className="hidden items-center gap-2 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground transition-all group-hover:translate-x-1 group-hover:text-primary md:flex">
-          {cta}
-          <ArrowUpRight className="h-4 w-4" />
-        </span>
-      )}
     </div>
   );
 
   if (href) {
-    return <Link href={href} className="block">{body}</Link>;
+    return (
+      <Link href={href} className="block">
+        {body}
+      </Link>
+    );
   }
   return body;
 }

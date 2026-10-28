@@ -3,76 +3,102 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { bimtoolsSuites } from "@/lib/generated/bimtools-manuals";
 import { detectLocale, withLocale } from "@/lib/locale";
 import { footerContent } from "@/content/footer";
 
 const SOCIAL_LINKS = [
-  { label: "LinkedIn", href: "https://pe.linkedin.com/company/frata-ingenieros" },
+  {
+    label: "LinkedIn",
+    href: "https://pe.linkedin.com/company/frata-ingenieros",
+  },
   { label: "Facebook", href: "https://www.facebook.com/Frataingenieros/" },
   { label: "Instagram", href: "https://www.instagram.com/FRATA_INGENIEROS/" },
 ];
 
+const linkClass = "transition-colors hover:text-foreground hover:underline underline-offset-4";
+
 export function Footer() {
   const pathname = usePathname() || "/";
-  const { locale } = detectLocale(pathname);
+  const { locale, canonicalPath } = detectLocale(pathname);
   const t = footerContent[locale];
   const to = (path: string) => withLocale(locale, path);
 
   return (
-    <footer className="border-t border-border bg-background">
-      {/* big statement + CTA */}
-      <div className="container mx-auto px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-        <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">{t.nextProject}</p>
-        <div className="mt-6 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-          <h2 className="max-w-3xl font-headline text-display-lg font-bold text-foreground">{t.heading}</h2>
-          <Link
-            href={to("/#contact")}
-            className="group inline-flex items-center gap-3 text-sm font-medium uppercase tracking-[0.14em] text-primary transition-colors hover:text-foreground"
-          >
-            {t.talkToUs}
-            <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-          </Link>
+    <footer>
+      {/* closing call to action (the home page already ends on its contact form) */}
+      {canonicalPath !== "/" && (
+        <div className="container mx-auto px-5 py-24 text-center sm:px-6 lg:px-8 lg:py-32">
+          <p className="text-[0.9375rem] font-semibold text-primary">{t.nextProject}</p>
+          <h2 className="mx-auto mt-3 max-w-3xl font-headline text-display-lg text-foreground">{t.heading}</h2>
+          <Button asChild size="lg" className="mt-9">
+            <Link href={to("/#contact")}>{t.talkToUs}</Link>
+          </Button>
         </div>
-      </div>
+      )}
 
       {/* link columns */}
-      <div className="border-t border-border">
-        <div className="container mx-auto grid gap-10 px-4 py-14 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
+      <div className="bg-surface text-[0.8125rem] leading-6 text-muted-foreground">
+        <div className="container mx-auto grid gap-10 px-5 py-12 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
           <div>
-            <p className="font-headline text-base font-bold text-foreground">Frata Ingenieros</p>
-            <p className="mt-3 max-w-xs text-sm leading-6 text-muted-foreground">{t.tagline}</p>
+            <p className="font-semibold text-foreground">Frata Ingenieros</p>
+            <p className="mt-2 max-w-xs">{t.tagline}</p>
           </div>
 
           <div>
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">{t.nav.label}</p>
-            <ul className="mt-5 space-y-3 text-sm text-foreground/80">
-              <li><Link href={to("/")} className="transition-colors hover:text-primary">{t.nav.home}</Link></li>
-              <li><Link href={to("/about")} className="transition-colors hover:text-primary">{t.nav.about}</Link></li>
-              <li><Link href={to("/services")} className="transition-colors hover:text-primary">{t.nav.services}</Link></li>
-              <li><Link href={to("/casos")} className="transition-colors hover:text-primary">{t.nav.caseStudies}</Link></li>
-              <li><Link href="/blog" className="transition-colors hover:text-primary">{t.nav.blog}</Link></li>
-              <li><Link href={to("/#contact")} className="transition-colors hover:text-primary">{t.nav.contact}</Link></li>
+            <p className="font-semibold text-foreground">{t.nav.label}</p>
+            <ul className="mt-2 space-y-1.5">
+              <li>
+                <Link href={to("/")} className={linkClass}>
+                  {t.nav.home}
+                </Link>
+              </li>
+              <li>
+                <Link href={to("/about")} className={linkClass}>
+                  {t.nav.about}
+                </Link>
+              </li>
+              <li>
+                <Link href={to("/services")} className={linkClass}>
+                  {t.nav.services}
+                </Link>
+              </li>
+              <li>
+                <Link href={to("/casos")} className={linkClass}>
+                  {t.nav.caseStudies}
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" className={linkClass}>
+                  {t.nav.blog}
+                </Link>
+              </li>
+              <li>
+                <Link href={to("/#contact")} className={linkClass}>
+                  {t.nav.contact}
+                </Link>
+              </li>
             </ul>
           </div>
 
           <div>
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">{t.bimtools.label}</p>
-            <ul className="mt-5 space-y-3 text-sm text-foreground/80">
+            <p className="font-semibold text-foreground">{t.bimtools.label}</p>
+            <ul className="mt-2 space-y-1.5">
               <li>
-                <Link href={to("/bimtools")} className="transition-colors hover:text-primary">
+                <Link href={to("/bimtools")} className={linkClass}>
                   {t.bimtools.allAddins}
                 </Link>
               </li>
               {bimtoolsSuites.map((suite) => (
                 <li key={suite.id}>
-                  <Link href={to(`/bimtools/suite/${suite.id}`)} className="transition-colors hover:text-primary">
+                  <Link href={to(`/bimtools/suite/${suite.id}`)} className={linkClass}>
                     {suite.label}
                   </Link>
                 </li>
               ))}
               <li>
-                <Link href={to("/bimtools/privacy")} className="transition-colors hover:text-primary">
+                <Link href={to("/bimtools/privacy")} className={linkClass}>
                   {t.bimtools.privacy}
                 </Link>
               </li>
@@ -80,31 +106,30 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">{t.followUs}</p>
-            <ul className="mt-5 space-y-3 text-sm text-foreground/80">
+            <p className="font-semibold text-foreground">{t.followUs}</p>
+            <ul className="mt-2 space-y-1.5">
               {SOCIAL_LINKS.map(({ label, href }) => (
                 <li key={label}>
                   <a
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 transition-colors hover:text-primary"
+                    className={`inline-flex items-center gap-1 ${linkClass}`}
                   >
                     {label}
-                    <ArrowUpRight className="h-3.5 w-3.5 opacity-50" />
+                    <ArrowUpRight className="h-3 w-3 opacity-60" aria-hidden />
                   </a>
                 </li>
               ))}
             </ul>
           </div>
         </div>
-      </div>
 
-      {/* bottom bar */}
-      <div className="border-t border-border">
-        <div className="container mx-auto flex flex-col items-center justify-between gap-2 px-4 py-6 sm:flex-row sm:px-6 lg:px-8">
-          <p className="text-xs text-muted-foreground">{t.copyright}</p>
-          <p className="text-xs text-muted-foreground">{t.madeIn}</p>
+        <div className="container mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="flex flex-col justify-between gap-1 border-t border-border py-5 text-xs sm:flex-row">
+            <p>{t.copyright}</p>
+            <p>{t.madeIn}</p>
+          </div>
         </div>
       </div>
     </footer>

@@ -33,7 +33,7 @@ export const aboutContent: Record<Locale, AboutPageContent> = {
       heading: "Ingeniería BIM con capacidad real de desarrollo.",
       intro:
         "Somos una firma peruana que conecta consultoría BIM, modelado, coordinación y software técnico. Nuestro diferencial: las herramientas que ofrecemos las construimos y las usamos en producción propia.",
-      imageAlt: "Equipo de Frata Ingenieros",
+      imageAlt: "Modelo BIM del Estadio de Chepén desarrollado por Frata Ingenieros",
     },
     values: {
       eyebrow: "Cómo trabajamos",
@@ -107,7 +107,7 @@ export const aboutContent: Record<Locale, AboutPageContent> = {
       heading: "BIM engineering with real development capacity.",
       intro:
         "We are a Peruvian firm connecting BIM consulting, modeling, coordination and technical software. Our differentiator: the tools we offer are built and used in our own production.",
-      imageAlt: "Frata Ingenieros team",
+      imageAlt: "BIM model of the Chepén stadium developed by Frata Ingenieros",
     },
     values: {
       eyebrow: "How we work",
@@ -181,7 +181,7 @@ export const aboutContent: Record<Locale, AboutPageContent> = {
       heading: "BIM-Engineering mit echter Entwicklungskompetenz.",
       intro:
         "Wir sind ein peruanisches Unternehmen, das BIM-Beratung, Modellierung, Koordination und technische Software verbindet. Unser Unterschied: Die Werkzeuge, die wir anbieten, bauen und nutzen wir auch in unserer eigenen Produktion.",
-      imageAlt: "Team von Frata Ingenieros",
+      imageAlt: "BIM-Modell des Stadions von Chepén, entwickelt von Frata Ingenieros",
     },
     values: {
       eyebrow: "Wie wir arbeiten",
@@ -257,7 +257,7 @@ export const aboutContent: Record<Locale, AboutPageContent> = {
       heading: "Ingénierie BIM avec une réelle capacité de développement.",
       intro:
         "Nous sommes une entreprise péruvienne qui relie conseil BIM, modélisation, coordination et logiciels techniques. Notre différence : les outils que nous proposons, nous les construisons et les utilisons dans notre propre production.",
-      imageAlt: "Équipe de Frata Ingenieros",
+      imageAlt: "Maquette BIM du stade de Chepén réalisée par Frata Ingenieros",
     },
     values: {
       eyebrow: "Comment nous travaillons",
@@ -334,7 +334,7 @@ export const aboutContent: Record<Locale, AboutPageContent> = {
       heading: "Ingegneria BIM con reale capacità di sviluppo.",
       intro:
         "Siamo un'azienda peruviana che unisce consulenza BIM, modellazione, coordinamento e software tecnico. Il nostro differenziale: gli strumenti che offriamo li costruiamo e li utilizziamo nella nostra stessa produzione.",
-      imageAlt: "Team di Frata Ingenieros",
+      imageAlt: "Modello BIM dello stadio di Chepén sviluppato da Frata Ingenieros",
     },
     values: {
       eyebrow: "Come lavoriamo",
@@ -411,7 +411,7 @@ export const aboutContent: Record<Locale, AboutPageContent> = {
       heading: "Engenharia BIM com capacidade real de desenvolvimento.",
       intro:
         "Somos uma empresa peruana que conecta consultoria BIM, modelagem, coordenação e software técnico. Nosso diferencial: as ferramentas que oferecemos, nós mesmos construímos e usamos em nossa própria produção.",
-      imageAlt: "Equipe da Frata Ingenieros",
+      imageAlt: "Modelo BIM do estádio de Chepén desenvolvido pela Frata Ingenieros",
     },
     values: {
       eyebrow: "Como trabalhamos",
@@ -487,7 +487,7 @@ export const aboutContent: Record<Locale, AboutPageContent> = {
       heading: "BIM-инжиниринг с реальными возможностями разработки.",
       intro:
         "Мы — перуанская компания, объединяющая BIM-консалтинг, моделирование, координацию и техническое программное обеспечение. Наше отличие: инструменты, которые мы предлагаем, мы сами создаём и используем в собственном производстве.",
-      imageAlt: "Команда Frata Ingenieros",
+      imageAlt: "BIM-модель стадиона в Чепене, разработанная Frata Ingenieros",
     },
     values: {
       eyebrow: "Как мы работаем",
@@ -562,7 +562,7 @@ export const aboutContent: Record<Locale, AboutPageContent> = {
       heading: "拥有真正开发能力的 BIM 工程团队。",
       intro:
         "我们是一家秘鲁公司，将 BIM 咨询、建模、协同与技术软件结合在一起。我们的差异化优势在于：我们提供的工具，都是我们自己开发并在实际生产中使用的。",
-      imageAlt: "Frata Ingenieros 团队",
+      imageAlt: "Frata Ingenieros 开发的 Chepén 体育场 BIM 模型",
     },
     values: {
       eyebrow: "我们的工作方式",

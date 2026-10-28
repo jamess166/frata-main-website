@@ -89,7 +89,7 @@ export default function BimtoolsPrivacyPageDe() {
         </PrivacySection>
       </Reveal>
 
-      <Reveal delay={80}>
+      <Reveal>
         <PrivacySection index="02" title="Dritte, mit denen wir Daten teilen">
           <p>
             Frata verkauft Ihre personenbezogenen Daten nicht. Die einzigen Dritten, die am
@@ -124,7 +124,7 @@ export default function BimtoolsPrivacyPageDe() {
         </PrivacySection>
       </Reveal>
 
-      <Reveal delay={160}>
+      <Reveal>
         <PrivacySection index="03" title="Aufbewahrung und Löschung von Daten">
           <p>
             Wir bewahren Ihre Aktivierungs-E-Mail und Ihren Lizenzdatensatz auf, solange Ihr
@@ -146,7 +146,7 @@ export default function BimtoolsPrivacyPageDe() {
         </PrivacySection>
       </Reveal>
 
-      <Reveal delay={240}>
+      <Reveal>
         <PrivacySection
           index="04"
           title="Wie Sie Ihre Einwilligung widerrufen oder die Löschung Ihrer Daten beantragen"
