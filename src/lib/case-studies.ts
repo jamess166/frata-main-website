@@ -1,3 +1,6 @@
+import type { Locale } from "@/lib/locale";
+import { caseStudyTranslations } from "@/content/case-studies-i18n";
+
 export interface CaseMetric {
   value: string;
   label: string;
@@ -141,3 +144,41 @@ export const caseStudies: CaseStudy[] = [
     image: null,
   },
 ];
+
+export interface LocalizedCaseStudy {
+  client: string;
+  sector: string;
+  service: string;
+  challenge: string;
+  solution: string;
+  result: string;
+  metrics: { value: string; label: string }[];
+}
+
+/** Case-study copy in the visitor's language (Spanish, English or src/content/case-studies-i18n.ts). */
+export function localizeCase(cs: CaseStudy, locale: Locale): LocalizedCaseStudy {
+  if (locale === "es") {
+    return { ...cs, metrics: (cs.metrics ?? []).map((m) => ({ value: m.value, label: m.label })) };
+  }
+  const en: LocalizedCaseStudy = {
+    client: cs.clientEn ?? cs.client,
+    sector: cs.sectorEn ?? cs.sector,
+    service: cs.serviceEn ?? cs.service,
+    challenge: cs.challengeEn ?? cs.challenge,
+    solution: cs.solutionEn ?? cs.solution,
+    result: cs.resultEn ?? cs.result,
+    metrics: (cs.metrics ?? []).map((m) => ({ value: m.value, label: m.labelEn })),
+  };
+  if (locale === "en") return en;
+  const t = caseStudyTranslations[cs.slug]?.[locale];
+  if (!t) return en;
+  return {
+    client: t.client ?? cs.client,
+    sector: t.sector,
+    service: t.service,
+    challenge: t.challenge,
+    solution: t.solution,
+    result: t.result,
+    metrics: en.metrics.map((m, i) => ({ value: m.value, label: t.metrics[i] ?? m.label })),
+  };
+}

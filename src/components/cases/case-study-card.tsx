@@ -1,12 +1,11 @@
 import { ThemedImage } from "@/components/site/themed-image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import type { CaseStudy } from "@/lib/case-studies";
-import { resolveBilingual, type Locale } from "@/lib/locale";
+import { localizeCase, type CaseStudy } from "@/lib/case-studies";
+import { type Locale } from "@/lib/locale";
 
 interface CaseStudyCardProps {
   caseStudy: CaseStudy;
-  index?: string;
   locale?: Locale;
 }
 
@@ -21,41 +20,20 @@ const LABELS: Record<Locale, { challenge: string; solution: string; result: stri
   zh: { challenge: "挑战", solution: "解决方案", result: "成果", article: "阅读完整案例" },
 };
 
-export function CaseStudyCard({ caseStudy, index, locale = "es" }: CaseStudyCardProps) {
+export function CaseStudyCard({ caseStudy, locale = "es" }: CaseStudyCardProps) {
   const labels = LABELS[locale];
   const cs = caseStudy;
 
-  // Per-case-study detail text only ever has Spanish/English content; every
-  // other locale falls back to English. Client is only translated when it's
-  // a generic role name ("Consultor Independiente") rather than an actual
-  // company/consortium name, which stays as-is in every language.
-  const client = resolveBilingual(locale, cs.client, cs.clientEn);
-  const sector = resolveBilingual(locale, cs.sector, cs.sectorEn);
-  const service = resolveBilingual(locale, cs.service, cs.serviceEn);
-  const challenge = resolveBilingual(locale, cs.challenge, cs.challengeEn);
-  const solution = resolveBilingual(locale, cs.solution, cs.solutionEn);
-  const result = resolveBilingual(locale, cs.result, cs.resultEn);
+  const { client, sector, service, challenge, solution, result, metrics } = localizeCase(cs, locale);
 
   return (
     <article className="overflow-hidden rounded-tile bg-surface">
-      {cs.image && (
-        <ThemedImage
-          src={cs.image}
-          darkSrc={cs.imageDark}
-          alt={`${client} — ${sector}`}
-          width={2000}
-          height={1125}
-          sizes="(min-width: 1400px) 1340px, 100vw"
-          className="aspect-[16/9] w-full object-cover sm:aspect-[21/9]"
-        />
-      )}
-
-      <div className="p-8 lg:p-12">
+      {/* Title first, so the image below reads as part of this project */}
+      <header className="px-6 pt-8 sm:px-8 lg:px-12 lg:pt-12">
         <p className="text-sm text-muted-foreground">
           {client} · {sector}
         </p>
         <h2 className="mt-2 max-w-3xl font-headline text-display-md text-foreground">{service}</h2>
-
         <ul className="mt-5 flex flex-wrap gap-2">
           {cs.technologies.map((tech) => (
             <li key={tech} className="rounded-full bg-card px-3 py-1 text-xs text-muted-foreground">
@@ -63,18 +41,31 @@ export function CaseStudyCard({ caseStudy, index, locale = "es" }: CaseStudyCard
             </li>
           ))}
         </ul>
+      </header>
 
-        {cs.metrics && cs.metrics.length > 0 && (
-          <div className="mt-10 grid grid-cols-2 gap-8 sm:grid-cols-3">
-            {cs.metrics.map((m) => {
-              const label = resolveBilingual(locale, m.label, m.labelEn);
-              return (
-                <div key={label}>
-                  <p className="font-headline text-5xl font-semibold tracking-[-0.03em] text-foreground">{m.value}</p>
-                  <p className="mt-2 text-sm leading-snug text-muted-foreground">{label}</p>
-                </div>
-              );
-            })}
+      {cs.image && (
+        <div className="mt-8 px-3 sm:px-4 lg:px-6">
+          <ThemedImage
+            src={cs.image}
+            darkSrc={cs.imageDark}
+            alt={`${client} — ${sector}`}
+            width={2000}
+            height={1125}
+            sizes="(min-width: 1200px) 1150px, 100vw"
+            className="aspect-[16/10] w-full rounded-2xl object-cover sm:aspect-[21/9]"
+          />
+        </div>
+      )}
+
+      <div className="px-6 pb-8 pt-8 sm:px-8 lg:px-12 lg:pb-12">
+        {metrics.length > 0 && (
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
+            {metrics.map((m) => (
+              <div key={m.label}>
+                <p className="font-headline text-5xl font-semibold tracking-[-0.03em] text-foreground">{m.value}</p>
+                <p className="mt-2 text-sm leading-snug text-muted-foreground">{m.label}</p>
+              </div>
+            ))}
           </div>
         )}
 

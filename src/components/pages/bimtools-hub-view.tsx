@@ -12,6 +12,17 @@ import { withLocale, type Locale } from "@/lib/locale";
 import type { BimtoolsHubContent } from "@/content/bimtools-hub";
 import { bimtoolsManualDetailContent } from "@/content/bimtools-manual-detail";
 
+const RIBBON_ALT: Record<Locale, string> = {
+  es: "Herramientas BIMtools en la cinta de Revit",
+  en: "BIMtools tools on the Revit ribbon",
+  de: "BIMtools-Werkzeuge in der Revit-Multifunktionsleiste",
+  fr: "Outils BIMtools dans le ruban de Revit",
+  it: "Strumenti BIMtools nella barra multifunzione di Revit",
+  pt: "Ferramentas BIMtools na faixa de opções do Revit",
+  ru: "Инструменты BIMtools на ленте Revit",
+  zh: "Revit 功能区中的 BIMtools 工具",
+};
+
 export function BimtoolsHubView({ locale, content }: { locale: Locale; content: BimtoolsHubContent }) {
   const suites = getBimtoolsSuitesWithManuals();
   const overview = getBimtoolsOverview();
@@ -44,7 +55,7 @@ export function BimtoolsHubView({ locale, content }: { locale: Locale; content: 
           <div className="mx-auto max-w-6xl overflow-hidden rounded-xl shadow-[0_40px_100px_-30px_rgba(0,0,0,0.45)] ring-1 ring-foreground/10">
             <Image
               src="/images/blog/estadio-chepen/planos-revit-arquitectura.webp"
-              alt="BIMtools en la cinta de Revit"
+              alt={RIBBON_ALT[locale]}
               width={1920}
               height={1028}
               priority

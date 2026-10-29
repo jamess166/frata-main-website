@@ -918,4 +918,4 @@ export const homeContent: Record<Locale, HomePageContent> = {
 
 // Locale-neutral: literal tech names and the featured case-study slugs.
 export const techStack = ["Revit API", "C#", ".NET 8", "WPF", "Dynamo", "IFC", "Open BIM"];
-export const featuredCaseSlugs = ["estadio-chepen", "interoperabilidad-tekla-revit", "puente-beirut"];
+export const featuredCaseSlugs = ["estadio-chepen", "oficinas-publicas", "puente-beirut", "interoperabilidad-tekla-revit"];

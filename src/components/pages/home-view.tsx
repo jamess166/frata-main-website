@@ -8,27 +8,12 @@ import { Eyebrow } from "@/components/site/eyebrow";
 import { Reveal } from "@/components/site/reveal";
 import { ThemedImage } from "@/components/site/themed-image";
 import { Stat } from "@/components/site/stat";
-import { caseStudies, type CaseStudy } from "@/lib/case-studies";
+import { caseStudies, localizeCase } from "@/lib/case-studies";
 import { serviceContent, type ServiceSlug } from "@/lib/service-content";
-import { withLocale, resolveBilingual, type Locale } from "@/lib/locale";
+import { withLocale, type Locale } from "@/lib/locale";
 import { techStack, featuredCaseSlugs, type HomePageContent } from "@/content/home";
 
 const WORK = "/images/blog/estadio-chepen";
-
-// Per-case-study detail text only ever has Spanish/English content; every
-// other locale falls back to English (see resolveBilingual).
-function localizedCase(cs: CaseStudy, locale: Locale) {
-  return {
-    client: resolveBilingual(locale, cs.client, cs.clientEn),
-    sector: resolveBilingual(locale, cs.sector, cs.sectorEn),
-    service: resolveBilingual(locale, cs.service, cs.serviceEn),
-    result: resolveBilingual(locale, cs.result, cs.resultEn),
-    metrics: (cs.metrics ?? []).map((m) => ({
-      value: m.value,
-      label: resolveBilingual(locale, m.label, m.labelEn),
-    })),
-  };
-}
 
 // Caption under the hero render, linking to the write-up of that project.
 const HERO_CAPTION: Record<Locale, string> = {
@@ -213,29 +198,39 @@ export function HomeView({ locale, content }: { locale: Locale; content: HomePag
           </Reveal>
 
           <div className="mt-12 grid gap-5 lg:grid-cols-2">
-            {featured.map((cs, i) => {
-              const loc = localizedCase(cs, locale);
-              const wide = i === 0 && cs.image;
+            {featured.map((cs) => {
+              const loc = localizeCase(cs, locale);
               return (
-                <Reveal key={cs.slug} className={wide ? "lg:col-span-2" : undefined}>
+                <Reveal key={cs.slug}>
                   <Link
                     href={withLocale(locale, "/casos")}
-                    className={`group grid h-full overflow-hidden rounded-tile bg-card transition-transform duration-200 ease-out active:scale-[0.99] ${
-                      wide ? "lg:grid-cols-2" : ""
-                    }`}
+                    className="group flex h-full flex-col overflow-hidden rounded-tile bg-card transition-transform duration-200 ease-out active:scale-[0.99]"
                   >
-                    <div className="flex flex-col p-8 lg:p-10">
+                    {cs.image && (
+                      <div className="overflow-hidden px-3 pt-3">
+                        <ThemedImage
+                          src={cs.image}
+                          darkSrc={cs.imageDark}
+                          alt={loc.service}
+                          width={1600}
+                          height={900}
+                          sizes="(min-width: 1024px) 50vw, 100vw"
+                          className="aspect-[16/9] w-full rounded-2xl object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                        />
+                      </div>
+                    )}
+                    <div className="flex flex-1 flex-col p-8 lg:p-10">
                       <p className="text-sm text-muted-foreground">
                         {loc.client} · {loc.sector}
                       </p>
                       <h3 className="mt-2 font-headline text-title text-foreground">{loc.service}</h3>
-                      <p className="mt-3 text-[1.0625rem] leading-relaxed text-muted-foreground">{loc.result}</p>
+                      <p className="mt-3 line-clamp-4 text-[1.0625rem] leading-relaxed text-muted-foreground">{loc.result}</p>
                       {loc.metrics.length > 0 && (
                         <div className="mt-8 grid grid-cols-2 gap-6">
-                          {loc.metrics.map((m) => (
+                          {loc.metrics.slice(0, 2).map((m) => (
                             <div key={m.label}>
-                              <p className="font-headline text-4xl font-semibold tracking-[-0.03em] text-foreground">{m.value}</p>
-                              <p className="mt-1 text-sm leading-snug text-muted-foreground">{m.label}</p>
+                              <p className="font-headline text-3xl font-semibold tracking-[-0.03em] text-foreground">{m.value}</p>
+                              <p className="mt-1 hyphens-auto text-sm leading-snug text-muted-foreground">{m.label}</p>
                             </div>
                           ))}
                         </div>
@@ -248,18 +243,6 @@ export function HomeView({ locale, content }: { locale: Locale; content: HomePag
                         ))}
                       </div>
                     </div>
-                    {wide && (
-                      <div className="relative min-h-[260px] overflow-hidden">
-                        <ThemedImage
-                          src={cs.image!}
-                          darkSrc={cs.imageDark}
-                          alt={loc.service}
-                          fill
-                          sizes="(min-width: 1024px) 50vw, 100vw"
-                          className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
-                        />
-                      </div>
-                    )}
                   </Link>
                 </Reveal>
               );

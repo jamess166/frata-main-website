@@ -21,7 +21,7 @@ export function CasosView({ locale, content }: { locale: Locale; content: CasosP
       </section>
 
       <section>
-        <div className="container mx-auto space-y-5 px-5 pb-8 sm:px-6 lg:px-10">
+        <div className="container mx-auto space-y-12 px-5 pb-8 sm:px-6 lg:space-y-20 lg:px-10">
           {caseStudies.map((cs) => (
             <Reveal key={cs.slug}>
               <CaseStudyCard caseStudy={cs} locale={locale} />

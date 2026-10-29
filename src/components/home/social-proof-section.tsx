@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Reveal } from "@/components/site/reveal";
 import { resolveBilingual, type Locale } from "@/lib/locale";
+import { testimonialTranslations } from "@/content/case-studies-i18n";
 
 interface SocialProofSectionProps {
   locale?: Locale;
@@ -26,7 +27,6 @@ const TESTIMONIALS = [
     role: "Jefe de Oficina Técnica",
     roleEn: "Head of Technical Office",
     company: "5yMas",
-    country: "Perú",
   },
   {
     text: "Los addins que han creado son de mucha ayuda en mi trabajo del día a día, mejorando mis entregables en calidad y tiempos.",
@@ -36,7 +36,6 @@ const TESTIMONIALS = [
     role: "Ingeniero de Detalle",
     roleEn: "Detailing Engineer",
     company: "Ferralia",
-    country: "Perú",
   },
   {
     text: "La atención personalizada y las actualizaciones constantes han sido muy satisfactorias. La compatibilidad entre versiones de Revit me ha permitido usar sus addins en todos mis proyectos.",
@@ -46,9 +45,26 @@ const TESTIMONIALS = [
     role: "",
     roleEn: "",
     company: "CASA",
-    country: "Perú",
   },
 ];
+
+const PERU: Record<Locale, string> = {
+  es: "Perú",
+  en: "Peru",
+  de: "Peru",
+  fr: "Pérou",
+  it: "Perù",
+  pt: "Peru",
+  ru: "Перу",
+  zh: "秘鲁",
+};
+
+function localizeTestimonial(t: (typeof TESTIMONIALS)[number], locale: Locale) {
+  if (locale === "es" || locale === "en") {
+    return { text: resolveBilingual(locale, t.text, t.textEn), role: resolveBilingual(locale, t.role, t.roleEn) };
+  }
+  return testimonialTranslations[t.name]?.[locale] ?? { text: t.textEn, role: t.roleEn };
+}
 
 const CLIENT_LOGOS: { src: string; alt: string }[] = [
   { src: "/images/clients/cincoymas.png", alt: "Cincoymas Estudio Técnico" },
@@ -68,8 +84,7 @@ export function SocialProofSection({ locale = "es" }: SocialProofSectionProps) {
 
         <div className="mt-12 grid gap-5 md:grid-cols-3">
           {TESTIMONIALS.map((t) => {
-            const text = resolveBilingual(locale, t.text, t.textEn);
-            const role = resolveBilingual(locale, t.role, t.roleEn);
+            const { text, role } = localizeTestimonial(t, locale);
             return (
               <Reveal key={t.name} className="h-full">
                 <blockquote className="flex h-full flex-col rounded-tile bg-surface p-8">
@@ -78,7 +93,7 @@ export function SocialProofSection({ locale = "es" }: SocialProofSectionProps) {
                     <p className="text-[0.9375rem] font-semibold text-foreground">{t.name}</p>
                     <p className="mt-0.5 text-sm text-muted-foreground">
                       {role ? `${role} · ` : ""}
-                      {t.company}, {t.country}
+                      {t.company}, {PERU[locale]}
                     </p>
                   </footer>
                 </blockquote>
