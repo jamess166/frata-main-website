@@ -58,27 +58,28 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "oficinas-publicas",
     client: "Consorcio Trece de Octubre",
-    sector: "Oficinas públicas",
-    sectorEn: "Public offices",
-    service: "Modelado BIM y generación de documentación técnica",
-    serviceEn: "BIM modeling and technical documentation",
-    technologies: ["Revit", "FrataTools"],
+    sector: "Edificio institucional de oficinas",
+    sectorEn: "Institutional office building",
+    service: "Modelado BIM, coordinación y metrados para expediente técnico",
+    serviceEn: "BIM modeling, coordination and quantity take-offs for a technical package",
+    technologies: ["Revit", "Navisworks", "Trimble Connect", "FrataTools"],
     challenge:
-      "El cliente necesitaba desarrollar la documentación técnica del expediente a partir de modelos BIM, manteniendo una comunicación fluida con los especialistas y asegurando que los planos respondieran directamente a la información del modelo.",
+      "El expediente técnico debía desarrollarse con metodología BIM bajo un Plan de Ejecución BIM alineado a la ISO 19650: modelos de anteproyecto en LOD 2, modelos del expediente definitivo en LOD 3 para todas las especialidades y metrados obtenidos del modelo, todo con comunicación fluida con los especialistas diseñadores.",
     challengeEn:
-      "The client needed the package's technical documentation developed from BIM models, keeping fluid communication with the specialists and ensuring drawings answered directly to model information.",
+      "The technical package had to be developed with BIM under a BIM Execution Plan aligned with ISO 19650: LOD 2 models for the preliminary design, LOD 3 models of every discipline for the final package, and quantities taken from the model, all in close contact with the design specialists.",
     solution:
-      "Se implementó un equipo BIM remoto dedicado al proyecto, encargado de acompañar a los especialistas durante el proceso de diseño. A partir de sus esquemas, criterios técnicos y avances de especialidad, se desarrollaron los modelos BIM y se generó la documentación gráfica correspondiente. Este enfoque permitió centralizar la información del proyecto en modelos coordinados, evitando retrabajos derivados de flujos tradicionales basados únicamente en CAD.",
+      "Elaboramos el Plan de Ejecución BIM y conformamos un equipo BIM remoto dedicado que acompañó a los especialistas durante el diseño. Modelamos en Revit arquitectura, estructuras e instalaciones, coordinamos interferencias en Navisworks en sesiones de trabajo con las especialidades y compartimos modelos y documentos en Trimble Connect como entorno común de datos. Los metrados de estructuras se obtuvieron del modelo, ordenados según el itemizado del presupuesto en Excel y contrastados con metrados manuales.",
     solutionEn:
-      "A dedicated remote BIM team accompanied the specialists throughout design. From their schematics, technical criteria and discipline progress, we built the BIM models and generated the corresponding drawing documentation. The approach centralized project information in coordinated models, avoiding reworks typical of CAD-only workflows.",
+      "We wrote the BIM Execution Plan and set up a dedicated remote BIM team that worked alongside the specialists throughout design. We modeled architecture, structures and MEP in Revit, coordinated clashes in Navisworks in working sessions with each discipline, and shared models and documents in Trimble Connect as the common data environment. Structural quantities were taken from the model, organized by the budget's item list in Excel and checked against manual take-offs.",
     result:
-      "El expediente técnico fue desarrollado utilizando metodología BIM, mejorando la coordinación entre especialidades y optimizando la generación de planos. Como resultado, se obtuvo un entregable técnico más consistente, compatibilizado y alineado con los requerimientos del proyecto.",
+      "La documentación gráfica del expediente se generó desde modelos coordinados, con mejor compatibilidad entre especialidades y metrados trazables al modelo, evitando los retrabajos de un flujo basado solo en CAD.",
     resultEn:
-      "The technical package was developed with BIM methodology, improving coordination between disciplines and streamlining drawing production. The result: a more consistent, reconciled deliverable aligned with project requirements.",
+      "The package's drawings were produced from coordinated models, with better consistency between disciplines and quantities traceable to the model, avoiding the rework of a CAD-only workflow.",
     metrics: [
+      { value: "LOD 3", label: "modelos del expediente definitivo", labelEn: "models for the final package" },
       { value: "1", label: "fuente de información: el modelo", labelEn: "single source of truth: the model" },
     ],
-    image: null,
+    image: "/images/casos/oficinas-modelo-3d.webp",
   },
   {
     slug: "puente-beirut",
