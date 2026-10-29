@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { ThemedImage } from "@/components/site/themed-image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import type { CaseStudy } from "@/lib/case-studies";
@@ -39,8 +39,9 @@ export function CaseStudyCard({ caseStudy, index, locale = "es" }: CaseStudyCard
   return (
     <article className="overflow-hidden rounded-tile bg-surface">
       {cs.image && (
-        <Image
+        <ThemedImage
           src={cs.image}
+          darkSrc={cs.imageDark}
           alt={`${client} — ${sector}`}
           width={2000}
           height={1125}

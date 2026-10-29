@@ -21,6 +21,8 @@ export interface CaseStudy {
   resultEn?: string;
   metrics?: CaseMetric[];
   image: string | null;
+  /** Optional variant of `image` shown in dark mode. */
+  imageDark?: string;
   /** Optional blog write-up with the full story of the project. */
   articleHref?: string;
 }
@@ -107,7 +109,8 @@ export const caseStudies: CaseStudy[] = [
       { value: "HL-93", label: "sobrecarga de diseño, dos carriles", labelEn: "design live load, two lanes" },
       { value: "120", label: "días calendario de ejecución de obra", labelEn: "calendar days of construction" },
     ],
-    image: "/images/casos/puente-beirut-perfil.webp",
+    image: "/images/casos/puente-bongora-claro.webp",
+    imageDark: "/images/casos/puente-bongora-oscuro.webp",
   },
   {
     slug: "interoperabilidad-tekla-revit",

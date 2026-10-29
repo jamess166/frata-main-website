@@ -250,8 +250,9 @@ export function HomeView({ locale, content }: { locale: Locale; content: HomePag
                     </div>
                     {wide && (
                       <div className="relative min-h-[260px] overflow-hidden">
-                        <Image
+                        <ThemedImage
                           src={cs.image!}
+                          darkSrc={cs.imageDark}
                           alt={loc.service}
                           fill
                           sizes="(min-width: 1024px) 50vw, 100vw"
