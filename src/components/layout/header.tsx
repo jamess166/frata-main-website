@@ -13,6 +13,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { LocaleSwitcher } from "@/components/layout/locale-switcher";
+import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { headerContent } from "@/content/header";
 import { serviceContent } from "@/lib/service-content";
 import { detectLocale, withLocale, type Locale } from "@/lib/locale";
@@ -180,32 +181,36 @@ export function Header() {
             <NavLink href={bimtoolsHref} pathname={pathname}>{t.bimtools}</NavLink>
           </nav>
 
-          <div className="hidden items-center gap-3 md:flex">
+          <div className="hidden items-center gap-2 md:flex">
+            <ThemeToggle labels={{ toLight: t.themeToLight, toDark: t.themeToDark }} />
             <LocaleSwitcher />
             <Button asChild size="sm">
               <Link href={contactHref}>{t.contact}</Link>
             </Button>
           </div>
 
-          {/* mobile: two-line menu toggle that morphs into a close mark */}
-          <button
-            onClick={() => setMobileOpen((open) => !open)}
-            className="relative -mr-2 flex h-11 w-11 items-center justify-center text-foreground md:hidden"
-            aria-label={mobileOpen ? t.closeMenuAria : t.openMenuAria}
-            aria-expanded={mobileOpen}
-            aria-controls="mobile-menu"
-          >
-            <span
-              className={`absolute h-[1.5px] w-[18px] rounded-full bg-current transition-transform duration-300 ease-out ${
-                mobileOpen ? "rotate-45" : "-translate-y-[3.5px]"
-              }`}
-            />
-            <span
-              className={`absolute h-[1.5px] w-[18px] rounded-full bg-current transition-transform duration-300 ease-out ${
-                mobileOpen ? "-rotate-45" : "translate-y-[3.5px]"
-              }`}
-            />
-          </button>
+          {/* mobile: theme toggle + two-line menu toggle that morphs into a close mark */}
+          <div className="-mr-2 flex items-center md:hidden">
+            <ThemeToggle labels={{ toLight: t.themeToLight, toDark: t.themeToDark }} className="h-11 w-11" />
+            <button
+              onClick={() => setMobileOpen((open) => !open)}
+              className="relative flex h-11 w-11 items-center justify-center text-foreground"
+              aria-label={mobileOpen ? t.closeMenuAria : t.openMenuAria}
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-menu"
+            >
+              <span
+                className={`absolute h-[1.5px] w-[18px] rounded-full bg-current transition-transform duration-300 ease-out ${
+                  mobileOpen ? "rotate-45" : "-translate-y-[3.5px]"
+                }`}
+              />
+              <span
+                className={`absolute h-[1.5px] w-[18px] rounded-full bg-current transition-transform duration-300 ease-out ${
+                  mobileOpen ? "-rotate-45" : "translate-y-[3.5px]"
+                }`}
+              />
+            </button>
+          </div>
         </div>
       </header>
 

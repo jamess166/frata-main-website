@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/footer";
 import { Toaster } from "@/components/ui/toaster";
 import { LocaleHtmlLang } from "@/components/layout/locale-html-lang";
 import { SkipToContentLink } from "@/components/layout/skip-to-content-link";
+import { THEME_INIT_SCRIPT } from "@/lib/theme";
 
 export const viewport: Viewport = {
   colorScheme: "light dark",
@@ -76,8 +77,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" translate="no" className="notranslate">
+    // data-theme is set by THEME_INIT_SCRIPT before hydration, hence suppressHydrationWarning.
+    <html lang="es" translate="no" className="notranslate" suppressHydrationWarning>
       <body className="bg-background text-foreground">
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
         <LocaleHtmlLang />
         <SkipToContentLink />
         <div className="flex min-h-screen flex-col">

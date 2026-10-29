@@ -37,6 +37,8 @@
     --material-solid: 0 0% 100%;
 
     /* System type: SF Pro on Apple devices, Segoe UI Variable on Windows. */
+    color-scheme: light;
+
     --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI Variable Text", "Segoe UI",
       Roboto, "Helvetica Neue", Arial, sans-serif;
     --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI Variable Display", "Segoe UI",
@@ -46,8 +48,39 @@
     --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   }
 
+  /* Dark palette: when the visitor picks dark with the header toggle, or when the
+     OS is dark and no choice was made (data-theme is set before first paint). */
+  :root[data-theme="dark"] {
+    --background: 0 0% 0%;
+    --foreground: 240 7% 96%;
+    --surface: 240 3% 7%;
+    --card: 240 3% 11%;
+    --card-foreground: 240 7% 96%;
+    --popover: 240 3% 11%;
+    --popover-foreground: 240 7% 96%;
+    --primary: 210 100% 62%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 3% 15%;
+    --secondary-foreground: 240 7% 96%;
+    --muted: 240 3% 15%;
+    --muted-foreground: 240 3% 64%;
+    --accent: 240 3% 18%;
+    --accent-foreground: 240 7% 96%;
+    --border: 240 3% 22%;
+    --input: 240 3% 28%;
+    --ring: 210 100% 62%;
+    --chart-1: 210 100% 62%;
+    --chart-2: 240 7% 96%;
+    --chart-3: 240 3% 64%;
+    --chart-4: 210 80% 40%;
+    --chart-5: 240 3% 35%;
+    --material: 0 0% 0% / 0.7;
+    --material-solid: 0 0% 0%;
+    color-scheme: dark;
+  }
+
   @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not([data-theme]) {
       --background: 0 0% 0%;
       --foreground: 240 7% 96%;
       --surface: 240 3% 7%;
@@ -73,6 +106,7 @@
       --chart-5: 240 3% 35%;
       --material: 0 0% 0% / 0.7;
       --material-solid: 0 0% 0%;
+      color-scheme: dark;
     }
   }
 

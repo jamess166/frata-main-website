@@ -12,6 +12,8 @@ export interface HeaderContent {
   allServices: string;
   openMenuAria: string;
   closeMenuAria: string;
+  themeToLight: string;
+  themeToDark: string;
 }
 
 export const headerContent: Record<Locale, HeaderContent> = {
@@ -27,6 +29,8 @@ export const headerContent: Record<Locale, HeaderContent> = {
     allServices: "Ver todos",
     openMenuAria: "Abrir menú",
     closeMenuAria: "Cerrar menú",
+    themeToLight: "Cambiar a modo claro",
+    themeToDark: "Cambiar a modo oscuro",
   },
   en: {
     home: "Home",
@@ -40,6 +44,8 @@ export const headerContent: Record<Locale, HeaderContent> = {
     allServices: "All services",
     openMenuAria: "Open menu",
     closeMenuAria: "Close menu",
+    themeToLight: "Switch to light mode",
+    themeToDark: "Switch to dark mode",
   },
   de: {
     home: "Startseite",
@@ -53,6 +59,8 @@ export const headerContent: Record<Locale, HeaderContent> = {
     allServices: "Alle Leistungen ansehen",
     openMenuAria: "Menü öffnen",
     closeMenuAria: "Menü schließen",
+    themeToLight: "Zum hellen Modus wechseln",
+    themeToDark: "Zum dunklen Modus wechseln",
   },
   fr: {
     home: "Accueil",
@@ -66,6 +74,8 @@ export const headerContent: Record<Locale, HeaderContent> = {
     allServices: "Voir tous les services",
     openMenuAria: "Ouvrir le menu",
     closeMenuAria: "Fermer le menu",
+    themeToLight: "Passer en mode clair",
+    themeToDark: "Passer en mode sombre",
   },
   it: {
     home: "Home",
@@ -79,6 +89,8 @@ export const headerContent: Record<Locale, HeaderContent> = {
     allServices: "Vedi tutti i servizi",
     openMenuAria: "Apri il menu",
     closeMenuAria: "Chiudi il menu",
+    themeToLight: "Passa alla modalità chiara",
+    themeToDark: "Passa alla modalità scura",
   },
   pt: {
     home: "Início",
@@ -92,6 +104,8 @@ export const headerContent: Record<Locale, HeaderContent> = {
     allServices: "Ver todos os serviços",
     openMenuAria: "Abrir menu",
     closeMenuAria: "Fechar menu",
+    themeToLight: "Mudar para o modo claro",
+    themeToDark: "Mudar para o modo escuro",
   },
   ru: {
     home: "Главная",
@@ -105,6 +119,8 @@ export const headerContent: Record<Locale, HeaderContent> = {
     allServices: "Смотреть все услуги",
     openMenuAria: "Открыть меню",
     closeMenuAria: "Закрыть меню",
+    themeToLight: "Включить светлую тему",
+    themeToDark: "Включить тёмную тему",
   },
   zh: {
     home: "首页",
@@ -118,5 +134,7 @@ export const headerContent: Record<Locale, HeaderContent> = {
     allServices: "查看全部服务",
     openMenuAria: "打开菜单",
     closeMenuAria: "关闭菜单",
+    themeToLight: "切换到浅色模式",
+    themeToDark: "切换到深色模式",
   },
 };
