@@ -81,7 +81,8 @@ export const caseStudies: CaseStudy[] = [
       { value: "LOD 3", label: "modelos del expediente definitivo", labelEn: "models for the final package" },
       { value: "1", label: "fuente de información: el modelo", labelEn: "single source of truth: the model" },
     ],
-    image: "/images/casos/oficinas-modelo-3d.webp",
+    image: "/images/casos/oficinas-claro.webp",
+    imageDark: "/images/casos/oficinas-oscuro.webp",
   },
   {
     slug: "puente-beirut",
