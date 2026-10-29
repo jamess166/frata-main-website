@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { LocaleHtmlLang } from "@/components/layout/locale-html-lang";
 import { SkipToContentLink } from "@/components/layout/skip-to-content-link";
 import { THEME_INIT_SCRIPT } from "@/lib/theme";
+import { Analytics } from "@/components/layout/analytics";
 
 export const viewport: Viewport = {
   colorScheme: "light dark",
@@ -89,6 +90,7 @@ export default function RootLayout({
           <Footer />
         </div>
         <Toaster />
+        <Analytics />
       </body>
     </html>
   );

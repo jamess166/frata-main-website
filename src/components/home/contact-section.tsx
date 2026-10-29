@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
+import { trackEvent } from "@/lib/analytics";
 import { Eyebrow } from "@/components/site/eyebrow";
 import type { Locale } from "@/lib/locale";
 
@@ -153,12 +154,15 @@ export function HomeContactSection({ locale = "es" }: { locale?: Locale }) {
   useEffect(() => {
     if (!state.succeeded) return;
 
+    // Key event for Google Analytics / Google Ads conversion tracking.
+    trackEvent("generate_lead", { form: "contact", locale });
+
     toast({
       title: copy.successTitle,
       description: copy.successDescription,
     });
     formRef.current?.reset();
-  }, [copy.successDescription, copy.successTitle, state.succeeded, toast]);
+  }, [copy.successDescription, copy.successTitle, locale, state.succeeded, toast]);
 
   const field =
     "h-12 rounded-xl border-input bg-background px-4 text-[1.0625rem] shadow-none transition-[border-color,box-shadow] duration-200 focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/15 focus-visible:ring-offset-0";
