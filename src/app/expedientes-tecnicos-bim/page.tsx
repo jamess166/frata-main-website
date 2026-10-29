@@ -230,8 +230,9 @@ export default function ExpedientesTecnicosBimPage() {
             </h2>
             <p className="mt-5 text-[1.0625rem] leading-relaxed text-muted-foreground">
               En este expediente técnico de inversión pública participamos como consultores BIM: asumimos el modelado
-              BIM de las especialidades, la extracción de metrados y la generación de planos durante la elaboración
-              del expediente. El servicio se encuentra en ejecución.
+              BIM, con un modelo por especialidad (estructuras, arquitectura, instalaciones eléctricas, instalaciones
+              sanitarias, comunicaciones y evacuación y señalización), la extracción de metrados y la generación de
+              planos durante la elaboración del expediente. El servicio se encuentra en ejecución.
             </p>
             <ul className="mt-6 space-y-3">
               {[

@@ -27,7 +27,7 @@ export const caseStudyTranslations: Record<string, Record<OtherLocale, CaseStudy
       challenge:
         "Die Ausführungsplanung muss aus BIM-Modellen entstehen – mit abgestimmten Fachdisziplinen, konsistenten Plänen und Mengenermittlungen, die sich bei der Prüfung nachvollziehen lassen.",
       solution:
-        "Als BIM-Berater übernehmen wir die BIM-Modellierung der Fachdisziplinen, die Mengenermittlung und die Planerstellung während der Ausarbeitung. Gemeinsam mit den Fachplanern setzen wir deren technische Vorgaben in LOD-3-Modelle bis zur Bewehrung um und nutzen eigene Add-ins, um Modelldaten zu füllen und Mengen zu exportieren. Das Modell ist außerdem mit dem Terminplan verknüpft, um den Bauablauf in 4D zu simulieren.",
+        "Als BIM-Berater übernehmen wir die BIM-Modellierung, die Mengenermittlung und die Planerstellung während der Ausarbeitung. Wir erstellen ein Modell pro Fachdisziplin: Tragwerk, Architektur, Elektroinstallation, Sanitärinstallation, Kommunikationstechnik sowie Fluchtwege und Beschilderung – alle in LOD 3, das Tragwerk bis zur Bewehrung. Gemeinsam mit den Fachplanern arbeiten wir mit eigenen Add-ins, die Modelldaten füllen und Mengen exportieren, und führen die Modelle zur Koordination in einem Koordinationsmodell zusammen. Die Modelle sind außerdem mit dem Terminplan verknüpft, um den Bauablauf in 4D zu simulieren.",
       result:
         "Das Projekt läuft noch. Pläne und Mengen werden mit Rückverfolgbarkeit bis zum einzelnen Bauteil aus den Modellen erzeugt, sodass die Unterlagen abgestimmt bleiben, während sich der Entwurf weiterentwickelt.",
       metrics: ["Modellierung bis zur Bewehrung", "Aufgabenbereiche: Modellierung, Mengen und Pläne"],
@@ -39,7 +39,7 @@ export const caseStudyTranslations: Record<string, Record<OtherLocale, CaseStudy
       challenge:
         "Le dossier technique doit être produit à partir de maquettes BIM, avec une coordination entre disciplines, des plans cohérents et des métrés vérifiables lors de la revue.",
       solution:
-        "En tant que consultants BIM, nous prenons en charge la modélisation BIM des disciplines, les métrés et la production des plans pendant l'élaboration du dossier. Avec les ingénieurs concepteurs, nous traduisons leurs critères techniques en maquettes LOD 3 jusqu'aux armatures, et nos propres add-ins renseignent les données du modèle et exportent les métrés. La maquette est aussi liée au planning pour simuler en 4D la séquence de construction.",
+        "En tant que consultants BIM, nous prenons en charge la modélisation BIM, les métrés et la production des plans pendant l'élaboration du dossier. Nous réalisons une maquette par discipline : structure, architecture, électricité, plomberie, courants faibles, et évacuation et signalétique, toutes en LOD 3 et, pour la structure, jusqu'aux armatures. Avec les ingénieurs concepteurs, nos propres add-ins renseignent les données des maquettes et exportent les métrés, et nous fédérons les maquettes pour les coordonner. Les maquettes sont aussi liées au planning pour simuler en 4D la séquence de construction.",
       result:
         "La mission est en cours. Les plans et les métrés sont générés depuis les maquettes avec une traçabilité par élément, ce qui garde la documentation coordonnée à mesure que le projet évolue.",
       metrics: ["modélisation jusqu'aux armatures", "volets pris en charge : modélisation, métrés et plans"],
@@ -51,7 +51,7 @@ export const caseStudyTranslations: Record<string, Record<OtherLocale, CaseStudy
       challenge:
         "Il progetto esecutivo deve nascere da modelli BIM, con coordinamento tra le discipline, tavole coerenti e computi verificabili in fase di revisione.",
       solution:
-        "Come consulenti BIM curiamo la modellazione BIM delle discipline, i computi e la produzione delle tavole durante l'elaborazione del progetto. Insieme ai progettisti trasformiamo i loro criteri tecnici in modelli LOD 3 fino alle armature, con add-in proprietari che compilano i dati del modello ed esportano le quantità. Il modello è inoltre collegato al cronoprogramma per simulare in 4D la sequenza costruttiva.",
+        "Come consulenti BIM curiamo la modellazione BIM, i computi e la produzione delle tavole durante l'elaborazione del progetto. Sviluppiamo un modello per disciplina: strutture, architettura, impianti elettrici, impianti idrico-sanitari, telecomunicazioni, ed esodo e segnaletica, tutti in LOD 3 e, per le strutture, fino alle armature. Insieme ai progettisti usiamo add-in proprietari che compilano i dati dei modelli ed esportano le quantità, e federiamo i modelli per coordinarli. I modelli sono inoltre collegati al cronoprogramma per simulare in 4D la sequenza costruttiva.",
       result:
         "L'incarico è in corso. Tavole e quantità sono generate dai modelli con tracciabilità per singolo elemento, mantenendo la documentazione coordinata mentre il progetto evolve.",
       metrics: ["modellazione fino alle armature", "ambiti seguiti: modellazione, computi e tavole"],
@@ -63,7 +63,7 @@ export const caseStudyTranslations: Record<string, Record<OtherLocale, CaseStudy
       challenge:
         "O projeto executivo precisa ser produzido a partir de modelos BIM, com coordenação entre disciplinas, pranchas consistentes e quantitativos que possam ser verificados na revisão.",
       solution:
-        "Como consultores BIM, assumimos a modelagem BIM das disciplinas, a extração de quantitativos e a geração de pranchas durante a elaboração do projeto. Junto com os projetistas, transformamos seus critérios técnicos em modelos LOD 3 até a armadura, com add-ins próprios para preencher os dados do modelo e exportar quantitativos. O modelo também é vinculado ao cronograma para simular em 4D a sequência construtiva.",
+        "Como consultores BIM, assumimos a modelagem BIM, a extração de quantitativos e a geração de pranchas durante a elaboração do projeto. Desenvolvemos um modelo por disciplina: estruturas, arquitetura, instalações elétricas, instalações hidrossanitárias, comunicações, e evacuação e sinalização, todos em LOD 3 e, em estruturas, até a armadura. Junto com os projetistas, usamos add-ins próprios para preencher os dados dos modelos e exportar quantitativos, e federamos os modelos para coordená-los. Os modelos também são vinculados ao cronograma para simular em 4D a sequência construtiva.",
       result:
         "O serviço está em andamento. Pranchas e quantitativos são gerados a partir dos modelos com rastreabilidade por elemento, mantendo a documentação coordenada à medida que o projeto evolui.",
       metrics: ["modelagem até a armadura", "frentes sob nossa responsabilidade: modelagem, quantitativos e pranchas"],
@@ -75,7 +75,7 @@ export const caseStudyTranslations: Record<string, Record<OtherLocale, CaseStudy
       challenge:
         "Рабочая документация должна создаваться на основе BIM-моделей: с координацией разделов, согласованными чертежами и объёмами работ, которые можно проверить при экспертизе.",
       solution:
-        "Как BIM-консультанты мы ведём BIM-моделирование разделов, подсчёт объёмов и выпуск чертежей в ходе разработки документации. Вместе с проектировщиками мы превращаем их технические решения в модели LOD 3 вплоть до арматуры, а собственные надстройки заполняют данные модели и выгружают объёмы. Модель также связана с графиком для 4D-моделирования последовательности строительства.",
+        "Как BIM-консультанты мы ведём BIM-моделирование, подсчёт объёмов и выпуск чертежей в ходе разработки документации. Для каждого раздела создаётся своя модель: конструкции, архитектура, электроснабжение, водоснабжение и канализация, связь, а также эвакуация и знаки безопасности — все в LOD 3, а конструкции — вплоть до арматуры. Вместе с проектировщиками мы используем собственные надстройки для заполнения данных моделей и выгрузки объёмов и объединяем модели в сводную для координации. Модели также связаны с графиком для 4D-моделирования последовательности строительства.",
       result:
         "Работы продолжаются. Чертежи и объёмы формируются из моделей с прослеживаемостью до каждого элемента, поэтому документация остаётся согласованной по мере развития проекта.",
       metrics: ["моделирование вплоть до арматуры", "направления в нашей ответственности: модели, объёмы и чертежи"],
@@ -86,7 +86,7 @@ export const caseStudyTranslations: Record<string, Record<OtherLocale, CaseStudy
       service: "公共投资项目施工图设计的 BIM 咨询",
       challenge: "施工图设计需要基于 BIM 模型完成：各专业协调一致，图纸前后统一，工程量在审查时可核对。",
       solution:
-        "作为 BIM 顾问，我们在施工图编制期间负责各专业的 BIM 建模、工程量提取和出图。我们与设计专家协作，将其技术要求转化为细化到钢筋的 LOD 3 模型，并用自研插件填写模型信息、导出工程量。模型还与进度计划关联，用于 4D 模拟施工顺序。",
+        "作为 BIM 顾问，我们在施工图编制期间负责 BIM 建模、工程量提取和出图。每个专业都有独立的模型：结构、建筑、电气、给排水、通信以及疏散与标识，全部达到 LOD 3，结构模型细化到钢筋。我们与设计专家协作，用自研插件填写模型信息、导出工程量，并将各专业模型整合为协调模型。这些模型还与进度计划关联，用于 4D 模拟施工顺序。",
       result: "服务正在进行中。图纸和工程量均由模型生成，并可追溯到每个构件，使文档在设计演进过程中保持协调。",
       metrics: ["建模细化到钢筋", "我们负责的工作：建模、工程量和图纸"],
     },

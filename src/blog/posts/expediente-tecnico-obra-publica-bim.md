@@ -20,7 +20,7 @@ En este artículo contamos **cómo lo hacemos en la práctica**, con un proyecto
 
 En este proyecto participamos como **consultores BIM**. Durante la elaboración del expediente técnico asumimos tres frentes completos:
 
-- El **modelado BIM** de todas las especialidades.
+- El **modelado BIM**, con un modelo independiente por cada especialidad.
 - La **extracción de metrados** desde los modelos.
 - La **generación de planos** a partir de los modelos.
 
@@ -37,9 +37,18 @@ El trabajo se rige por un **Plan de Ejecución BIM (BEP)** alineado a la **Guía
 
 ## Modelado LOD 3, hasta el acero de refuerzo
 
-Modelamos las especialidades en **Autodesk Revit** con un nivel de detalle **LOD 3**, es decir, con elementos representados de forma precisa: arquitectura, estructuras e instalaciones.
+No trabajamos con un único modelo: cada especialidad tiene **su propio modelo en Autodesk Revit**, todos con un nivel de detalle **LOD 3**, es decir, con elementos representados de forma precisa:
 
-En concreto armado llevamos el modelo **hasta el acero de refuerzo**. Eso permite revisar en 3D la congestión de armaduras en nudos y graderías, y obtener del modelo las cantidades de acero que de otra forma se calculan a mano en planillas de corte y doblado.
+- **Estructuras**
+- **Arquitectura**
+- **Instalaciones eléctricas**
+- **Instalaciones sanitarias**
+- **Comunicaciones**
+- **Evacuación y señalización**
+
+Cada modelo se desarrolla y se controla por separado, con su responsable y su propia codificación según el Plan de Ejecución BIM. Los modelos se vinculan entre sí, por ejemplo arquitectura con estructuras para descontar columnas y vigas de los muros, y se integran en un **modelo federado** en Navisworks para coordinar las especialidades y detectar interferencias.
+
+En el modelo de estructuras llevamos el concreto armado **hasta el acero de refuerzo**. Eso permite revisar en 3D la congestión de armaduras en nudos y graderías, y obtener del modelo las cantidades de acero que de otra forma se calculan a mano en planillas de corte y doblado.
 
 ![Modelo de acero de refuerzo de cimentaciones, muros y vigas en Revit](/images/blog/estadio-chepen/modelo-acero-refuerzo.webp)
 
@@ -49,7 +58,7 @@ Modelar el refuerzo a mano en Revit es muy lento, así que lo automatizamos con 
 
 ## Simulación 4D
 
-El modelo también se vincula al **cronograma**: cada grupo de elementos se asocia a su actividad, y así se simula en 4D la secuencia constructiva. Esto permite revisar el orden de ejecución, detectar actividades que se superponen en un mismo frente y comunicar el plan de obra de forma visual.
+Los modelos también se vinculan al **cronograma**: cada grupo de elementos se asocia a su actividad, y así se simula en 4D la secuencia constructiva. Esto permite revisar el orden de ejecución, detectar actividades que se superponen en un mismo frente y comunicar el plan de obra de forma visual.
 
 ## Toda la información 2D sale del modelo
 
