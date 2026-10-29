@@ -79,14 +79,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <p className="mt-5 text-xl leading-relaxed text-muted-foreground">{post.summary}</p>
       </header>
 
-      <div className="container mx-auto mt-12 max-w-6xl px-5 sm:px-6">
+      <div className="container mx-auto mt-12 max-w-3xl px-5 sm:px-6">
         <Image
           src={post.image}
           alt={post.title}
           width={2000}
           height={1125}
           priority
-          sizes="(min-width: 1200px) 1100px, 100vw"
+          sizes="(min-width: 768px) 720px, 100vw"
           className="w-full rounded-tile object-cover"
         />
       </div>

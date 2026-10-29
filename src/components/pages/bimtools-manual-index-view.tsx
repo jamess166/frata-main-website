@@ -19,7 +19,7 @@ export function BimtoolsManualIndexView({
   return (
     <>
       <section>
-        <div className="container mx-auto px-5 pb-12 pt-16 sm:px-6 lg:px-8 lg:pb-16 lg:pt-24">
+        <div className="container mx-auto px-5 pb-12 pt-16 sm:px-6 lg:px-10 lg:pb-16 lg:pt-24">
           <Eyebrow>{content.eyebrow}</Eyebrow>
           <h1 className="mt-3 max-w-4xl font-headline text-display-lg text-foreground">{content.heading}</h1>
           <p className="mt-6 max-w-2xl text-xl leading-relaxed text-muted-foreground">{content.intro}</p>
@@ -27,11 +27,11 @@ export function BimtoolsManualIndexView({
       </section>
 
       <section>
-        <div className="container mx-auto px-5 pb-20 sm:px-6 lg:px-8 lg:pb-28">
+        <div className="container mx-auto px-5 pb-20 sm:px-6 lg:px-10 lg:pb-28">
           <Accordion type="multiple" className="space-y-3">
             {suites.map((suite) => (
               <AccordionItem key={suite.id} value={suite.id} className="overflow-hidden rounded-2xl border-b-0 bg-surface">
-                <AccordionTrigger className="px-6 py-6 hover:no-underline lg:px-8">
+                <AccordionTrigger className="px-6 py-6 hover:no-underline lg:px-10">
                   <div className="flex min-w-0 flex-1 flex-col gap-1 text-left md:flex-row md:items-baseline md:gap-6">
                     <h2 className="font-headline text-title text-foreground">{suite.label}</h2>
                     <p className="min-w-0 flex-1 text-[0.9375rem] text-muted-foreground">{suite.description[locale]}</p>

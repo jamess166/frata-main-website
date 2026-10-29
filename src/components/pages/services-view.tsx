@@ -16,7 +16,7 @@ export function ServicesView({ locale, content }: { locale: Locale; content: Ser
     <>
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section>
-        <div className="container mx-auto px-5 pb-12 pt-16 sm:px-6 lg:px-8 lg:pb-16 lg:pt-24">
+        <div className="container mx-auto px-5 pb-12 pt-16 sm:px-6 lg:px-10 lg:pb-16 lg:pt-24">
           <Eyebrow>{content.hero.eyebrow}</Eyebrow>
           <h1 className="mt-3 max-w-4xl font-headline text-display-lg text-foreground">
             {content.hero.heading.line1}
@@ -29,7 +29,7 @@ export function ServicesView({ locale, content }: { locale: Locale; content: Ser
 
       {/* Spanish-only page: Peruvian public-works packages */}
       {locale === "es" && (
-        <section className="container mx-auto px-5 pb-5 sm:px-6 lg:px-8">
+        <section className="container mx-auto px-5 pb-5 sm:px-6 lg:px-10">
           <Link
             href="/expedientes-tecnicos-bim"
             className="group grid overflow-hidden rounded-tile bg-neutral-950 text-white transition-transform duration-200 ease-out active:scale-[0.99] dark:bg-card md:grid-cols-2"
@@ -63,7 +63,7 @@ export function ServicesView({ locale, content }: { locale: Locale; content: Ser
 
       {/* ── Servicios ────────────────────────────────────────── */}
       <section>
-        <div className="container mx-auto grid gap-5 px-5 pb-20 sm:px-6 md:grid-cols-2 lg:grid-cols-3 lg:px-8 lg:pb-28">
+        <div className="container mx-auto grid gap-5 px-5 pb-20 sm:px-6 md:grid-cols-2 lg:grid-cols-3 lg:px-10 lg:pb-28">
           {services.map((service) => (
             <Reveal key={service.slug}>
               <Link
@@ -97,7 +97,7 @@ export function ServicesView({ locale, content }: { locale: Locale; content: Ser
 
       {/* ── Inversión ────────────────────────────────────────── */}
       <section className="bg-surface">
-        <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+        <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-10 lg:py-28">
           <Reveal className="mx-auto max-w-3xl text-center">
             <Eyebrow>{content.pricing.eyebrow}</Eyebrow>
             <h2 className="mt-3 font-headline text-display-lg text-foreground">{content.pricing.heading}</h2>
@@ -131,7 +131,7 @@ export function ServicesView({ locale, content }: { locale: Locale; content: Ser
 
       {/* ── Resultados ───────────────────────────────────────── */}
       <section>
-        <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+        <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-10 lg:py-28">
           <Reveal>
             <h2 className="font-headline text-display-lg text-foreground">{content.outcomes.eyebrow}</h2>
           </Reveal>

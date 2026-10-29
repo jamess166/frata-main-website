@@ -116,7 +116,7 @@ export default function ExpedientesTecnicosBimPage() {
 
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section>
-        <div className="container mx-auto px-5 pb-12 pt-16 sm:px-6 lg:px-8 lg:pb-16 lg:pt-24">
+        <div className="container mx-auto px-5 pb-12 pt-16 sm:px-6 lg:px-10 lg:pb-16 lg:pt-24">
           <Eyebrow>Obra pública · Guía Nacional BIM</Eyebrow>
           <h1 className="mt-3 max-w-4xl font-headline text-display-lg text-foreground">{TITLE}</h1>
           <p className="mt-6 max-w-2xl text-xl leading-relaxed text-muted-foreground">
@@ -133,7 +133,7 @@ export default function ExpedientesTecnicosBimPage() {
             </Link>
           </div>
         </div>
-        <div className="container mx-auto px-5 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-5 sm:px-6 lg:px-10">
           <div className="overflow-hidden rounded-tile bg-surface">
             <Image
               src={`${WORK}/render-tribuna.webp`}
@@ -150,7 +150,7 @@ export default function ExpedientesTecnicosBimPage() {
 
       {/* ── Qué incluye ──────────────────────────────────────── */}
       <section>
-        <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+        <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-10 lg:py-28">
           <Reveal className="max-w-3xl">
             <h2 className="font-headline text-display-lg text-foreground">
               Qué incluye un expediente técnico con BIM hecho por Frata
@@ -169,7 +169,7 @@ export default function ExpedientesTecnicosBimPage() {
 
       {/* ── Metrados ─────────────────────────────────────────── */}
       <section className="bg-surface">
-        <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+        <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-10 lg:py-28">
           <Reveal className="max-w-3xl">
             <Eyebrow>Revit · Excel · Delphin</Eyebrow>
             <h2 className="mt-3 font-headline text-display-lg text-foreground">
@@ -210,7 +210,7 @@ export default function ExpedientesTecnicosBimPage() {
 
       {/* ── Caso ─────────────────────────────────────────────── */}
       <section>
-        <div className="container mx-auto grid gap-12 px-5 py-20 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8 lg:py-28">
+        <div className="container mx-auto grid gap-12 px-5 py-20 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-10 lg:py-28">
           <Reveal>
             <div className="overflow-hidden rounded-tile bg-surface">
               <Image
@@ -255,7 +255,7 @@ export default function ExpedientesTecnicosBimPage() {
 
       {/* ── Preguntas frecuentes ─────────────────────────────── */}
       <section className="bg-surface">
-        <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+        <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-10 lg:py-28">
           <Reveal className="max-w-3xl">
             <h2 className="font-headline text-display-lg text-foreground">Preguntas frecuentes</h2>
           </Reveal>

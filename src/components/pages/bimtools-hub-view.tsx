@@ -23,7 +23,7 @@ export function BimtoolsHubView({ locale, content }: { locale: Locale; content: 
 
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="overflow-hidden">
-        <div className="container mx-auto px-5 pt-16 text-center sm:px-6 lg:px-8 lg:pt-24">
+        <div className="container mx-auto px-5 pt-16 text-center sm:px-6 lg:px-10 lg:pt-24">
           <p className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1 text-sm font-medium text-primary">
             {content.hero.offerBadge}
           </p>
@@ -40,7 +40,7 @@ export function BimtoolsHubView({ locale, content }: { locale: Locale; content: 
           </div>
         </div>
 
-        <div className="container mx-auto mt-14 px-5 sm:px-6 lg:mt-20 lg:px-8">
+        <div className="container mx-auto mt-14 px-5 sm:px-6 lg:mt-20 lg:px-10">
           <div className="mx-auto max-w-6xl overflow-hidden rounded-xl shadow-[0_40px_100px_-30px_rgba(0,0,0,0.45)] ring-1 ring-foreground/10">
             <Image
               src="/images/blog/estadio-chepen/planos-revit-arquitectura.webp"
@@ -54,7 +54,7 @@ export function BimtoolsHubView({ locale, content }: { locale: Locale; content: 
           </div>
         </div>
 
-        <div className="container mx-auto px-5 py-16 sm:px-6 lg:px-8 lg:py-20">
+        <div className="container mx-auto px-5 py-16 sm:px-6 lg:px-10 lg:py-20">
           <div className="mx-auto grid max-w-4xl grid-cols-2 gap-y-10 sm:grid-cols-4 sm:divide-x sm:divide-border">
             <Stat value={overview.totalAddins} label={content.hero.stats.addins} />
             <Stat value={suites.length} label={content.hero.stats.areas} />
@@ -66,7 +66,7 @@ export function BimtoolsHubView({ locale, content }: { locale: Locale; content: 
 
       {/* ── Suites ───────────────────────────────────────────── */}
       <section id="suites" className="scroll-mt-16 bg-surface">
-        <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+        <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-10 lg:py-28">
           <Reveal className="max-w-3xl">
             <Eyebrow>{content.suites.eyebrow}</Eyebrow>
             <h2 className="mt-3 font-headline text-display-lg text-foreground">{content.suites.heading}</h2>
@@ -111,7 +111,7 @@ export function BimtoolsHubView({ locale, content }: { locale: Locale; content: 
 
       {/* ── Gratis vs Premium ────────────────────────────────── */}
       <section>
-        <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+        <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-10 lg:py-28">
           <Reveal className="mx-auto max-w-3xl text-center">
             <Eyebrow>{content.tiers.eyebrow}</Eyebrow>
             <h2 className="mt-3 font-headline text-display-lg text-foreground">{content.tiers.heading}</h2>

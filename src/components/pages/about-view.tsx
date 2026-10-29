@@ -13,12 +13,12 @@ export function AboutView({ content }: { locale: Locale; content: AboutPageConte
     <>
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section>
-        <div className="container mx-auto px-5 pb-12 pt-16 sm:px-6 lg:px-8 lg:pb-16 lg:pt-24">
+        <div className="container mx-auto px-5 pb-12 pt-16 sm:px-6 lg:px-10 lg:pb-16 lg:pt-24">
           <Eyebrow>{content.hero.eyebrow}</Eyebrow>
           <h1 className="mt-3 max-w-4xl font-headline text-display-lg text-foreground">{content.hero.heading}</h1>
           <p className="mt-6 max-w-2xl text-xl leading-relaxed text-muted-foreground">{content.hero.intro}</p>
         </div>
-        <div className="container mx-auto px-5 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-5 sm:px-6 lg:px-10">
           <div className="overflow-hidden rounded-tile bg-surface">
             <Image
               src={`${WORK}/render-tribuna.webp`}
@@ -35,7 +35,7 @@ export function AboutView({ content }: { locale: Locale; content: AboutPageConte
 
       {/* ── Valores ──────────────────────────────────────────── */}
       <section>
-        <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+        <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-10 lg:py-28">
           <Reveal>
             <h2 className="font-headline text-display-lg text-foreground">{content.values.eyebrow}</h2>
           </Reveal>
@@ -53,7 +53,7 @@ export function AboutView({ content }: { locale: Locale; content: AboutPageConte
 
       {/* ── Trayectoria ──────────────────────────────────────── */}
       <section className="bg-surface">
-        <div className="container mx-auto grid gap-12 px-5 py-20 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8 lg:py-28">
+        <div className="container mx-auto grid gap-12 px-5 py-20 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-10 lg:py-28">
           <Reveal>
             <Eyebrow>{content.timeline.eyebrow}</Eyebrow>
             <h2 className="mt-3 font-headline text-display-lg text-foreground">{content.timeline.heading}</h2>
@@ -73,7 +73,7 @@ export function AboutView({ content }: { locale: Locale; content: AboutPageConte
 
       {/* ── Fortalezas ───────────────────────────────────────── */}
       <section>
-        <div className="container mx-auto grid gap-12 px-5 py-20 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8 lg:py-28">
+        <div className="container mx-auto grid gap-12 px-5 py-20 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-10 lg:py-28">
           <Reveal>
             <div className="overflow-hidden rounded-tile bg-surface">
               <Image

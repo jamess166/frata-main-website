@@ -67,7 +67,7 @@ export function HomeView({ locale, content }: { locale: Locale; content: HomePag
     <>
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="overflow-hidden">
-        <div className="container mx-auto px-5 pt-16 text-center sm:px-6 lg:px-8 lg:pt-24">
+        <div className="container mx-auto px-5 pt-16 text-center sm:px-6 lg:px-10 lg:pt-24">
           <Eyebrow>{content.hero.eyebrow}</Eyebrow>
           <h1 className="mx-auto mt-4 max-w-4xl font-headline text-display-xl text-foreground">
             {content.hero.heading.line1}
@@ -86,7 +86,7 @@ export function HomeView({ locale, content }: { locale: Locale; content: HomePag
           </div>
         </div>
 
-        <div className="container mx-auto mt-14 px-5 sm:px-6 lg:mt-20 lg:px-8">
+        <div className="container mx-auto mt-14 px-5 sm:px-6 lg:mt-20 lg:px-10">
           <figure>
             <div className="overflow-hidden rounded-tile bg-surface">
               <Image
@@ -107,7 +107,7 @@ export function HomeView({ locale, content }: { locale: Locale; content: HomePag
           </figure>
         </div>
 
-        <div className="container mx-auto px-5 py-16 sm:px-6 lg:px-8 lg:py-20">
+        <div className="container mx-auto px-5 py-16 sm:px-6 lg:px-10 lg:py-20">
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-0 sm:divide-x sm:divide-border">
             <Stat value={50} suffix="+" label={content.hero.stats.bimtoolsUsers} />
             <Stat value={21} label={content.hero.stats.publishedAddins} />
@@ -117,7 +117,7 @@ export function HomeView({ locale, content }: { locale: Locale; content: HomePag
 
       {/* ── Manifesto ────────────────────────────────────────── */}
       <section className="bg-surface">
-        <div className="container mx-auto grid gap-12 px-5 py-20 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-8 lg:py-28">
+        <div className="container mx-auto grid gap-12 px-5 py-20 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-10 lg:py-28">
           <Reveal>
             <div className="overflow-hidden rounded-tile bg-card">
               <Image
@@ -155,7 +155,7 @@ export function HomeView({ locale, content }: { locale: Locale; content: HomePag
 
       {/* ── Servicios ────────────────────────────────────────── */}
       <section id="services">
-        <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+        <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-10 lg:py-28">
           <Reveal className="max-w-3xl">
             <Eyebrow>{content.services.eyebrow}</Eyebrow>
             <h2 className="mt-3 font-headline text-display-lg text-foreground">{content.services.heading}</h2>
@@ -200,7 +200,7 @@ export function HomeView({ locale, content }: { locale: Locale; content: HomePag
 
       {/* ── Proyectos ────────────────────────────────────────── */}
       <section className="bg-surface">
-        <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+        <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-10 lg:py-28">
           <Reveal className="flex flex-wrap items-end justify-between gap-6">
             <div className="max-w-3xl">
               <Eyebrow>{content.projects.eyebrow}</Eyebrow>
@@ -270,7 +270,7 @@ export function HomeView({ locale, content }: { locale: Locale; content: HomePag
 
       {/* ── Proceso ──────────────────────────────────────────── */}
       <section>
-        <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+        <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-10 lg:py-28">
           <Reveal className="max-w-3xl">
             <Eyebrow>{content.process.eyebrow}</Eyebrow>
             <h2 className="mt-3 font-headline text-display-lg text-foreground">{content.process.heading}</h2>
@@ -288,8 +288,8 @@ export function HomeView({ locale, content }: { locale: Locale; content: HomePag
       </section>
 
       {/* ── BIMtools ─────────────────────────────────────────── */}
-      <section className="px-3 sm:px-4">
-        <div className="mx-auto max-w-[1440px] overflow-hidden rounded-tile bg-neutral-950 text-white dark:bg-card">
+      <section className="container mx-auto px-5 sm:px-6 lg:px-10">
+        <div className="overflow-hidden rounded-tile bg-neutral-950 text-white dark:bg-card">
           <div className="container mx-auto grid gap-12 px-5 py-16 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:px-12 lg:py-24">
             <Reveal>
               <p className="text-[0.9375rem] font-semibold text-sky-400">{content.bimtools.eyebrow}</p>

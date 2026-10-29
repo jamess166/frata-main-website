@@ -45,7 +45,7 @@ export function BimtoolsPrivacyView({
     <>
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section>
-        <div className="container mx-auto px-5 pb-16 pt-16 sm:px-6 lg:px-8 lg:pb-20 lg:pt-20">
+        <div className="container mx-auto px-5 pb-16 pt-16 sm:px-6 lg:px-10 lg:pb-20 lg:pt-20">
           <Reveal>
             <Link
               href={withLocale(locale, "/bimtools")}
@@ -74,7 +74,7 @@ export function BimtoolsPrivacyView({
 
       {/* ── Cuerpo ───────────────────────────────────────────── */}
       <section>
-        <div className="container mx-auto px-5 py-4 sm:px-6 lg:px-8">{children}</div>
+        <div className="container mx-auto px-5 py-4 sm:px-6 lg:px-10">{children}</div>
       </section>
     </>
   );

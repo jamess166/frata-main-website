@@ -61,7 +61,7 @@ export function SocialProofSection({ locale = "es" }: SocialProofSectionProps) {
 
   return (
     <section className="py-20 lg:py-28">
-      <div className="container mx-auto px-5 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-5 sm:px-6 lg:px-10">
         <Reveal className="mx-auto max-w-3xl text-center">
           <h2 className="font-headline text-display-lg text-foreground">{headings.testimonials}</h2>
         </Reveal>

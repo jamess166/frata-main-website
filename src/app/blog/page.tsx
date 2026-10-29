@@ -29,7 +29,7 @@ export default async function BlogPage() {
   return (
     <>
       <section>
-        <div className="container mx-auto px-5 pb-12 pt-16 sm:px-6 lg:px-8 lg:pb-16 lg:pt-24">
+        <div className="container mx-auto px-5 pb-12 pt-16 sm:px-6 lg:px-10 lg:pb-16 lg:pt-24">
           <Eyebrow>Blog</Eyebrow>
           <h1 className="mt-3 max-w-4xl font-headline text-display-lg text-foreground">{copy.blogTitle}</h1>
           <p className="mt-6 max-w-2xl text-xl leading-relaxed text-muted-foreground">{copy.blogDescription}</p>
@@ -37,7 +37,7 @@ export default async function BlogPage() {
       </section>
 
       <section>
-        <div className="container mx-auto grid gap-5 px-5 pb-8 sm:px-6 md:grid-cols-2 lg:px-8">
+        <div className="container mx-auto grid gap-5 px-5 pb-8 sm:px-6 md:grid-cols-2 lg:px-10">
           {posts.map((post, i) => (
             <Reveal key={post.slug} className={i === 0 ? "md:col-span-2" : undefined}>
               <Link

@@ -13,7 +13,7 @@ export function Section({
 }) {
   return (
     <section id={id} className={cn(tone === "surface" && "bg-surface", className)}>
-      <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-8 lg:py-28">{children}</div>
+      <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-10 lg:py-28">{children}</div>
     </section>
   );
 }

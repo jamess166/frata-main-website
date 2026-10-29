@@ -165,7 +165,7 @@ export function HomeContactSection({ locale = "es" }: { locale?: Locale }) {
 
   return (
     <section id="contact" className="scroll-mt-16 bg-surface">
-      <div className="container mx-auto grid gap-12 px-5 py-20 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8 lg:py-28">
+      <div className="container mx-auto grid gap-12 px-5 py-20 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-10 lg:py-28">
         <div className="max-w-xl">
           <Eyebrow>{copy.eyebrow}</Eyebrow>
           <h2 className="mt-3 font-headline text-display-lg text-foreground">{copy.title}</h2>

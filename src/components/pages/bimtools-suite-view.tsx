@@ -20,7 +20,7 @@ export function BimtoolsSuiteView({
   return (
     <>
       <section>
-        <div className="container mx-auto px-5 pb-12 pt-10 sm:px-6 lg:px-8 lg:pb-16 lg:pt-14">
+        <div className="container mx-auto px-5 pb-12 pt-10 sm:px-6 lg:px-10 lg:pb-16 lg:pt-14">
           <Link
             href={withLocale(locale, "/bimtools")}
             className="-ml-1 inline-flex items-center gap-0.5 text-[0.9375rem] text-primary hover:underline underline-offset-4"
@@ -44,7 +44,7 @@ export function BimtoolsSuiteView({
       </section>
 
       <section>
-        <div className="container mx-auto grid gap-5 px-5 pb-20 sm:px-6 md:grid-cols-2 lg:grid-cols-3 lg:px-8 lg:pb-28">
+        <div className="container mx-auto grid gap-5 px-5 pb-20 sm:px-6 md:grid-cols-2 lg:grid-cols-3 lg:px-10 lg:pb-28">
           {suite.manuals.map((manual) => (
             <Reveal key={manual.slug}>
               <Link

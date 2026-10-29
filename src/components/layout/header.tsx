@@ -166,7 +166,7 @@ export function Header() {
           scrolled ? "shadow-[0_1px_0_hsl(var(--border)/0.8)]" : ""
         }`}
       >
-        <div className="container mx-auto flex h-[52px] items-center justify-between px-5 sm:px-6 lg:px-8">
+        <div className="container mx-auto flex h-[52px] items-center justify-between px-5 sm:px-6 lg:px-10">
           <Link href={homeHref} className="flex items-center" aria-label="Frata Ingenieros">
             <Logo />
           </Link>

@@ -45,7 +45,7 @@ export function BimtoolsSubscriptionView({
     <>
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section>
-        <div className="container mx-auto px-5 pb-16 pt-16 sm:px-6 lg:px-8 lg:pb-20 lg:pt-20">
+        <div className="container mx-auto px-5 pb-16 pt-16 sm:px-6 lg:px-10 lg:pb-20 lg:pt-20">
           <Reveal>
             <Link
               href={withLocale(locale, "/bimtools")}
@@ -95,7 +95,7 @@ export function BimtoolsSubscriptionView({
 
       {/* ── Planes ───────────────────────────────────────────── */}
       <section>
-        <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+        <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-10 lg:py-28">
           <div className="grid gap-5 lg:grid-cols-3">
             <Reveal className="h-full">
               <PlanCard plan={content.plans.monthly} anchor={anchor} />
@@ -123,7 +123,7 @@ export function BimtoolsSubscriptionView({
 
       {/* ── Proceso ──────────────────────────────────────────── */}
       <section>
-        <div className="container mx-auto grid gap-14 px-5 py-20 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8 lg:py-28">
+        <div className="container mx-auto grid gap-14 px-5 py-20 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-10 lg:py-28">
           <div>
             <Reveal>
               <Eyebrow>{content.process.eyebrow}</Eyebrow>
@@ -146,7 +146,7 @@ export function BimtoolsSubscriptionView({
 
       {/* ── Pago ─────────────────────────────────────────────── */}
       <section id={anchor} className="scroll-mt-16">
-        <div className="container mx-auto grid gap-14 px-5 py-20 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:px-8 lg:py-28">
+        <div className="container mx-auto grid gap-14 px-5 py-20 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:px-10 lg:py-28">
           <div>
             <Reveal>
               <Eyebrow>{content.payment.eyebrow}</Eyebrow>

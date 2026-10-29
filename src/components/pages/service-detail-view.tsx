@@ -24,7 +24,7 @@ export function ServiceDetailView({
     <>
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section>
-        <div className="container mx-auto px-5 pb-12 pt-10 sm:px-6 lg:px-8 lg:pb-16 lg:pt-14">
+        <div className="container mx-auto px-5 pb-12 pt-10 sm:px-6 lg:px-10 lg:pb-16 lg:pt-14">
           <Link
             href={withLocale(locale, "/services")}
             className="-ml-1 inline-flex items-center gap-0.5 text-[0.9375rem] text-primary hover:underline underline-offset-4"
@@ -45,7 +45,7 @@ export function ServiceDetailView({
             </Link>
           </div>
         </div>
-        <div className="container mx-auto px-5 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-5 sm:px-6 lg:px-10">
           <div className="overflow-hidden rounded-tile bg-surface">
             <ThemedImage
               src={service.image}
@@ -63,7 +63,7 @@ export function ServiceDetailView({
 
       {/* ── Pilares ──────────────────────────────────────────── */}
       <section>
-        <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+        <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-10 lg:py-28">
           <Reveal className="max-w-3xl">
             <Eyebrow>{content.pillars.eyebrow}</Eyebrow>
             <h2 className="mt-3 font-headline text-display-lg text-foreground">{content.pillars.heading}</h2>
@@ -82,7 +82,7 @@ export function ServiceDetailView({
       {/* ── Láminas de ejemplo ───────────────────────────────── */}
       {service.drawings && service.drawings.length > 0 && (
         <section className="bg-surface">
-          <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+          <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-10 lg:py-28">
             <Reveal className="max-w-3xl">
               <Eyebrow>{content.drawings.eyebrow}</Eyebrow>
               <h2 className="mt-3 font-headline text-display-lg text-foreground">{content.drawings.heading}</h2>
@@ -110,7 +110,7 @@ export function ServiceDetailView({
 
       {/* ── Método ───────────────────────────────────────────── */}
       <section className={service.drawings?.length ? undefined : "bg-surface"}>
-        <div className="container mx-auto grid gap-12 px-5 py-20 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8 lg:py-28">
+        <div className="container mx-auto grid gap-12 px-5 py-20 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-10 lg:py-28">
           <Reveal>
             <Eyebrow>{content.method.eyebrow}</Eyebrow>
             <h2 className="mt-3 font-headline text-display-lg text-foreground">{content.method.heading}</h2>
@@ -127,7 +127,7 @@ export function ServiceDetailView({
 
       {/* ── Resultados ───────────────────────────────────────── */}
       <section>
-        <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+        <div className="container mx-auto px-5 py-20 sm:px-6 lg:px-10 lg:py-28">
           <Reveal className="max-w-3xl">
             <Eyebrow>{content.outcomes.eyebrow}</Eyebrow>
             <h2 className="mt-3 font-headline text-display-lg text-foreground">{content.outcomes.heading}</h2>

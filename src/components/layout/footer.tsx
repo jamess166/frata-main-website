@@ -29,7 +29,7 @@ export function Footer() {
     <footer>
       {/* closing call to action (the home page already ends on its contact form) */}
       {canonicalPath !== "/" && (
-        <div className="container mx-auto px-5 py-24 text-center sm:px-6 lg:px-8 lg:py-32">
+        <div className="container mx-auto px-5 py-24 text-center sm:px-6 lg:px-10 lg:py-32">
           <p className="text-[0.9375rem] font-semibold text-primary">{t.nextProject}</p>
           <h2 className="mx-auto mt-3 max-w-3xl font-headline text-display-lg text-foreground">{t.heading}</h2>
           <Button asChild size="lg" className="mt-9">
@@ -40,7 +40,7 @@ export function Footer() {
 
       {/* link columns */}
       <div className="bg-surface text-[0.8125rem] leading-6 text-muted-foreground">
-        <div className="container mx-auto grid gap-10 px-5 py-12 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
+        <div className="container mx-auto grid gap-10 px-5 py-12 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-10">
           <div>
             <p className="font-semibold text-foreground">Frata Ingenieros</p>
             <p className="mt-2 max-w-xs">{t.tagline}</p>
@@ -133,7 +133,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="container mx-auto px-5 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-5 sm:px-6 lg:px-10">
           <div className="flex flex-col justify-between gap-1 border-t border-border py-5 text-xs sm:flex-row">
             <p>{t.copyright}</p>
             <p>{t.madeIn}</p>

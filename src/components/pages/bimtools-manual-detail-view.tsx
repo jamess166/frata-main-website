@@ -26,7 +26,7 @@ export async function BimtoolsManualDetailView({
 
   return (
     <>
-      <div className="container mx-auto px-5 pt-12 sm:px-6 lg:px-8 lg:pt-16">
+      <div className="container mx-auto px-5 pt-12 sm:px-6 lg:px-10 lg:pt-16">
         <a
           href={withLocale(locale, "/bimtools#suites")}
           className="-ml-1 inline-flex items-center gap-0.5 text-[0.9375rem] text-primary hover:underline underline-offset-4"
@@ -36,7 +36,7 @@ export async function BimtoolsManualDetailView({
         </a>
       </div>
 
-      <div className="container mx-auto grid gap-14 px-5 py-14 sm:px-6 lg:grid-cols-[320px_minmax(0,1fr)] lg:px-8 lg:py-20">
+      <div className="container mx-auto grid gap-14 px-5 py-14 sm:px-6 lg:grid-cols-[320px_minmax(0,1fr)] lg:px-10 lg:py-20">
         <aside className="h-fit rounded-tile bg-surface p-6 lg:sticky lg:top-20">
           <p className="text-sm font-medium text-primary">{manual.suiteLabel}</p>
           <div className="mt-5 flex items-start gap-4">

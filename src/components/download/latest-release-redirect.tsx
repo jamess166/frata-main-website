@@ -53,7 +53,7 @@ export function LatestReleaseRedirect({ locale = "es" }: { locale?: Locale }) {
 
   return (
     <section>
-      <div className="container mx-auto px-5 py-24 sm:px-6 lg:px-8 lg:py-32">
+      <div className="container mx-auto px-5 py-24 sm:px-6 lg:px-10 lg:py-32">
         <div className="mx-auto max-w-3xl text-center">
           <div className="mx-auto flex h-16 w-16 items-center justify-center text-primary">
             <LoaderCircle className="h-8 w-8 animate-spin" />

@@ -9,7 +9,7 @@ export function CasosView({ locale, content }: { locale: Locale; content: CasosP
   return (
     <>
       <section>
-        <div className="container mx-auto px-5 pb-12 pt-16 sm:px-6 lg:px-8 lg:pb-16 lg:pt-24">
+        <div className="container mx-auto px-5 pb-12 pt-16 sm:px-6 lg:px-10 lg:pb-16 lg:pt-24">
           <Eyebrow>{content.eyebrow}</Eyebrow>
           <h1 className="mt-3 max-w-4xl font-headline text-display-lg text-foreground">
             {content.heading.line1}
@@ -21,7 +21,7 @@ export function CasosView({ locale, content }: { locale: Locale; content: CasosP
       </section>
 
       <section>
-        <div className="container mx-auto space-y-5 px-5 pb-8 sm:px-6 lg:px-8">
+        <div className="container mx-auto space-y-5 px-5 pb-8 sm:px-6 lg:px-10">
           {caseStudies.map((cs) => (
             <Reveal key={cs.slug}>
               <CaseStudyCard caseStudy={cs} locale={locale} />

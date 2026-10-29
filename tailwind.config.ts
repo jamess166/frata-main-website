@@ -8,6 +8,13 @@ export default {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    // One content width for every page: fluid up to 1200px, then centred.
+    // (Tailwind's default steps jump to 1536px, which left 32px margins on
+    // 1536px-wide laptops while 1440px screens got 112px.)
+    container: {
+      center: true,
+      screens: { xl: '1200px' },
+    },
     extend: {
       fontFamily: {
         body: ['var(--font-sans)'],
