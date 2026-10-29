@@ -41,9 +41,9 @@ export const caseStudies: CaseStudy[] = [
     challengeEn:
       "The technical package has to be produced from BIM models, with coordination between disciplines, consistent drawings and quantity take-offs that can be checked during review.",
     solution:
-      "Como consultores BIM, asumimos el modelado BIM de las especialidades, la extracción de metrados y la generación de planos durante la elaboración del expediente. Trabajamos junto a los especialistas diseñadores, convirtiendo sus criterios técnicos en modelos LOD 3 hasta el acero de refuerzo, con add-ins propios para llenar la información del modelo y exportar los metrados.",
+      "Como consultores BIM, asumimos el modelado BIM de las especialidades, la extracción de metrados y la generación de planos durante la elaboración del expediente. Trabajamos junto a los especialistas diseñadores, convirtiendo sus criterios técnicos en modelos LOD 3 hasta el acero de refuerzo, con add-ins propios para llenar la información del modelo y exportar los metrados. El modelo se vincula además al cronograma para la simulación 4D de la secuencia constructiva.",
     solutionEn:
-      "As BIM consultants, we took on the BIM modeling of the disciplines, the quantity take-offs and the drawing production while the package is being developed. We work alongside the design specialists, turning their technical criteria into LOD 3 models down to the reinforcing steel, with our own add-ins to fill in model data and export quantities.",
+      "As BIM consultants, we took on the BIM modeling of the disciplines, the quantity take-offs and the drawing production while the package is being developed. We work alongside the design specialists, turning their technical criteria into LOD 3 models down to the reinforcing steel, with our own add-ins to fill in model data and export quantities. The model is also linked to the schedule for a 4D simulation of the construction sequence.",
     result:
       "El servicio se encuentra en ejecución. Los planos y metrados se generan desde los modelos, con trazabilidad por elemento, lo que facilita mantener la documentación coordinada a medida que el diseño evoluciona.",
     resultEn:
@@ -68,9 +68,9 @@ export const caseStudies: CaseStudy[] = [
     challengeEn:
       "The technical package had to be developed with BIM under a BIM Execution Plan aligned with ISO 19650: LOD 2 models for the preliminary design, LOD 3 models of every discipline for the final package, and quantities taken from the model, all in close contact with the design specialists.",
     solution:
-      "Elaboramos el Plan de Ejecución BIM y conformamos un equipo BIM remoto dedicado que acompañó a los especialistas durante el diseño. Modelamos en Revit arquitectura, estructuras e instalaciones, coordinamos interferencias en Navisworks en sesiones de trabajo con las especialidades y compartimos modelos y documentos en Trimble Connect como entorno común de datos. Los metrados de estructuras se obtuvieron del modelo, ordenados según el itemizado del presupuesto en Excel y contrastados con metrados manuales.",
+      "Elaboramos el Plan de Ejecución BIM y conformamos un equipo BIM remoto dedicado que acompañó a los especialistas durante el diseño. Modelamos en Revit arquitectura, estructuras e instalaciones, coordinamos interferencias en Navisworks en sesiones de trabajo con las especialidades y compartimos modelos y documentos en Trimble Connect como entorno común de datos. Los metrados de estructuras se obtuvieron del modelo, ordenados según el itemizado del presupuesto en Excel y contrastados con metrados manuales, y vinculamos el modelo al cronograma para la simulación 4D de la secuencia constructiva.",
     solutionEn:
-      "We wrote the BIM Execution Plan and set up a dedicated remote BIM team that worked alongside the specialists throughout design. We modeled architecture, structures and MEP in Revit, coordinated clashes in Navisworks in working sessions with each discipline, and shared models and documents in Trimble Connect as the common data environment. Structural quantities were taken from the model, organized by the budget's item list in Excel and checked against manual take-offs.",
+      "We wrote the BIM Execution Plan and set up a dedicated remote BIM team that worked alongside the specialists throughout design. We modeled architecture, structures and MEP in Revit, coordinated clashes in Navisworks in working sessions with each discipline, and shared models and documents in Trimble Connect as the common data environment. Structural quantities were taken from the model, organized by the budget's item list in Excel and checked against manual take-offs, and we linked the model to the schedule for a 4D simulation of the construction sequence.",
     result:
       "La documentación gráfica del expediente se generó desde modelos coordinados, con mejor compatibilidad entre especialidades y metrados trazables al modelo, evitando los retrabajos de un flujo basado solo en CAD.",
     resultEn:
@@ -83,29 +83,31 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "puente-beirut",
-    client: "Consultor Independiente",
-    clientEn: "Independent Consultant",
+    client: "Puente Goquete · Anexo Beirut, Corosha, Bongará, Amazonas",
+    clientEn: "Goquete Bridge · Beirut, Corosha, Bongará, Amazonas (Peru)",
     sector: "Puentes e infraestructura vial",
     sectorEn: "Bridges and road infrastructure",
-    service: "Desarrollo de documentación técnica desde modelos BIM",
-    serviceEn: "Technical documentation developed from BIM models",
+    service: "Expediente técnico de un puente vehicular desarrollado desde modelos BIM",
+    serviceEn: "Technical package for a road bridge developed from BIM models",
     technologies: ["Revit", "FrataTools"],
     challenge:
-      "El proyecto requería transformar criterios de diseño y documentación técnica en modelos BIM capaces de sostener la generación del expediente técnico, asegurando coherencia entre la geometría modelada y los planos entregables.",
+      "Renovación del puente vehicular Goquete en la vía departamental AM-106 (Km 08+905, Anexo Beirut, distrito de Corosha, provincia de Bongará, Amazonas; CUI 2718725), para el Gobierno Regional de Amazonas a través de la DRTC Amazonas. El expediente debía resolver un puente de sección compuesta de 13.80 m de luz, con sus accesos, enrocado de protección y señalización, diseñado según el Manual de Puentes del MTC y AASHTO LRFD, manteniendo coherencia entre la geometría modelada y los planos.",
     challengeEn:
-      "The project required turning design criteria and technical documentation into BIM models able to sustain the package's production, keeping modeled geometry and deliverable drawings consistent.",
+      "Replacement of the Goquete road bridge on regional road AM-106 (km 08+905, Beirut, Corosha district, Bongará province, Amazonas, Peru; public investment code 2718725) for the Regional Government of Amazonas. The package had to cover a 13.80 m composite-section bridge with its approaches, riprap protection and signage, designed to Peru's MTC Bridge Manual and AASHTO LRFD, keeping modeled geometry and drawings consistent.",
     solution:
-      "FRATA INGENIEROS brindó soporte BIM especializado para convertir la información técnica del consultor en modelos digitales coordinados. A partir de estos modelos, se generaron planos, vistas y documentación técnica, manteniendo un flujo de trabajo más integrado y eficiente. La metodología aplicada permitió disminuir la dependencia de procesos manuales en CAD y aprovechar el modelo BIM como fuente principal de información del expediente.",
+      "Convertimos los criterios de diseño del consultor en modelos BIM del puente: superestructura simplemente apoyada de un tramo con vigas metálicas y losa de concreto f'c=280 kg/cm², calzada de 6.00 m para dos carriles, veredas y barandas metálicas, apoyos de neopreno y juntas metálicas; subestructura con dos estribos y zapatas de concreto armado f'c=280 kg/cm² y losas de aproximación f'c=210 kg/cm². Desde esos modelos generamos el perfil longitudinal, la sección típica, vistas y planos del expediente, reduciendo el trabajo manual en CAD.",
     solutionEn:
-      "FRATA INGENIEROS provided specialized BIM support to turn the consultant's technical information into coordinated digital models. From those models we produced drawings, views and technical documentation in a more integrated, efficient workflow, reducing dependence on manual CAD work and using the BIM model as the package's main information source.",
+      "We turned the consultant's design criteria into BIM models of the bridge: a single simply supported span with steel girders and an f'c=280 kg/cm² concrete deck, a 6.00 m two-lane carriageway, sidewalks and steel railings, elastomeric bearings and steel expansion joints; a substructure of two reinforced-concrete abutments and footings (f'c=280 kg/cm²) and f'c=210 kg/cm² approach slabs. From those models we produced the longitudinal profile, typical section, views and drawings for the package, cutting manual CAD work.",
     result:
-      "Se logró desarrollar la documentación técnica del expediente a partir de modelos BIM, reduciendo retrabajos y mejorando la compatibilización del proyecto. El resultado fue un entregable más confiable, coordinado y preparado para revisión técnica.",
+      "Expediente técnico con un presupuesto total de obra de S/ 1'529,137.93 (costo directo S/ 1'346,664.84 y costos indirectos de 13.55 %), con ejecución por administración directa y un plazo de obra de 120 días calendario. La documentación se generó desde los modelos, con planos coordinados y preparados para revisión técnica.",
     resultEn:
-      "The package's technical documentation was produced from BIM models, cutting rework and improving project reconciliation. The deliverable was more reliable, coordinated and ready for technical review.",
+      "Technical package with a total construction budget of PEN 1,529,137.93 (direct cost PEN 1,346,664.84 plus 13.55 % indirect costs), to be built by direct administration in 120 calendar days. The documentation was produced from the models, with coordinated drawings ready for technical review.",
     metrics: [
-      { value: "BIM", label: "como única fuente del expediente", labelEn: "as the package's single source" },
+      { value: "13.80 m", label: "de luz, sección compuesta acero–concreto", labelEn: "span, steel–concrete composite section" },
+      { value: "HL-93", label: "sobrecarga de diseño, dos carriles", labelEn: "design live load, two lanes" },
+      { value: "120", label: "días calendario de ejecución de obra", labelEn: "calendar days of construction" },
     ],
-    image: null,
+    image: "/images/casos/puente-beirut-perfil.webp",
   },
   {
     slug: "interoperabilidad-tekla-revit",

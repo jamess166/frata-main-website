@@ -47,6 +47,10 @@ Modelar el refuerzo a mano en Revit es muy lento, así que lo automatizamos con 
 
 ![Interior de la cabina de prensa en el modelo BIM](/images/blog/estadio-chepen/render-cabina-prensa.webp)
 
+## Simulación 4D
+
+El modelo también se vincula al **cronograma**: cada grupo de elementos se asocia a su actividad, y así se simula en 4D la secuencia constructiva. Esto permite revisar el orden de ejecución, detectar actividades que se superponen en un mismo frente y comunicar el plan de obra de forma visual.
+
 ## Toda la información 2D sale del modelo
 
 **No dibujamos planos aparte**. Plantas, cortes, elevaciones, detalles, cuadros y láminas se generan desde los modelos de Revit, con plantillas de vista, filtros por especialidad y membretes estandarizados. Si el modelo cambia, los planos cambian con él, y la compatibilidad entre especialidades viene del modelo federado y no de la revisión manual de láminas.
