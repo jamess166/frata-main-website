@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { trackEvent } from "@/lib/analytics";
 import { Eyebrow } from "@/components/site/eyebrow";
+import { MessageCircle } from "lucide-react";
 import type { Locale } from "@/lib/locale";
 
 interface ContactCopy {
@@ -23,7 +24,11 @@ interface ContactCopy {
   submitting: string;
   successTitle: string;
   successDescription: string;
+  whatsapp: string;
+  whatsappMessage: string;
 }
+
+const WHATSAPP_NUMBER = "51932641579";
 
 const COPY: Record<Locale, ContactCopy> = {
   es: {
@@ -40,6 +45,8 @@ const COPY: Record<Locale, ContactCopy> = {
     submitting: "Enviando...",
     successTitle: "Mensaje enviado",
     successDescription: "Te responderemos a la brevedad para revisar tu necesidad BIM o de desarrollo.",
+    whatsapp: "Escríbenos por WhatsApp",
+    whatsappMessage: "Hola, quisiera información sobre sus servicios BIM.",
   },
   en: {
     eyebrow: "Contact",
@@ -55,6 +62,8 @@ const COPY: Record<Locale, ContactCopy> = {
     submitting: "Sending...",
     successTitle: "Message sent",
     successDescription: "We will get back to you soon to review your BIM or software development requirement.",
+    whatsapp: "Chat on WhatsApp",
+    whatsappMessage: "Hello, I would like information about your BIM services.",
   },
   de: {
     eyebrow: "Kontakt",
@@ -70,6 +79,8 @@ const COPY: Record<Locale, ContactCopy> = {
     submitting: "Wird gesendet...",
     successTitle: "Nachricht gesendet",
     successDescription: "Wir melden uns in Kürze bei Ihnen, um Ihren BIM- oder Softwareentwicklungsbedarf zu besprechen.",
+    whatsapp: "Per WhatsApp schreiben",
+    whatsappMessage: "Hallo, ich möchte Informationen zu Ihren BIM-Leistungen.",
   },
   fr: {
     eyebrow: "Contact",
@@ -85,6 +96,8 @@ const COPY: Record<Locale, ContactCopy> = {
     submitting: "Envoi en cours...",
     successTitle: "Message envoyé",
     successDescription: "Nous vous répondrons rapidement pour étudier votre besoin BIM ou de développement logiciel.",
+    whatsapp: "Écrivez-nous sur WhatsApp",
+    whatsappMessage: "Bonjour, je souhaite des informations sur vos services BIM.",
   },
   it: {
     eyebrow: "Contatti",
@@ -100,6 +113,8 @@ const COPY: Record<Locale, ContactCopy> = {
     submitting: "Invio in corso...",
     successTitle: "Messaggio inviato",
     successDescription: "Ti risponderemo a breve per valutare la tua esigenza BIM o di sviluppo software.",
+    whatsapp: "Scrivici su WhatsApp",
+    whatsappMessage: "Ciao, vorrei informazioni sui vostri servizi BIM.",
   },
   pt: {
     eyebrow: "Contato",
@@ -115,6 +130,8 @@ const COPY: Record<Locale, ContactCopy> = {
     submitting: "Enviando...",
     successTitle: "Mensagem enviada",
     successDescription: "Retornaremos em breve para avaliar sua necessidade de BIM ou desenvolvimento de software.",
+    whatsapp: "Fale conosco no WhatsApp",
+    whatsappMessage: "Olá, gostaria de informações sobre seus serviços BIM.",
   },
   ru: {
     eyebrow: "Контакты",
@@ -129,6 +146,8 @@ const COPY: Record<Locale, ContactCopy> = {
     submitting: "Отправка...",
     successTitle: "Сообщение отправлено",
     successDescription: "Мы скоро свяжемся с вами, чтобы обсудить ваш запрос по BIM или разработке ПО.",
+    whatsapp: "Написать в WhatsApp",
+    whatsappMessage: "Здравствуйте, мне нужна информация о ваших BIM-услугах.",
   },
   zh: {
     eyebrow: "联系方式",
@@ -142,6 +161,8 @@ const COPY: Record<Locale, ContactCopy> = {
     submitting: "发送中...",
     successTitle: "消息已发送",
     successDescription: "我们会尽快与您联系，了解您的 BIM 或软件开发需求。",
+    whatsapp: "通过 WhatsApp 联系我们",
+    whatsappMessage: "您好，我想了解你们的 BIM 服务。",
   },
 };
 
@@ -174,6 +195,16 @@ export function HomeContactSection({ locale = "es" }: { locale?: Locale }) {
           <Eyebrow>{copy.eyebrow}</Eyebrow>
           <h2 className="mt-3 font-headline text-display-lg text-foreground">{copy.title}</h2>
           <p className="mt-5 text-[1.0625rem] leading-relaxed text-muted-foreground">{copy.description}</p>
+          <Button asChild variant="outline" size="lg" className="mt-8 rounded-full">
+            <a
+              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(copy.whatsappMessage)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" />
+              {copy.whatsapp}
+            </a>
+          </Button>
         </div>
 
         <form ref={formRef} onSubmit={handleSubmit} className="space-y-5 rounded-tile bg-card p-6 sm:p-8">
