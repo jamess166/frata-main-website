@@ -36,9 +36,13 @@ Es una herramienta útil y rápida, pero se queda corta cuando de verdad necesit
 
 ## La forma completa: Bloquear Elementos de BIMtools
 
-Para proteger elementos de verdad desarrollamos **Bloquear Elementos (Freeze Elements)**, una herramienta de nuestra suite [BIMtools](/bimtools) para Revit. En lugar de solo fijar la posición, **congela** los elementos: Revit detiene **cualquier intento de modificarlos o eliminarlos**, incluidos los cambios de parámetros, y muestra un mensaje claro:
+Para proteger elementos de verdad desarrollamos **Bloquear Elementos (Freeze Elements)**, una herramienta de nuestra suite [BIMtools](/bimtools) para Revit. En lugar de solo fijar la posición, **congela** los elementos: Revit detiene **cualquier intento de modificarlos o eliminarlos**, incluidos los cambios de parámetros, con un error que no se puede ignorar y que explica qué pasa:
 
-> "Algunos elementos están congelados. Por favor descongélalos o contacta a tu BIM Manager."
+> "Some elements are frozen. Please unfreeze them or contact your BIM Manager."
+>
+> (En Revit en español: "Algunos elementos están congelados. Por favor descongélalos o contacta a tu BIM Manager.")
+
+El cambio no se aplica hasta que alguien descongele el elemento de forma consciente.
 
 ### Qué puedes hacer con la herramienta
 
@@ -95,7 +99,7 @@ Selecciónalo y pulsa **Fijar** en la pestaña Modificar (atajo **PN**). Evita q
 **¿Cómo desbloqueo un elemento en Revit?**
 Si está fijado, selecciónalo y pulsa **Desfijar** (atajo **UP**). Si lo congelaste con BIMtools, usa **Descongelar Elementos**.
 
-**Me aparece "Algunos elementos están congelados". ¿Qué hago?**
+**Me aparece "Some elements are frozen" o "Algunos elementos están congelados". ¿Qué hago?**
 Intentaste modificar o borrar un elemento protegido con Bloquear Elementos. Descongélalo primero con **Descongelar Elementos** o consulta con el BIM Manager del proyecto.
 
 **¿La protección se mantiene si envío el modelo a otra persona?**
