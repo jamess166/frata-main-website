@@ -62,7 +62,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   return (
     <article className="pb-8 pt-12 lg:pt-16">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <header className="container mx-auto max-w-3xl px-5 sm:px-6">
+      <header className="container mx-auto max-w-4xl px-5 sm:px-6">
         <Link
           href="/blog"
           className="-ml-1 inline-flex items-center gap-0.5 text-[0.9375rem] text-primary hover:underline underline-offset-4"
@@ -79,20 +79,20 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <p className="mt-5 text-xl leading-relaxed text-muted-foreground">{post.summary}</p>
       </header>
 
-      <div className="container mx-auto mt-12 max-w-3xl px-5 sm:px-6">
+      <div className="container mx-auto mt-12 max-w-4xl px-5 sm:px-6">
         <Image
           src={post.image}
           alt={post.title}
           width={2000}
           height={1125}
           priority
-          sizes="(min-width: 768px) 720px, 100vw"
+          sizes="(min-width: 1024px) 896px, 100vw"
           className="w-full rounded-tile object-cover"
         />
       </div>
 
       <div
-        className="prose prose-lg dark:prose-invert container mx-auto mt-12 max-w-3xl px-5 sm:px-6 prose-headings:font-headline prose-headings:font-semibold prose-headings:tracking-[-0.015em] prose-headings:text-foreground prose-p:text-foreground/85 prose-li:text-foreground/85 prose-strong:text-foreground prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-img:rounded-2xl"
+        className="prose prose-lg dark:prose-invert container mx-auto mt-12 max-w-4xl px-5 sm:px-6 prose-headings:font-headline prose-headings:font-semibold prose-headings:tracking-[-0.015em] prose-headings:text-foreground prose-p:text-foreground/85 prose-li:text-foreground/85 prose-strong:text-foreground prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-img:rounded-2xl"
         dangerouslySetInnerHTML={{ __html: post.contentHtml }}
       />
     </article>

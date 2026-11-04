@@ -13,7 +13,7 @@ export default {
     // 1536px-wide laptops while 1440px screens got 112px.)
     container: {
       center: true,
-      screens: { xl: '1200px' },
+      screens: { xl: '1200px', '2xl': '1440px' },
     },
     extend: {
       fontFamily: {
