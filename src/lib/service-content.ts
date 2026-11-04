@@ -1,4 +1,4 @@
-import type { Locale } from "@/lib/locale";
+import { withLocale, type Locale } from "@/lib/locale";
 
 export type ServiceSlug =
   | "global-remote-bim-teams"
@@ -6,10 +6,13 @@ export type ServiceSlug =
   | "on-site-bim-construction-support"
   | "bim-for-manufacturing"
   | "bim-training-and-implementation"
-  | "comprehensive-bim-modeling";
+  | "comprehensive-bim-modeling"
+  | "expedientes-tecnicos-bim";
 
 export interface ServiceContent {
   slug: ServiceSlug;
+  /** Dedicated landing page, used instead of the generic /services/[slug] detail page. */
+  href?: string;
   title: string;
   shortTitle: string;
   description: string;
@@ -31,7 +34,8 @@ export interface ServiceContent {
   outcomes: string[];
 }
 
-export type ServiceContentBilingual = Record<Locale, ServiceContent>;
+/** Spanish is always present; a service can omit the locales it is not offered in. */
+export type ServiceContentBilingual = Partial<Record<Locale, ServiceContent>> & { es: ServiceContent };
 
 export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
   "global-remote-bim-teams": {
@@ -1537,5 +1541,65 @@ export const serviceContent: Record<ServiceSlug, ServiceContentBilingual> = {
         "为客户、设计方与施工方带来更高的模型价值。"
       ]
     }
-  }
+  },
+  "expedientes-tecnicos-bim": {
+    es: {
+      slug: "expedientes-tecnicos-bim",
+      href: "/expedientes-tecnicos-bim",
+      title: "Expedientes técnicos de inversión pública con BIM",
+      shortTitle: "Expedientes técnicos con BIM",
+      description:
+        "Plan de Ejecución BIM, modelado LOD 3, planos desde el modelo y metrados BIM para expedientes técnicos de obra pública, según la Guía Nacional BIM y la NTP-ISO 19650.",
+      intro:
+        "Elaboramos expedientes técnicos públicos con BIM para entidades, consorcios y proyectistas: del Plan de Ejecución BIM a los planos, los metrados y el presupuesto, todo obtenido de modelos coordinados.",
+      image: "/images/blog/estadio-chepen/render-tribuna.webp",
+      imageAlt: "Modelo BIM del Estadio de Chepén",
+      pillars: [
+        {
+          title: "Plan de Ejecución BIM (BEP)",
+          description:
+            "Usos BIM, LOD y LOI por entregable, nomenclatura y control de calidad alineados a la Guía Nacional BIM.",
+        },
+        {
+          title: "Modelado LOD 3",
+          description: "Todas las especialidades en Revit, con el concreto armado modelado hasta el acero de refuerzo.",
+        },
+        {
+          title: "Metrados BIM",
+          description: "Planillas con trazabilidad por elemento, listas para el presupuesto en Delphin.",
+        },
+      ],
+      process: [
+        { title: "Plan de Ejecución BIM", description: "Definimos usos, entregables y estándares." },
+        { title: "Modelado y coordinación", description: "Modelamos y coordinamos todas las especialidades." },
+        { title: "Planos y metrados", description: "Extraemos planos y planillas de metrados del modelo." },
+        { title: "Entrega del expediente", description: "Entregamos modelos, planos y metrados por entregable." },
+      ],
+      outcomes: [
+        "Planos compatibles entre especialidades.",
+        "Metrados trazables hasta el elemento del modelo.",
+        "Menos adicionales en obra.",
+      ],
+    },
+  },
 };
+
+/** Services offered in a locale, in display order. */
+export function getServices(locale: Locale): ServiceContent[] {
+  return Object.values(serviceContent).flatMap((entry) => {
+    const service = entry[locale];
+    return service ? [service] : [];
+  });
+}
+
+/** Slugs that use the generic /services/[slug] detail page in a locale. */
+export function getDetailSlugs(locale: Locale): ServiceSlug[] {
+  return (Object.keys(serviceContent) as ServiceSlug[]).filter((slug) => {
+    const service = serviceContent[slug][locale];
+    return service && !service.href;
+  });
+}
+
+export function serviceHref(service: ServiceContent, locale: Locale): string {
+  return service.href ? withLocale(locale, service.href) : withLocale(locale, `/services/${service.slug}`);
+}

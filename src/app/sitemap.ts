@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { serviceContent } from "@/lib/service-content";
+import { getDetailSlugs } from "@/lib/service-content";
 import { getBimtoolsSuitesWithManuals } from "@/lib/bimtools";
 import { getAllPosts } from "@/lib/blog";
 import { localeAlternates, withLocale, LOCALES } from "@/lib/locale";
@@ -16,7 +16,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/",
     "/about",
     "/services",
-    ...Object.keys(serviceContent).map((slug) => `/services/${slug}`),
+    ...getDetailSlugs("es").map((slug) => `/services/${slug}`),
     "/casos",
     "/bimtools",
     ...suites.map((suite) => `/bimtools/suite/${suite.id}`),

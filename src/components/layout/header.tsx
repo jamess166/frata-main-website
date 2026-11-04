@@ -15,7 +15,7 @@ import {
 import { LocaleSwitcher } from "@/components/layout/locale-switcher";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { headerContent } from "@/content/header";
-import { serviceContent } from "@/lib/service-content";
+import { getServices, serviceHref } from "@/lib/service-content";
 import { detectLocale, withLocale, type Locale } from "@/lib/locale";
 
 function isActive(href: string, pathname: string, isHome: boolean): boolean {
@@ -66,7 +66,7 @@ function NavLink({
 }
 
 function ServicesDropdown({ locale, pathname }: { locale: Locale; pathname: string }) {
-  const items = Object.values(serviceContent).map((entry) => entry[locale]);
+  const items = getServices(locale);
   const t = headerContent[locale];
   const active = pathname.includes("/services");
 
@@ -83,17 +83,9 @@ function ServicesDropdown({ locale, pathname }: { locale: Locale; pathname: stri
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="start" sideOffset={14} className="w-72">
-        {/* Spanish-only page: Peruvian public-works packages */}
-        {locale === "es" && (
-          <DropdownMenuItem asChild>
-            <Link href="/expedientes-tecnicos-bim" className="text-[0.875rem]">
-              Expedientes técnicos de obra pública
-            </Link>
-          </DropdownMenuItem>
-        )}
         {items.map((service) => (
           <DropdownMenuItem key={service.slug} asChild>
-            <Link href={withLocale(locale, `/services/${service.slug}`)} className="text-[0.875rem]">
+            <Link href={serviceHref(service, locale)} className="text-[0.875rem]">
               {service.shortTitle}
             </Link>
           </DropdownMenuItem>

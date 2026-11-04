@@ -1,16 +1,15 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Check, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/site/eyebrow";
 import { Reveal } from "@/components/site/reveal";
 import { ThemedImage } from "@/components/site/themed-image";
-import { serviceContent } from "@/lib/service-content";
+import { getServices, serviceHref } from "@/lib/service-content";
 import { withLocale, type Locale } from "@/lib/locale";
 import type { ServicesPageContent } from "@/content/services";
 
 export function ServicesView({ locale, content }: { locale: Locale; content: ServicesPageContent }) {
-  const services = Object.values(serviceContent).map((entry) => entry[locale]);
+  const services = getServices(locale);
 
   return (
     <>
@@ -27,47 +26,13 @@ export function ServicesView({ locale, content }: { locale: Locale; content: Ser
         </div>
       </section>
 
-      {/* Spanish-only page: Peruvian public-works packages */}
-      {locale === "es" && (
-        <section className="container mx-auto px-5 pb-5 sm:px-6 lg:px-10">
-          <Link
-            href="/expedientes-tecnicos-bim"
-            className="group grid overflow-hidden rounded-tile bg-neutral-950 text-white transition-transform duration-200 ease-out active:scale-[0.99] dark:bg-card md:grid-cols-2"
-          >
-            <div className="flex flex-col justify-center p-8 lg:p-12">
-              <p className="text-[0.9375rem] font-semibold text-sky-400">Obra pública · Guía Nacional BIM</p>
-              <h2 className="mt-2 font-headline text-display-md text-white">
-                Expedientes técnicos de inversión pública con BIM
-              </h2>
-              <p className="mt-3 text-[1.0625rem] leading-relaxed text-white/70">
-                Plan de Ejecución BIM, modelado LOD 3, planos desde el modelo y metrados BIM para expedientes técnicos
-                de obra pública.
-              </p>
-              <span className="link-more mt-5 text-[1.0625rem] text-sky-400">
-                Conocer el servicio
-                <ChevronRight className="h-4 w-4" />
-              </span>
-            </div>
-            <div className="relative min-h-[240px] overflow-hidden">
-              <Image
-                src="/images/blog/estadio-chepen/render-tribuna.webp"
-                alt="Modelo BIM del Estadio de Chepén"
-                fill
-                sizes="(min-width: 768px) 50vw, 100vw"
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
-              />
-            </div>
-          </Link>
-        </section>
-      )}
-
       {/* ── Servicios ────────────────────────────────────────── */}
       <section>
         <div className="container mx-auto grid gap-5 px-5 pb-20 sm:px-6 md:grid-cols-2 lg:grid-cols-3 lg:px-10 lg:pb-28">
           {services.map((service) => (
             <Reveal key={service.slug}>
               <Link
-                href={withLocale(locale, `/services/${service.slug}`)}
+                href={serviceHref(service, locale)}
                 className="group flex h-full flex-col overflow-hidden rounded-tile bg-surface transition-transform duration-200 ease-out active:scale-[0.99]"
               >
                 <div className="overflow-hidden">

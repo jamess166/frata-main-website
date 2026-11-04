@@ -51,6 +51,10 @@ El cambio no se aplica hasta que alguien descongele el elemento de forma conscie
 - **Seleccionar congelados:** selecciona de una vez todos los elementos protegidos del proyecto.
 - **Aislar congelados:** los aísla en la vista activa para revisarlos rápidamente.
 
+![Ventana Freeze de BIMtools en Revit con las opciones Congelar, Descongelar, Seleccionar e Aislar elementos congelados, y el error de Revit que impide modificar un elemento congelado](/images/blog/bloquear-elementos-revit/herramienta-congelar-elementos.webp)
+
+*Ejemplo de cómo el add-in no permite modificar un elemento bloqueado: Revit muestra un error que no se puede ignorar y la única opción disponible es cancelar la modificación.*
+
 La lista de elementos congelados **se guarda dentro del archivo de Revit**, así que viaja con el modelo: si se lo envías a otra persona o lo abre otro miembro del equipo, la protección sigue activa.
 
 ### Cómo bloquear elementos paso a paso

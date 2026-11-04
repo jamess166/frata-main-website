@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ServiceDetailView } from "@/components/pages/service-detail-view";
-import { serviceContent, type ServiceSlug } from "@/lib/service-content";
+import { getDetailSlugs, serviceContent, type ServiceSlug } from "@/lib/service-content";
 import { serviceDetailContent } from "@/content/services";
 import { buildServiceSchema } from "@/lib/schema";
 import { localeAlternates } from "@/lib/locale";
@@ -15,7 +15,7 @@ interface ServicePageProps {
 }
 
 export async function generateStaticParams() {
-  return Object.keys(serviceContent).map((slug) => ({ slug }));
+  return getDetailSlugs("es").map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
