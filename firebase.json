@@ -23,6 +23,46 @@
         "source": "/blog/segundo-post",
         "destination": "/blog",
         "type": 301
+      },
+      {
+        "source": "/bimtools/manual/bim-syntax",
+        "destination": "/bimtools/manual/nomen",
+        "type": 301
+      },
+      {
+        "source": "/en/bimtools/manual/bim-syntax",
+        "destination": "/en/bimtools/manual/nomen",
+        "type": 301
+      },
+      {
+        "source": "/de/bimtools/manual/bim-syntax",
+        "destination": "/de/bimtools/manual/nomen",
+        "type": 301
+      },
+      {
+        "source": "/fr/bimtools/manual/bim-syntax",
+        "destination": "/fr/bimtools/manual/nomen",
+        "type": 301
+      },
+      {
+        "source": "/it/bimtools/manual/bim-syntax",
+        "destination": "/it/bimtools/manual/nomen",
+        "type": 301
+      },
+      {
+        "source": "/pt/bimtools/manual/bim-syntax",
+        "destination": "/pt/bimtools/manual/nomen",
+        "type": 301
+      },
+      {
+        "source": "/ru/bimtools/manual/bim-syntax",
+        "destination": "/ru/bimtools/manual/nomen",
+        "type": 301
+      },
+      {
+        "source": "/zh/bimtools/manual/bim-syntax",
+        "destination": "/zh/bimtools/manual/nomen",
+        "type": 301
       }
     ]
   }
