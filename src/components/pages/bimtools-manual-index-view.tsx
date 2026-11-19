@@ -5,6 +5,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Eyebrow } from "@/components/site/eyebrow";
 import { getBimtoolsSuitesWithManuals } from "@/lib/bimtools";
 import { withLocale, type Locale } from "@/lib/locale";
+import { getYoutubeEmbedUrl } from "@/lib/youtube";
 import type { BimtoolsManualIndexContent } from "@/content/bimtools-manual-index";
 
 export function BimtoolsManualIndexView({
@@ -15,6 +16,7 @@ export function BimtoolsManualIndexView({
   content: BimtoolsManualIndexContent;
 }) {
   const suites = getBimtoolsSuitesWithManuals();
+  const generalVideoUrl = getYoutubeEmbedUrl("", "kHNK5KtOYU0");
 
   return (
     <>
@@ -23,6 +25,23 @@ export function BimtoolsManualIndexView({
           <Eyebrow>{content.eyebrow}</Eyebrow>
           <h1 className="mt-3 max-w-4xl font-headline text-display-lg text-foreground">{content.heading}</h1>
           <p className="mt-6 max-w-2xl text-xl leading-relaxed text-muted-foreground">{content.intro}</p>
+        </div>
+      </section>
+
+      <section>
+        <div className="container mx-auto px-5 pb-12 sm:px-6 lg:px-10">
+          <div className="overflow-hidden rounded-2xl bg-surface">
+            <div className="aspect-video">
+              <iframe
+                src={generalVideoUrl}
+                title="Frata Tools video"
+                className="h-full w-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+            </div>
+          </div>
         </div>
       </section>
 

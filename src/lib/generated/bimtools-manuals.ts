@@ -1274,7 +1274,7 @@ export const bimtoolsManuals: BimtoolsManualEntry[] = [
         }
       ],
       "youtubeUrl": "https://www.youtube.com/watch?v=LEPzmllUpwo",
-      "youtubeId": ""
+      "youtubeId": "LEPzmllUpwo"
     },
     "commerce": {
       "tier": "free",
@@ -1326,7 +1326,7 @@ export const bimtoolsManuals: BimtoolsManualEntry[] = [
     },
     "media": {
       "images": [],
-      "youtubeUrl": "https://youtu.be/7EegxMSDeh0",
+      "youtubeUrl": "https://www.youtube.com/watch?v=7EegxMSDeh0",
       "youtubeId": "7EegxMSDeh0"
     },
     "commerce": {
@@ -1379,8 +1379,8 @@ export const bimtoolsManuals: BimtoolsManualEntry[] = [
     },
     "media": {
       "images": [],
-      "youtubeUrl": "",
-      "youtubeId": ""
+      "youtubeUrl": "https://www.youtube.com/watch?v=NTkLBIm2mMg",
+      "youtubeId": "NTkLBIm2mMg"
     },
     "commerce": {
       "tier": "free",
@@ -1702,8 +1702,8 @@ export const bimtoolsManuals: BimtoolsManualEntry[] = [
     },
     "media": {
       "images": [],
-      "youtubeUrl": "",
-      "youtubeId": ""
+      "youtubeUrl": "https://www.youtube.com/watch?v=Q3nxn6bpWF4",
+      "youtubeId": "Q3nxn6bpWF4"
     },
     "commerce": {
       "tier": "premium",
@@ -1760,8 +1760,8 @@ export const bimtoolsManuals: BimtoolsManualEntry[] = [
           "alt": "main"
         }
       ],
-      "youtubeUrl": "",
-      "youtubeId": ""
+      "youtubeUrl": "https://www.youtube.com/watch?v=fKYBkt5S2Jo",
+      "youtubeId": "fKYBkt5S2Jo"
     },
     "commerce": {
       "tier": "premium",
@@ -2141,8 +2141,8 @@ export const bimtoolsManuals: BimtoolsManualEntry[] = [
           "alt": "main"
         }
       ],
-      "youtubeUrl": "",
-      "youtubeId": ""
+      "youtubeUrl": "https://www.youtube.com/watch?v=Zws0CkxIKqU",
+      "youtubeId": "Zws0CkxIKqU"
     },
     "commerce": {
       "tier": "free",
